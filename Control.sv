@@ -1,7 +1,7 @@
 module control(input logic Clk, Reset, Run, clra_ldb,b0
 					output logic OutCleara, OutLoadb, OutShift,OutAdd,OutSub);
 	//these are the states
-	enum logic [4:0] 	{Start, Clear,Halt,
+	enum logic [4:0] 	{Start, Clear,Halt,ClearLoad,
 							Add1, Add2, Add3, Add4,Add5,Add6,Add7,Sub8
 							Shift1, Shift2, Shift3, Shift4, Shift4, Shift5,Shift6,Shift7,Shift8}
 							curr_state, next_state;
@@ -23,6 +23,11 @@ module control(input logic Clk, Reset, Run, clra_ldb,b0
 			
 			Start: if(Run)
 							next_state = Clear;
+					 if(clra_ldb)
+							next_state = ClearLoad;
+							
+			ClearLoad:  next_state = Start;
+			
 			Clear: if(b0)
 							next_state = Add1;
 					 else
@@ -68,6 +73,49 @@ module control(input logic Clk, Reset, Run, clra_ldb,b0
 			Shift8: next_state = Halt;
 			Halt: if(~Execute)
 						next_state = Start;
+		endcase
+		
+		case(curr_state)
+			Start,Halt:
+				assign OutCleara = 0'b0;
+				assign OutLoadb = 0'b0;
+				assign OutShift= 0'b0;
+				assign OutAdd = 0'b0;
+				assign OutSub = 0'b0;
+				
+			Clear:
+				assign OutCleara = 1'b0;
+				assign OutLoadb = 0'b0;
+				assign OutShift= 0'b0;
+				assign OutAdd = 0'b0;
+				assign OutSub = 0'b0;
+			ClearAdd:
+				assign OutCleara = 1'b0;
+				assign OutLoadb = 1'b0;
+				assign OutShift= 0'b0;
+				assign OutAdd = 0'b0;
+				assign OutSub = 0'b0;
+			
+			Add?:
+				assign OutCleara = 0'b0;
+				assign OutLoadb = 0'b0;
+				assign OutShift= 0'b0;
+				assign OutAdd = 1'b0;
+				assign OutSub = 0'b0;
+			Shift?:
+				assign OutCleara = 0'b0;
+				assign OutLoadb = 0'b0;
+				assign OutShift= 1'b0;
+				assign OutAdd = 0'b0;
+				assign OutSub = 0'b0;
+			Sub8:
+				assign OutCleara = 0'b0;
+				assign OutLoadb = 0'b0;
+				assign OutShift= 0'b0;
+				assign OutAdd = 0'b0;
+				assign OutSub = 1'b0;
+		
+			
 		
 	 end
 				

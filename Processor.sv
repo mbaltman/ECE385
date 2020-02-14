@@ -9,17 +9,17 @@ module processor
 	);
 
 /* Intermediate logic variables go here. */
-  logic shift, add, sum, cleara,loadb;
-  logic run_s, cleara_loadb_s;
+  logic shift, add, sub, cleara, loadb;
+  logic run_s, cleara_loadb_s, between_reg;
   logic [7:0] s_s,a,b;
 
 /* Instantiation of other modules here. */
   // two 8-bit shift registers
-  register_unit reg_a(.clk_reg(clk),.reset_reg(reset),.shift_in_reg(x),.shift_en_reg(),.din_reg(s_s),.shift_out_reg(),.dout_reg(a));
-  register_unit reg_b();
-  
+  register_unit reg_a(.clk_reg(clk),.reset_reg(reset|cleara),.shift_in_reg(x),.shift_en_reg(shift),.load_reg(add|sub),.din_reg(?),.shift_out_reg(between_reg),.dout_reg(a));
+  register_unit reg_b(.clk_reg(clk),.reset_reg(),.shift_in_reg(between_reg),.shift_en_reg(shift),.load_reg(loadb),.din_reg(s_s),.shift_out_reg(),.dout_reg(b));
+
 	// 9-bit adder
-  
+
   // 9th bit module
   bit_9 bit_9_unit();
 
@@ -34,7 +34,7 @@ module processor
       .OutLoadb(loadb),
       .OutShift(shift),
       .OutAdd(add),
-      .OutSum(sum)
+      .OutSub(sub)
       );
 
 	HexDriver HexAL (.In0(a[3:0]),.Out0(AhexL));
