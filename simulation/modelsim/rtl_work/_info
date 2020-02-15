@@ -10,7 +10,7 @@ cModel Technology
 Z0 dC:/Users/megge/Documents/GitHub/Multiplier/simulation/modelsim
 vbit_9
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1581793962
+Z2 !s110 1581797671
 !i10b 1
 !s100 ^5IlhP_GMfkO[1m3BXCIV1
 Ic[HK>kjaOSziQ0d@b0NjC1
@@ -26,7 +26,7 @@ Z8 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z9 !s108 1581793962.000000
+Z9 !s108 1581797671.000000
 Z10 !s107 C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv|
 Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/Multiplier|C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv|
 !i113 1
@@ -37,13 +37,13 @@ vcontrol
 R1
 R2
 !i10b 1
-!s100 a:@5JFkIN?:G>DmF[64Sg3
-IgVJLBS]>M>PgB9A;S4bEo1
+!s100 =9oafYYQ?HnSZeO=d`Ei01
+I?9YM]ZWiz5lBD7[5[GIjQ3
 R3
 !s105 Control_sv_unit
 S1
 R0
-w1581788703
+w1581797587
 8C:/Users/megge/Documents/GitHub/Multiplier/Control.sv
 FC:/Users/megge/Documents/GitHub/Multiplier/Control.sv
 L0 1
@@ -111,15 +111,15 @@ R14
 n@hex@driver
 vProcessor
 R1
-Z15 !s110 1581793963
+R2
 !i10b 1
-!s100 ]AOiT?KeoKMWz5Jl^Oefz1
-I>BVGmEh5Sn42^[BFaSNMB2
+!s100 mXkR4NkTnK3NmJ::Db9ne3
+I3]41Y75;]UU0S=iO44X1k0
 R3
 !s105 Processor_sv_unit
 S1
 R0
-w1581791215
+w1581797408
 8C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv
 FC:/Users/megge/Documents/GitHub/Multiplier/Processor.sv
 L0 2
@@ -135,6 +135,31 @@ R12
 R13
 R14
 n@processor
+vreg_1
+R1
+R2
+!i10b 1
+!s100 QUN4@Nl7>2zl5C[k]QY_@3
+IGGB6`U<gBQ^0KYNEblZJS2
+R3
+!s105 reg_1_sv_unit
+S1
+R0
+w1581795059
+8C:/Users/megge/Documents/GitHub/Multiplier/reg_1.sv
+FC:/Users/megge/Documents/GitHub/Multiplier/reg_1.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/megge/Documents/GitHub/Multiplier/reg_1.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/Multiplier|C:/Users/megge/Documents/GitHub/Multiplier/reg_1.sv|
+!i113 1
+R12
+R13
+R14
 vreg_8
 R1
 R2
@@ -212,15 +237,15 @@ R13
 R14
 vtestbench
 R1
-R15
+!s110 1581797672
 !i10b 1
-!s100 kdia27g_zz64E54KKPCk82
-IJ9UJ0]<`0<lj^RU6b^JGQ2
+!s100 IfJ;3V=_WUMlDjg34l6@h1
+IQm?]:I<5hoQ]T6MOl<Z6Z1
 R3
 !s105 testbench_sv_unit
 S1
 R0
-w1581793803
+w1581796566
 8C:/Users/megge/Documents/GitHub/Multiplier/testbench.sv
 FC:/Users/megge/Documents/GitHub/Multiplier/testbench.sv
 L0 1
@@ -228,7 +253,7 @@ R8
 r1
 !s85 0
 31
-!s108 1581793963.000000
+R9
 !s107 C:/Users/megge/Documents/GitHub/Multiplier/testbench.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/Multiplier|C:/Users/megge/Documents/GitHub/Multiplier/testbench.sv|
 !i113 1

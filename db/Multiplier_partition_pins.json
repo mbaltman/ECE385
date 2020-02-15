@@ -184,19 +184,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "add",
+					"strict" : false
+				},
+				{
+					"name" : "sub",
+					"strict" : false
+				},
+				{
+					"name" : "shift",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
-					"strict" : false
-				},
-				{
-					"name" : "s[7]",
-					"strict" : false
-				},
-				{
-					"name" : "s[6]",
-					"strict" : false
-				},
-				{
-					"name" : "s[5]",
 					"strict" : false
 				},
 				{
@@ -221,6 +221,18 @@
 				},
 				{
 					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "s[5]",
+					"strict" : false
+				},
+				{
+					"name" : "s[6]",
+					"strict" : false
+				},
+				{
+					"name" : "s[7]",
 					"strict" : false
 				},
 				{

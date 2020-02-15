@@ -5,14 +5,15 @@ module Processor
   input logic[7:0] s,
   output logic[6:0] AhexU, AhexL, BhexU, BhexL,
   output logic x_reg,
-  output logic [7:0] a, b
+  output logic [7:0] a, b,
+  output logic add, sub,shift
 
   );
 
 
 
 /* Intermediate logic variables go here. */
-  logic shift, add, sub, cleara, loadb;
+  logic cleara, loadb;
   logic run_s, cleara_loadb_s, between_reg, x_interm;
   logic [7:0] s_s, sum_as;
 
@@ -37,7 +38,7 @@ module Processor
   .Reset(reset_s),
   .Run(run_s),
   .clra_ldb(cleara_loadb_s),
-  .b0(b[0]),
+  .bctrl(b[1:0]),
   .OutCleara(cleara),
   .OutLoadb(loadb),
   .OutShift(shift),

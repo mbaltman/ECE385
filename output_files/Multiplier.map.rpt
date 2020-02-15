@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Multiplier
-Sat Feb 15 13:10:27 2020
+Sat Feb 15 14:13:29 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -50,16 +50,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Feb 15 13:10:27 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sat Feb 15 14:13:29 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; Multiplier                                  ;
 ; Top-level Entity Name              ; Processor                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 123                                         ;
-;     Total combinational functions  ; 115                                         ;
-;     Dedicated logic registers      ; 47                                          ;
-; Total registers                    ; 47                                          ;
-; Total pins                         ; 57                                          ;
+; Total logic elements               ; 126                                         ;
+;     Total combinational functions  ; 118                                         ;
+;     Dedicated logic registers      ; 48                                          ;
+; Total registers                    ; 48                                          ;
+; Total pins                         ; 60                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -175,6 +175,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                ; Library ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
+; reg_1.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/Multiplier/reg_1.sv         ;         ;
 ; bit_9_adder.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv   ;         ;
 ; Processor.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv     ;         ;
 ; Control.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/Multiplier/Control.sv       ;         ;
@@ -189,30 +190,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 123       ;
+; Estimated Total logic elements              ; 126       ;
 ;                                             ;           ;
-; Total combinational functions               ; 115       ;
+; Total combinational functions               ; 118       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 61        ;
-;     -- 3 input functions                    ; 44        ;
-;     -- <=2 input functions                  ; 10        ;
+;     -- 4 input functions                    ; 64        ;
+;     -- 3 input functions                    ; 40        ;
+;     -- <=2 input functions                  ; 14        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 115       ;
+;     -- normal mode                          ; 118       ;
 ;     -- arithmetic mode                      ; 0         ;
 ;                                             ;           ;
-; Total registers                             ; 47        ;
-;     -- Dedicated logic registers            ; 47        ;
+; Total registers                             ; 48        ;
+;     -- Dedicated logic registers            ; 48        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 57        ;
+; I/O pins                                    ; 60        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 47        ;
-; Total fan-out                               ; 642       ;
-; Average fan-out                             ; 2.33      ;
+; Maximum fan-out                             ; 48        ;
+; Total fan-out                               ; 661       ;
+; Average fan-out                             ; 2.31      ;
 +---------------------------------------------+-----------+
 
 
@@ -221,20 +222,21 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------+--------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                          ; Entity Name  ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------+--------------+--------------+
-; |Processor                         ; 115 (2)             ; 47 (0)                    ; 0           ; 0            ; 0       ; 0         ; 57   ; 0            ; |Processor                                                                   ; Processor    ; work         ;
+; |Processor                         ; 118 (2)             ; 48 (0)                    ; 0           ; 0            ; 0       ; 0         ; 60   ; 0            ; |Processor                                                                   ; Processor    ; work         ;
 ;    |HexDriver:HexAL|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:HexAL                                                   ; HexDriver    ; work         ;
 ;    |HexDriver:HexAU|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:HexAU                                                   ; HexDriver    ; work         ;
 ;    |HexDriver:HexBL|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:HexBL                                                   ; HexDriver    ; work         ;
 ;    |HexDriver:HexBU|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:HexBU                                                   ; HexDriver    ; work         ;
-;    |bit_9:my_favorite_adder|       ; 38 (3)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder                                           ; bit_9        ; work         ;
-;       |ripple_adder:adder|         ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder                        ; ripple_adder ; work         ;
+;    |bit_9:my_favorite_adder|       ; 39 (1)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder                                           ; bit_9        ; work         ;
+;       |ripple_adder:adder|         ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder                        ; ripple_adder ; work         ;
 ;          |full_adder:FA1|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA1         ; full_adder   ; work         ;
-;          |full_adder:FA2|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA2         ; full_adder   ; work         ;
-;          |full_adder:FA3|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA3         ; full_adder   ; work         ;
-;          |full_adder:FA4|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA4         ; full_adder   ; work         ;
-;          |full_adder:FA5|          ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA5         ; full_adder   ; work         ;
-;          |full_adder:FA6|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA6         ; full_adder   ; work         ;
+;          |full_adder:FA2|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA2         ; full_adder   ; work         ;
+;          |full_adder:FA3|          ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA3         ; full_adder   ; work         ;
+;          |full_adder:FA4|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA4         ; full_adder   ; work         ;
+;          |full_adder:FA5|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA5         ; full_adder   ; work         ;
+;          |full_adder:FA6|          ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA6         ; full_adder   ; work         ;
 ;          |full_adder:FA7|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA7         ; full_adder   ; work         ;
+;          |full_adder:FA8|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:adder|full_adder:FA8         ; full_adder   ; work         ;
 ;       |ripple_adder:negativeadder| ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:negativeadder                ; ripple_adder ; work         ;
 ;          |full_adder:FA1|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:negativeadder|full_adder:FA1 ; full_adder   ; work         ;
 ;          |full_adder:FA2|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:negativeadder|full_adder:FA2 ; full_adder   ; work         ;
@@ -251,7 +253,8 @@ refer to the applicable agreement for further details.
 ;          |full_adder:FA6|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:subtractor|full_adder:FA6    ; full_adder   ; work         ;
 ;          |full_adder:FA7|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:subtractor|full_adder:FA7    ; full_adder   ; work         ;
 ;          |full_adder:FA8|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|bit_9:my_favorite_adder|ripple_adder:subtractor|full_adder:FA8    ; full_adder   ; work         ;
-;    |control:control_unit|          ; 25 (25)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|control:control_unit                                              ; control      ; work         ;
+;    |control:control_unit|          ; 26 (26)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|control:control_unit                                              ; control      ; work         ;
+;    |reg_1:reg_x|                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|reg_1:reg_x                                                       ; reg_1        ; work         ;
 ;    |reg_8:reg_a|                   ; 10 (10)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|reg_8:reg_a                                                       ; reg_8        ; work         ;
 ;    |reg_8:reg_b|                   ; 9 (9)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|reg_8:reg_b                                                       ; reg_8        ; work         ;
 ;    |sync:buttons_sync[0]|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|sync:buttons_sync[0]                                              ; sync         ; work         ;
@@ -317,9 +320,9 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 47    ;
-; Number of registers using Synchronous Clear  ; 24    ;
-; Number of registers using Synchronous Load   ; 7     ;
+; Total registers                              ; 48    ;
+; Number of registers using Synchronous Clear  ; 25    ;
+; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 15    ;
@@ -380,21 +383,22 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 57                          ;
-; cycloneiii_ff         ; 47                          ;
+; boundary_port         ; 60                          ;
+; cycloneiii_ff         ; 48                          ;
 ;     ENA SCLR          ; 8                           ;
 ;     ENA SCLR SLD      ; 7                           ;
 ;     SCLR              ; 9                           ;
+;     SCLR SLD          ; 1                           ;
 ;     plain             ; 23                          ;
-; cycloneiii_lcell_comb ; 119                         ;
-;     normal            ; 119                         ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 44                          ;
-;         4 data inputs ; 61                          ;
+; cycloneiii_lcell_comb ; 123                         ;
+;     normal            ; 123                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 40                          ;
+;         4 data inputs ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 3.25                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 2.75                        ;
 +-----------------------+-----------------------------+
 
 
@@ -413,10 +417,12 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Feb 15 13:10:07 2020
+    Info: Processing started: Sat Feb 15 14:13:09 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Multiplier -c Multiplier
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file reg_1.sv
+    Info (12023): Found entity 1: reg_1 File: C:/Users/megge/Documents/GitHub/Multiplier/reg_1.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file testbench.sv
     Info (12023): Found entity 1: testbench File: C:/Users/megge/Documents/GitHub/Multiplier/testbench.sv Line: 1
 Info (12021): Found 3 design units, including 3 entities, in source file bit_9_adder.sv
@@ -442,29 +448,30 @@ Warning (10236): Verilog HDL Implicit Net warning at bit_9_adder.sv(59): created
 Warning (10236): Verilog HDL Implicit Net warning at bit_9_adder.sv(60): created implicit net for "c7" File: C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv Line: 60
 Warning (10236): Verilog HDL Implicit Net warning at bit_9_adder.sv(61): created implicit net for "c8" File: C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv Line: 61
 Warning (10236): Verilog HDL Implicit Net warning at bit_9_adder.sv(62): created implicit net for "CO" File: C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv Line: 62
-Warning (10236): Verilog HDL Implicit Net warning at Processor.sv(24): created implicit net for "reset_s" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 24
+Warning (10236): Verilog HDL Implicit Net warning at Processor.sv(25): created implicit net for "reset_s" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 25
 Info (12127): Elaborating entity "Processor" for the top level hierarchy
-Info (12128): Elaborating entity "reg_8" for hierarchy "reg_8:reg_a" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 24
-Info (12128): Elaborating entity "bit_9" for hierarchy "bit_9:my_favorite_adder" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 28
+Info (12128): Elaborating entity "reg_1" for hierarchy "reg_1:reg_x" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 25
+Info (12128): Elaborating entity "reg_8" for hierarchy "reg_8:reg_a" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 28
+Info (12128): Elaborating entity "bit_9" for hierarchy "bit_9:my_favorite_adder" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 32
 Info (12128): Elaborating entity "ripple_adder" for hierarchy "bit_9:my_favorite_adder|ripple_adder:negativeadder" File: C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv Line: 12
 Info (12128): Elaborating entity "full_adder" for hierarchy "bit_9:my_favorite_adder|ripple_adder:negativeadder|full_adder:FA0" File: C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv Line: 54
-Info (12128): Elaborating entity "control" for hierarchy "control:control_unit" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 43
-Info (12128): Elaborating entity "HexDriver" for hierarchy "HexDriver:HexAL" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 46
-Info (12128): Elaborating entity "sync" for hierarchy "sync:buttons_sync[0]" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 52
+Info (12128): Elaborating entity "control" for hierarchy "control:control_unit" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 47
+Info (12128): Elaborating entity "HexDriver" for hierarchy "HexDriver:HexAL" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 50
+Info (12128): Elaborating entity "sync" for hierarchy "sync:buttons_sync[0]" File: C:/Users/megge/Documents/GitHub/Multiplier/Processor.sv Line: 56
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/megge/Documents/GitHub/Multiplier/output_files/Multiplier.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 180 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 186 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
-    Info (21059): Implemented 45 output pins
-    Info (21061): Implemented 123 logic cells
+    Info (21059): Implemented 48 output pins
+    Info (21061): Implemented 126 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4766 megabytes
-    Info: Processing ended: Sat Feb 15 13:10:27 2020
+    Info: Peak virtual memory: 4762 megabytes
+    Info: Processing ended: Sat Feb 15 14:13:29 2020
     Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:43
+    Info: Total CPU time (on all processors): 00:00:45
 
 
 +------------------------------------------+

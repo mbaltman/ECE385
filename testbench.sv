@@ -19,6 +19,7 @@ logic [6:0] AhexL,
 		 BhexL,
 		 BhexU; 
 logic x_reg = 0;
+logic add,sub,shift;
 
 // A counter to count the instances where simulation results
 // do no match with expected results
@@ -53,12 +54,12 @@ initial begin: TEST_VECTORS
 	
 	#2 reset =1;
 	
-	s = 8'b11000101;
+	s = 8'b00000010;
 	
 	#4 cleara_loadb =0;
 	#4 cleara_loadb =1;
 	
-	s = 8'b00000111;
+	s = 8'b00000001;
 	#2 run =0;
 	#2 run =1;
 	

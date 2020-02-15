@@ -5,6 +5,7 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/Multiplier {C:/Users/megge/Documents/GitHub/Multiplier/reg_1.sv}
 vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/Multiplier {C:/Users/megge/Documents/GitHub/Multiplier/bit_9_adder.sv}
 vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/Multiplier {C:/Users/megge/Documents/GitHub/Multiplier/Control.sv}
 vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/Multiplier {C:/Users/megge/Documents/GitHub/Multiplier/Synchronizers.sv}
