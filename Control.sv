@@ -1,9 +1,9 @@
-module control(input logic Clk, Reset, Run, clra_ldb,b0
+module control(input logic Clk, Reset, Run, clra_ldb,b0,
 					output logic OutCleara, OutLoadb, OutShift,OutAdd,OutSub);
 	//these are the states
 	enum logic [4:0] 	{Start, Clear,Halt,ClearLoad,
-							Add1, Add2, Add3, Add4,Add5,Add6,Add7,Sub8
-							Shift1, Shift2, Shift3, Shift4, Shift4, Shift5,Shift6,Shift7,Shift8}
+							Add1, Add2, Add3, Add4,Add5,Add6,Add7,Sub8,
+							Shift1, Shift2, Shift3, Shift4, Shift5,Shift6,Shift7,Shift8}
 							curr_state, next_state;
 							
 	//updates flip flop, Current state is the only one
@@ -23,7 +23,7 @@ module control(input logic Clk, Reset, Run, clra_ldb,b0
 			
 			Start: if(Run)
 							next_state = Clear;
-					 if(clra_ldb)
+					 else if(clra_ldb)
 							next_state = ClearLoad;
 							
 			ClearLoad:  next_state = Start;
@@ -63,7 +63,15 @@ module control(input logic Clk, Reset, Run, clra_ldb,b0
 							next_state = Add6;
 					  else
 							next_state = Shift6;
-			Add6: next_state = Shift7;
+			Add6: next_state = Shift6;
+			
+			Shift6: if(b0)
+							next_state = Add7;
+					  else
+							next_state = Shift7;
+			
+			Add7: next_state = Shift7;
+			
 			
 			Shift7: if(b0)
 							next_state = Sub8;
@@ -71,52 +79,63 @@ module control(input logic Clk, Reset, Run, clra_ldb,b0
 							next_state = Shift8;
 			Sub8: next_state = Shift8;
 			Shift8: next_state = Halt;
-			Halt: if(~Execute)
+			Halt: if(~Run)
 						next_state = Start;
 		endcase
 		
 		case(curr_state)
 			Start,Halt:
-				assign OutCleara = 1'b0;
-				assign OutLoadb = 1'b0;
-				assign OutShift= 1'b0;
-				assign OutAdd = 1'b0;
-				assign OutSub = 1'b0;
-				
+			begin
+				 OutCleara = 1'b0;
+				 OutLoadb = 1'b0;
+				 OutShift= 1'b0;
+				 OutAdd = 1'b0;
+				 OutSub = 1'b0;
+			end
 			Clear:
-				assign OutCleara = 1'b1;
-				assign OutLoadb = 1'b0;
-				assign OutShift= 1'b0;
-				assign OutAdd = 1'b0;
-				assign OutSub = 1'b0;
-			ClearAdd:
-				assign OutCleara = 1'b1;
-				assign OutLoadb = 1'b1;
-				assign OutShift= 1'b0;
-				assign OutAdd = 1'b0;
-				assign OutSub = 1'b0;
+			begin
+				 OutCleara = 1'b1;
+				 OutLoadb = 1'b0;
+				 OutShift= 1'b0;
+				 OutAdd = 1'b0;
+				 OutSub = 1'b0;
+			end
+			ClearLoad:
+			begin
+				 OutCleara = 1'b1;
+				 OutLoadb = 1'b1;
+				 OutShift= 1'b0;
+				 OutAdd = 1'b0;
+				 OutSub = 1'b0;
+			end
 			
-			Add?:
-				assign OutCleara = 1'b0;
-				assign OutLoadb = 1'b0;
-				assign OutShift= 1'b0;
-				assign OutAdd = 1'b1;
-				assign OutSub = 1'b0;
-			Shift?:
-				assign OutCleara = 1'b0;
-				assign OutLoadb = 1'b0;
-				assign OutShift= 1'b1;
-				assign OutAdd = 1'b0;
-				assign OutSub = 1'b0;
+			Add1, Add2, Add3, Add4, Add5, Add6, Add7 :
+			begin
+				 OutCleara = 1'b0;
+				 OutLoadb = 1'b0;
+				 OutShift= 1'b0;
+				 OutAdd = 1'b1;
+				 OutSub = 1'b0;
+			end
+			Shift1, Shift2, Shift3, Shift4, Shift5, Shift6, Shift7, Shift8:
+			begin
+				 OutCleara = 1'b0;
+				 OutLoadb = 1'b0;
+				 OutShift= 1'b1;
+				 OutAdd = 1'b0;
+				 OutSub = 1'b0;
+			end
 			Sub8:
-				assign OutCleara = 1'b0;
-				assign OutLoadb = 1'b0;
-				assign OutShift= 1'b0;
-				assign OutAdd = 1'b0;
-				assign OutSub = 1'b1;
+			begin
+				 OutCleara = 1'b0;
+				 OutLoadb = 1'b0;
+				 OutShift= 1'b0;
+				 OutAdd = 1'b0;
+				 OutSub = 1'b1;
+			end
 		
 			
-		
+		endcase
 	 end
 				
 endmodule

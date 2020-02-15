@@ -3,7 +3,7 @@ module reg_8 (input  logic clk, reset, shift_in, load, shift_en,
               output logic shift_out,
               output logic [7:0] dout);
 
-    always_ff @ (posedge Clk)
+    always_ff @ (posedge clk)
     begin
         if (reset)
             dout <= 8'h0;

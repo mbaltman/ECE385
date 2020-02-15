@@ -1,10 +1,9 @@
 /* This module is the processor for multiplier, and it does all the wiring and instatiation. */
-module processor
+module Processor
   (
   input logic clk, reset, run, cleara_loadb,
   input logic[7:0] s,
   output logic[6:0] AhexU, AhexL, BhexU, BhexL,
-  output logic[7:0] aval, bval,
   output logic x_reg
   );
 
@@ -13,7 +12,7 @@ module processor
 /* Intermediate logic variables go here. */
   logic shift, add, sub, cleara, loadb;
   logic run_s, cleara_loadb_s, between_reg;
-  logic [7:0] s_s, a, b, sum_as
+  logic [7:0] s_s, a, b, sum_as;
 
 
 
@@ -29,16 +28,16 @@ module processor
   // control unit
   control control_unit
   (
-  .clk(clk),
-  .reset(reset_s),
-  .run(run_s),
+  .Clk(clk),
+  .Reset(reset_s),
+  .Run(run_s),
   .clra_ldb(cleara_loadb_s),
   .b0(b[0]),
-  .outcleara(cleara),
-  .outloadb(loadb),
-  .outshift(shift),
-  .outadd(add),
-  .outsub(sub)
+  .OutCleara(cleara),
+  .OutLoadb(loadb),
+  .OutShift(shift),
+  .OutAdd(add),
+  .OutSub(sub)
   );
 
   // hex drivers for LEDs
@@ -49,6 +48,6 @@ module processor
 
   // synchronizer
   sync buttons_sync[2:0] (clk, {~run,~reset,~cleara_loadb}, {run_s,reset_s,cleara_loadb_s});
-  sync s_sync[7:0] (clk, s, s_s)
+  sync s_sync[7:0] (clk, s, s_s);
 
 endmodule
