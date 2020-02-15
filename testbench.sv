@@ -55,8 +55,8 @@ initial begin: TEST_VECTORS
 	
 	s = 8'b11000101;
 	
-	#2 cleara_loadb =0;
-	 cleara_loadb =1;
+	#4 cleara_loadb =0;
+	#4 cleara_loadb =1;
 	
 	s = 8'b00000111;
 	#2 run =0;
