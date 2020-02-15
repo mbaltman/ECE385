@@ -77,43 +77,43 @@ module control(input logic Clk, Reset, Run, clra_ldb,b0
 		
 		case(curr_state)
 			Start,Halt:
-				assign OutCleara = 0'b0;
-				assign OutLoadb = 0'b0;
-				assign OutShift= 0'b0;
-				assign OutAdd = 0'b0;
-				assign OutSub = 0'b0;
-				
-			Clear:
-				assign OutCleara = 1'b0;
-				assign OutLoadb = 0'b0;
-				assign OutShift= 0'b0;
-				assign OutAdd = 0'b0;
-				assign OutSub = 0'b0;
-			ClearAdd:
 				assign OutCleara = 1'b0;
 				assign OutLoadb = 1'b0;
-				assign OutShift= 0'b0;
-				assign OutAdd = 0'b0;
-				assign OutSub = 0'b0;
+				assign OutShift= 1'b0;
+				assign OutAdd = 1'b0;
+				assign OutSub = 1'b0;
+				
+			Clear:
+				assign OutCleara = 1'b1;
+				assign OutLoadb = 1'b0;
+				assign OutShift= 1'b0;
+				assign OutAdd = 1'b0;
+				assign OutSub = 1'b0;
+			ClearAdd:
+				assign OutCleara = 1'b1;
+				assign OutLoadb = 1'b1;
+				assign OutShift= 1'b0;
+				assign OutAdd = 1'b0;
+				assign OutSub = 1'b0;
 			
 			Add?:
-				assign OutCleara = 0'b0;
-				assign OutLoadb = 0'b0;
-				assign OutShift= 0'b0;
-				assign OutAdd = 1'b0;
-				assign OutSub = 0'b0;
-			Shift?:
-				assign OutCleara = 0'b0;
-				assign OutLoadb = 0'b0;
+				assign OutCleara = 1'b0;
+				assign OutLoadb = 1'b0;
 				assign OutShift= 1'b0;
-				assign OutAdd = 0'b0;
-				assign OutSub = 0'b0;
-			Sub8:
-				assign OutCleara = 0'b0;
-				assign OutLoadb = 0'b0;
-				assign OutShift= 0'b0;
-				assign OutAdd = 0'b0;
+				assign OutAdd = 1'b1;
 				assign OutSub = 1'b0;
+			Shift?:
+				assign OutCleara = 1'b0;
+				assign OutLoadb = 1'b0;
+				assign OutShift= 1'b1;
+				assign OutAdd = 1'b0;
+				assign OutSub = 1'b0;
+			Sub8:
+				assign OutCleara = 1'b0;
+				assign OutLoadb = 1'b0;
+				assign OutShift= 1'b0;
+				assign OutAdd = 1'b0;
+				assign OutSub = 1'b1;
 		
 			
 		
