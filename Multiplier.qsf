@@ -56,3 +56,4 @@ set_global_assignment -name SYSTEMVERILOG_FILE Processor.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Control.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Synchronizers.sv
 set_global_assignment -name SYSTEMVERILOG_FILE HexDriver.sv
+set_global_assignment -name SYSTEMVERILOG_FILE reg_8.sv

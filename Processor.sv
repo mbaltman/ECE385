@@ -15,8 +15,8 @@ module processor
 
 /* Instantiation of other modules here. */
   // two 8-bit shift registers
-  register_unit reg_a(.clk_reg(clk),.reset_reg(reset|cleara),.shift_in_reg(x),.shift_en_reg(shift),.load_reg(add|sub),.din_reg(?),.shift_out_reg(between_reg),.dout_reg(a));
-  register_unit reg_b(.clk_reg(clk),.reset_reg(),.shift_in_reg(between_reg),.shift_en_reg(shift),.load_reg(loadb),.din_reg(s_s),.shift_out_reg(),.dout_reg(b));
+  reg_8 reg_a(.clk_reg(clk),.reset_reg(reset|cleara),.shift_in_reg(x),.shift_en_reg(shift),.load_reg(add|sub),.din_reg(?),.shift_out_reg(between_reg),.dout_reg(a));
+  reg_8 reg_b(.clk_reg(clk),.reset_reg(),.shift_in_reg(between_reg),.shift_en_reg(shift),.load_reg(loadb),.din_reg(s_s),.shift_out_reg(),.dout_reg(b));
 
 	// 9-bit adder
 
