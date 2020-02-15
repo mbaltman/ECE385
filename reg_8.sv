@@ -8,7 +8,7 @@ module reg_8 (input  logic clk, reset, shift_in, load, shift_en,
 	 	 if (reset) //notice, this is a sycnrhonous reset, which is recommended on the FPGA
 			  dout <= 8'h0;
 		 else if (load)
-			  Data_Out <= D;
+			  dout <= D;
 		 else if (shift_en)
 		 begin
 			  //concatenate shifted in data to the previous left-most 3 bits
