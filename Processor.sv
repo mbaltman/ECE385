@@ -22,7 +22,6 @@ module processor
   reg_8 reg_a(.clk(clk),.reset(reset|cleara),.shift_in(x),.shift_en(shift),.load(add|sub),.din(?),.shift_out(between),.dout(a));
   reg_8 reg_b(.clk(clk),.reset(),.shift_in(between),.shift_en(shift),.load(loadb),.din(s_s),.shift_out(),.dout(b));
 
-
   // 9-bit adder
 
   // 9th bit module
