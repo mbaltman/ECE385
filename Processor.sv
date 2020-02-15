@@ -6,26 +6,29 @@ module Processor
   output logic[6:0] AhexU, AhexL, BhexU, BhexL,
   output logic x_reg,
   output logic [7:0] a, b
-  
+
   );
 
 
 
 /* Intermediate logic variables go here. */
   logic shift, add, sub, cleara, loadb;
-  logic run_s, cleara_loadb_s, between_reg;
+  logic run_s, cleara_loadb_s, between_reg, x_interm;
   logic [7:0] s_s, sum_as;
 
 
 
 /* Instantiation of other modules here. */
 
+  // one 1-bit shift registers
+  reg_1 reg_x(.clk(clk),.reset(reset_s|cleara),.load(add|sub),.din(x_interm),.dout(x_reg));
+
   // two 8-bit shift registers
   reg_8 reg_a(.clk(clk),.reset(reset_s|cleara),.shift_in(x_reg),.shift_en(shift),.load(add|sub),.din(sum_as),.shift_out(between_reg),.dout(a));
   reg_8 reg_b(.clk(clk),.reset(reset_s),.shift_in(between_reg),.shift_en(shift),.load(loadb),.din(s_s),.shift_out(),.dout(b));
 
   // 9-bit adder
-  bit_9 my_favorite_adder(.sub(sub), .add(add), .dinA(a), .dinS(s_s), .sum(sum_as), .CO(x_reg));
+  bit_9 my_favorite_adder(.sub(sub), .add(add), .dinA(a), .dinS(s_s), .sum(sum_as), .CO(x_interm));
 
   // control unit
   control control_unit
