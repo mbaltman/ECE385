@@ -5,12 +5,11 @@ module bit_9(  input logic sub, add,
 				);
 				
 	logic[8:0] resultAdd, resultSub;
-	logic COAdd, COSub;
-	
+	logic [7:0] dinS_inv;
+	assign dinS_inv= ~dinS;
 	logic [8:0] dinS_neg;
-	logic din_s_9;
 	
-	ripple_adder negativeadder(.A({~dinS[7],~dinS}), .B({9'b000000001}), .Sum(dinS_neg));
+	ripple_adder negativeadder(.A({dinS_inv[7],dinS_inv}), .B({9'b000000001}), .Sum(dinS_neg));
 	
 	ripple_adder adder(.A({dinA[7],dinA}), .B({dinS[7],dinS}), .Sum(resultAdd));
 	ripple_adder subtractor(.A({dinA[7],dinA}), .B(dinS_neg), .Sum(resultSub));
@@ -18,13 +17,13 @@ module bit_9(  input logic sub, add,
 	always_comb
 	begin
 	case(add)
-		1'b0: 
+		1'b1: 
 		begin
 			sum = resultAdd[7:0];
 			CO = resultAdd[8];
 		end
 				
-		1'b1:
+		1'b0:
 		begin
 			sum = resultSub[7:0];
 			CO= resultSub[8];
@@ -52,7 +51,7 @@ module ripple_adder
     output  logic[8:0]     Sum
 );
 
-  full_adder FA0(.x(A[0]), .y(B[0]), .z(c_in), .s(Sum[0]), .c(c1));
+  full_adder FA0(.x(A[0]), .y(B[0]), .z(1'b0), .s(Sum[0]), .c(c1));
   full_adder FA1(.x(A[1]), .y(B[1]), .z(c1), .s(Sum[1]), .c(c2));
   full_adder FA2(.x(A[2]), .y(B[2]), .z(c2), .s(Sum[2]), .c(c3));
   full_adder FA3(.x(A[3]), .y(B[3]), .z(c3), .s(Sum[3]), .c(c4));

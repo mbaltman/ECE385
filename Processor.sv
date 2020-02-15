@@ -4,7 +4,9 @@ module Processor
   input logic clk, reset, run, cleara_loadb,
   input logic[7:0] s,
   output logic[6:0] AhexU, AhexL, BhexU, BhexL,
-  output logic x_reg
+  output logic x_reg,
+  output logic [7:0] a, b
+  
   );
 
 
@@ -12,7 +14,7 @@ module Processor
 /* Intermediate logic variables go here. */
   logic shift, add, sub, cleara, loadb;
   logic run_s, cleara_loadb_s, between_reg;
-  logic [7:0] s_s, a, b, sum_as;
+  logic [7:0] s_s, sum_as;
 
 
 
