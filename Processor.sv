@@ -1,14 +1,13 @@
 /* This module is the processor for multiplier, and it does all the wiring and instatiation. */
 module processor
-	
+
   (
   input logic clk, reset, run, cleara_loadb,
   input logic[7:0] s,
   output logic[6:0] AhexU, AhexL, BhexU, BhexL,
   output logic[7:0] aval, bval,
   output logic x
-	);
-  
+  );
 
 /* Intermediate logic variables go here. */
   logic shift, add, sub, cleara, loadb;
@@ -18,7 +17,6 @@ module processor
 
 /* Instantiation of other modules here. */
   // two 8-bit shift registers
-	// 9-bit adder
   reg_8 reg_a(.clk(clk),.reset(reset|cleara),.shift_in(x),.shift_en(shift),.load(add|sub),.din(?),.shift_out(between),.dout(a));
   reg_8 reg_b(.clk(clk),.reset(),.shift_in(between),.shift_en(shift),.load(loadb),.din(s_s),.shift_out(),.dout(b));
 
