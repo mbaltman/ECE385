@@ -13,10 +13,10 @@ module reg_8 (
 			dout <= din;
 		else if (shift_en)
 		begin
-			dout <= { shift_in, dout[7:1] };
+			dout <= { shift_in, dout[7:1] }; // shift everything right and put the new bit at the front
 		end
 	end
 
-	assign shift_out = dout[0];
+	assign shift_out = dout[0]; // put the last bit as shifted out
 
 endmodule

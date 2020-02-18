@@ -1,25 +1,25 @@
 /* This module is the processor for multiplier, and it does all the wiring and instatiation. */
 module Processor
 	(
-	input  logic clk, reset, run, cleara_loadb,
-	input  logic [7:0] s,
+	input  logic clk, reset, run, cleara_loadb, // push buttons
+	input  logic [7:0] s, // data switches
 	output logic [6:0] AhexU, AhexL, BhexU, BhexL,
-	output logic x_reg,
-	output logic [7:0] a, b,
-	output logic add, sub, shift);
+	output logic x_reg, // X register value for debugging purposes
+	output logic [7:0] a, b, // A, B registers
+	output logic add, sub, shift); // operation control signals for debugging purposes
 
 
 
 /* Intermediate logic variables go here. */
-	logic cleara, loadb;
-	logic run_s, cleara_loadb_s, between_reg, x_interm, reset_s;
-	logic [7:0] s_s, sum_as;
+	logic cleara, loadb; // more detailed control signals
+	logic run_s, cleara_loadb_s, between_reg, x_interm, reset_s; // synchronized signals and intermediate signals
+	logic [7:0] s_s, sum_as; // synchronized switches and sum of A and switches
 
 
 
 /* Instantiation of other modules here. */
 
-	// one 1-bit shift registers
+	// one 1-bit shift register
 	reg_1 reg_x(.clk(clk), .reset(reset_s|cleara), .load(add|sub), .din(x_interm), .dout(x_reg));
 
 	// two 8-bit shift registers
@@ -49,7 +49,7 @@ module Processor
 	HexDriver HexAU (.In0(a[7:4]), .Out0(AhexU));
 	HexDriver HexBU (.In0(b[7:4]), .Out0(BhexU));
 
-	// synchronizer
+	// synchronizers
 	sync buttons_sync[2:0] (clk, {~run,~reset,~cleara_loadb}, {run_s,reset_s,cleara_loadb_s});
 	sync s_sync[7:0] (clk, s, s_s);
 

@@ -9,7 +9,7 @@ module testbench();
 	logic run = 0;
 	logic cleara_loadb = 0;
 
-	logic [7:0] s = 8'b00000000;
+	logic [7:0] s = 8'b00000000; // set switches to 0s initially
 	logic [7:0] a, b;
 	logic [6:0] AhexL, AhexU, BhexL, BhexU;
 	logic x_reg = 0;
@@ -36,13 +36,15 @@ module testbench();
 
 		#2 reset = 1;
 
+		// load b with proper values
 		s = 8'b00000010;
 		#4 cleara_loadb = 0;
 		#4 cleara_loadb = 1;
 
+		// load s with proper values and run the multiplier
 		s = 8'b00000001;
 		#2 run = 0;
 		#2 run = 1;
 	end
-
+	
 endmodule

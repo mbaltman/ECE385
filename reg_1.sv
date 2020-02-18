@@ -3,7 +3,7 @@ module reg_1 (
 	input  logic din,
 	output logic dout);
 
-	// reset or load
+	// reset or load since single variable register has shift the same as parallel output
 	always_ff @ (posedge clk)
 	begin
 		if (reset)

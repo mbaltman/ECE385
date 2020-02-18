@@ -2,17 +2,18 @@ module bit_9
 	(
 	input  logic sub, add,
 	input  logic [7:0] dinA, dinS,
-	output logic[7:0] sum,
-	output logic CO);
+	output logic[7:0] sum, // 8-bit sum
+	output logic CO); // CO does not stand for carry-out here but rather just the 9th bit
 
+	// intermediate variables
 	logic [8:0] resultAdd, resultSub;
 	logic [7:0] dinS_inv;
 	logic [8:0] dinS_neg;
 
-	assign dinS_inv= ~dinS;
-	ripple_adder negativeadder(.A({dinS_inv[7],dinS_inv}), .B({9'b000000001}), .Sum(dinS_neg));
-	ripple_adder adder(.A({dinA[7],dinA}), .B({dinS[7],dinS}), .Sum(resultAdd));
-	ripple_adder subtractor(.A({dinA[7],dinA}), .B(dinS_neg), .Sum(resultSub));
+	assign dinS_inv= ~dinS; // invert
+	ripple_adder negativeadder(.A({dinS_inv[7],dinS_inv}), .B({9'b000000001}), .Sum(dinS_neg)); // add 1 to get 2's complement
+	ripple_adder adder(.A({dinA[7],dinA}), .B({dinS[7],dinS}), .Sum(resultAdd)); // add sign-extended B with sign-extended A
+	ripple_adder subtractor(.A({dinA[7],dinA}), .B(dinS_neg), .Sum(resultSub)); // add sign-extended B with sign-extended A's 2's complement
 
 	always_comb
 	begin
@@ -33,7 +34,7 @@ module bit_9
 
 endmodule
 
-module full_adder
+module full_adder // FA from lecture notes
 	(
 	input  x, y, z,
 	output s, c);
@@ -42,7 +43,7 @@ module full_adder
 	assign c = (x&y)|(y&z)|(x&z);
 endmodule
 
-module ripple_adder
+module ripple_adder // ripple adder from Lab 4
 	(
 	input  logic[8:0] A,
 	input  logic[8:0] B,

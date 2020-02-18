@@ -6,7 +6,7 @@ module sync
 
 	always_ff @ (posedge clk)
 	begin
-		q <= d;
+		q <= d; // sync input with clk and then output
 	end
 
 endmodule
