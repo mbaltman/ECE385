@@ -1,29 +1,14 @@
-//-------------------------------------------------------------------------
-//      test_memory.sv                                                   --
-//      Stephen Kempf                                                    --
-//      Summer 2005                                                      --
-//                                                                       --
-//      Revised 3-15-2006                                                --
-//              3-22-2007                                                --
-//              7-26-2013                                                --
-//              10-19-2017 by Anand Ramachandran and Po-Han Huang        --
-//                        Spring 2018 Distribution                       --
-//                                                                       --
-//      For use with ECE 385 Experment 6                                 --
-//      UIUC ECE Department                                              --
-//-------------------------------------------------------------------------
-
-// This memory has similar behavior to the SRAM IC on the DE2 board.  This
-// file is for simulations only.  In simulation, this memory is guaranteed
+// This memory has similar behavior to the SRAM IC on the DE2 board.
+// This file is for simulations only.  In simulation, this memory is guaranteed
 // to work at least as well as the actual memory (that is, the actual
 // memory may require more careful treatment than this test memory).
 // At synthesis, this will be synthesized into a blank module.
 
-module test_memory ( input          Clk,
-                     input          Reset, // Active-high reset!
-                     inout  [15:0]  I_O,   // Data
-                     input  [19:0]  A,     // Address
-                     input          CE,    // Chip enable
+module test_memory (input           Clk,
+                    input           Reset, // Active-high reset!
+                    inout  [15:0]   I_O,   // Data
+                    input  [19:0]   A,     // Address
+                    input           CE,    // Chip enable
                                     UB,    // Upper byte enable
                                     LB,    // Lower byte enable
                                     OE,    // Output (read) enable
@@ -52,25 +37,25 @@ module test_memory ( input          Clk,
 
     initial begin
         parser.memory_contents(mem_array);
-      
+
         // Parse into machine code and write into file
         if (~init_external) begin
             ptr = $fopen("memory_contents.dat", "w");
-            
+
             for (integer x = 0; x < size; x++) begin
                 $fwrite(ptr, "@%0h %0h\n", x, mem_array[x]);
             end
-            
+
             $fclose(ptr);
         end
 
         $readmemh("memory_contents.dat", mem_array, 0, size-1);
     end
-    
+
     // Memory read logic
     always_ff @ (negedge Clk)
     begin
-        mem_out <= mem_array[actual_address]; // Read a specific memory cell. 
+        mem_out <= mem_array[actual_address]; // Read a specific memory cell.
         // Flip-flop with negedge Clk is used to simulate the 10ns access time.
         // (Assuming address changes at rising clock edge)
     end
@@ -78,12 +63,12 @@ module test_memory ( input          Clk,
     begin
         // By default, do not drive the IO bus
         I_O_wire = 16'bZZZZZZZZZZZZZZZZ;
-        
+
         // Drvie the IO bus when chip select and read enable are active, and write enable is inactive
         if (~CE && ~OE && WE) begin
             if (~UB)
                 I_O_wire[15:8] = mem_out[15:8]; // Read upper byte
-            
+
             if (~LB)
                 I_O_wire[7:0] = mem_out[7:0];   // Read lower byte
         end
