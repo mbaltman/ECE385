@@ -174,7 +174,7 @@ module ISDU (	input logic         Clk,
 		endcase
 	end
 
-	 // These should always be active
+	// These should always be active
 	assign Mem_CE = 1'b0;
 	assign Mem_UB = 1'b0;
 	assign Mem_LB = 1'b0;
