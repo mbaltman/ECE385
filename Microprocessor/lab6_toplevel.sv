@@ -1,12 +1,3 @@
-//-------------------------------------------------------------------------
-//      lab6_toplevel.sv                                                 --
-//                                                                       --
-//      Created 10-19-2017 by Po-Han Huang                               --
-//                        Spring 2018 Distribution                       --
-//                                                                       --
-//      For use with ECE 385 Experment 6                                 --
-//      UIUC ECE Department                                              --
-//-------------------------------------------------------------------------
 module lab6_toplevel(	input logic [15:0] S,
 						input logic Clk, Reset, Run, Continue,
 						output logic [11:0] LED,
