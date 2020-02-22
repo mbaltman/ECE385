@@ -24,13 +24,12 @@ module slc3(
 	logic MIO_EN;
 
 	logic [15:0] MDR_In;
-	logic [15:0] MAR, MDR, IR, PC, MARMUX, ADDADD;
+	logic [15:0] MAR, MDR, IR, PC;
 	logic [15:0] Data_from_SRAM, Data_to_SRAM;
 
 	// Signals being displayed on hex display
 	logic [3:0][3:0] hex_4;
 
-	
 	// For week 1, hexdrivers will display IR. Comment out these in week 2.
 	HexDriver hex_driver3 (IR[15:12], HEX3);
 	HexDriver hex_driver2 (IR[11:8], HEX2);
@@ -57,18 +56,8 @@ module slc3(
 
 	// You need to make your own datapath module and connect everything to the datapath
 	// Be careful about whether Reset is active high or low
-	
-	
-	datapath d0 (.MDR(MDR), .PC(PC), .MARMUX(MARMUX),.s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX), .data(Data));
-		
-	MDR_module mdr(.data(Data), .mdrin(MDR_In), mioen(MIO_EN),  .mdrout(MDR), .ld(LD_MDR), .clk(CLK));
-	
-	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(CLK));
-	
-	PC_module pc(pcout(PC), .data(Data), .address(ADDADD), .clk(CLK));
-	
-	
-	
+	datapath d0 (/* Please fill in the signals.... */);
+
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
 		.*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
