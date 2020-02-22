@@ -21,7 +21,7 @@ module slc3(
 	// Internal connections
 	//logic LD_IR;
 	logic BEN;
-	logic  LD_MDR, LD_BEN, LD_CC, LD_REG, LD_LED;
+	logic LD_MDR, LD_BEN, LD_CC, LD_REG, LD_LED;
 	logic [1:0]  ADDR2MUX, ALUK;
 	logic GateALU, GateMARMUX;
 	logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX;
@@ -68,7 +68,7 @@ module slc3(
 
 	MDR_module mdr(.data(Data), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(Clk), .reset(Reset_ah));
 
-	PC_module pc(.pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .clk(Clk), .reset(Reset_ah));
+	PC_module pc(.pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .ld(LD_PC), .clk(Clk), .reset(Reset_ah));
 
 	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(Clk), .reset(Reset_ah));
 
