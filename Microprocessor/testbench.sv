@@ -2,7 +2,7 @@ module testbench();
 
 timeunit 10ns;
 timeprecision 1ns;
-logic GatePC, LD_MAR, LD_PC, MIO_EN, Gate_MDR,LD_IR;
+logic GatePC, LD_MAR, LD_PC, MIO_EN, Gate_MDR, LD_IR;
 logic [1:0] PCMUX;
 logic [15:0] S;
 logic Clk, Reset, Run, Continue;

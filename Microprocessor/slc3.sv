@@ -6,7 +6,7 @@ module slc3(
 	output logic CE, UB, LB, OE, WE,
 	output logic [19:0] ADDR,
 	output logic [15:0] IR,
-	output logic GatePC, LD_MAR, LD_PC, MIO_EN, Gate_MDR,LD_IR,
+	output logic GatePC, LD_MAR, LD_PC, MIO_EN, Gate_MDR, LD_IR,
 	output logic [1:0] PCMUX,
 	inout wire [15:0] Data // tristate buffers need to be of type wire
 	);
@@ -25,7 +25,7 @@ module slc3(
 	logic [1:0]  ADDR2MUX, ALUK;
 	logic GateALU, GateMARMUX;
 	logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX;
-	
+
 
 	logic [15:0] MDR_In;
 	logic [15:0] MAR, MDR, PC, MARMUX, ADDADD, ALUOUT;
