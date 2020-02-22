@@ -3,18 +3,18 @@ module testbench();
 timeunit 10ns;
 timeprecision 1ns;
 
- logic [15:0] S;
+logic [15:0] S;
 logic Clk, Reset, Run, Continue;
 logic [11:0] LED;
- logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
- logic CE, UB, LB, OE, WE;
- logic [19:0] ADDR;
- logic [15:0] IR;
- wire [15:0] Data;
+logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
+logic CE, UB, LB, OE, WE;
+logic [19:0] ADDR;
+logic [15:0] IR;
+wire [15:0] Data;
 
 lab6_toplevel processor(.*);
 
-always 
+always
 begin : CLOCK_GENERATION
 #1 Clk = ~Clk;
 end
