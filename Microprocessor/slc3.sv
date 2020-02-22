@@ -63,13 +63,13 @@ module slc3(
 	datapath d0 (	.MDR(MDR), .PC(PC), .ADDADD(ADDADD), .ALUOUT(ALUOUT),
 					.s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX), .data(Data));
 
-	MDR_module mdr(.data(Data), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(CLK), .reset(Reset_ah));
+	MDR_module mdr(.data(Data), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(Clk), .reset(Reset_ah));
 
-	PC_module pc(.pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .clk(CLK), .reset(Reset_ah));
+	PC_module pc(.pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .clk(Clk), .reset(Reset_ah));
 
-	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(CLK), .reset(Reset_ah));
+	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(Clk), .reset(Reset_ah));
 
-	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(CLK), .reset(Reset_ah));
+	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(Clk), .reset(Reset_ah));
 
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(

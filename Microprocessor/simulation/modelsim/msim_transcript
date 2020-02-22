@@ -1,0 +1,40 @@
+# Reading C:/intelFPGA_lite/18.0/modelsim_ase/tcl/vsim/pref.tcl
+# do Microprocessor_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# ** Error (suppressible): (vdel-19) Failed to access library 'rtl_work' at "rtl_work".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-57) Library 'rtl_work' is missing or is not a valid ModelSim library.
+# ** Error: C:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/vdel failed.
+# Error in macro ./Microprocessor_run_msim_rtl_verilog.do line 4
+# C:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/vdel failed.
+#     while executing
+# "error [FixExecError $msg]"
+#     (procedure "vdel" line 6)
+#     invoked from within
+# "vdel -lib rtl_work -all"
+#     invoked from within
+# "if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }"
+verror 19
+# 
+# common Message # 19:
+# The specified library could not be accessed at the specified location.
+# Verify that the directories in the path exist and have the proper access
+# permissions and that the "_info" file (with proper access permissions)
+# exists.  This message might be preceded or followed by another message
+# that gives more information about the problem.
+# 
+# The vlib command creates a ModelSim library.  The vmap command creates
+# the map from a logical library name to the physical library (directory).
+# Use the vmap command without arguments to find out how all the libraries
+# are mapped.  In the absence of a mapping, the library is searched for in
+# the current working directory.
+# 
+# One way this problem can occur is if the mapping for the library in your
+# modelsim.ini file contains an environment variable that is not set
+# in your environment.
+# 
+# This error message can be suppressed or downgraded to a note or warning
