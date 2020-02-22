@@ -71,7 +71,7 @@ module slc3(
 
 	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(CLK), .reset(Reset_ah));
 
-	MAR_module mar(.data(Data) .marout(MAR), .ld(LD_MAR), .clk(CLK), .reset(Reset_ah));
+	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(CLK), .reset(Reset_ah));
 
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
