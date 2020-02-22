@@ -47,6 +47,9 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name SYSTEMVERILOG_FILE PC_module.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mux2.sv
 set_global_assignment -name SYSTEMVERILOG_FILE MDR_module.sv
 set_global_assignment -name SYSTEMVERILOG_FILE tristate.sv
@@ -59,6 +62,4 @@ set_global_assignment -name SYSTEMVERILOG_FILE lab6_toplevel.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ISDU.sv
 set_global_assignment -name SYSTEMVERILOG_FILE datapath.sv
 set_global_assignment -name SYSTEMVERILOG_FILE MAR_module.sv
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name SYSTEMVERILOG_FILE testbench.sv

@@ -13,7 +13,7 @@ module datapath(input logic [15:0] MDR, PC, ADDADD, ALUOUT,
 			else if(s4)
 				data = ADDADD;
 			else
-				data = 16'bx;
+				data = 16'bZ;
 		end 
 		
 endmodule
