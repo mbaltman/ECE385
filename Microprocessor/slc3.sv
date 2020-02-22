@@ -65,13 +65,11 @@ module slc3(
 
 	MDR_module mdr(.data(Data), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(CLK), .reset(Reset_ah));
 
-	
-
 	PC_module pc(.pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .clk(CLK), .reset(Reset_ah));
 
 	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(CLK), .reset(Reset_ah));
 
-	MAR_module mar(.data(Data) .marout(MAR), .ld(LD_MAR), .clk(CLK), .reset(Reset_ah));
+	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(CLK), .reset(Reset_ah));
 
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
