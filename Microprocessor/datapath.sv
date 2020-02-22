@@ -1,6 +1,6 @@
-module datapath(input logic [15:0] MDR, PC, ADDADD, ALUOUT,
-					 input logic s1,s2,s3,s4,
-					 output logic [15:0] data);
+module datapath(	input logic [15:0] MDR, PC, ADDADD, ALUOUT,
+					input logic s1,s2,s3,s4,
+					output logic [15:0] data);
 
 	always_comb
 		begin
