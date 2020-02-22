@@ -24,7 +24,7 @@ module slc3(
 	logic MIO_EN;
 
 	logic [15:0] MDR_In;
-	logic [15:0] MAR, MDR, IR, PC, MARMUX, ADDADD;
+	logic [15:0] MAR, MDR, IR, PC, MARMUX, ADDADD, ALUOUT;
 	logic [15:0] Data_from_SRAM, Data_to_SRAM;
 
 	// Signals being displayed on hex display
@@ -59,13 +59,16 @@ module slc3(
 	// Be careful about whether Reset is active high or low
 
 
-	datapath d0 (.MDR(MDR), .PC(PC), .MARMUX(MARMUX),.s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX), .data(Data));
+	datapath d0 (.MDR(MDR), .PC(PC), .ADDADD(ADDADD), .ALUOUT(ALUOUT), 
+	             .s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX), .data(Data));
 
-	MDR_module mdr(.data(Data), .mdrin(MDR_In), mioen(MIO_EN),  .mdrout(MDR), .ld(LD_MDR), .clk(CLK));
+	MDR_module mdr(.data(Data), .mdrin(MDR_In), mioen(MIO_EN),  .mdrout(MDR), .ld(LD_MDR), .clk(CLK), .reset(Reset_ah));
 
-	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(CLK));
+	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(CLK), .reset(Reset_ah));
 
-	PC_module pc(pcout(PC), .data(Data), .address(ADDADD), .clk(CLK));
+	PC_module pc(pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .clk(CLK), .reset(Reset_ah));
+	
+	IR_module ir( .data(Data), .iroutput(IR), .ld(LD_IR), .clk(CLK), .reset(Reset_ah));
 
 
 
