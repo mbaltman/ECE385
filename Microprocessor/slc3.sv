@@ -68,7 +68,7 @@ module slc3(
 
 	PC_module pc(pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .clk(CLK), .reset(Reset_ah));
 
-	IR_module ir( .data(Data), .iroutput(IR), .ld(LD_IR), .clk(CLK), .reset(Reset_ah));
+	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(CLK), .reset(Reset_ah));
 
 
 
