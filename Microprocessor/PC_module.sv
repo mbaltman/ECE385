@@ -1,6 +1,6 @@
 module PC_module (
     input  logic [15:0] data, address,
-    input  logic clk, reset,
+    input  logic clk, reset, ld,
     input  logic [1:0] s,
     output logic [15:0] pcout);
 
@@ -11,7 +11,7 @@ module PC_module (
     begin
         if (reset)
             pcout <= 16'h0;
-        else
+        else if (ld)
             pcout <= pc_interm;
     end
 endmodule
