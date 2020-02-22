@@ -32,10 +32,15 @@ Continue = 1;
 S = 16'h0;
 
 #2 Reset = 0;
+#2 Reset =1;
 
 Reset = 1;
 
-#2 Run = 0;
+#4 Run = 0;
+#8 Run =1;
+#2 Continue = 0;
+#2 Continue = 1;
+
 end
 
 endmodule
