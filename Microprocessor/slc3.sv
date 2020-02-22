@@ -30,7 +30,7 @@ module slc3(
 	// Signals being displayed on hex display
 	logic [3:0][3:0] hex_4;
 
-	
+
 	// For week 1, hexdrivers will display IR. Comment out these in week 2.
 	HexDriver hex_driver3 (IR[15:12], HEX3);
 	HexDriver hex_driver2 (IR[11:8], HEX2);
@@ -52,23 +52,23 @@ module slc3(
 	// Connect MAR to ADDR, which is also connected as an input into MEM2IO.
 	// MEM2IO will determine what gets put onto Data_CPU (which serves as a potential
 	// input into MDR)
-	assign ADDR = { 4'b00, MAR }; //Note, our external SRAM chip is 1Mx16, but address space is only 64Kx16
+	assign ADDR = { 4'b00, MAR }; // Note, our external SRAM chip is 1Mx16, but address space is only 64Kx16
 	assign MIO_EN = ~OE;
 
 	// You need to make your own datapath module and connect everything to the datapath
 	// Be careful about whether Reset is active high or low
-	
-	
+
+
 	datapath d0 (.MDR(MDR), .PC(PC), .MARMUX(MARMUX),.s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX), .data(Data));
-		
+
 	MDR_module mdr(.data(Data), .mdrin(MDR_In), mioen(MIO_EN),  .mdrout(MDR), .ld(LD_MDR), .clk(CLK));
-	
+
 	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(CLK));
-	
+
 	PC_module pc(pcout(PC), .data(Data), .address(ADDADD), .clk(CLK));
-	
-	
-	
+
+
+
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
 		.*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
