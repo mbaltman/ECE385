@@ -24,7 +24,6 @@ module control (
 	end
 
 
-
 	always_comb
 	begin
 

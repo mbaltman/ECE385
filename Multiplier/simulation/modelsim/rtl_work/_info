@@ -1,0 +1,262 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/megge/Documents/GitHub/ECE385/Multiplier/simulation/modelsim
+vbit_9
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1582582540
+!i10b 1
+!s100 ?oVU`;9gR2z38czz9HK=H0
+I[K^cgBk];3N6@o52Yc=0W3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 bit_9_adder_sv_unit
+S1
+R0
+Z5 w1582047206
+Z6 8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/bit_9_adder.sv
+Z7 FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/bit_9_adder.sv
+L0 1
+Z8 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z9 !s108 1582582540.000000
+Z10 !s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/bit_9_adder.sv|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/bit_9_adder.sv|
+!i113 1
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier
+Z14 tCvgOpt 0
+vcontrol
+R1
+R2
+!i10b 1
+!s100 AicVkif]7731bnW9o^4nk0
+Ik9^Tfk@LiNO6TWBI<[kH;3
+R3
+!s105 Control_sv_unit
+S1
+R0
+w1582580674
+8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Control.sv
+FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/Control.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Control.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Control.sv|
+!i113 1
+R12
+R13
+R14
+vfull_adder
+R1
+R2
+!i10b 1
+!s100 n5@;D>G`L>;?_BYiEN<PD3
+IHNClF626:Vc7eOFERKSoL0
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 37
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+vHexDriver
+R1
+Z15 !s110 1582582541
+!i10b 1
+!s100 5@k`Hdc7f<IWL2bU>6Bm03
+IX3aLdMkSe_fg^0diUfRM72
+R3
+!s105 HexDriver_sv_unit
+S1
+R0
+R5
+8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/HexDriver.sv
+FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/HexDriver.sv
+L0 1
+R8
+r1
+!s85 0
+31
+Z16 !s108 1582582541.000000
+!s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/HexDriver.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/HexDriver.sv|
+!i113 1
+R12
+R13
+R14
+n@hex@driver
+vProcessor
+R1
+R15
+!i10b 1
+!s100 Phfml[ljoI[fY4G]MZZ=i0
+Ig<=`5Tk;2]Ec_];00VIcM2
+R3
+!s105 Processor_sv_unit
+S1
+R0
+R5
+8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Processor.sv
+FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/Processor.sv
+L0 2
+R8
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Processor.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Processor.sv|
+!i113 1
+R12
+R13
+R14
+n@processor
+vreg_1
+R1
+R2
+!i10b 1
+!s100 CniZMT;5m<n>Pk=2kXkU61
+IEUTiZL`hd^JgAQDYLT`DF2
+R3
+!s105 reg_1_sv_unit
+S1
+R0
+R5
+8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_1.sv
+FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_1.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_1.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_1.sv|
+!i113 1
+R12
+R13
+R14
+vreg_8
+R1
+R15
+!i10b 1
+!s100 0UHgjDUXRZN@Z?f=UmOAc3
+ISLnXF9L0kR4aKko>0RYcF2
+R3
+!s105 reg_8_sv_unit
+S1
+R0
+R5
+8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_8.sv
+FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_8.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/reg_8.sv|
+!i113 1
+R12
+R13
+R14
+vripple_adder
+R1
+R2
+!i10b 1
+!s100 Z=6^784RGYo?ckiCgb6Rh2
+IC=2[o9YZNof0PQ7T9Za@Q1
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 46
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+vsync
+R1
+R15
+!i10b 1
+!s100 XAZAZXf><ll`1I`mSWgK>1
+IHzZVG?EVYMPDB^:6Xh0[a2
+R3
+!s105 Synchronizers_sv_unit
+S1
+R0
+R5
+8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Synchronizers.sv
+FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/Synchronizers.sv
+L0 2
+R8
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Synchronizers.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/Synchronizers.sv|
+!i113 1
+R12
+R13
+R14
+vtestbench
+R1
+R15
+!i10b 1
+!s100 XNDLoUdPcf62G4;0fYh>@1
+IO:E8:ATh<4:ljPko==0Cf3
+R3
+!s105 testbench_sv_unit
+S1
+R0
+w1582582487
+8C:/Users/megge/Documents/GitHub/ECE385/Multiplier/testbench.sv
+FC:/Users/megge/Documents/GitHub/ECE385/Multiplier/testbench.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/megge/Documents/GitHub/ECE385/Multiplier/testbench.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/Multiplier|C:/Users/megge/Documents/GitHub/ECE385/Multiplier/testbench.sv|
+!i113 1
+R12
+R13
+R14

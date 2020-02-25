@@ -33,18 +33,21 @@ module testbench();
 		reset = 0;
 		run = 1;
 		cleara_loadb = 1;
-
+		//
+      #2 reset =0;
 		#2 reset = 1;
 
 		// load b with proper values
-		s = 8'b00000010;
+		s = 8'b11111001  ;//   00000111
 		#4 cleara_loadb = 0;
 		#4 cleara_loadb = 1;
 
 		// load s with proper values and run the multiplier
-		s = 8'b00000001;
+		s = 8'b11000101;//   00111011
 		#2 run = 0;
 		#2 run = 1;
+		
+		
 	end
 	
 endmodule

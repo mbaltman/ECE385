@@ -1,4 +1,4 @@
-module datapath(	input logic [15:0] MDR, PC, ADDADD, ALUOUT,
+module datapath(	input logic [15:0] MDR, PC, MARMUX, ALUOUT,
 					input logic s1,s2,s3,s4,
 					output logic [15:0] data);
 
@@ -11,7 +11,7 @@ module datapath(	input logic [15:0] MDR, PC, ADDADD, ALUOUT,
 			else if(s3)
 				data = ALUOUT;
 			else if(s4)
-				data = ADDADD;
+				data = MARMUX;
 			else
 				data = 16'bZ;
 		end

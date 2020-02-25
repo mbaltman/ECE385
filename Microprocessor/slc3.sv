@@ -8,7 +8,7 @@ module slc3(
 	output logic [15:0] IR,PC,MAR,
 	output logic GatePC, LD_MAR, LD_PC, MIO_EN, Gate_MDR, LD_IR,
 	output logic [1:0] PCMUX,
-	inout wire [15:0] Data // tristate buffers need to be of type wire
+	inout wire [15:0] Data // tristate buffers need to be of type wire  //ask david if this is the datapath
 	);
 
 	// Declaration of push button active high signals
@@ -28,7 +28,7 @@ module slc3(
 
 
 	logic [15:0] MDR_In;
-	logic [15:0] MDR, MARMUX, ADDADD, ALUOUT;
+	logic [15:0] MDR, MARMUX, ALUOUT;
 	logic [15:0] Data_from_SRAM, Data_to_SRAM;
 
 	// Signals being displayed on hex display
@@ -63,12 +63,12 @@ module slc3(
 	// Be careful about whether Reset is active high or low
 
 
-	datapath d0 (	.MDR(MDR), .PC(PC), .ADDADD(ADDADD), .ALUOUT(ALUOUT),
+	datapath d0 (	.MDR(MDR), .PC(PC), .MARMUX(MARMUX), .ALUOUT(ALUOUT),
 					.s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX), .data(Data));
 
 	MDR_module mdr(.data(Data), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(Clk), .reset(Reset_ah));
 
-	PC_module pc(.pcout(PC), .data(Data), .address(ADDADD), .s(PC_MUX), .ld(LD_PC), .clk(Clk), .reset(Reset_ah));
+	PC_module pc(.pcout(PC), .data(Data), .address(MARMUX), .s(PC_MUX), .ld(LD_PC), .clk(Clk), .reset(Reset_ah));
 
 	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(Clk), .reset(Reset_ah));
 
