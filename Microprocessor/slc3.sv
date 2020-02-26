@@ -31,6 +31,7 @@ module slc3(
 	logic [15:0] MDR, MARMUX, ALUOUT;
 	logic [15:0] Data_from_SRAM, Data_to_SRAM;
 	logic [15:0] SR1OUT, SR2OUT;
+	logic [15:0] ADDR2MUXOUT, ADDR1MUXOUT;
 
 	// Signals being displayed on hex display
 	logic [3:0][3:0] hex_4;
@@ -78,7 +79,8 @@ module slc3(
 	RegFile_module regfile(.data(Data), .SR1_11(IR[11:9]), . SR1_8(IR[8:6]), .SR2_2(IR[2:0]),
 									 .DRMUX, .SR1MUX, .LD_REG, .clk(Clk), .reset(Reset_ah), .SR1(SR1OUT),.SR2(SR2OUT));
 	nzp_module nzpmod(.data(Data), .LD_CC, .LD_BEN, .currNZP(IR[11:9]), .clk(Clk), . reset(Reset_ah), .BEN);
-
+	
+	addr2mux_module muxaddr2(.d1(16'(signed'(IR[5:0]))), .d2(16'(signed'(IR[8:0]))), .d3(16'(signed'(IR[10:0]))), .s(ADDR2MUX), .o(ADDR2MUXOUT ));
 	
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
