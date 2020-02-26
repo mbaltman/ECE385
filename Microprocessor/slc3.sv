@@ -31,7 +31,7 @@ module slc3(
 	logic [15:0] MDR, MARMUX, ALUOUT;
 	logic [15:0] Data_from_SRAM, Data_to_SRAM;
 	logic [15:0] SR1OUT, SR2OUT;
-	logic [15:0] ADDR2MUXOUT, ADDR1MUXOUT;
+	logic [15:0] ADDR2MUXOUT, ADDR1MUXOUT, SR2MUXOUT;
 
 	// Signals being displayed on hex display
 	logic [3:0][3:0] hex_4;
@@ -83,7 +83,11 @@ module slc3(
 	addr2mux_module muxaddr2(.d1(16'(signed'(IR[5:0]))), .d2(16'(signed'(IR[8:0]))), .d3(16'(signed'(IR[10:0]))), .s(ADDR2MUX), .o(ADDR2MUXOUT ));
 	mux2 muxaddr1(.d0(SR1OUT), .d1(PC), .s(ADDR1MUX),.y(ADDR1MUXOUT));
 	
+	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(SR2MUXOUT), .y(SR2MUX));
+	
 	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX), .CO(1'b0));
+	
+	alu_module alu(.A(SR1OUt), .B(SR2MUXOUT), .s(ALUK), .out(ALUOUT));
 	
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(

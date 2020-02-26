@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Microprocessor
-Wed Feb 26 16:25:15 2020
+Wed Feb 26 16:38:00 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -21,22 +21,23 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
  13. Parameter Settings for User Entity Instance: slc3:my_slc|MDR_module:mdr|mux2:miomux
  14. Parameter Settings for User Entity Instance: slc3:my_slc|PC_module:pc|mux3:pcmux
  15. Parameter Settings for User Entity Instance: slc3:my_slc|mux2:muxaddr1
- 16. Parameter Settings for User Entity Instance: slc3:my_slc|tristate:tr0
- 17. Parameter Settings for User Entity Instance: test_memory:my_test_memory
- 18. Parameter Settings for User Entity Instance: test_memory:my_test_memory|memory_parser:parser
- 19. Port Connectivity Checks: "slc3:my_slc|ISDU:state_controller"
- 20. Port Connectivity Checks: "slc3:my_slc|Mem2IO:memory_subsystem"
- 21. Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder|full_adder:FA0"
- 22. Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder"
- 23. Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile|mux2_3bit:drmux"
- 24. Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile"
- 25. Port Connectivity Checks: "slc3:my_slc|PC_module:pc|mux3:pcmux"
- 26. Port Connectivity Checks: "slc3:my_slc|PC_module:pc"
- 27. Port Connectivity Checks: "slc3:my_slc|datapath:d0"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Messages
- 31. Analysis & Synthesis Suppressed Messages
+ 16. Parameter Settings for User Entity Instance: slc3:my_slc|mux2:muxsr2
+ 17. Parameter Settings for User Entity Instance: slc3:my_slc|tristate:tr0
+ 18. Parameter Settings for User Entity Instance: test_memory:my_test_memory
+ 19. Parameter Settings for User Entity Instance: test_memory:my_test_memory|memory_parser:parser
+ 20. Port Connectivity Checks: "slc3:my_slc|ISDU:state_controller"
+ 21. Port Connectivity Checks: "slc3:my_slc|Mem2IO:memory_subsystem"
+ 22. Port Connectivity Checks: "slc3:my_slc|alu_module:alu"
+ 23. Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder|full_adder:FA0"
+ 24. Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder"
+ 25. Port Connectivity Checks: "slc3:my_slc|mux2:muxsr2"
+ 26. Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile|mux2_3bit:drmux"
+ 27. Port Connectivity Checks: "slc3:my_slc|PC_module:pc|mux3:pcmux"
+ 28. Port Connectivity Checks: "slc3:my_slc|PC_module:pc"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -62,7 +63,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Feb 26 16:25:15 2020       ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb 26 16:38:00 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; Microprocessor                              ;
 ; Top-level Entity Name              ; lab6_toplevel                               ;
@@ -207,6 +208,7 @@ refer to the applicable agreement for further details.
 ; mux2_3bit.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/mux2_3bit.sv       ;         ;
 ; nzp_module.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/nzp_module.sv      ;         ;
 ; addr2mux_module.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/addr2mux_module.sv ;         ;
+; alu_module.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/alu_module.sv      ;         ;
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
 
 
@@ -538,6 +540,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: slc3:my_slc|mux2:muxsr2 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; width          ; 16    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: slc3:my_slc|tristate:tr0 ;
 +----------------+-------+----------------------------------------------+
@@ -575,8 +587,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port   ; Type   ; Severity ; Details                                                                             ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 ; LD_LED ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; SR2MUX ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ALUK   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -591,6 +601,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; HEX2         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; HEX3         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "slc3:my_slc|alu_module:alu"                                                                                                                ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "A[15..1]" will be connected to GND. ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------+
@@ -611,6 +630,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "slc3:my_slc|mux2:muxsr2"                                                                                                                                                           ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                                            ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; s    ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y    ; Output ; Warning  ; Output or bidir port (16 bits) is wider than the port expression (1 bits) it drives; bit(s) "y[15..1]" have no fanouts                                                             ;
+; y    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile|mux2_3bit:drmux" ;
 +------+-------+----------+------------------------------------------------------+
@@ -618,15 +648,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+------------------------------------------------------+
 ; d1   ; Input ; Info     ; Stuck at VCC                                         ;
 +------+-------+----------+------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile"                                                 ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; SR2  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -645,15 +666,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
 ; s    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "s[1..1]" will be connected to GND. ;
 +------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------+
-; Port Connectivity Checks: "slc3:my_slc|datapath:d0" ;
-+--------+-------+----------+-------------------------+
-; Port   ; Type  ; Severity ; Details                 ;
-+--------+-------+----------+-------------------------+
-; ALUOUT ; Input ; Info     ; Stuck at GND            ;
-+--------+-------+----------+-------------------------+
 
 
 +-----------------------------------------------------+
@@ -699,7 +711,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Wed Feb 26 16:24:57 2020
+    Info: Processing started: Wed Feb 26 16:37:42 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Microprocessor -c Microprocessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -747,11 +759,13 @@ Info (12021): Found 1 design units, including 1 entities, in source file nzp_mod
     Info (12023): Found entity 1: nzp_module File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/nzp_module.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file addr2mux_module.sv
     Info (12023): Found entity 1: addr2mux_module File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/addr2mux_module.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_module.sv
+    Info (12023): Found entity 1: alu_module File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/alu_module.sv Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at slc3.sv(69): created implicit net for "GateMDR" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 69
 Warning (10236): Verilog HDL Implicit Net warning at slc3.sv(73): created implicit net for "PC_MUX" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 73
+Warning (10236): Verilog HDL Implicit Net warning at slc3.sv(90): created implicit net for "SR1OUt" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 90
 Info (12127): Elaborating entity "lab6_toplevel" for the top level hierarchy
 Info (12128): Elaborating entity "slc3" for hierarchy "slc3:my_slc" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/lab6_toplevel.sv Line: 12
-Warning (10030): Net "ALUOUT" at slc3.sv(31) has no driver or initial value, using a default initial value '0' File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 31
 Warning (10034): Output port "LED" at slc3.sv(4) has no driver File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 4
 Warning (10034): Output port "Gate_MDR" at slc3.sv(9) has no driver File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 9
 Info (12128): Elaborating entity "HexDriver" for hierarchy "slc3:my_slc|HexDriver:hex_driver3" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 41
@@ -766,15 +780,35 @@ Info (12128): Elaborating entity "RegFile_module" for hierarchy "slc3:my_slc|Reg
 Info (12128): Elaborating entity "mux2_3bit" for hierarchy "slc3:my_slc|RegFile_module:regfile|mux2_3bit:drmux" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/RegFile.sv Line: 8
 Info (12128): Elaborating entity "nzp_module" for hierarchy "slc3:my_slc|nzp_module:nzpmod" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 81
 Info (12128): Elaborating entity "addr2mux_module" for hierarchy "slc3:my_slc|addr2mux_module:muxaddr2" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 83
-Info (12128): Elaborating entity "ripple_adder" for hierarchy "slc3:my_slc|ripple_adder:addradder" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 86
+Info (12128): Elaborating entity "ripple_adder" for hierarchy "slc3:my_slc|ripple_adder:addradder" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 88
 Info (12128): Elaborating entity "full_adder" for hierarchy "slc3:my_slc|ripple_adder:addradder|full_adder:FA0" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/ripple_adder.sv Line: 27
-Info (12128): Elaborating entity "Mem2IO" for hierarchy "slc3:my_slc|Mem2IO:memory_subsystem" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 94
-Info (12128): Elaborating entity "tristate" for hierarchy "slc3:my_slc|tristate:tr0" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 99
-Info (12128): Elaborating entity "ISDU" for hierarchy "slc3:my_slc|ISDU:state_controller" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 106
+Info (12128): Elaborating entity "alu_module" for hierarchy "slc3:my_slc|alu_module:alu" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 90
+Warning (10034): Output port "out" at alu_module.sv(1) has no driver File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/alu_module.sv Line: 1
+Warning (12158): Entity "alu_module" contains only dangling pins File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 90
+Info (12128): Elaborating entity "Mem2IO" for hierarchy "slc3:my_slc|Mem2IO:memory_subsystem" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 98
+Info (12128): Elaborating entity "tristate" for hierarchy "slc3:my_slc|tristate:tr0" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 103
+Info (12128): Elaborating entity "ISDU" for hierarchy "slc3:my_slc|ISDU:state_controller" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 110
 Info (12128): Elaborating entity "test_memory" for hierarchy "test_memory:my_test_memory" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/lab6_toplevel.sv Line: 16
 Warning (10036): Verilog HDL or VHDL warning at test_memory.sv(27): object "actual_address" assigned a value but never read File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/test_memory.sv Line: 27
 Info (12128): Elaborating entity "memory_parser" for hierarchy "test_memory:my_test_memory|memory_parser:parser" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/test_memory.sv Line: 33
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[15]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[14]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[13]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[12]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[11]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[10]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[9]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[8]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[7]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[6]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[5]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[4]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[3]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[2]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[1]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+    Warning (12110): Net "slc3:my_slc|SR2MUXOUT[0]" is missing source, defaulting to GND File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 34
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13027): Removed fan-outs from the following always-disabled I/O buffers
     Warning (13028): Removed fan-out from the always-disabled I/O buffer "slc3:my_slc|tristate:tr0|Data[0]" to the node "Data[0]" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/tristate.sv Line: 7
     Warning (13028): Removed fan-out from the always-disabled I/O buffer "slc3:my_slc|tristate:tr0|Data[1]" to the node "Data[1]" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/tristate.sv Line: 7
@@ -826,11 +860,11 @@ Info (21057): Implemented 370 device resources after synthesis - the final resou
     Info (21059): Implemented 149 output pins
     Info (21060): Implemented 16 bidirectional pins
     Info (21061): Implemented 185 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 68 warnings
     Info: Peak virtual memory: 4767 megabytes
-    Info: Processing ended: Wed Feb 26 16:25:15 2020
+    Info: Processing ended: Wed Feb 26 16:38:00 2020
     Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Total CPU time (on all processors): 00:00:38
 
 
 +------------------------------------------+
