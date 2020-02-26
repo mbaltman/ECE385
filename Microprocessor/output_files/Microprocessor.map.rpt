@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Microprocessor
-Wed Feb 26 16:14:19 2020
+Wed Feb 26 16:25:15 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -15,25 +15,28 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |lab6_toplevel|slc3:my_slc|ISDU:state_controller|State
   9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: slc3:my_slc|MDR_module:mdr|mux2:miomux
- 13. Parameter Settings for User Entity Instance: slc3:my_slc|PC_module:pc|mux3:pcmux
- 14. Parameter Settings for User Entity Instance: slc3:my_slc|tristate:tr0
- 15. Parameter Settings for User Entity Instance: test_memory:my_test_memory
- 16. Parameter Settings for User Entity Instance: test_memory:my_test_memory|memory_parser:parser
- 17. Port Connectivity Checks: "slc3:my_slc|ISDU:state_controller"
- 18. Port Connectivity Checks: "slc3:my_slc|Mem2IO:memory_subsystem"
- 19. Port Connectivity Checks: "slc3:my_slc|addr2mux_module:muxaddr2"
- 20. Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile|mux2_3bit:drmux"
- 21. Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile"
- 22. Port Connectivity Checks: "slc3:my_slc|PC_module:pc|mux3:pcmux"
- 23. Port Connectivity Checks: "slc3:my_slc|PC_module:pc"
- 24. Port Connectivity Checks: "slc3:my_slc|datapath:d0"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
- 28. Analysis & Synthesis Suppressed Messages
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: slc3:my_slc|MDR_module:mdr|mux2:miomux
+ 14. Parameter Settings for User Entity Instance: slc3:my_slc|PC_module:pc|mux3:pcmux
+ 15. Parameter Settings for User Entity Instance: slc3:my_slc|mux2:muxaddr1
+ 16. Parameter Settings for User Entity Instance: slc3:my_slc|tristate:tr0
+ 17. Parameter Settings for User Entity Instance: test_memory:my_test_memory
+ 18. Parameter Settings for User Entity Instance: test_memory:my_test_memory|memory_parser:parser
+ 19. Port Connectivity Checks: "slc3:my_slc|ISDU:state_controller"
+ 20. Port Connectivity Checks: "slc3:my_slc|Mem2IO:memory_subsystem"
+ 21. Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder|full_adder:FA0"
+ 22. Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder"
+ 23. Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile|mux2_3bit:drmux"
+ 24. Port Connectivity Checks: "slc3:my_slc|RegFile_module:regfile"
+ 25. Port Connectivity Checks: "slc3:my_slc|PC_module:pc|mux3:pcmux"
+ 26. Port Connectivity Checks: "slc3:my_slc|PC_module:pc"
+ 27. Port Connectivity Checks: "slc3:my_slc|datapath:d0"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -59,7 +62,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Feb 26 16:14:19 2020       ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb 26 16:25:15 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; Microprocessor                              ;
 ; Top-level Entity Name              ; lab6_toplevel                               ;
@@ -184,6 +187,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                             ; Library ;
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+; ripple_adder.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/ripple_adder.sv    ;         ;
 ; HexDriver.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/HexDriver.sv       ;         ;
 ; IR_module.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/IR_module.sv       ;         ;
 ; PC_module.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/PC_module.sv       ;         ;
@@ -255,10 +259,10 @@ refer to the applicable agreement for further details.
 ;       |HexDriver:hex_driver7|   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|HexDriver:hex_driver7   ; HexDriver     ; work         ;
 ;       |IR_module:ir|            ; 17 (17)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|IR_module:ir            ; IR_module     ; work         ;
 ;       |ISDU:state_controller|   ; 7 (7)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|ISDU:state_controller   ; ISDU          ; work         ;
-;       |MAR_module:mar|          ; 1 (1)               ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|MAR_module:mar          ; MAR_module    ; work         ;
+;       |MAR_module:mar|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|MAR_module:mar          ; MAR_module    ; work         ;
 ;       |MDR_module:mdr|          ; 17 (17)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|MDR_module:mdr          ; MDR_module    ; work         ;
 ;       |Mem2IO:memory_subsystem| ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|Mem2IO:memory_subsystem ; Mem2IO        ; work         ;
-;       |PC_module:pc|            ; 16 (16)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|PC_module:pc            ; PC_module     ; work         ;
+;       |PC_module:pc|            ; 17 (17)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|PC_module:pc            ; PC_module     ; work         ;
 ;       |datapath:d0|             ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|datapath:d0             ; datapath      ; work         ;
 ;       |tristate:tr0|            ; 0 (0)               ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6_toplevel|slc3:my_slc|tristate:tr0            ; tristate      ; work         ;
 +---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+---------------+--------------+
@@ -283,19 +287,188 @@ Encoding Type:  One-Hot
 +----------------+------------+------------+--------------+--------------+------------+----------------+----------------+--------------+------------+
 
 
-+------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                     ;
-+---------------------------------------------------+--------------------+
-; Register name                                     ; Reason for Removal ;
-+---------------------------------------------------+--------------------+
-; slc3:my_slc|ISDU:state_controller|State.S_32      ; Lost fanout        ;
-; slc3:my_slc|ISDU:state_controller|State.S_01      ; Lost fanout        ;
-; slc3:my_slc|ISDU:state_controller|State~2         ; Lost fanout        ;
-; slc3:my_slc|ISDU:state_controller|State~3         ; Lost fanout        ;
-; slc3:my_slc|ISDU:state_controller|State~4         ; Lost fanout        ;
-; slc3:my_slc|tristate:tr0|Data_write_buffer[0..15] ; Lost fanout        ;
-; Total Number of Removed Registers = 21            ;                    ;
-+---------------------------------------------------+--------------------+
++----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                           ;
++-----------------------------------------------------+----------------------------------------+
+; Register name                                       ; Reason for Removal                     ;
++-----------------------------------------------------+----------------------------------------+
+; slc3:my_slc|RegFile_module:regfile|registers[0][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][0]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][1]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][2]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][3]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][4]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][5]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][6]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][7]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][8]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][9]  ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][10] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][11] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][12] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][13] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][14] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[1][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[2][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[3][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[4][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[5][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[6][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|registers[7][15] ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|RegFile_module:regfile|SR1[0..15]       ; Stuck at GND due to stuck port data_in ;
+; slc3:my_slc|ISDU:state_controller|State.S_32        ; Lost fanout                            ;
+; slc3:my_slc|ISDU:state_controller|State.S_01        ; Lost fanout                            ;
+; slc3:my_slc|ISDU:state_controller|State~2           ; Lost fanout                            ;
+; slc3:my_slc|ISDU:state_controller|State~3           ; Lost fanout                            ;
+; slc3:my_slc|ISDU:state_controller|State~4           ; Lost fanout                            ;
+; slc3:my_slc|tristate:tr0|Data_write_buffer[0..15]   ; Lost fanout                            ;
+; Total Number of Removed Registers = 165             ;                                        ;
++-----------------------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++-----------------------------------------------------+---------------------------+------------------------------------------------+
+; Register name                                       ; Reason for Removal        ; Registers Removed due to This Register         ;
++-----------------------------------------------------+---------------------------+------------------------------------------------+
+; slc3:my_slc|RegFile_module:regfile|registers[0][0]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[0],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[0]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][1]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[1],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[1]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][2]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[2],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[2]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][3]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[3],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[3]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][4]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[4],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[4]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][5]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[5],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[5]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][6]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[6],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[6]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][7]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[7],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[7]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][8]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[8],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[8]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][9]  ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[9],     ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[9]  ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][10] ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[10],    ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[10] ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][11] ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[11],    ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[11] ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][12] ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[12],    ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[12] ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][13] ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[13],    ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[13] ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][14] ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[14],    ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[14] ;
+; slc3:my_slc|RegFile_module:regfile|registers[0][15] ; Stuck at GND              ; slc3:my_slc|RegFile_module:regfile|SR1[15],    ;
+;                                                     ; due to stuck port data_in ; slc3:my_slc|tristate:tr0|Data_write_buffer[15] ;
++-----------------------------------------------------+---------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -313,17 +486,26 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |lab6_toplevel|slc3:my_slc|MAR_module:mar|marout[8]    ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |lab6_toplevel|slc3:my_slc|IR_module:ir|iroutput[10]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |lab6_toplevel|slc3:my_slc|MDR_module:mdr|mdrout[15]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|datapath:d0|data[3]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|ISDU:state_controller|State ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |lab6_toplevel|slc3:my_slc|PC_module:pc|pcout[3]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |lab6_toplevel|slc3:my_slc|IR_module:ir|iroutput[15]        ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; Yes        ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|SR1[15]   ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |lab6_toplevel|slc3:my_slc|MDR_module:mdr|mdrout[14]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|RegFile_module:regfile|registers ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|datapath:d0|data[6]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |lab6_toplevel|slc3:my_slc|ISDU:state_controller|State      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------+
@@ -343,6 +525,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+---------------------------------------------------------+
 ; width          ; 16    ; Signed Integer                                          ;
 +----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: slc3:my_slc|mux2:muxaddr1 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; width          ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -377,16 +569,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "slc3:my_slc|ISDU:state_controller"                                                      ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; LD_LED   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; SR2MUX   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ADDR1MUX ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ALUK     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "slc3:my_slc|ISDU:state_controller"                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; LD_LED ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; SR2MUX ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ALUK   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -402,12 +593,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------------------+
+; Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder|full_adder:FA0" ;
++------+-------+----------+-----------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                             ;
++------+-------+----------+-----------------------------------------------------+
+; z    ; Input ; Info     ; Stuck at GND                                        ;
++------+-------+----------+-----------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "slc3:my_slc|addr2mux_module:muxaddr2"                                               ;
+; Port Connectivity Checks: "slc3:my_slc|ripple_adder:addradder"                                                 ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
-; o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; CO   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -425,7 +625,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
-; SR1  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; SR2  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -453,7 +652,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+-------------------------+
 ; Port   ; Type  ; Severity ; Details                 ;
 +--------+-------+----------+-------------------------+
-; MARMUX ; Input ; Info     ; Stuck at GND            ;
 ; ALUOUT ; Input ; Info     ; Stuck at GND            ;
 +--------+-------+----------+-------------------------+
 
@@ -501,10 +699,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Wed Feb 26 16:14:01 2020
+    Info: Processing started: Wed Feb 26 16:24:57 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Microprocessor -c Microprocessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 2 entities, in source file ripple_adder.sv
+    Info (12023): Found entity 1: full_adder File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/ripple_adder.sv Line: 3
+    Info (12023): Found entity 2: ripple_adder File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/ripple_adder.sv Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
     Info (12023): Found entity 1: HexDriver File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/HexDriver.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ir_module.sv
@@ -565,9 +766,11 @@ Info (12128): Elaborating entity "RegFile_module" for hierarchy "slc3:my_slc|Reg
 Info (12128): Elaborating entity "mux2_3bit" for hierarchy "slc3:my_slc|RegFile_module:regfile|mux2_3bit:drmux" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/RegFile.sv Line: 8
 Info (12128): Elaborating entity "nzp_module" for hierarchy "slc3:my_slc|nzp_module:nzpmod" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 81
 Info (12128): Elaborating entity "addr2mux_module" for hierarchy "slc3:my_slc|addr2mux_module:muxaddr2" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 83
-Info (12128): Elaborating entity "Mem2IO" for hierarchy "slc3:my_slc|Mem2IO:memory_subsystem" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 91
-Info (12128): Elaborating entity "tristate" for hierarchy "slc3:my_slc|tristate:tr0" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 96
-Info (12128): Elaborating entity "ISDU" for hierarchy "slc3:my_slc|ISDU:state_controller" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 103
+Info (12128): Elaborating entity "ripple_adder" for hierarchy "slc3:my_slc|ripple_adder:addradder" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 86
+Info (12128): Elaborating entity "full_adder" for hierarchy "slc3:my_slc|ripple_adder:addradder|full_adder:FA0" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/ripple_adder.sv Line: 27
+Info (12128): Elaborating entity "Mem2IO" for hierarchy "slc3:my_slc|Mem2IO:memory_subsystem" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 94
+Info (12128): Elaborating entity "tristate" for hierarchy "slc3:my_slc|tristate:tr0" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 99
+Info (12128): Elaborating entity "ISDU" for hierarchy "slc3:my_slc|ISDU:state_controller" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/slc3.sv Line: 106
 Info (12128): Elaborating entity "test_memory" for hierarchy "test_memory:my_test_memory" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/lab6_toplevel.sv Line: 16
 Warning (10036): Verilog HDL or VHDL warning at test_memory.sv(27): object "actual_address" assigned a value but never read File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/test_memory.sv Line: 27
 Info (12128): Elaborating entity "memory_parser" for hierarchy "test_memory:my_test_memory|memory_parser:parser" File: C:/Users/megge/Documents/GitHub/ECE385/Microprocessor/test_memory.sv Line: 33
@@ -624,10 +827,10 @@ Info (21057): Implemented 370 device resources after synthesis - the final resou
     Info (21060): Implemented 16 bidirectional pins
     Info (21061): Implemented 185 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
-    Info: Peak virtual memory: 4766 megabytes
-    Info: Processing ended: Wed Feb 26 16:14:19 2020
+    Info: Peak virtual memory: 4767 megabytes
+    Info: Processing ended: Wed Feb 26 16:25:15 2020
     Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:39
+    Info: Total CPU time (on all processors): 00:00:37
 
 
 +------------------------------------------+

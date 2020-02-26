@@ -81,6 +81,9 @@ module slc3(
 	nzp_module nzpmod(.data(Data), .LD_CC, .LD_BEN, .currNZP(IR[11:9]), .clk(Clk), . reset(Reset_ah), .BEN);
 	
 	addr2mux_module muxaddr2(.d1(16'(signed'(IR[5:0]))), .d2(16'(signed'(IR[8:0]))), .d3(16'(signed'(IR[10:0]))), .s(ADDR2MUX), .o(ADDR2MUXOUT ));
+	mux2 muxaddr1(.d0(SR1OUT), .d1(PC), .s(ADDR1MUX),.y(ADDR1MUXOUT));
+	
+	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX), .CO(1'b0));
 	
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
