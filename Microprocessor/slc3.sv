@@ -64,7 +64,7 @@ module slc3(
 	// Be careful about whether Reset is active high or low
 
 
-	datapath d0 (	.MDR(MDR), .PC(PC), .MARMUX(MARMUX), .ALUOUT(ALUOUT),
+	datapath d0 (	.MDR, .PC, .MARMUX, .ALUOUT,
 					.s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX), .data(Data));
 
 	MDR_module mdr(.data(Data), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(Clk), .reset(Reset_ah));
@@ -76,8 +76,10 @@ module slc3(
 	MAR_module mar(.data(Data), .marout(MAR), .ld(LD_MAR), .clk(Clk), .reset(Reset_ah));
 
 	RegFile_module regfile(.data(Data), .SR1_11(IR[11:9]), . SR1_8(IR[8:6]), .SR2_2(IR[2:0]),
-									 .DRMUX(DRMUX), .SR1MUX(SR1MUX), .LD_REG(LD_REG), .clk(Clk), .reset(Reset_ah), .SR1(SR1OUT),.SR2(SR2OUT));
-									 
+									 .DRMUX, .SR1MUX, .LD_REG, .clk(Clk), .reset(Reset_ah), .SR1(SR1OUT),.SR2(SR2OUT));
+	nzp_module nzpmod(.data(Data), .LD_CC, .LD_BEN, .currNZP(IR[11:9]), .clk(Clk), . reset(Reset_ah), .BEN);
+
+	
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
 		.*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
