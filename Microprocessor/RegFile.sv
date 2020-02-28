@@ -1,6 +1,6 @@
-module RegFile_module( input logic[15:0] data, input logic[2:0] SR1_11, input logic[2:0] SR1_8, input logic [2:0] SR2_2,
-					 input logic DRMUX,SR1MUX, LD_REG, clk,reset,
-					 output logic [15:0] SR1, SR2 );
+module RegFile_module(	input logic[15:0] data, input logic[2:0] SR1_11, input logic[2:0] SR1_8, input logic [2:0] SR2_2,
+						input logic DRMUX, SR1MUX, LD_REG, clk, reset,
+						output logic [15:0] SR1, SR2 );
 
 	logic[15:0] registers [7:0]; //create 8 8-bit wide registers
 	logic[2:0] destinationReg, SR1_SRC;

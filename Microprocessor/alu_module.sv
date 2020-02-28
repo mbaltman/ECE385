@@ -1,5 +1,5 @@
 module alu_module(
-    input  logic [15:0] A, B,
+    input  logic [15:0] A, B, // B comes from the output of sr2mux_module
     input  logic [1:0]  s,
     output logic [15:0] out);
     always_comb
@@ -11,6 +11,6 @@ module alu_module(
         else if (s == 2'b10)
             out = ~A;
         else if (s == 2'b11)
-            out = A;
+            out = A; // ???
     end
 endmodule
