@@ -5,8 +5,8 @@ module RegFile_module( input logic[15:0] data, input logic[2:0] SR1_11, input lo
 	logic[15:0] registers [7:0]; //create 8 8-bit wide registers
 	logic[2:0] destinationReg, SR1_SRC;
 
-	mux2_3bit drmux (.d0(SR1_11), .d1(3'b111), .s(DRMUX), .y(destinationReg));
-	mux2_3bit srmux (.d0(SR1_11), .d1(SR1_8), .s(SR1MUX), .y(SR1_SRC));
+	mux2 #(3) drmux (.d0(SR1_11), .d1(3'b111), .s(DRMUX), .y(destinationReg));
+	mux2 #(3) srmux (.d0(SR1_11), .d1(SR1_8), .s(SR1MUX), .y(SR1_SRC));
 
 	always_ff @ (posedge clk)
 	begin
