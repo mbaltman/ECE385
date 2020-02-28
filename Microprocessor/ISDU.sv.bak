@@ -45,12 +45,7 @@ module ISDU (	input logic         Clk,
 						S_33_2,
 						S_35,
 						S_32,
-						S_01,
-						S_06,
-						S_25_1,
-						S_25_2,
-						S_27
-						} State, Next_state; // Internal state logic
+						S_01} State, Next_state; // Internal state logic
 
 	always_ff @ (posedge Clk)
 	begin
@@ -106,9 +101,9 @@ module ISDU (	input logic         Clk,
 			S_33_2 :
 				Next_state = S_35;
 			S_35 :
-				Next_state = S_32;
-				
-			
+				Next_state = PauseIR1;
+			// PauseIR1 and PauseIR2 are only for Week 1 such that TAs can see
+			// the values in IR.
 			PauseIR1 :
 				if (~Continue)
 					Next_state = PauseIR1;
@@ -119,29 +114,20 @@ module ISDU (	input logic         Clk,
 					Next_state = PauseIR2;
 				else
 					Next_state = S_18;
-					
 			S_32 :
 				case (Opcode)
 					4'b0001 :
 						Next_state = S_01;
-					4'b0110 :
-						Next_state = S_06;
-					
+
+					// You need to finish the rest of opcodes ...
 
 					default :
 						Next_state = S_18;
 				endcase
 			S_01 :
 				Next_state = S_18;
-			
-			S_06 :
-				Next_state = S_25_1;
-			S_25_1 :
-				Next_state = S_25_2;
-			S_25_2:
-				Next_state = S_27;
-			S_27 : 
-				Next_state = S_18;
+
+			// You need to finish the rest of states ...
 
 			default : ;
 
@@ -180,23 +166,6 @@ module ISDU (	input logic         Clk,
 					GateALU = 1'b1;
 					LD_REG = 1'b1;
 					// incomplete ...
-				end
-			S_06 :
-				begin
-					LD_MAR = 1'b1;
-					SR1MUX = 1'b1;
-					ADDR1MUX = 1'b1;
-					ADDR2MUX = 2'b01;
-					GateMARMUX = 1'b1;
-				end
-			S_25_1 :
-				begin
-				end
-			S_25_2 :
-				begin
-				end
-			S_27 :
-				begin
 				end
 
 			// You need to finish the rest of states ...
