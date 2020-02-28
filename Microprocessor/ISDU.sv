@@ -37,7 +37,7 @@ module ISDU (	input logic         Clk,
 									Mem_WE
 				);
 
-	enum logic [3:0] {	Halted,
+	enum logic [4:0] {	Halted,
 						PauseIR1,
 						PauseIR2,
 						S_18,
@@ -49,7 +49,14 @@ module ISDU (	input logic         Clk,
 						S_06,
 						S_25_1,
 						S_25_2,
-						S_27
+						S_27,
+						S_07,
+						S_23,
+						S_16_1,
+						S_16_2,
+						S_05,
+						S_00,
+						S_22
 						} State, Next_state; // Internal state logic
 
 	always_ff @ (posedge Clk)
@@ -126,7 +133,12 @@ module ISDU (	input logic         Clk,
 						Next_state = S_01;
 					4'b0110 :
 						Next_state = S_06;
-					
+					4'b0111 :
+						Next_state = S_07;
+					4'b0101 :
+						Next_state = S_05;
+					4'b0000 :
+						Next_state = S_00;
 
 					default :
 						Next_state = S_18;
@@ -142,6 +154,23 @@ module ISDU (	input logic         Clk,
 				Next_state = S_27;
 			S_27 : 
 				Next_state = S_18;
+			S_07:
+				Next_state = S_23;
+			S_23:
+				Next_state = S_16_1;
+			S_16_1:
+				Next_state = S_16_2;
+			S_16_2:
+				Next_state = S_18;
+			S_05:
+				Next_state = S_18;
+			S_00:
+				begin
+					if(BEN)
+						Next_state = S_22;
+					else
+						Next_state = S_18;
+				end
 
 			default : ;
 
@@ -181,7 +210,7 @@ module ISDU (	input logic         Clk,
 					LD_REG = 1'b1;
 					// incomplete ...
 				end
-			S_06 :
+			S_06, S_07 :
 				begin
 					LD_MAR = 1'b1;
 					SR1MUX = 1'b1;
@@ -189,16 +218,48 @@ module ISDU (	input logic         Clk,
 					ADDR2MUX = 2'b01;
 					GateMARMUX = 1'b1;
 				end
-			S_25_1 :
+			S_25_1, S_25_2 :
 				begin
-				end
-			S_25_2 :
-				begin
+					Mem_OE = 1'b0;
+					LD_MDR = 1'b1;
 				end
 			S_27 :
 				begin
+					LD_CC = 1'b1;
+					GateMDR = 1'b1;
+					DRMUX = 1'b0;
+					LD_REG = 1'b1;
 				end
-
+			S_23 :
+				begin
+					SR1MUX =1'b0;
+					ALUK = 2'b11;
+					GateALU = 1'b1;
+					LD_MDR = 1'b1;
+					Mem_OE = 1'b1;	
+				end
+			S_16_1, S_16_2 :
+				begin
+					Mem_WE = 1'b0;
+				end
+			S_05:
+				begin
+					SR1MUX = 1'b1;
+					ALUK = 2'b01;
+					GateALU = 1'b1;
+					LD_REG =1'b1;
+					DRMUX = 1'b0;
+					LD_CC = 1'b1;
+				  
+				end
+			S_22:
+				begin
+				 LD_PC =1'b1;
+				 ADDR2MUX = 2'b10;
+				 ADDR1MUX = 1'b0;
+				 PCMUX = 2'b10;
+				end
+				
 			// You need to finish the rest of states ...
 
 			default : ;

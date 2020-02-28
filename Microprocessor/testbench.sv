@@ -29,7 +29,7 @@ Reset = 1;
 Run = 1;
 Continue = 1;
 
-S = 16'h0;
+S = 16'h0003;
 
 #2 Reset = 0;
 #2 Reset =1;
@@ -40,6 +40,13 @@ Reset = 1;
 #8 Run =1;
 #2 Continue = 0;
 #2 Continue = 1;
+
+#80 S= 16'h000F;
+#80 S =16'h00F0;
+#80 S =16'h0F00;
+#80 S =16'hF000;
+
+
 
 end
 

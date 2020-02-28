@@ -13,10 +13,13 @@ module slc3(
 
 	// Declaration of push button active high signals
 	logic Reset_ah, Continue_ah, Run_ah;
-
+	
+	//synchronize these signals?
 	assign Reset_ah = ~Reset;
 	assign Continue_ah = ~Continue;
 	assign Run_ah = ~Run;
+	assign MIO_EN = ~OE;
+	//SYNC WE
 
 	// Internal connections
 	//logic LD_IR;
@@ -59,7 +62,7 @@ module slc3(
 	// MEM2IO will determine what gets put onto Data_CPU (which serves as a potential
 	// input into MDR)
 	assign ADDR = { 4'b00, MAR }; // Note, our external SRAM chip is 1Mx16, but address space is only 64Kx16
-	assign MIO_EN = ~OE;
+	
 
 	// You need to make your own datapath module and connect everything to the datapath
 	// Be careful about whether Reset is active high or low
@@ -83,7 +86,7 @@ module slc3(
 	addr2mux_module muxaddr2(.d1(16'(signed'(IR[5:0]))), .d2(16'(signed'(IR[8:0]))), .d3(16'(signed'(IR[10:0]))), .s(ADDR2MUX), .o(ADDR2MUXOUT ));
 	mux2 muxaddr1(.d0(SR1OUT), .d1(PC), .s(ADDR1MUX),.y(ADDR1MUXOUT));
 	
-	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(SR2MUXOUT), .y(SR2MUX));
+	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(IR[5]), .y(SR2MUXOUT));
 	
 	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX), .CO(1'b0));
 	
