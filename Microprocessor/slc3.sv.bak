@@ -89,8 +89,6 @@ module slc3(
 	
 	alu_module alu(.A(SR1OUt), .B(SR2MUXOUT), .s(ALUK), .out(ALUOUT));
 	
-	
-	
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
 		.*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
