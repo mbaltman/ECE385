@@ -39,13 +39,17 @@ module ISDU(
 						PauseIR2,
 						S_00,
 						S_01,
+						S_04,
 						S_05,
 						S_06,
 						S_07,
+						S_09,
+						S_12,
 						S_16_1,
 						S_16_2,
 						S_16_3,
 						S_18,
+						S_21,
 						S_22,
 						S_23,
 						S_25_1,
@@ -122,7 +126,10 @@ module ISDU(
 
 			S_01 :
 				Next_state = S_18;
-
+				
+			S_04 :
+				Next_state = S_21;
+				
 			S_05 :
 				Next_state = S_18;
 
@@ -131,6 +138,12 @@ module ISDU(
 
 			S_07 :
 				Next_state = S_23;
+				
+			S_09 :
+				Next_state = S_18;
+				
+			S_12 :
+				Next_state = S_18;
 
 			S_16_1 :
 				Next_state = S_16_2;
@@ -141,6 +154,10 @@ module ISDU(
 
 			S_18 :
 				Next_state = S_33_1;
+				
+			S_21 :
+				Next_state = S_18;
+				
 			S_22 :
 				Next_state = S_18;
 
@@ -161,12 +178,20 @@ module ISDU(
 						Next_state = S_00;
 					4'b0001 :
 						Next_state = S_01;
+					4'b0100 :
+						Next_state = S_04;
 					4'b0101 :
 						Next_state = S_05;
 					4'b0110 :
 						Next_state = S_06;
 					4'b0111 :
 						Next_state = S_07;
+					4'b1001 :
+						Next_state = S_09;
+					4'b1100 :
+						Next_state = S_12;
+					4'b1101 :
+						Next_state = PauseIR1;
 					default :
 						Next_state = S_18;
 				endcase
@@ -186,8 +211,12 @@ module ISDU(
 		case (State)
 			Halted: ;
 
-			PauseIR1: ;
-			PauseIR2: ;
+			PauseIR1, PauseIR2 : 
+				begin
+					stateNumber =  991;
+					LD_LED =1'b1;
+				end
+			
 			S_00 :stateNumber =  0;
 				
 			S_01 :
@@ -197,9 +226,17 @@ module ISDU(
 					GateALU = 1'b1;
 					DRMUX = 1'b0;
 					LD_REG = 1'b1;
+					LD_CC = 1'b1;
 					stateNumber =  1;
 				end
-
+			
+			S_04 :
+				begin
+					GatePC = 1'b1;
+					DRMUX =1'b1;
+					LD_REG = 1'b1;
+					stateNumber =  4;
+				end
 			S_05 :
 				begin
 					SR1MUX = 1'b1;
@@ -222,7 +259,26 @@ module ISDU(
 					
 					stateNumber = 67;
 				end
-
+			
+			S_09 :
+				begin
+					LD_CC =1'b1;
+					SR1MUX = 1'b1;
+					DRMUX = 1'b0;
+					LD_REG = 1'b1;
+					ALUK = 2'b10;
+					GateALU =1'b1;
+					stateNumber = 09;
+				end
+			S_12 :
+				begin
+					LD_PC = 1'b1;
+					PCMUX = 2'b10;
+					ADDR1MUX = 1'b1;
+					ADDR2MUX = 2'b01;
+					SR1MUX = 1'b1;
+					stateNumber = 12;
+				end
 			S_16_1, S_16_2, S_16_3 :
 				begin
 					Mem_WE = 1'b0;
@@ -237,6 +293,14 @@ module ISDU(
 					PCMUX = 2'b00;
 					LD_PC = 1'b1;
 					stateNumber =  18;
+				end
+			S_21 :
+				begin
+					ADDR2MUX = 2'b11;
+					ADDR1MUX = 1'b0;
+					PCMUX = 2'b10;
+					LD_PC = 1'b1;
+					stateNumber =  21;
 				end
 
 			S_22:

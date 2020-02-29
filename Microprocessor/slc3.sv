@@ -92,7 +92,9 @@ module slc3(
 	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX));
 
 	alu_module alu(.A(SR1OUT), .B(SR2MUXOUT), .s(ALUK), .out(ALUOUT));
-
+	
+	LED_module ledmod (.LD_LED, .clk(Clk), .IR11(IR[11:0]), .LED);
+	
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
 	.*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
