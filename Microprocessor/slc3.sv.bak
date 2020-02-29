@@ -12,20 +12,13 @@ module slc3(
 	);
 
 	// Declaration of push button active high signals
-	logic Reset_ah, Continue_ah, Run_ah, WE_S;
+	logic Reset_ah, Continue_ah, Run_ah;
 	
 	//synchronize these signals?
-
-
-	
-	
-	  sync R_sync (Clk, ~Reset,Reset_ah);
-	  
-	  sync C_sync (Clk, ~Continue,Continue_ah);
-	   sync Ru_sync (Clk, ~Run,Run_ah);
-		sync Oe_sync (Clk, ~OE,MIO_EN);
-		sync We_sync (Clk, ~WE,WE_S);
-	  
+	assign Reset_ah = ~Reset;
+	assign Continue_ah = ~Continue;
+	assign Run_ah = ~Run;
+	assign MIO_EN = ~OE;
 	//SYNC WE
 
 	// Internal connections
@@ -48,16 +41,16 @@ module slc3(
 
 
 	// For week 1, hexdrivers will display IR. Comment out these in week 2.
-	/*HexDriver hex_driver3 (IR[15:12], HEX3);
+	HexDriver hex_driver3 (IR[15:12], HEX3);
 	HexDriver hex_driver2 (IR[11:8], HEX2);
 	HexDriver hex_driver1 (IR[7:4], HEX1);
 	HexDriver hex_driver0 (IR[3:0], HEX0);
-*/
+
 	// For week 2, hexdrivers will be mounted to Mem2IO
-	 HexDriver hex_driver3 (hex_4[3][3:0], HEX3);
-	 HexDriver hex_driver2 (hex_4[2][3:0], HEX2);
-	 HexDriver hex_driver1 (hex_4[1][3:0], HEX1);
-	 HexDriver hex_driver0 (hex_4[0][3:0], HEX0);
+	// HexDriver hex_driver3 (hex_4[3][3:0], HEX3);
+	// HexDriver hex_driver2 (hex_4[2][3:0], HEX2);
+	// HexDriver hex_driver1 (hex_4[1][3:0], HEX1);
+	// HexDriver hex_driver0 (hex_4[0][3:0], HEX0);
 
 	// The other hex display will show PC for both weeks.
 	HexDriver hex_driver7 (PC[15:12], HEX7);
@@ -95,9 +88,9 @@ module slc3(
 	
 	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(IR[5]), .y(SR2MUXOUT));
 	
-	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX));
+	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX), .CO(1'b0));
 	
-	alu_module alu(.A(SR1OUT), .B(SR2MUXOUT), .s(ALUK), .out(ALUOUT));
+	alu_module alu(.A(SR1OUt), .B(SR2MUXOUT), .s(ALUK), .out(ALUOUT));
 	
 	
 	
@@ -111,7 +104,7 @@ module slc3(
 
 	// The tri-state buffer serves as the interface between Mem2IO and SRAM
 	tristate #(.N(16)) tr0(
-		.Clk(Clk), .tristate_output_enable(WE_S), .Data_write(Data_to_SRAM), .Data_read(Data_from_SRAM), .Data(Data)
+		.Clk(Clk), .tristate_output_enable(~WE), .Data_write(Data_to_SRAM), .Data_read(Data_from_SRAM), .Data(Data)
 	);
 
 	// State machine and control signals

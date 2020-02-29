@@ -3,7 +3,7 @@ module alu_module(
     input  logic [1:0]  s,
     output logic [15:0] out);
 
-   always_comb
+    always_comb
 	begin
     unique case(s)
         2'b00:
