@@ -9,7 +9,6 @@
 `define _SLC3_2__SV
 
 package SLC3_2;
-
 	// Useful constants
 	parameter op_ADD = 4'b0001; // opcode aliases
 	parameter op_AND = 4'b0101;
@@ -165,8 +164,6 @@ package SLC3_2;
 		opPSE[15:12] = op_PSE;
 		opPSE[11: 0] = ledVect12;
 	endfunction
-
-
 endpackage
 
 `endif

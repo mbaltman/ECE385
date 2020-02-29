@@ -94,6 +94,5 @@ module test_memory (input           Clk,
     end
 
     assign I_O = I_O_wire;
-
 // synthesis translate_on
 endmodule

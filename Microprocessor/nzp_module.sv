@@ -1,6 +1,10 @@
-module nzp_module( input logic[15:0] data, input logic LD_CC, LD_BEN, input logic[2:0] currNZP, input logic clk, reset,
-						 output logic BEN );
-	logic[2:0] NZP;
+module nzp_module(
+	input  logic [15:0] data,
+	input  logic LD_CC, LD_BEN, clk, reset,
+	input  logic [2:0] currNZP,
+	output logic BEN);
+
+	logic [2:0] NZP;
 
 	always_ff @ (posedge clk)
 		begin
