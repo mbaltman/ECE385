@@ -31,8 +31,7 @@ module ISDU(
 						Mem_UB,
 						Mem_LB,
 						Mem_OE,
-						Mem_WE,
-	output integer  stateNumber);
+						Mem_WE);
 
 	enum logic [4:0] {	Halted,
 						PauseIR1,
@@ -44,7 +43,6 @@ module ISDU(
 						S_07,
 						S_16_1,
 						S_16_2,
-						S_16_3,
 						S_18,
 						S_22,
 						S_23,
@@ -68,7 +66,7 @@ module ISDU(
 	begin
 		// Default next state is staying at current state
 		Next_state = State;
-		stateNumber = 999;
+
 		// Default controls signal values
 		LD_MAR = 1'b0;
 		LD_MDR = 1'b0;
@@ -135,14 +133,10 @@ module ISDU(
 			S_16_1 :
 				Next_state = S_16_2;
 			S_16_2 :
-				Next_state = S_16_3;
-			S_16_3:
 				Next_state = S_18;
 
 			S_18 :
 				Next_state = S_33_1;
-			S_22 :
-				Next_state = S_18;
 
 			S_23 :
 				Next_state = S_16_1;
@@ -188,16 +182,13 @@ module ISDU(
 
 			PauseIR1: ;
 			PauseIR2: ;
-			S_00 :stateNumber =  0;
-				
+
 			S_01 :
 				begin
 					SR2MUX = IR_5;
 					ALUK = 2'b00;
 					GateALU = 1'b1;
-					DRMUX = 1'b0;
 					LD_REG = 1'b1;
-					stateNumber =  1;
 				end
 
 			S_05 :
@@ -208,26 +199,20 @@ module ISDU(
 					LD_REG = 1'b1;
 					DRMUX = 1'b0;
 					LD_CC = 1'b1;
-					stateNumber =  5;
 				end
 
 			S_06, S_07 :
 				begin
 					LD_MAR = 1'b1;
 					SR1MUX = 1'b1;
-					
 					ADDR1MUX = 1'b1;
 					ADDR2MUX = 2'b01;
 					GateMARMUX = 1'b1;
-					
-					stateNumber = 67;
 				end
 
-			S_16_1, S_16_2, S_16_3 :
+			S_16_1, S_16_2 :
 				begin
 					Mem_WE = 1'b0;
-					Mem_OE = 1'b0;
-					stateNumber =  16;
 				end
 
 			S_18 :
@@ -236,7 +221,6 @@ module ISDU(
 					LD_MAR = 1'b1;
 					PCMUX = 2'b00;
 					LD_PC = 1'b1;
-					stateNumber =  18;
 				end
 
 			S_22:
@@ -245,7 +229,6 @@ module ISDU(
 					ADDR2MUX = 2'b10;
 					ADDR1MUX = 1'b0;
 					PCMUX = 2'b10;
-					stateNumber = 22;
 				end
 
 			S_23 :
@@ -255,14 +238,12 @@ module ISDU(
 					GateALU = 1'b1;
 					LD_MDR = 1'b1;
 					Mem_OE = 1'b1;
-					stateNumber = 23;
 				end
 
 			S_25_1, S_25_2 :
 				begin
 					Mem_OE = 1'b0;
 					LD_MDR = 1'b1;
-					stateNumber = 25;
 				end
 
 			S_27 :
@@ -271,32 +252,23 @@ module ISDU(
 					GateMDR = 1'b1;
 					DRMUX = 1'b0;
 					LD_REG = 1'b1;
-					stateNumber = 27;
 				end
 
 			S_32 :
-			begin
 				LD_BEN = 1'b1;
-				stateNumber = 32;
-			end
 
 			S_33_1 :
-			begin
 				Mem_OE = 1'b0;
-				stateNumber = 331;
-			end
 			S_33_2 :
 				begin
 					Mem_OE = 1'b0;
 					LD_MDR = 1'b1;
-					stateNumber = 332;
 				end
 
 			S_35 :
 				begin
 					GateMDR = 1'b1;
 					LD_IR = 1'b1;
-					stateNumber = 35;
 				end
 
 			default: ;

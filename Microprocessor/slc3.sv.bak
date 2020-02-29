@@ -5,13 +5,10 @@ module slc3(
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
 	output logic CE, UB, LB, OE, WE,
 	output logic [19:0] ADDR,
-	output logic [15:0] IR, PC, MAR,MDR,SR1OUT,
-	output logic GatePC, LD_MAR, LD_PC, MIO_EN, GateMDR, LD_IR, 
+	output logic [15:0] IR, PC, MAR,
+	output logic GatePC, LD_MAR, LD_PC, MIO_EN, Gate_MDR, LD_IR,
 	output logic [1:0] PCMUX,
-	inout  wire  [15:0] Data,DataM, 
-	output integer stateNumber,
-	output logic [2:0] SR1_SRC,
-	output logic [15:0] registers [7:0]// tristate buffers need to be of type wire  //ask david if this is the datapath
+	inout  wire  [15:0] Data // tristate buffers need to be of type wire  //ask david if this is the datapath
 	);
 
 	// Declaration of push button active high signals
@@ -32,9 +29,9 @@ module slc3(
 	logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX;
 
 	logic [15:0] MDR_In;
-	logic [15:0]  MARMUX, ALUOUT;
+	logic [15:0] MDR, MARMUX, ALUOUT;
 	logic [15:0] Data_from_SRAM, Data_to_SRAM;
-	logic [15:0]  SR2OUT;
+	logic [15:0] SR1OUT, SR2OUT;
 	logic [15:0] ADDR2MUXOUT, ADDR1MUXOUT, SR2MUXOUT;
 
 	// Signals being displayed on hex display
@@ -76,16 +73,14 @@ module slc3(
 
 	RegFile_module regfile(
 	.data(Data), .SR1_11(IR[11:9]), . SR1_8(IR[8:6]), .SR2_2(IR[2:0]),
-	.DRMUX, .SR1MUX, .LD_REG, .clk(Clk), .reset(Reset_ah), .SR1(SR1OUT), .SR2(SR2OUT),
-	.SR1_SRC,
-	.registers
+	.DRMUX, .SR1MUX, .LD_REG, .clk(Clk), .reset(Reset_ah), .SR1(SR1OUT), .SR2(SR2OUT)
 	);
 
 	nzp_module nzpmod(.data(Data), .LD_CC, .LD_BEN, .currNZP(IR[11:9]), .clk(Clk), . reset(Reset_ah), .BEN);
 
 	addr2mux_module muxaddr2(.d1(16'(signed'(IR[5:0]))), .d2(16'(signed'(IR[8:0]))), .d3(16'(signed'(IR[10:0]))), .s(ADDR2MUX), .o(ADDR2MUXOUT));
 
-	mux2 muxaddr1(.d0(PC), .d1(SR1OUT), .s(ADDR1MUX), .y(ADDR1MUXOUT));
+	mux2 muxaddr1(.d0(SR1OUT), .d1(PC), .s(ADDR1MUX), .y(ADDR1MUXOUT));
 
 	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(SR2MUX), .y(SR2MUXOUT));
 
@@ -103,13 +98,13 @@ module slc3(
 
 	// The tri-state buffer serves as the interface between Mem2IO and SRAM
 	tristate #(.N(16)) tr0(
-	.Clk(Clk), .tristate_output_enable(WE_S), .Data_write(Data_to_SRAM), .Data_read(Data_from_SRAM), .Data(DataM)
+	.Clk(Clk), .tristate_output_enable(WE_S), .Data_write(Data_to_SRAM), .Data_read(Data_from_SRAM), .Data(Data)
 	);
 
 	// State machine and control signals
 	ISDU state_controller(
 	.*, .Reset(Reset_ah), .Run(Run_ah), .Continue(Continue_ah),
 	.Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
-	.Mem_CE(CE), .Mem_UB(UB), .Mem_LB(LB), .Mem_OE(OE), .Mem_WE(WE), .stateNumber
+	.Mem_CE(CE), .Mem_UB(UB), .Mem_LB(LB), .Mem_OE(OE), .Mem_WE(WE)
 	);
 endmodule

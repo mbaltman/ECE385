@@ -14,6 +14,6 @@ module datapath(
 		else if(s4)
 			data = MARMUX;
 		else
-			data = 16'bZ;
+			data = 16'hZZZZ;
 		end
 endmodule
