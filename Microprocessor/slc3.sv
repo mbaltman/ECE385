@@ -82,7 +82,7 @@ module slc3(
 
 	mux2 muxaddr1(.d0(SR1OUT), .d1(PC), .s(ADDR1MUX), .y(ADDR1MUXOUT));
 
-	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(IR[5]), .y(SR2MUXOUT));
+	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(SR2MUX), .y(SR2MUXOUT));
 
 	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX));
 
