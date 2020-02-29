@@ -24,7 +24,7 @@ module slc3(
 	// Internal connections
 	logic BEN;
 	logic LD_MDR, LD_BEN, LD_CC, LD_REG, LD_LED;
-	logic [1:0]  ADDR2MUX, ALUK;
+	logic [1:0] ADDR2MUX, ALUK;
 	logic GateALU, GateMARMUX;
 	logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX;
 
