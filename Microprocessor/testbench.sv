@@ -38,8 +38,6 @@ module testbench();
 
 		#4 Run = 0;
 		#8 Run = 1;
-		#2 Continue = 0;
-		#2 Continue = 1;
 
 		#80 S = 16'h000F;
 		#80 S = 16'h00F0;

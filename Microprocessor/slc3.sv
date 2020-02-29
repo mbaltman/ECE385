@@ -65,7 +65,7 @@ module slc3(
 
 	MDR_module mdr(.data(Data), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(Clk), .reset(Reset_ah));
 
-	PC_module pc(.pcout(PC), .data(Data), .address(MARMUX), .s(PC_MUX), .ld(LD_PC), .clk(Clk), .reset(Reset_ah));
+	PC_module pc(.pcout(PC), .data(Data), .address(MARMUX), .s(PCMUX), .ld(LD_PC), .clk(Clk), .reset(Reset_ah));
 
 	IR_module ir(.data(Data), .iroutput(IR), .ld(LD_IR), .clk(Clk), .reset(Reset_ah));
 
