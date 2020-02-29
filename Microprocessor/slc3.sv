@@ -5,13 +5,13 @@ module slc3(
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
 	output logic CE, UB, LB, OE, WE,
 	output logic [19:0] ADDR,
-	output logic [15:0] IR, PC, MAR,MDR,SR1OUT,
-	output logic GatePC, LD_MAR, LD_PC, MIO_EN, GateMDR, LD_IR, 
+	output logic [15:0] IR, PC, MAR, MDR, SR1OUT,
+	output logic GatePC, LD_MAR, LD_PC, MIO_EN, GateMDR, LD_IR,
 	output logic [1:0] PCMUX,
-	inout  wire  [15:0] Data,DataM, 
+	inout  wire  [15:0] Data, DataM,
 	output integer stateNumber,
 	output logic [2:0] SR1_SRC,
-	output logic [15:0] registers [7:0]// tristate buffers need to be of type wire  //ask david if this is the datapath
+	output logic [15:0] registers [7:0] // tristate buffers need to be of type wire  //ask david if this is the datapath
 	);
 
 	// Declaration of push button active high signals
@@ -32,9 +32,9 @@ module slc3(
 	logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX;
 
 	logic [15:0] MDR_In;
-	logic [15:0]  MARMUX, ALUOUT;
+	logic [15:0] MARMUX, ALUOUT;
 	logic [15:0] Data_from_SRAM, Data_to_SRAM;
-	logic [15:0]  SR2OUT;
+	logic [15:0] SR2OUT;
 	logic [15:0] ADDR2MUXOUT, ADDR1MUXOUT, SR2MUXOUT;
 
 	// Signals being displayed on hex display
@@ -92,9 +92,9 @@ module slc3(
 	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX));
 
 	alu_module alu(.A(SR1OUT), .B(SR2MUXOUT), .s(ALUK), .out(ALUOUT));
-	
+
 	LED_module ledmod (.LD_LED, .clk(Clk), .IR11(IR[11:0]), .LED);
-	
+
 	// Our SRAM and I/O controller
 	Mem2IO memory_subsystem(
 	.*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),

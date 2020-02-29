@@ -14,22 +14,21 @@ module nzp_module(
 			end
 		else if (LD_CC)
 			begin
-				if(data[15] == 1)
+				if (data[15])
 					NZP <= 3'b100;
-				else if(data == 16'h0000)
+				else if (data == 16'h0000)
 					NZP <= 3'b010;
 				else
 					NZP <= 3'b001;
 			end
 
-		if(LD_BEN)
+		if (LD_BEN)
 			begin
-				if(currNZP[2] == NZP[2])
+				if (currNZP[2] == NZP[2])
 					BEN <= 1'b1;
-				else if(currNZP[1] == NZP[1])
+				else if (currNZP[1] == NZP[1])
 					BEN <= 1'b1;
-					
-				else if(currNZP[0] == NZP[0])
+				else if (currNZP[0] == NZP[0])
 					BEN <= 1'b1;
 				else
 					BEN <= 1'b0;

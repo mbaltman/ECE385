@@ -10,12 +10,12 @@ module testbench();
 	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
 	logic CE, UB, LB, OE, WE;
 	logic [19:0] ADDR;
-	logic [15:0] IR, PC, MAR, MDR,SR1OUT;
+	logic [15:0] IR, PC, MAR, MDR, SR1OUT;
 	wire  [15:0] Data, DataM;
-	
+
 	logic [2:0] SR1_SRC;
 	logic [15:0] registers [7:0];
-	
+
 	integer stateNumber;
 
 	lab6_toplevel processor(.*);
@@ -44,24 +44,16 @@ module testbench();
 		#4 Run = 0;
 		#8 Run = 1;
 
-		
 		#200 S = 16'h0008;
-		#2 Continue =0;
-		#2 Continue =1;
-		
+		#2 Continue = 0;
+		#2 Continue = 1;
+
 		#200 S = 16'h0002;
-		#2 Continue =0;
-		#2 Continue =1;
-		
-		
-		#400 Continue =0;
-		#2 Continue =1;
-		
-		
-		
-	
-		
-	
-		
+		#2 Continue = 0;
+		#2 Continue = 1;
+
+		#400 Continue = 0;
+		#2 Continue = 1;
+
 	end
 endmodule

@@ -4,7 +4,7 @@ module HexDriver(
 
 	always_comb
 	begin
-		unique case(In0)
+		unique case (In0)
 			4'b0000: Out0 = 7'b1000000; // '0'
 			4'b0001: Out0 = 7'b1111001; // '1'
 			4'b0010: Out0 = 7'b0100100; // '2'

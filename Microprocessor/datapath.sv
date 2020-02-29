@@ -5,13 +5,13 @@ module datapath(
 
 	always_comb
 	begin
-		if(s1)
+		if (s1)
 			data = PC;
-		else if(s2)
+		else if (s2)
 			data = MDR;
-		else if(s3)
+		else if (s3)
 			data = ALUOUT;
-		else if(s4)
+		else if (s4)
 			data = MARMUX;
 		else
 			data = 16'hZZZZ;

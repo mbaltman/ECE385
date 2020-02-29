@@ -14,12 +14,9 @@ module RegFile_module(
 	mux2 #(3) drmux (.d0(SR1_11), .d1(3'b111), .s(DRMUX), .y(destinationReg));
 	mux2 #(3) srmux (.d0(SR1_11), .d1(SR1_8), .s(SR1MUX), .y(SR1_SRC));
 
-	
-	
-	
 	always_comb
 	begin
-	unique case(SR2_2)
+	unique case (SR2_2)
 			3'b000:
 				SR2 = registers[0];
 			3'b001:
@@ -38,7 +35,7 @@ module RegFile_module(
 				SR2 = registers[7];
 		endcase
 
-		unique case(SR1_SRC)
+		unique case (SR1_SRC)
 			3'b000:
 				SR1 = registers[0];
 			3'b001:
@@ -56,16 +53,8 @@ module RegFile_module(
 			3'b111:
 				SR1 = registers[7];
 		endcase
-		
 	end
-	
-	
-	
-	
-	
-	
-	
-	
+
 	always_ff @ (posedge clk)
 	begin
 		if (reset)
@@ -82,7 +71,7 @@ module RegFile_module(
 
 		else if (LD_REG)
 		begin
-			unique case(destinationReg)
+			unique case (destinationReg)
 				3'b000:
 					registers[0] = data;
 				3'b001:
@@ -102,5 +91,4 @@ module RegFile_module(
 			endcase
 		end
 	end
-		
 endmodule
