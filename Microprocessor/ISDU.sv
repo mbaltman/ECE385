@@ -151,16 +151,16 @@ module ISDU(
 
 			S_32 :
 				case (Opcode)
+					4'b0000 :
+						Next_state = S_00;
 					4'b0001 :
 						Next_state = S_01;
+					4'b0101 :
+						Next_state = S_05;
 					4'b0110 :
 						Next_state = S_06;
 					4'b0111 :
 						Next_state = S_07;
-					4'b0101 :
-						Next_state = S_05;
-					4'b0000 :
-						Next_state = S_00;
 					default :
 						Next_state = S_18;
 				endcase
