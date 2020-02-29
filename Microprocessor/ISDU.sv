@@ -196,7 +196,7 @@ module ISDU(
 					SR1MUX = 1'b1;
 					ALUK = 2'b01;
 					GateALU = 1'b1;
-					LD_REG =1'b1;
+					LD_REG = 1'b1;
 					DRMUX = 1'b0;
 					LD_CC = 1'b1;
 				end
@@ -225,7 +225,7 @@ module ISDU(
 
 			S_22:
 				begin
-					LD_PC =1'b1;
+					LD_PC = 1'b1;
 					ADDR2MUX = 2'b10;
 					ADDR1MUX = 1'b0;
 					PCMUX = 2'b10;
@@ -233,7 +233,7 @@ module ISDU(
 
 			S_23 :
 				begin
-					SR1MUX =1'b0;
+					SR1MUX = 1'b0;
 					ALUK = 2'b11;
 					GateALU = 1'b1;
 					LD_MDR = 1'b1;
