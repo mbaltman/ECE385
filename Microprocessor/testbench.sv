@@ -42,18 +42,18 @@ module testbench();
 		Reset = 1;
 
 		#4 Run = 0;
-		#8 Run = 1;
+		#4 Run = 1;
 
-		#200 S = 16'h0008;
-		#2 Continue = 0;
-		#2 Continue = 1;
+		#250 S = 16'h0008;
+		#4 Continue = 0;
+		#4 Continue = 1;
 
-		#200 S = 16'h0002;
-		#2 Continue = 0;
-		#2 Continue = 1;
+		#250 S = 16'h0002;
+		#4 Continue = 0;
+		#4 Continue = 1;
 
-		#400 Continue = 0;
-		#2 Continue = 1;
+		#500 Continue = 0;
+		#4 Continue = 1;
 
 	end
 endmodule

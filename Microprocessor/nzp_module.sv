@@ -24,11 +24,11 @@ module nzp_module(
 
 		if (LD_BEN)
 			begin
-				if (currNZP[2] == NZP[2])
+				if ((currNZP[2] == 1) && (NZP[2] == 1))
 					BEN <= 1'b1;
-				else if (currNZP[1] == NZP[1])
+				else if ((currNZP[1] == 1) && (NZP[1] == 1))
 					BEN <= 1'b1;
-				else if (currNZP[0] == NZP[0])
+				else if ((currNZP[0] == 1) && (NZP[0] == 1))
 					BEN <= 1'b1;
 				else
 					BEN <= 1'b0;

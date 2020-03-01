@@ -221,6 +221,7 @@ module ISDU(
 
 			S_01 :
 				begin
+					SR1MUX = 1'b1;
 					SR2MUX = IR_5;
 					ALUK = 2'b00;
 					GateALU = 1'b1;

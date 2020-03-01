@@ -22,7 +22,7 @@ module ripple_adder
 
 	logic [14:0] c_inter; // intermediate bits for carryin and carryout between adders
 
-	full_adder FA0(.x(A[0]), .y(B[0]), .z(1'h0), .s(Sum[0]), .c(c_inter[0])); // feed the first bits to the inputs, 0 to carryin, summation to output, and carryout to intermediate variable
+	full_adder FA0(.x(A[0]), .y(B[0]), .z(1'b0), .s(Sum[0]), .c(c_inter[0])); // feed the first bits to the inputs, 0 to carryin, summation to output, and carryout to intermediate variable
 	full_adder FA1(.x(A[1]), .y(B[1]), .z(c_inter[0]), .s(Sum[1]), .c(c_inter[1])); // feed the second bits to the inputs, previous intermediate to carryin, summation to output, and carryout to next intermediate
 	full_adder FA2(.x(A[2]), .y(B[2]), .z(c_inter[1]), .s(Sum[2]), .c(c_inter[2]));
 	full_adder FA3(.x(A[3]), .y(B[3]), .z(c_inter[2]), .s(Sum[3]), .c(c_inter[3]));

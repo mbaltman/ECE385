@@ -5,7 +5,7 @@ module PC_module(
 	output logic [15:0] pcout);
 
 	logic [15:0] pc_interm;
-	mux3 pcmux (.d0(pcout+1), .d1(data), .d2(address), .s(s), .y(pc_interm));
+	mux3 pcmux (.d0(pcout + 1'b1), .d1(data), .d2(address), .s(s), .y(pc_interm));
 
 	always_ff @ (posedge clk)
 	begin

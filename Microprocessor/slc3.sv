@@ -11,7 +11,7 @@ module slc3(
 	inout  wire  [15:0] Data, DataM,
 	output integer stateNumber,
 	output logic [2:0] SR1_SRC,
-	output logic [15:0] registers [7:0] // tristate buffers need to be of type wire  //ask david if this is the datapath
+	output logic [15:0] registers [7:0]
 	);
 
 	// Declaration of push button active high signals
@@ -81,7 +81,7 @@ module slc3(
 	.registers
 	);
 
-	nzp_module nzpmod(.data(Data), .LD_CC, .LD_BEN, .currNZP(IR[11:9]), .clk(Clk), . reset(Reset_ah), .BEN);
+	nzp_module nzpmod(.data(Data), .LD_CC, .LD_BEN, .currNZP(IR[11:9]), .clk(Clk), .reset(Reset_ah), .BEN);
 
 	addr2mux_module muxaddr2(.d1(16'(signed'(IR[5:0]))), .d2(16'(signed'(IR[8:0]))), .d3(16'(signed'(IR[10:0]))), .s(ADDR2MUX), .o(ADDR2MUXOUT));
 
@@ -89,7 +89,7 @@ module slc3(
 
 	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(SR2MUX), .y(SR2MUXOUT));
 
-	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX));
+	ripple_adder addradder(.A(ADDR1MUXOUT), .B(ADDR2MUXOUT), .Sum(MARMUX), .CO());
 
 	alu_module alu(.A(SR1OUT), .B(SR2MUXOUT), .s(ALUK), .out(ALUOUT));
 

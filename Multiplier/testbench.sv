@@ -34,7 +34,7 @@ module testbench();
 		run = 1;
 		cleara_loadb = 1;
 		//
-      #2 reset =0;
+		#2 reset = 0;
 		#2 reset = 1;
 
 		// load b with proper values
@@ -46,8 +46,8 @@ module testbench();
 		s = 8'b11000101;//   00111011
 		#2 run = 0;
 		#2 run = 1;
-		
-		
+
+
 	end
-	
+
 endmodule

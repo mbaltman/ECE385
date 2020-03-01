@@ -17,42 +17,42 @@ module RegFile_module(
 	always_comb
 	begin
 	unique case (SR2_2)
-			3'b000:
-				SR2 = registers[0];
-			3'b001:
-				SR2 = registers[1];
-			3'b010:
-				SR2 = registers[2];
-			3'b011:
-				SR2 = registers[3];
-			3'b100:
-				SR2 = registers[4];
-			3'b101:
-				SR2 = registers[5];
-			3'b110:
-				SR2 = registers[6];
-			3'b111:
-				SR2 = registers[7];
-		endcase
+		3'b000:
+			SR2 = registers[0];
+		3'b001:
+			SR2 = registers[1];
+		3'b010:
+			SR2 = registers[2];
+		3'b011:
+			SR2 = registers[3];
+		3'b100:
+			SR2 = registers[4];
+		3'b101:
+			SR2 = registers[5];
+		3'b110:
+			SR2 = registers[6];
+		3'b111:
+			SR2 = registers[7];
+	endcase
 
-		unique case (SR1_SRC)
-			3'b000:
-				SR1 = registers[0];
-			3'b001:
-				SR1 = registers[1];
-			3'b010:
-				SR1 = registers[2];
-			3'b011:
-				SR1 = registers[3];
-			3'b100:
-				SR1 = registers[4];
-			3'b101:
-				SR1 = registers[5];
-			3'b110:
-				SR1 = registers[6];
-			3'b111:
-				SR1 = registers[7];
-		endcase
+	unique case (SR1_SRC)
+		3'b000:
+			SR1 = registers[0];
+		3'b001:
+			SR1 = registers[1];
+		3'b010:
+			SR1 = registers[2];
+		3'b011:
+			SR1 = registers[3];
+		3'b100:
+			SR1 = registers[4];
+		3'b101:
+			SR1 = registers[5];
+		3'b110:
+			SR1 = registers[6];
+		3'b111:
+			SR1 = registers[7];
+	endcase
 	end
 
 	always_ff @ (posedge clk)
