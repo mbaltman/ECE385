@@ -54,6 +54,5 @@ module testbench();
 
 		#500 Continue = 0;
 		#4 Continue = 1;
-
 	end
 endmodule
