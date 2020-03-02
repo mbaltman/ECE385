@@ -276,7 +276,7 @@ module ISDU(
 					LD_PC = 1'b1;
 					PCMUX = 2'b10;
 					ADDR1MUX = 1'b1;
-					ADDR2MUX = 2'b01;
+					ADDR2MUX = 2'b00;
 					SR1MUX = 1'b1;
 					stateNumber = 12;
 				end
