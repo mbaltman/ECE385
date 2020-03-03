@@ -59,35 +59,35 @@ module RegFile_module(
 	begin
 		if (reset)
 			begin
-				registers[0] = 16'h0000;
-				registers[1] = 16'h0000;
-				registers[2] = 16'h0000;
-				registers[3] = 16'h0000;
-				registers[4] = 16'h0000;
-				registers[5] = 16'h0000;
-				registers[6] = 16'h0000;
-				registers[7] = 16'h0000;
+				registers[0] <= 16'h0000;
+				registers[1] <= 16'h0000;
+				registers[2] <= 16'h0000;
+				registers[3] <= 16'h0000;
+				registers[4] <= 16'h0000;
+				registers[5] <= 16'h0000;
+				registers[6] <= 16'h0000;
+				registers[7] <= 16'h0000;
 			end
 
 		else if (LD_REG)
 		begin
 			unique case (destinationReg)
 				3'b000:
-					registers[0] = data;
+					registers[0] <= data;
 				3'b001:
-					registers[1] = data;
+					registers[1] <= data;
 				3'b010:
-					registers[2] = data;
+					registers[2] <= data;
 				3'b011:
-					registers[3] = data;
+					registers[3] <= data;
 				3'b100:
-					registers[4] = data;
+					registers[4] <= data;
 				3'b101:
-					registers[5] = data;
+					registers[5] <= data;
 				3'b110:
-					registers[6] = data;
+					registers[6] <= data;
 				3'b111:
-					registers[7] = data;
+					registers[7] <= data;
 			endcase
 		end
 	end
