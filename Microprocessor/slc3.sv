@@ -18,11 +18,11 @@ module slc3(
 	logic Reset_ah, Continue_ah, Run_ah, WE_S;
 
 	//synchronize these signals
-	sync R_sync (Clk, ~Reset,Reset_ah);
-	sync C_sync (Clk, ~Continue,Continue_ah);
-	sync Ru_sync (Clk, ~Run,Run_ah);
-	sync Oe_sync (Clk, ~OE,MIO_EN);
-	sync We_sync (Clk, ~WE,WE_S);
+	sync R_sync (Clk, ~Reset, Reset_ah);
+	sync C_sync (Clk, ~Continue, Continue_ah);
+	sync Ru_sync (Clk, ~Run, Run_ah);
+	sync Oe_sync (Clk, ~OE, MIO_EN);
+	sync We_sync (Clk, ~WE, WE_S);
 
 	// Internal connections
 	logic BEN;
