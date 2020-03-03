@@ -5,9 +5,9 @@ module PC_module(
 	output logic [15:0] pcout);
 
 	logic [15:0] pc_interm;
-	mux3 pcmux (.d0(pcout + 1'b1), .d1(data), .d2(address), .s(s), .y(pc_interm));
+	mux3 pcmux (.d0(pcout + 1'b1), .d1(data), .d2(address), .s(s), .y(pc_interm));//Calculates what should go into PC
 
-	always_ff @ (posedge clk)
+	always_ff @ (posedge clk)//resets PC
 	begin
 		if (reset)
 			pcout <= 16'h0;
@@ -16,7 +16,7 @@ module PC_module(
 	end
 endmodule
 
-module mux3 #(parameter width = 16) (input logic [width-1:0] d0, d1, d2, input logic [1:0] s, output logic [width-1:0] y);
+module mux3 #(parameter width = 16) (input logic [width-1:0] d0, d1, d2, input logic [1:0] s, output logic [width-1:0] y);//Selects PC Input
 	always_comb
 	begin
 		if (s[1])

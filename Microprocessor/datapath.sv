@@ -6,14 +6,14 @@ module datapath(
 	always_comb
 	begin
 		if (s1)
-			data = PC;
+			data = PC;//select PC
 		else if (s2)
-			data = MDR;
+			data = MDR;// select MDR
 		else if (s3)
-			data = ALUOUT;
+			data = ALUOUT;//Slect ALU
 		else if (s4)
-			data = MARMUX;
+			data = MARMUX;//Select out put of address adders
 		else
-			data = 16'hZZZZ;
+			data = 16'hZZZZ;//no data
 		end
 endmodule

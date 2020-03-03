@@ -54,10 +54,12 @@ module ISDU(
 						S_23,
 						S_25_1,
 						S_25_2,
+						S_25_3,
 						S_27,
 						S_32,
 						S_33_1,
 						S_33_2,
+						S_33_3,
 						S_35 } State, Next_state; // Internal state logic
 
 	always_ff @ (posedge Clk)
@@ -100,7 +102,7 @@ module ISDU(
 		Mem_WE = 1'b1;
 
 		// Assign next state
-		unique case (State)
+		unique case (State)//State Transtions
 			Halted :
 				if (Run)
 					Next_state = S_18;
@@ -167,13 +169,15 @@ module ISDU(
 			S_25_1 :
 				Next_state = S_25_2;
 			S_25_2 :
+				Next_state = S_25_3;
+			S_25_3:
 				Next_state = S_27;
 
 			S_27 :
 				Next_state = S_18;
 
 			S_32 :
-				case (Opcode)
+				case (Opcode)//DECODE STATE
 					4'b0000 :
 						Next_state = S_00;
 					4'b0001 :
@@ -199,6 +203,8 @@ module ISDU(
 			S_33_1 :
 				Next_state = S_33_2;
 			S_33_2 :
+				Next_state = S_33_3;
+			S_33_3:
 				Next_state = S_35;
 
 			S_35 :
@@ -276,7 +282,7 @@ module ISDU(
 					LD_PC = 1'b1;
 					PCMUX = 2'b10;
 					ADDR1MUX = 1'b1;
-					ADDR2MUX = 2'b01;
+					ADDR2MUX = 2'b00;
 					SR1MUX = 1'b1;
 					stateNumber = 12;
 				end
@@ -325,7 +331,7 @@ module ISDU(
 					stateNumber = 23;
 				end
 
-			S_25_1, S_25_2 :
+			S_25_1, S_25_2,S_25_3 :
 				begin
 					Mem_OE = 1'b0;
 					LD_MDR = 1'b1;
@@ -347,12 +353,7 @@ module ISDU(
 					stateNumber = 32;
 				end
 
-			S_33_1 :
-				begin
-					Mem_OE = 1'b0;
-					stateNumber = 331;
-				end
-			S_33_2 :
+			S_33_1, S_33_2,S_33_3 :
 				begin
 					Mem_OE = 1'b0;
 					LD_MDR = 1'b1;

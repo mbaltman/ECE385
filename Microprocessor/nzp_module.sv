@@ -8,11 +8,12 @@ module nzp_module(
 
 	always_ff @ (posedge clk)
 		begin
-		if (reset)
+		if (reset)//reset and set to 0
 			begin
 				NZP <= 3'b000;
+				BEN<= 1'b0;
 			end
-		else if (LD_CC)
+		else if (LD_CC)//set NZP register, based on datapath content
 			begin
 				if (data[15])
 					NZP <= 3'b100;
@@ -22,7 +23,7 @@ module nzp_module(
 					NZP <= 3'b001;
 			end
 
-		if (LD_BEN)
+		if (LD_BEN)//Check if NZP == IR nzp values
 			begin
 				if ((currNZP[2] == 1) && (NZP[2] == 1))
 					BEN <= 1'b1;

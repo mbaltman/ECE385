@@ -6,8 +6,8 @@ module MAR_module(
 	always_ff @ (posedge clk)
 	begin
 		if (reset)
-			marout <= 16'h0;
+			marout <= 16'h0;//if reset set to 0
 		else if (ld)
-			marout <= data;
+			marout <= data;//load with data from data path
 	end
 endmodule

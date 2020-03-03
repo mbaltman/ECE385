@@ -11,7 +11,7 @@ module testbench();
 	logic CE, UB, LB, OE, WE;
 	logic [19:0] ADDR;
 	logic [15:0] IR, PC, MAR, MDR, SR1OUT;
-	wire  [15:0] Data, DataM;
+	wire  [15:0] Data, DataPath;
 
 	logic [2:0] SR1_SRC;
 	logic [15:0] registers [7:0];
@@ -34,33 +34,26 @@ module testbench();
 		Run = 1;
 		Continue = 1;
 
-<<<<<<< HEAD
-		#200 S = 16'h005A;
-=======
-		S = 16'h0003;
->>>>>>> 379a4c2ddb42d6e275b5e95c33d99c4fde16b70e
-
-		#2 Reset = 0;
+      #2 Reset = 0;
 		#2 Reset = 1;
+		
+		#2 Run =0;
+		#2 Run =1;
+		S = 16'h0003;
 
-		Reset = 1;
-
-		#4 Run = 0;
-		#200 Run = 1;
-
-<<<<<<< HEAD
-	    S = 16'h0002;
+	  
+		#20 Continue = 0;
+		#4 Continue = 1;
+	
+		
+   	#4 Continue = 0;
+		#4 Continue = 1;
 		#4 Continue = 0;
-		#200 Continue = 1;
-	   #4 Continue = 0;
-		
-   	#250 S = 16'h0003;
-		#2000 Continue = 1;
+		#4 Continue = 1;
 		#4 Continue = 0;
+		#4 Continue = 1;
 		
 		
-		
-=======
->>>>>>> 379a4c2ddb42d6e275b5e95c33d99c4fde16b70e
+
 	end
 endmodule

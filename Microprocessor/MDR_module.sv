@@ -9,8 +9,8 @@ module MDR_module(
 	always_ff @ (posedge clk)
 	begin
 		if (reset)
-			mdrout <= 16'h0;
+			mdrout <= 16'h0;//reset to 0
 		else if (ld)
-			mdrout <= mdr_interm;
+			mdrout <= mdr_interm;//set out to datapath
 	end
 endmodule
