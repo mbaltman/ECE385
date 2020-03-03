@@ -34,7 +34,11 @@ module testbench();
 		Run = 1;
 		Continue = 1;
 
+<<<<<<< HEAD
 		#200 S = 16'h005A;
+=======
+		S = 16'h0003;
+>>>>>>> 379a4c2ddb42d6e275b5e95c33d99c4fde16b70e
 
 		#2 Reset = 0;
 		#2 Reset = 1;
@@ -44,6 +48,7 @@ module testbench();
 		#4 Run = 0;
 		#200 Run = 1;
 
+<<<<<<< HEAD
 	    S = 16'h0002;
 		#4 Continue = 0;
 		#200 Continue = 1;
@@ -55,5 +60,7 @@ module testbench();
 		
 		
 		
+=======
+>>>>>>> 379a4c2ddb42d6e275b5e95c33d99c4fde16b70e
 	end
 endmodule
