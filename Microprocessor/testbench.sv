@@ -34,7 +34,7 @@ module testbench();
 		Run = 1;
 		Continue = 1;
 
-		S = 16'h005A;
+		#200 S = 16'h005A;
 
 		#2 Reset = 0;
 		#2 Reset = 1;
@@ -42,85 +42,17 @@ module testbench();
 		Reset = 1;
 
 		#4 Run = 0;
-		#4 Run = 1;
+		#200 Run = 1;
 
-		#250 S = 16'h0002;
+	    S = 16'h0002;
 		#4 Continue = 0;
 		#200 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-   
 	   #4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#250 S = 16'h0003;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
 		
+   	#250 S = 16'h0003;
+		#2000 Continue = 1;
+		#4 Continue = 0;
 		
-		
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-   
-	   #4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
-		#4 Continue = 0;
-		#150 Continue = 1;
 		
 		
 	end
