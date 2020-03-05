@@ -60,7 +60,7 @@ module ISDU(
 						S_33_1,
 						S_33_2,
 						S_33_3,
-						S_35 } State, Next_state; // Internal state logic
+						S_35 } State, Next_state; // internal state logic
 
 	always_ff @ (posedge Clk)
 	begin
@@ -72,10 +72,11 @@ module ISDU(
 
 	always_comb
 	begin
-		// Default next state is staying at current state
+		// default next state is staying at current state
 		Next_state = State;
 		stateNumber = 999;
-		// Default controls signal values
+
+		// default controls signal values
 		LD_MAR = 1'b0;
 		LD_MDR = 1'b0;
 		LD_IR = 1'b0;
@@ -101,8 +102,8 @@ module ISDU(
 		Mem_OE = 1'b1;
 		Mem_WE = 1'b1;
 
-		// Assign next state
-		unique case (State)//State Transtions
+		// assign next state
+		unique case (State) // state transtions
 			Halted :
 				if (Run)
 					Next_state = S_18;
@@ -177,7 +178,7 @@ module ISDU(
 				Next_state = S_18;
 
 			S_32 :
-				case (Opcode)//DECODE STATE
+				case (Opcode) // DECODE
 					4'b0000 :
 						Next_state = S_00;
 					4'b0001 :
@@ -213,13 +214,13 @@ module ISDU(
 			default: ;
 		endcase
 
-		// Assign control signals based on current state
+		// assign control signals based on current state
 		case (State)
 			Halted: ;
 
 			PauseIR1, PauseIR2 :
 				begin
-					stateNumber = 991;
+					stateNumber = 991; // for debugging only
 					LD_LED = 1'b1;
 				end
 
@@ -331,7 +332,7 @@ module ISDU(
 					stateNumber = 23;
 				end
 
-			S_25_1, S_25_2,S_25_3 :
+			S_25_1, S_25_2, S_25_3 :
 				begin
 					Mem_OE = 1'b0;
 					LD_MDR = 1'b1;
@@ -353,11 +354,11 @@ module ISDU(
 					stateNumber = 32;
 				end
 
-			S_33_1, S_33_2,S_33_3 :
+			S_33_1, S_33_2, S_33_3 :
 				begin
 					Mem_OE = 1'b0;
 					LD_MDR = 1'b1;
-					stateNumber = 332;
+					stateNumber = 33;
 				end
 
 			S_35 :
@@ -371,7 +372,7 @@ module ISDU(
 		endcase
 	end
 
-	// These should always be active
+	// these should always be active
 	assign Mem_CE = 1'b0;
 	assign Mem_UB = 1'b0;
 	assign Mem_LB = 1'b0;

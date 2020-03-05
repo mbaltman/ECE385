@@ -34,26 +34,24 @@ module testbench();
 		Run = 1;
 		Continue = 1;
 
-      #2 Reset = 0;
+		#2 Reset = 0;
 		#2 Reset = 1;
-		
+
 		#2 Run =0;
 		#2 Run =1;
 		S = 16'h0003;
 
-	  
+
 		#20 Continue = 0;
 		#4 Continue = 1;
-	
-		
-   	#4 Continue = 0;
-		#4 Continue = 1;
+
+
 		#4 Continue = 0;
 		#4 Continue = 1;
 		#4 Continue = 0;
 		#4 Continue = 1;
-		
-		
+		#4 Continue = 0;
+		#4 Continue = 1;
 
 	end
 endmodule

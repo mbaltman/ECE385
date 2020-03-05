@@ -8,26 +8,23 @@ module slc3(
 	output logic [15:0] IR, PC, MAR, MDR, SR1OUT,
 	output logic GatePC, LD_MAR, LD_PC, MIO_EN, GateMDR, LD_IR,
 	output logic [1:0] PCMUX,
-	inout  wire  [15:0] Data,DataPath,
+	inout  wire  [15:0] Data, DataPath,
 	output integer stateNumber,
 	output logic [2:0] SR1_SRC,
 	output logic [15:0] registers [7:0]
 	);
 
-	// Declaration of push button active high signals
+	// declaration of push button active high signals
 	logic Reset_ah, Continue_ah, Run_ah, WE_S;
 
-	//synchronize these signals
+	// synchronize these signals
 	sync R_sync (Clk, ~Reset, Reset_ah);
 	sync C_sync (Clk, ~Continue, Continue_ah);
 	sync Ru_sync (Clk, ~Run, Run_ah);
-	
-	assign MIO_EN = ~OE;
-	//sync Oe_sync (Clk, ~OE, MIO_EN);
-	
-	//sync We_sync (Clk, ~WE, WE_S);
 
-	// Internal connections
+	assign MIO_EN = ~OE;
+
+	// internal connections
 	logic BEN;
 	logic LD_MDR, LD_BEN, LD_CC, LD_REG, LD_LED;
 	logic [1:0] ADDR2MUX, ALUK;
@@ -40,39 +37,31 @@ module slc3(
 	logic [15:0] SR2OUT;
 	logic [15:0] ADDR2MUXOUT, ADDR1MUXOUT, SR2MUXOUT;
 
-	// Signals being displayed on hex display
+	// signals being displayed on hex display
 	logic [3:0][3:0] hex_4;
 
-	// For week 2, hexdrivers will be mounted to Mem2IO
 	HexDriver hex_driver3 (hex_4[0][3:0], HEX0);
 	HexDriver hex_driver2 (hex_4[1][3:0], HEX1);
 	HexDriver hex_driver1 (hex_4[2][3:0], HEX2);
 	HexDriver hex_driver0 (hex_4[3][3:0], HEX3);
 
-
-	
-	// The other hex display will show PC for both weeks.
+	// hex display for PC
 	HexDriver hex_driver7 (PC[15:12], HEX7);
 	HexDriver hex_driver6 (PC[11:8], HEX6);
 	HexDriver hex_driver5 (PC[7:4], HEX5);
 	HexDriver hex_driver4 (PC[3:0], HEX4);
 
-	// Connect MAR to ADDR, which is also connected as an input into MEM2IO.
-	// MEM2IO will determine what gets put onto Data_CPU (which serves as a potential
-	// input into MDR)
+	// MEM2IO will determine what gets put onto Data_CPU (which serves as a potential input into MDR)
 	assign ADDR = { 4'b00, MAR }; // Note, our external SRAM chip is 1Mx16, but address space is only 64Kx16
 
-	// You need to make your own datapath module and connect everything to the datapath
-	// Be careful about whether Reset is active high or low
-
-	//data path
+	// the datapath
 	datapath d0(
 	.MDR, .PC, .MARMUX, .ALUOUT,
 	.s1(GatePC), .s2(GateMDR), .s3(GateALU), .s4(GateMARMUX),
 	.data(DataPath)
 	);
 
-	//modules
+	// all key modules
 	MDR_module mdr(.data(DataPath), .mdrin(MDR_In), .mioen(MIO_EN), .mdrout(MDR), .ld(LD_MDR), .clk(Clk), .reset(Reset_ah));
 
 	PC_module pc(.pcout(PC), .data(DataPath), .address(MARMUX), .s(PCMUX), .ld(LD_PC), .clk(Clk), .reset(Reset_ah));
@@ -92,7 +81,7 @@ module slc3(
 
 	addr2mux_module muxaddr2(.d1(16'(signed'(IR[5:0]))), .d2(16'(signed'(IR[8:0]))), .d3(16'(signed'(IR[10:0]))), .s(ADDR2MUX), .o(ADDR2MUXOUT));
 
-	//muxes/adders
+	// muxes and adders
 	mux2 muxaddr1(.d0(PC), .d1(SR1OUT), .s(ADDR1MUX), .y(ADDR1MUXOUT));
 
 	mux2 muxsr2(.d0(SR2OUT), .d1(16'(signed'(IR[4:0]))), .s(SR2MUX), .y(SR2MUXOUT));
@@ -103,21 +92,21 @@ module slc3(
 
 	LED_module ledmod (.LD_LED, .clk(Clk), .IR11(IR[11:0]), .LED);
 
-	// Our SRAM and I/O controller
+	// SRAM and I/O controller
 	Mem2IO memory_subsystem(
 	.*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
 	.HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),
 	.Data_from_CPU(MDR), .Data_to_CPU(MDR_In),
 	.Data_from_SRAM(Data_from_SRAM), .Data_to_SRAM(Data_to_SRAM)
 	);
-  
-  
-	// The tri-state buffer serves as the interface between Mem2IO and SRAM
+
+
+	// the tri-state buffer serves as the interface between Mem2IO and SRAM
 	tristate #(.N(16)) tr0(
 	.Clk(Clk), .tristate_output_enable(~WE), .Data_write(Data_to_SRAM), .Data_read(Data_from_SRAM), .Data(Data)
 	);
 
-	// State machine and control signals
+	// state machine and control signals
 	ISDU state_controller(
 	.*, .Reset(Reset_ah), .Run(Run_ah), .Continue(Continue_ah),
 	.Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),

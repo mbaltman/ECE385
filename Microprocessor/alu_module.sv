@@ -8,13 +8,13 @@ module alu_module(
 	begin
 		unique case(s)
 			2'b00:
-				out = A + B;//ADD
+				out = A + B; // ADD
 			2'b01:
-				out = A & B;//AND
+				out = A & B; // AND
 			2'b10:
-				out = ~A;//NOT
+				out = ~A; // NOT
 			2'b11:
-				out = A;//Pass through
+				out = A; // pass through
 		endcase
 	end
 endmodule
