@@ -5,10 +5,9 @@
   <columns>
    <connections preferredWidth="175" />
    <irq preferredWidth="34" />
-   <name preferredWidth="410" />
+   <name preferredWidth="151" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library,Library/Basic Functions/Clocks; PLLs and Resets,Library/Basic Functions,Project,Library/Basic Functions/Clocks; PLLs and Resets/PLL" />
+ <library expandedCategories="Project,Library,Library/Basic Functions" />
  <window width="1135" height="1050" x="-8" y="0" />
 </preferences>

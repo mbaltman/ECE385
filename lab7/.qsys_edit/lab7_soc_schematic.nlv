@@ -1,8 +1,10 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
 preplace inst lab7_soc.nios2_gen2_0.cpu -pg 1
+preplace inst lab7_soc.sdram -pg 1 -lvl 1 -y 150
 preplace inst lab7_soc.nios2_gen2_0.reset_bridge -pg 1
 preplace inst lab7_soc.nios2_gen2_0.clock_bridge -pg 1
+preplace inst lab7_soc.sdram_pll -pg 1 -lvl 1 -y 250
 preplace inst lab7_soc.nios2_gen2_0 -pg 1 -lvl 2 -y 70
 preplace inst lab7_soc.clk_0 -pg 1 -lvl 1 -y 90
 preplace inst lab7_soc.LED -pg 1 -lvl 3 -y 30
@@ -10,8 +12,8 @@ preplace inst lab7_soc.onchip_memory2_0 -pg 1 -lvl 3 -y 130
 preplace inst lab7_soc -pg 1 -lvl 1 -y 40 -regy -20
 preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)lab7_soc.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
 preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)lab7_soc.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>lab7_soc</net_container>(SLAVE)onchip_memory2_0.reset1,(SLAVE)nios2_gen2_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)LED.reset) 1 1 2 260 230 680
-preplace netloc FAN_OUT<net_container>lab7_soc</net_container>(MASTER)clk_0.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)LED.clk,(SLAVE)onchip_memory2_0.clk1) 1 1 2 260 30 660
-preplace netloc INTERCONNECT<net_container>lab7_soc</net_container>(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)LED.s1,(MASTER)nios2_gen2_0.data_master,(SLAVE)onchip_memory2_0.s1,(MASTER)nios2_gen2_0.instruction_master) 1 1 2 280 210 640
-levelinfo -pg 1 0 50 890
-levelinfo -hier lab7_soc 60 90 400 730 880
+preplace netloc INTERCONNECT<net_container>lab7_soc</net_container>(MASTER)nios2_gen2_0.instruction_master,(SLAVE)onchip_memory2_0.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)LED.s1,(MASTER)nios2_gen2_0.data_master) 1 1 2 320 250 680
+preplace netloc FAN_OUT<net_container>lab7_soc</net_container>(SLAVE)nios2_gen2_0.clk,(SLAVE)LED.clk,(MASTER)clk_0.clk,(SLAVE)onchip_memory2_0.clk1) 1 1 2 300 210 700
+preplace netloc FAN_OUT<net_container>lab7_soc</net_container>(SLAVE)onchip_memory2_0.reset1,(SLAVE)LED.reset,(MASTER)clk_0.clk_reset,(SLAVE)nios2_gen2_0.reset) 1 1 2 280 230 720
+levelinfo -pg 1 0 50 930
+levelinfo -hier lab7_soc 60 90 440 770 920
