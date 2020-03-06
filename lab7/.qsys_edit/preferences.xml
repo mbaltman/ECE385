@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="175" />
+   <irq preferredWidth="34" />
+   <name preferredWidth="410" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Library,Library/Basic Functions/Clocks; PLLs and Resets,Library/Basic Functions,Project,Library/Basic Functions/Clocks; PLLs and Resets/PLL" />
+ <window width="1135" height="1050" x="-8" y="0" />
+</preferences>
