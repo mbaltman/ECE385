@@ -10,6 +10,7 @@
 
 module lab7(  	  input	       CLOCK_50, 
 					  input  [3:0]  KEY,
+					  input  [7:0]  SWITCHES,
 					  output [7:0]  LEDG,
 					  output [12:0] DRAM_ADDR,
 					  output [1:0]  DRAM_BA,
@@ -29,6 +30,8 @@ module lab7(  	  input	       CLOCK_50,
 				  lab7_soc m_lab7_soc (.clk_clk(CLOCK_50),
 											 .reset_reset_n(KEY[0]), 
 											 .led_wire_export(LEDG),
+											 .switches_wire_export(SWITCHES),
+											 .buttons_wire_export(KEY[3:2]),
 											 .sdram_wire_addr(DRAM_ADDR),    //  sdram_wire.addr
 											 .sdram_wire_ba(DRAM_BA),      	//  .ba
 											 .sdram_wire_cas_n(DRAM_CAS_N),    //  .cas_n
