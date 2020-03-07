@@ -9,25 +9,32 @@ int main()
 	volatile unsigned int *SWITCHES_PIO = (unsigned int*)0x30;
 	volatile unsigned int *BUTTONS = (unsigned int*)0x50;
 
+	unsigned int sum = 0x00;
 	*LED_PIO = 0; //clear all LEDs
 
 	while(1)
 	{
-		/*
+
 		if(*BUTTONS  == 0x2)
 		{
 			*LED_PIO = 0;
 		}
 		if(*BUTTONS == 0x1)
 		{
-			*LED_PIO = *LED_PIO + ~*SWITCHES_PIO;
+			sum = *LED_PIO + *SWITCHES_PIO;
+			if(sum > 0xFF )
+			{
+				sum = sum - 0x100;
+			}
+			*LED_PIO = sum;
+
 			while(*BUTTONS == 0x1)
 			{
 
 			}
+
 		}
-*/
-		*LED_PIO = *SWITCHES_PIO;
+
 	}
 	/*
 	while ( (1+1) != 3) //infinite loop
