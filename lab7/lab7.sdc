@@ -1,18 +1,18 @@
 ## Generated SDC file "lab7.sdc"
 
 ## Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
-## Your use of Altera Corporation's design tools, logic functions 
-## and other software and tools, and its AMPP partner logic 
-## functions, and any output files from any of the foregoing 
-## (including device programming or simulation files), and any 
-## associated documentation or information are expressly subject 
-## to the terms and conditions of the Altera Program License 
+## Your use of Altera Corporation's design tools, logic functions
+## and other software and tools, and its AMPP partner logic
+## functions, and any output files from any of the foregoing
+## (including device programming or simulation files), and any
+## associated documentation or information are expressly subject
+## to the terms and conditions of the Altera Program License
 ## Subscription Agreement, the Altera Quartus II License Agreement,
-## the Altera MegaCore Function License Agreement, or other 
-## applicable license agreement, including, without limitation, 
-## that your use is for the sole purpose of programming logic 
-## devices manufactured by Altera and sold by Altera or its 
-## authorized distributors.  Please refer to the applicable 
+## the Altera MegaCore Function License Agreement, or other
+## applicable license agreement, including, without limitation,
+## that your use is for the sole purpose of programming logic
+## devices manufactured by Altera and sold by Altera or its
+## authorized distributors.  Please refer to the applicable
 ## agreement for further details.
 
 
@@ -47,8 +47,8 @@ create_clock -name {main_clk_50} -period 20.000 -waveform { 0.000 10.000 } [get_
 # Create Generated Clock
 #**************************************************************
 
-create_generated_clock -name {m_lab7_soc|sdram_pll|sd1|pll7|clk[0]} -source [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {main_clk_50} [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|clk[0]}] 
-create_generated_clock -name {m_lab7_soc|sdram_pll|sd1|pll7|clk[1]} -source [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {main_clk_50} [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|clk[1]}] 
+create_generated_clock -name {m_lab7_soc|sdram_pll|sd1|pll7|clk[0]} -source [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {main_clk_50} [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|clk[0]}]
+create_generated_clock -name {m_lab7_soc|sdram_pll|sd1|pll7|clk[1]} -source [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {main_clk_50} [get_pins {m_lab7_soc|sdram_pll|sd1|pll7|clk[1]}]
 
 
 #**************************************************************
@@ -145,7 +145,22 @@ set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_po
 set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {altera_reserved_tdi}]
 set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {altera_reserved_tms}]
 set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {altera_reserved_tms}]
-
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[0]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[0]}]
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[1]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[1]}]
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[2]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[2]}]
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[3]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[3]}]
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[4]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[4]}]
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[5]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[5]}]
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[6]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[6]}]
+set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[7]}]
+set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[7]}]
 
 #**************************************************************
 # Set Output Delay
@@ -216,24 +231,6 @@ set_output_delay -add_delay  -clock [get_clocks {main_clk_50}]  2.000 [get_ports
 set_output_delay -add_delay  -clock [get_clocks {main_clk_50}]  2.000 [get_ports {LEDG[5]}]
 set_output_delay -add_delay  -clock [get_clocks {main_clk_50}]  2.000 [get_ports {LEDG[6]}]
 set_output_delay -add_delay  -clock [get_clocks {main_clk_50}]  2.000 [get_ports {LEDG[7]}]
-
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[0]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[0]}]
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[1]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[1]}]
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[2]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[2]}]
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[3]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[3]}]
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[4]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[4]}]
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[5]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[5]}]
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[6]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[6]}]
-set_input_delay -add_delay -max -clock [get_clocks {main_clk_50}]  3.000 [get_ports {SWITCHES[7]}]
-set_input_delay -add_delay -min -clock [get_clocks {main_clk_50}]  2.000 [get_ports {SWITCHES[7]}]
-
 set_output_delay -add_delay  -clock [get_clocks {main_clk_50}]  2.000 [get_ports {altera_reserved_tdo}]
 
 
@@ -241,8 +238,8 @@ set_output_delay -add_delay  -clock [get_clocks {main_clk_50}]  2.000 [get_ports
 # Set Clock Groups
 #**************************************************************
 
-set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
-set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}]
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}]
 
 
 #**************************************************************
@@ -283,4 +280,3 @@ set_false_path -from [get_keepers {sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1]}
 #**************************************************************
 # Set Input Transition
 #**************************************************************
-

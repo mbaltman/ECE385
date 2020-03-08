@@ -4,20 +4,20 @@
 
 `timescale 1 ps / 1 ps
 module lab7_soc (
-		input  wire [1:0]  buttons_wire_export,  // buttons_wire.export
-		input  wire        clk_clk,              // clk.clk
-		output wire [7:0]  led_wire_export,      // led_wire.export
-		input  wire        reset_reset_n,        // reset.reset_n
-		output wire        sdram_clk_clk,        // sdram_clk.clk
-		output wire [12:0] sdram_wire_addr,      // sdram_wire.addr
-		output wire [1:0]  sdram_wire_ba,        // .ba
-		output wire        sdram_wire_cas_n,     // .cas_n
-		output wire        sdram_wire_cke,       // .cke
-		output wire        sdram_wire_cs_n,      // .cs_n
-		inout  wire [31:0] sdram_wire_dq,        // .dq
-		output wire [3:0]  sdram_wire_dqm,       // .dqm
-		output wire        sdram_wire_ras_n,     // .ras_n
-		output wire        sdram_wire_we_n,      // .we_n
+		input  wire [1:0]  buttons_wire_export,  //  buttons_wire.export
+		input  wire        clk_clk,              //           clk.clk
+		output wire [7:0]  led_wire_export,      //      led_wire.export
+		input  wire        reset_reset_n,        //         reset.reset_n
+		output wire        sdram_clk_clk,        //     sdram_clk.clk
+		output wire [12:0] sdram_wire_addr,      //    sdram_wire.addr
+		output wire [1:0]  sdram_wire_ba,        //              .ba
+		output wire        sdram_wire_cas_n,     //              .cas_n
+		output wire        sdram_wire_cke,       //              .cke
+		output wire        sdram_wire_cs_n,      //              .cs_n
+		inout  wire [31:0] sdram_wire_dq,        //              .dq
+		output wire [3:0]  sdram_wire_dqm,       //              .dqm
+		output wire        sdram_wire_ras_n,     //              .ras_n
+		output wire        sdram_wire_we_n,      //              .we_n
 		input  wire [7:0]  switches_wire_export  // switches_wire.export
 	);
 
