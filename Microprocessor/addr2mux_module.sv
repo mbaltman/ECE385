@@ -1,4 +1,3 @@
-
 module addr2mux_module(
 	input  logic [15:0] d1, d2, d3,
 	input  logic [1:0] s,
