@@ -8,7 +8,6 @@
    <name preferredWidth="151" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library/Processors and Peripherals/Peripherals,Library,Library/Processors and Peripherals,Project" />
+ <library expandedCategories="Project,Library" />
  <window width="1938" height="1060" x="-9" y="-9" />
 </preferences>
