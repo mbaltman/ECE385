@@ -57,6 +57,8 @@ module lab8( input               CLOCK_50,
     logic [1:0] hpi_addr;
     logic [15:0] hpi_data_in, hpi_data_out;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
+	 logic[9:0] DrawX, DrawY;
+	 logic is_ball;
 
     // Interface between NIOS II and EZ-OTG chip
     hpi_io_intf hpi_io_inst(
@@ -80,7 +82,7 @@ module lab8( input               CLOCK_50,
     );
 
      // You need to make sure that the port names here match the ports in Qsys-generated codes.
-     nios_system nios_system(
+     lab7_soc nios_system(
                              .clk_clk(Clk),
                              .reset_reset_n(1'b1),    // Never reset NIOS
                              .sdram_wire_addr(DRAM_ADDR),
@@ -108,12 +110,16 @@ module lab8( input               CLOCK_50,
     vga_clk vga_clk_instance(.inclk0(Clk), .c0(VGA_CLK));
 
     // TODO: Fill in the connections for the rest of the modules
-    VGA_controller vga_controller_instance();
+    VGA_controller vga_controller_instance(.Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK), 
+														 .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
+
 
     // Which signal should be frame_clk?
-    ball ball_instance();
-
-    color_mapper color_instance();
+    ball ball_instance(.Clk(Clk), .Reset(Reset_h), .frame_clk(VGA_VS),          // The clock indicating a new frame (~60Hz)
+               .DrawX(DrawX), .DrawY(DrawY), .is_ball(is_ball), .keycode);
+ 
+    color_mapper color_instance(.is_ball(is_ball), .DrawX(DrawX), .DrawY(DrawY),       // Current pixel coordinates
+										  .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B) );
 
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);
