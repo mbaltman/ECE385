@@ -41,8 +41,8 @@
 void UsbWrite(alt_u16 Address, alt_u16 Data)
 {
 
-	IO_write(HPI_ADDR, Address);
-	IO_write(HPI_DATA, Data);
+	IO_write(HPI_ADDR, Address); // write the address that we want to interface with into HPI
+	IO_write(HPI_DATA, Data); // write the data into the address already in HPI
 	return;
 }
 
@@ -61,9 +61,9 @@ void UsbWrite(alt_u16 Address, alt_u16 Data)
  ******************************************************************************/
 alt_u16 UsbRead(alt_u16 Address)
 {
-	IO_write(HPI_ADDR, Address);
-	alt_u16 temp = IO_read(HPI_DATA);
-	return temp;
+	IO_write(HPI_ADDR, Address); // write the address that we want to interface with into HPI
+	alt_u16 temp = IO_read(HPI_DATA); // read the data from the address already in HPI into a temporary variable
+	return temp; // return the read data using the temporary variable
 }
 
 /*****************************************************************************/

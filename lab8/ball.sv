@@ -74,34 +74,34 @@ module ball (input          Clk,                // 50 MHz clock
         if (frame_clk_rising_edge)
         begin
             if( Ball_Y_Pos + Ball_Size >= Ball_Y_Max ) // Ball is at the bottom edge, BOUNCE!
-                Ball_Y_Motion_in = (~(Ball_Y_Step) + 1'b1); // 2's complement.
+                Ball_Y_Motion_in = (~(Ball_Y_Step) + 1'b1); // 2's complement of 1
             else if ( Ball_Y_Pos <= Ball_Y_Min + Ball_Size ) // Ball is at the top edge, BOUNCE!
-                Ball_Y_Motion_in = Ball_Y_Step;
+                Ball_Y_Motion_in = Ball_Y_Step; // 1
             else if(keycode == 8'h1A) // W key: up
                 begin
-                    Ball_Y_Motion_in = ~10'd1 + 10'd1;
-                    Ball_X_Motion_in = 10'd0;
+                    Ball_Y_Motion_in = ~10'd1 + 10'd1; // 2's complement of 1
+                    Ball_X_Motion_in = 10'd0; // 0, no speed in X
                 end
             else if(keycode == 8'h16)// S key: down
                 begin
-                    Ball_Y_Motion_in = 10'd1;
-                    Ball_X_Motion_in = 10'd0;
+                    Ball_Y_Motion_in = 10'd1; // 1
+                    Ball_X_Motion_in = 10'd0; // 0, no speed in X
                 end
 
-            // if did not have to bounce, then you check the key codes
+            // ONLY if did not have to bounce, then you check the key codes
             else if( Ball_X_Pos + Ball_Size >= Ball_X_Max ) // Ball is at the right edge, BOUNCE!
                 Ball_X_Motion_in = (~(Ball_X_Step) + 1'b1); // 2's complement.
             else if ( Ball_X_Pos <= Ball_X_Min + Ball_Size ) // Ball is at the left edge, BOUNCE!
                 Ball_X_Motion_in = Ball_X_Step;
             else if(keycode == 8'h04) // A key: left
                 begin
-                    Ball_Y_Motion_in = 10'd0;
-                    Ball_X_Motion_in =  ~10'd1 + 10'd1;
+                    Ball_Y_Motion_in = 10'd0; // 0, no speed in Y
+                    Ball_X_Motion_in =  ~10'd1 + 10'd1; // 2's complement of 1
                 end
             else if(keycode == 8'h07) // D key: right
                 begin
-                    Ball_Y_Motion_in = 10'd0;
-                    Ball_X_Motion_in = 10'd1;
+                    Ball_Y_Motion_in = 10'd0; // 0, no speed in Y
+                    Ball_X_Motion_in = 10'd1; // 1
                 end
 
             // Update the ball's position with its motion
