@@ -1,0 +1,1 @@
+Everything should be working in this version of our code. Run configuration sometimes fails, but will work if one run it multiple times. The behavior we chose for the ball is that it will keep bouncing off the boundaries if keys are held constantly.
