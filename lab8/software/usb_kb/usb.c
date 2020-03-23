@@ -41,8 +41,8 @@
 void UsbWrite(alt_u16 Address, alt_u16 Data)
 {
 
-	IO_write(HPI_ADDR, Address );
-	IO_write(HPI_DATA, Data );
+	IO_write(HPI_ADDR, Address);
+	IO_write(HPI_DATA, Data);
 	return;
 }
 
@@ -61,14 +61,10 @@ void UsbWrite(alt_u16 Address, alt_u16 Data)
  ******************************************************************************/
 alt_u16 UsbRead(alt_u16 Address)
 {
-	IO_write(HPI_ADDR ,Address );
-
+	IO_write(HPI_ADDR, Address);
 	alt_u16 temp = IO_read(HPI_DATA);
-
-
 	return temp;
 }
-
 
 /*****************************************************************************/
 /**
@@ -584,4 +580,3 @@ void UsbPrintMem()
 		printf("\naddr %x = %04x\n", 0x0500+i, code);
 	}
 }
-

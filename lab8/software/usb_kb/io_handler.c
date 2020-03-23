@@ -20,57 +20,25 @@ void IO_init(void)
 
 void IO_write(alt_u8 Address, alt_u16 Data)
 {
-	*otg_hpi_cs=0;
-
-		*otg_hpi_r=1;
-
-		*otg_hpi_address=Address;
-
-		*otg_hpi_w=0;
-
-		*otg_hpi_data=Data;
-
-		*otg_hpi_w=1;
-
-		*otg_hpi_cs = 1;
-
-		return;
-
-
+	*otg_hpi_cs = 0;
+	*otg_hpi_r = 1;
+	*otg_hpi_address = Address;
+	*otg_hpi_w = 0;
+	*otg_hpi_data = Data;
+	*otg_hpi_w = 1;
+	*otg_hpi_cs = 1;
+	return;
 }
 
 alt_u16 IO_read(alt_u8 Address)
 {
-	/*alt_u16 temp = 0;
-	*otg_hpi_cs =0;
-
-	*otg_hpi_r =0;
+	alt_u16 temp;
+	*otg_hpi_cs = 0;
+	*otg_hpi_w = 1;
+	*otg_hpi_r = 0;
 	*otg_hpi_address = Address;
 	temp = *otg_hpi_data;
-
-	*otg_hpi_r =1;
-	*otg_hpi_cs =1;
-
-
-	//printf("%x\n",temp);
+	*otg_hpi_r = 1;
+	*otg_hpi_cs = 1;
 	return temp;
-	*/
-	alt_u16 temp;
-	*otg_hpi_cs=0;
-
-		*otg_hpi_w=1;
-
-		*otg_hpi_r=0;
-
-		*otg_hpi_address=Address;
-
-		temp=*otg_hpi_data;
-
-		*otg_hpi_r = 1;
-
-		*otg_hpi_cs = 1;
-
-		*otg_hpi_w=1;
-
-		return temp;
 }
