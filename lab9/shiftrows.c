@@ -1,4 +1,4 @@
-char * ShiftRows(char * currstate)
+void ShiftRows(char * currstate)
 {
     char newstate[16];
     newstate[0] = currstate[0];
@@ -20,5 +20,7 @@ char * ShiftRows(char * currstate)
     newstate[13] = currstate[12];
     newstate[14] = currstate[13];
     newstate[15] = currstate[14];
-    return newstate;
+    
+    
+    currstate = newstate;
 }

@@ -84,18 +84,18 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
     
     char key_schedule[16*11] = keyExpansion(key_hex);
     
-    msg_hex= addRoundKey(0,key_schedule, msg_hex);
+    addRoundKey(0,key_schedule, msg_hex);
     for(int round=1; round < 10; round++)
     {
-        msg_hex = subBytes(msg_hex);
-        msg_hex = ShiftRows(msg_hex);
-        msg_hex = MixColumns(msg_hex);
-        msg_hex = (round,key_schedule, msg_hex);
+        subBytes(msg_hex);
+         ShiftRows(msg_hex);
+         MixColumns(msg_hex);
+        addRoundKey(round,key_schedule, msg_hex);
         
     }
-    msg_hex = subBytes(msg_hex);
-    msg_hex = ShiftRows(msg_hex);
-    msg_hex = (10,key_schedule, msg_hex);
+   subBytes(msg_hex);
+   ShiftRows(msg_hex);
+    addRoundKey(10,key_schedule, msg_hex);
     
     int msg_int[4];
     int key_int[4];
@@ -103,14 +103,14 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
 
 }
 
-char* addRoundKey(int currRound, char * key_schedule, char * state)
+void addRoundKey(int currRound, char * key_schedule, char * state)
 {
     char returnVal[16];
     for(int i =0; i<16; i++ )
     {
         returnVal[i]= state[i] ^ key_scheuld(currRound* 16 +i);
     }
-    return returnVal;
+   
     
 }
 /*
@@ -124,7 +124,7 @@ char* keyExpanasion(char* key)
     
     
     
-    char key_schedule[16*11];
+    char * key_schedule[16*11];
     
     char temp0;//stores one column at a time
     char temp1;
@@ -171,14 +171,14 @@ char* keyExpanasion(char* key)
     
 }
 
-char * subBytes(char * state)
+void subBytes(char * state)
 {
     for(int i =0; i<16;i++)
     {
         state[i] = subWord(state[i]);
     }
     
-    return state[i];
+    
 }
 
 char subWord(char currChar)

@@ -1,4 +1,4 @@
-char * MixColumns(char * currstate)
+void MixColumns(char * currstate)
 {
     char newstate[16];
     for(int i = 0; i < 4; i++) // column number 0~3
@@ -18,7 +18,7 @@ char * MixColumns(char * currstate)
         newstate[8 + i] = b2;
         newstate[12 + i] = b3;
     }
-    return newstate;
+    currstate = newstate;
 }
 
 char xtime(char a)
