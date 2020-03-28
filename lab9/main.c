@@ -68,7 +68,20 @@ char charsToHex(char c1, char c2)
  */
 void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int * msg_enc, unsigned int * key)
 {
-	// Implement this function
+	  
+    char msg_hex[16];
+    char key_hex[16];
+    
+    //convert msg_ascii characs to hex values
+    for(int i =0; i<16; i ++)
+    {   //gets bits 2 at a time
+        char currM = charsToHex(*msg_ascii[2*i], *msg_ascii[2*i +1]);
+        char currK = charsToHex(*key_ascii[2*i], *key_ascii[2*i +1]);
+        
+        msg_hex[i]= currM;
+        key_hex[i]= currK;
+    }
+
 }
 
 /** decrypt
