@@ -37,10 +37,6 @@ module avalon_aes_interface (
 	// Exported Conduit
 	output logic [31:0] EXPORT_DATA			// Exported Conduit Signal to LEDs
 );
-`logic [31:0] registers[15:0];
-
-
-EXPORT_DATA = {registers[4][15:0], registers[7][16:31]};
 
 
 endmodule
