@@ -75,14 +75,124 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
     //convert msg_ascii characs to hex values
     for(int i =0; i<16; i ++)
     {   //gets bits 2 at a time
-        char currM = charsToHex(*msg_ascii[2*i], *msg_ascii[2*i +1]);
-        char currK = charsToHex(*key_ascii[2*i], *key_ascii[2*i +1]);
+        char currM = charsToHex((char)msg_ascii[2* i], (char)msg_ascii[2* i +1]);
+        char currK = charsToHex((char)key_ascii[2*i], (char)key_ascii[2*i +1]);
         
         msg_hex[i]= currM;
         key_hex[i]= currK;
     }
+    
+    char key_schedule[16*11]; 
+    
+    
+    
 
 }
+
+/*
+keyE
+*/
+char* keyExpanasion(char* key)
+{
+    char lastXbits
+    unsigned  mask;
+    mask = (1 << 8) - 1;
+    
+    
+    
+    char key_schedule[16*11];
+    
+    char temp0;//stores one column at a time
+    char temp1;
+    char temp2;
+    char temp3;
+    //store first key
+    
+    //sets up columns 0-3
+    for(int i =0; i < 16, i++)
+    {
+        key_schedule[i]= key[i];
+    }
+    
+    
+    int i =4;
+    
+    while(i< (16*11))
+    {
+        
+       //look at the previous column 
+         temp1 = key_schedule[0+(i*3)];
+         temp2 = key_schedule[1+(i*3)];
+         temp3 = key_schedule[2+(i*3)];
+         temp4 = key_schedule[3+(i*3)];
+        
+         if(i % 4 ==0)
+         {
+             lastXbits = Rcon[i/4] & mask;
+             temp1 = subWord(temp2) ^ lastXbits;
+             temp2 = subWord(temp3);
+             temp3 = subWord(temp4); 
+             temp4 = subWord(temp1);
+             
+         }
+        key_schedule[0+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp1;
+        key_schedule[1+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp2;
+        key_schedule[2+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp3;
+        key_schedule[3+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp4;          
+    }
+    
+    return key_schedule;
+    
+}
+
+char subWord(char currChar)
+{
+    int firstNumber;
+    int secondNumber;
+    
+    if((INPUT >> 7) & 1==1)
+    {
+        firstNumber = firstNumber+8;
+    }
+    if((INPUT >> 6) & 1==1)
+    {
+        firstNumber = firstNumber+4;
+    }
+    if((INPUT >> 5) & 1==1)
+    {
+        firstNumber = firstNumber+2;
+    }
+    if((INPUT >> 4) & 1==1)
+    {
+        firstNumber = firstNumber+1;
+    }
+    
+    if((INPUT >> 3) & 1==1)
+    {
+        secondNumber = secondNumber+8;
+    }
+    if((INPUT >> 2) & 1==1)
+    {
+        secondNumber = secondNumber+4;
+    }
+    if((INPUT >> 1) & 1==1)
+    {
+        secondNumber = secondNumber+2;
+    }
+    if((INPUT >> 0) & 1==1)
+    {
+        secondNumber = secondNumber+1;
+    }
+    
+    
+    char curr=  aes_sbox[16*firstNumber + secondNumber];
+       
+    return curr;
+}
+
+
+
+
 
 /** decrypt
  *  Perform AES decryption in hardware.
@@ -112,10 +222,10 @@ int main()
 
 	printf("Select execution mode: 0 for testing, 1 for benchmarking: ");
 	scanf("%d", &run_mode);
-
+    int flag =1;
 	if (run_mode == 0) {
 		// Continuously Perform Encryption and Decryption
-		while (1) {
+		while (flag) {
 			int i = 0;
 			printf("\nEnter Message:\n");
 			scanf("%s", msg_ascii);
@@ -135,6 +245,7 @@ int main()
 				printf("%08x", msg_dec[i]);
 			}
 			printf("\n");
+            flag =0;
 		}
 	}
 	else {
@@ -165,3 +276,5 @@ int main()
 	}
 	return 0;
 }
+
+
