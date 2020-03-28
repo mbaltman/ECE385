@@ -82,13 +82,24 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
         key_hex[i]= currK;
     }
     
-    char key_schedule[16*11]; 
+    char key_schedule[16*11] = keyExpansion(key_hex);
+    
     
     
     
 
 }
 
+char* addRoundKey(int currRound, char * key_schedule, char * state)
+{
+    char returnVal[16];
+    for(int i =0; i<16; i++ )
+    {
+        returnVal[i]= state[i] ^ key_scheuld(currRound* 16 +i);
+    }
+    return returnVal;
+    
+}
 /*
 keyE
 */
@@ -128,10 +139,12 @@ char* keyExpanasion(char* key)
         
          if(i % 4 ==0)
          {
-             lastXbits = Rcon[i/4] & mask;
-             temp1 = subWord(temp2) ^ lastXbits;
-             temp2 = subWord(temp3);
-             temp3 = subWord(temp4); 
+             unsigned int curr = Rcon[i/4]
+                curr = curr<<24;
+             lastXbits =  curr & mask;
+             temp1 = subBytes(temp2) ^ lastXbits;
+             temp2 = subBytes(temp3);
+             temp3 = subBytes(temp4); 
              temp4 = subWord(temp1);
              
          }
@@ -145,7 +158,7 @@ char* keyExpanasion(char* key)
     
 }
 
-char subWord(char currChar)
+char subBytes(char currChar)
 {
     int firstNumber;
     int secondNumber;
