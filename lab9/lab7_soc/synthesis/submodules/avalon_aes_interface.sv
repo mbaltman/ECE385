@@ -8,13 +8,13 @@ University of Illinois ECE Department
 
 Register Map:
 
-0-3 : 4x 32bit AES Key
-4-7 : 4x 32bit AES Encrypted Message
-8-11: 4x 32bit AES Decrypted Message
-12: Not Used
-13: Not Used
-14: 32bit Start Register
-15: 32bit Done Register
+ 0-3 : 4x 32bit AES Key
+ 4-7 : 4x 32bit AES Encrypted Message
+ 8-11: 4x 32bit AES Decrypted Message
+   12: Not Used
+	13: Not Used
+   14: 32bit Start Register
+   15: 32bit Done Register
 
 ************************************************************************/
 

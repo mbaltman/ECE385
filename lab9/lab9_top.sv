@@ -56,35 +56,35 @@ lab9_soc lab9_qsystem (
 // Display the first 4 and the last 4 hex values of the received message
 hexdriver hexdrv0 (
 	.In(AES_EXPORT_DATA[3:0]),
-   .Out(HEX0)
+	.out(HEX0)
 );
 hexdriver hexdrv1 (
 	.In(AES_EXPORT_DATA[7:4]),
-   .Out(HEX1)
+	.out(HEX1)
 );
 hexdriver hexdrv2 (
 	.In(AES_EXPORT_DATA[11:8]),
-   .Out(HEX2)
+	.out(HEX2)
 );
 hexdriver hexdrv3 (
 	.In(AES_EXPORT_DATA[15:12]),
-   .Out(HEX3)
+	.out(HEX3)
 );
 hexdriver hexdrv4 (
 	.In(AES_EXPORT_DATA[19:16]),
-   .Out(HEX4)
+	.out(HEX4)
 );
 hexdriver hexdrv5 (
 	.In(AES_EXPORT_DATA[23:20]),
-   .Out(HEX5)
+	.out(HEX5)
 );
 hexdriver hexdrv6 (
 	.In(AES_EXPORT_DATA[27:24]),
-   .Out(HEX6)
+	.out(HEX6)
 );
 hexdriver hexdrv7 (
 	.In(AES_EXPORT_DATA[31:28]),
-   .Out(HEX7)
+	.out(HEX7)
 );
 
 endmodule
