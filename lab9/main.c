@@ -84,8 +84,21 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
     
     char key_schedule[16*11] = keyExpansion(key_hex);
     
+    msg_hex= addRoundKey(0,key_schedule, msg_hex);
+    for(int round=1; round < 10; round++)
+    {
+        msg_hex = subBytes(msg_hex);
+        msg_hex = ShiftRows(msg_hex);
+        msg_hex = MixColumns(msg_hex);
+        msg_hex = (round,key_schedule, msg_hex);
+        
+    }
+    msg_hex = subBytes(msg_hex);
+    msg_hex = ShiftRows(msg_hex);
+    msg_hex = (10,key_schedule, msg_hex);
     
-    
+    int msg_int[4];
+    int key_int[4];
     
 
 }
@@ -142,9 +155,9 @@ char* keyExpanasion(char* key)
              unsigned int curr = Rcon[i/4]
                 curr = curr<<24;
              lastXbits =  curr & mask;
-             temp1 = subBytes(temp2) ^ lastXbits;
-             temp2 = subBytes(temp3);
-             temp3 = subBytes(temp4); 
+             temp1 = subWord(temp2) ^ lastXbits;
+             temp2 = subWord(temp3);
+             temp3 = subWord(temp4); 
              temp4 = subWord(temp1);
              
          }
@@ -158,7 +171,17 @@ char* keyExpanasion(char* key)
     
 }
 
-char subBytes(char currChar)
+char * subBytes(char * state)
+{
+    for(int i =0; i<16;i++)
+    {
+        state[i] = subWord(state[i]);
+    }
+    
+    return state[i];
+}
+
+char subWord(char currChar)
 {
     int firstNumber;
     int secondNumber;
