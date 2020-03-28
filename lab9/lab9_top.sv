@@ -40,15 +40,15 @@ logic [31:0] AES_EXPORT_DATA;
 lab9_soc lab9_qsystem (
 	.clk_clk(CLOCK_50),								// Clock input
 	.reset_reset_n(KEY[0]),							// Reset key
-	.aes_export_EXPORT_DATA(AES_EXPORT_DATA),	// Exported data
+	.aes_export_EXPORT_DATA(AES_EXPORT_DATA),		// Exported data
 	.sdram_wire_addr(DRAM_ADDR),					// sdram_wire.addr
 	.sdram_wire_ba(DRAM_BA),						// sdram_wire.ba
-	.sdram_wire_cas_n(DRAM_CAS_N),				// sdram_wire.cas_n
+	.sdram_wire_cas_n(DRAM_CAS_N),					// sdram_wire.cas_n
 	.sdram_wire_cke(DRAM_CKE),						// sdram_wire.cke
 	.sdram_wire_cs_n(DRAM_CS_N),					// sdram.cs_n
 	.sdram_wire_dq(DRAM_DQ),						// sdram.dq
 	.sdram_wire_dqm(DRAM_DQM),						// sdram.dqm
-	.sdram_wire_ras_n(DRAM_RAS_N),				// sdram.ras_n
+	.sdram_wire_ras_n(DRAM_RAS_N),					// sdram.ras_n
 	.sdram_wire_we_n(DRAM_WE_N),					// sdram.we_n
 	.sdram_clk_clk(DRAM_CLK)						// Clock out to SDRAM
 );
@@ -88,4 +88,3 @@ hexdriver hexdrv7 (
 );
 
 endmodule
-
