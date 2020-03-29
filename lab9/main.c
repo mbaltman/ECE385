@@ -285,6 +285,18 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
         msg_enc[i] = msg_enc[i] ^ temp4;
     }
 
+     for (int i = 0; i < 4; i++)
+    {
+        int temp1 = key_hex[i*4 + 0] & 255;
+        int temp2 = key_hex[i*4 + 1] & 255;
+        int temp3 = key_hex[i*4 + 2] & 255;
+        int temp4 = key_hex[i*4 + 3] & 255;
+        key[i] = (key[i] ^ temp1) << 8;
+        key[i] = (key[i] ^ temp2) << 8;
+        key[i] = (key[i] ^ temp3) << 8;
+        key[i] = key[i] ^ temp4;
+    }
+
 
 }
 /** decrypt
