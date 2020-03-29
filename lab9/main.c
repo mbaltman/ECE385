@@ -19,6 +19,44 @@ volatile unsigned int * AES_PTR = (unsigned int *) 0x00000100;
 // Execution mode: 0 for testing, 1 for benchmarking
 int run_mode = 0;
 
+/** charToHex
+ *  Convert a single character to the 4-bit value it represents.
+ *
+ *  Input: a character c (e.g. 'A')
+ *  Output: converted 4-bit value (e.g. 0xA)
+ */
+char charToHex(char c)
+{
+	char hex = c;
+
+	if (hex >= '0' && hex <= '9')
+		hex -= '0';
+	else if (hex >= 'A' && hex <= 'F')
+	{
+		hex -= 'A';
+		hex += 10;
+	}
+	else if (hex >= 'a' && hex <= 'f')
+	{
+		hex -= 'a';
+		hex += 10;
+	}
+	return hex;
+}
+
+/** charsToHex
+ *  Convert two characters to byte value it represents.
+ *  Inputs must be 0-9, A-F, or a-f.
+ *
+ *  Input: two characters c1 and c2 (e.g. 'A' and '7')
+ *  Output: converted byte value (e.g. 0xA7)
+ */
+char charsToHex(char c1, char c2)
+{
+	char hex1 = charToHex(c1);
+	char hex2 = charToHex(c2);
+	return (hex1 << 4) + hex2;
+}
 
 void ShiftRows(char * currstate)
 {
@@ -91,47 +129,6 @@ void MixColumns(char * currstate)
     }
     return;
 }
-
-/** charToHex
- *  Convert a single character to the 4-bit value it represents.
- *  
- *  Input: a character c (e.g. 'A')
- *  Output: converted 4-bit value (e.g. 0xA)
- */
-char charToHex(char c)
-{
-	char hex = c;
-
-	if (hex >= '0' && hex <= '9')
-		hex -= '0';
-	else if (hex >= 'A' && hex <= 'F')
-	{
-		hex -= 'A';
-		hex += 10;
-	}
-	else if (hex >= 'a' && hex <= 'f')
-	{
-		hex -= 'a';
-		hex += 10;
-	}
-	return hex;
-}
-
-/** charsToHex
- *  Convert two characters to byte value it represents.
- *  Inputs must be 0-9, A-F, or a-f.
- *  
- *  Input: two characters c1 and c2 (e.g. 'A' and '7')
- *  Output: converted byte value (e.g. 0xA7)
- */
-char charsToHex(char c1, char c2)
-{
-	char hex1 = charToHex(c1);
-	char hex2 = charToHex(c2);
-	return (hex1 << 4) + hex2;
-}
-
-
 
 void addRoundKey(int currRound, char * key_schedule, char * state)
 {
@@ -246,38 +243,48 @@ void keyExpansion(char * key, char * key_schedule)
  */
 void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int * msg_enc, unsigned int * key)
 {
-	  
+
     char msg_hex[16];
     char key_hex[16];
-    
+
     //convert msg_ascii characs to hex values
     for(int i =0; i<16; i ++)
     {   //gets bits 2 at a time
         char currM = charsToHex((char)msg_ascii[2* i], (char)msg_ascii[2* i +1]);
         char currK = charsToHex((char)key_ascii[2*i], (char)key_ascii[2*i +1]);
-        
+
         msg_hex[i]= currM;
         key_hex[i]= currK;
     }
-    
-    char key_schedule[16*11] = keyExpansion(key_hex);
-    
+
+    char key_schedule[16*11];
+    keyExpansion(key_hex, key_schedule);
+
     addRoundKey(0,key_schedule, msg_hex);
     for(int round=1; round < 10; round++)
     {
         subBytes(msg_hex);
-         ShiftRows(msg_hex);
-         MixColumns(msg_hex);
+        ShiftRows(msg_hex);
+        MixColumns(msg_hex);
         addRoundKey(round,key_schedule, msg_hex);
-        
+
     }
-   subBytes(msg_hex);
-   ShiftRows(msg_hex);
+    subBytes(msg_hex);
+    ShiftRows(msg_hex);
     addRoundKey(10,key_schedule, msg_hex);
-    
-    int msg_int[4];
-    int key_int[4];
-    
+
+    for (int i = 0; i < 4; i++)
+    {
+        int temp1 = msg_hex[i*4 + 0] & 255;
+        int temp2 = msg_hex[i*4 + 1] & 255;
+        int temp3 = msg_hex[i*4 + 2] & 255;
+        int temp4 = msg_hex[i*4 + 3] & 255;
+        msg_enc[i] = (msg_enc[i] ^ temp1) << 8;
+        msg_enc[i] = (msg_enc[i] ^ temp2) << 8;
+        msg_enc[i] = (msg_enc[i] ^ temp3) << 8;
+        msg_enc[i] = msg_enc[i] ^ temp4;
+    }
+
 
 }
 /** decrypt
@@ -302,9 +309,9 @@ int main()
 	unsigned char msg_ascii[33];
 	unsigned char key_ascii[33];
 	// Key, Encrypted Message, and Decrypted Message in 4x 32-bit Format to facilitate Read/Write to Hardware
-	unsigned int key[4];
-	unsigned int msg_enc[4];
-	unsigned int msg_dec[4];
+	unsigned int key[4] = {0, 0, 0, 0};
+	unsigned int msg_enc[4] = {0, 0, 0, 0};
+	unsigned int msg_dec[4] = {0, 0, 0, 0};
 
 	printf("Select execution mode: 0 for testing, 1 for benchmarking: ");
 	scanf("%d", &run_mode);
@@ -362,5 +369,3 @@ int main()
 	}
 	return 0;
 }
-
-
