@@ -19,6 +19,79 @@ volatile unsigned int * AES_PTR = (unsigned int *) 0x00000100;
 // Execution mode: 0 for testing, 1 for benchmarking
 int run_mode = 0;
 
+
+void ShiftRows(char * currstate)
+{
+    char a0 = currstate[0];
+    char a1 = currstate[5];
+    char a2 = currstate[10];
+    char a3 = currstate[15];
+
+    char a4 = currstate[4];
+    char a5 = currstate[9];
+    char a6 = currstate[14];
+    char a7 = currstate[3];
+
+    char a8 = currstate[8];
+    char a9 = currstate[13];
+    char a10 = currstate[2];
+    char a11 = currstate[7];
+
+    char a12 = currstate[12];
+    char a13 = currstate[1];
+    char a14 = currstate[6];
+    char a15 = currstate[11];
+
+    currstate[0] = a0;
+    currstate[1] = a1;
+    currstate[2] = a2;
+    currstate[3] = a3;
+    currstate[4] = a4;
+    currstate[5] = a5;
+    currstate[6] = a6;
+    currstate[7] = a7;
+    currstate[8] = a8;
+    currstate[9] = a9;
+    currstate[10] = a10;
+    currstate[11] = a11;
+    currstate[12] = a12;
+    currstate[13] = a13;
+    currstate[14] = a14;
+    currstate[15] = a15;
+    return;
+}
+
+char xtime(char a)
+{
+    char a_out;
+    char comp_1b = charsToHex('1', 'b'); // define {1b} character in HEX
+    if (a < 0) a_out = (a << 1) ^ comp_1b; // left shift by 1 bit and XOR {1b}
+    else a_out = a << 1; // left shift only
+    return a_out;
+}
+
+void MixColumns(char * currstate)
+{
+    for(int i = 0; i < 4; i++) // column number 0~3
+    {
+        char a0 = currstate[i*4 + 0];
+        char a1 = currstate[i*4 + 1];
+        char a2 = currstate[i*4 + 2];
+        char a3 = currstate[i*4 + 3];
+
+        char b0 = xtime(a0) ^ (xtime(a1)^a1) ^ (a2) ^ (a3);
+        char b1 = (a0) ^ (xtime(a1)) ^ (xtime(a2)^a2) ^ (a3);
+        char b2 = (a0) ^ (a1) ^ (xtime(a2)) ^ (xtime(a3)^a3);
+        char b3 = (xtime(a0)^a0) ^ (a1) ^ (a2) ^ (xtime(a3));
+
+        currstate[i*4 + 0] = b0;
+        currstate[i*4 + 1] = b1;
+        currstate[i*4 + 2] = b2;
+        currstate[i*4 + 3] = b3;
+    }
+    return;
+}
+
 /** charToHex
  *  Convert a single character to the 4-bit value it represents.
  *  
@@ -56,6 +129,111 @@ char charsToHex(char c1, char c2)
 	char hex1 = charToHex(c1);
 	char hex2 = charToHex(c2);
 	return (hex1 << 4) + hex2;
+}
+
+
+
+void addRoundKey(int currRound, char * key_schedule, char * state)
+{
+    for (int i = 0; i < 16; i++)
+    {
+        state[i] = state[i] ^ key_schedule[currRound*16 + i];
+    }
+}
+/*
+keyE
+*/
+char subWord(char currChar)
+{
+    int firstNumber = 0;
+    int secondNumber = 0;
+
+    if((currChar >> 7) & 1==1)
+    {
+        firstNumber = firstNumber+8;
+    }
+    if((currChar >> 6) & 1==1)
+    {
+        firstNumber = firstNumber+4;
+    }
+    if((currChar >> 5) & 1==1)
+    {
+        firstNumber = firstNumber+2;
+    }
+    if((currChar >> 4) & 1==1)
+    {
+        firstNumber = firstNumber+1;
+    }
+
+    if((currChar >> 3) & 1==1)
+    {
+        secondNumber = secondNumber+8;
+    }
+    if((currChar >> 2) & 1==1)
+    {
+        secondNumber = secondNumber+4;
+    }
+    if((currChar >> 1) & 1==1)
+    {
+        secondNumber = secondNumber+2;
+    }
+    if((currChar >> 0) & 1==1)
+    {
+        secondNumber = secondNumber+1;
+    }
+    char curr = aes_sbox[16*firstNumber + secondNumber];
+    return curr;
+}
+
+void subBytes(char * state)
+{
+    for(int i = 0; i<16; i++)
+    {
+        state[i] = subWord(state[i]);
+    }
+}
+
+void keyExpansion(char * key, char * key_schedule)
+{
+    char myRcon [] = {0x00,0x01,0x02,0x04,0x08,0x10,
+        0x20,0x40,0x80,0x1b,0x36,0x6c,
+        0xd8,0xab,0x4d,0x9a};
+    char temp1;//stores one column at a time
+    char temp2;
+    char temp3;
+    char temp4;
+    //store first key
+
+    //sets up columns 0-3
+    for(int i =0; i < 16; i++)
+    {
+        key_schedule[i]= key[i];
+    }
+
+
+    int i = 4;
+
+    while(i < 44)
+    {
+    //look at the previous column
+        temp1 = key_schedule[0+(i-1)*4];
+        temp2 = key_schedule[1+(i-1)*4];
+        temp3 = key_schedule[2+(i-1)*4];
+        temp4 = key_schedule[3+(i-1)*4];
+        if(i % 4 == 0)
+        {
+            char temptemp = temp1;
+            temp1 = subWord(temp2) ^ myRcon[i/4];
+            temp2 = subWord(temp3);
+            temp3 = subWord(temp4);
+            temp4 = subWord(temptemp);
+        }
+        key_schedule[0+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp1;
+        key_schedule[1+(i*4)]= key_schedule[1 + (i-4)*4] ^ temp2;
+        key_schedule[2+(i*4)]= key_schedule[2 + (i-4)*4] ^ temp3;
+        key_schedule[3+(i*4)]= key_schedule[3 + (i-4)*4] ^ temp4;
+        i++;
+    }
 }
 
 /** encrypt
@@ -102,134 +280,6 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
     
 
 }
-
-void addRoundKey(int currRound, char * key_schedule, char * state)
-{
-    char returnVal[16];
-    for(int i =0; i<16; i++ )
-    {
-        returnVal[i]= state[i] ^ key_scheuld(currRound* 16 +i);
-    }
-   
-    
-}
-/*
-keyE
-*/
-char* keyExpanasion(char* key)
-{
-    char lastXbits
-    unsigned  mask;
-    mask = (1 << 8) - 1;
-    
-    
-    
-    char * key_schedule[16*11];
-    
-    char temp0;//stores one column at a time
-    char temp1;
-    char temp2;
-    char temp3;
-    //store first key
-    
-    //sets up columns 0-3
-    for(int i =0; i < 16, i++)
-    {
-        key_schedule[i]= key[i];
-    }
-    
-    
-    int i =4;
-    
-    while(i< (16*11))
-    {
-        
-       //look at the previous column 
-         temp1 = key_schedule[0+(i*3)];
-         temp2 = key_schedule[1+(i*3)];
-         temp3 = key_schedule[2+(i*3)];
-         temp4 = key_schedule[3+(i*3)];
-        
-         if(i % 4 ==0)
-         {
-             unsigned int curr = Rcon[i/4]
-                curr = curr<<24;
-             lastXbits =  curr & mask;
-             temp1 = subWord(temp2) ^ lastXbits;
-             temp2 = subWord(temp3);
-             temp3 = subWord(temp4); 
-             temp4 = subWord(temp1);
-             
-         }
-        key_schedule[0+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp1;
-        key_schedule[1+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp2;
-        key_schedule[2+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp3;
-        key_schedule[3+(i*4)]= key_schedule[0 + (i-4)*4] ^ temp4;          
-    }
-    
-    return key_schedule;
-    
-}
-
-void subBytes(char * state)
-{
-    for(int i =0; i<16;i++)
-    {
-        state[i] = subWord(state[i]);
-    }
-    
-    
-}
-
-char subWord(char currChar)
-{
-    int firstNumber;
-    int secondNumber;
-    
-    if((INPUT >> 7) & 1==1)
-    {
-        firstNumber = firstNumber+8;
-    }
-    if((INPUT >> 6) & 1==1)
-    {
-        firstNumber = firstNumber+4;
-    }
-    if((INPUT >> 5) & 1==1)
-    {
-        firstNumber = firstNumber+2;
-    }
-    if((INPUT >> 4) & 1==1)
-    {
-        firstNumber = firstNumber+1;
-    }
-    
-    if((INPUT >> 3) & 1==1)
-    {
-        secondNumber = secondNumber+8;
-    }
-    if((INPUT >> 2) & 1==1)
-    {
-        secondNumber = secondNumber+4;
-    }
-    if((INPUT >> 1) & 1==1)
-    {
-        secondNumber = secondNumber+2;
-    }
-    if((INPUT >> 0) & 1==1)
-    {
-        secondNumber = secondNumber+1;
-    }
-    
-    
-    char curr=  aes_sbox[16*firstNumber + secondNumber];
-       
-    return curr;
-}
-
-
-
-
-
 /** decrypt
  *  Perform AES decryption in hardware.
  *
