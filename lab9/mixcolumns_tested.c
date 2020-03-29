@@ -40,20 +40,20 @@ void MixColumns(char * currstate)
 {
     for(int i = 0; i < 4; i++) // column number 0~3
     {
-        char a0 = currstate[0 + i];
-        char a1 = currstate[4 + i];
-        char a2 = currstate[8 + i];
-        char a3 = currstate[12 + i];
+        char a0 = currstate[i*4 + 0];
+        char a1 = currstate[i*4 + 1];
+        char a2 = currstate[i*4 + 2];
+        char a3 = currstate[i*4 + 3];
 
         char b0 = xtime(a0) ^ (xtime(a1)^a1) ^ (a2) ^ (a3);
         char b1 = (a0) ^ (xtime(a1)) ^ (xtime(a2)^a2) ^ (a3);
         char b2 = (a0) ^ (a1) ^ (xtime(a2)) ^ (xtime(a3)^a3);
         char b3 = (xtime(a0)^a0) ^ (a1) ^ (a2) ^ (xtime(a3));
 
-        currstate[0 + i] = b0;
-        currstate[4 + i] = b1;
-        currstate[8 + i] = b2;
-        currstate[12 + i] = b3;
+        currstate[i*4 + 0] = b0;
+        currstate[i*4 + 1] = b1;
+        currstate[i*4 + 2] = b2;
+        currstate[i*4 + 3] = b3;
     }
     return;
 }
@@ -62,10 +62,10 @@ int main()
 {
     printf("\n");
     char input [16] = {
-        0xce, 0x9b, 0x69, 0xe1,
-        0x94, 0xe9, 0xdf, 0x11,
-        0x4f, 0x90, 0xb8, 0x0b,
-        0x66, 0x9e, 0xb9, 0x0e
+        0xce, 0x94, 0x4f, 0x66,
+        0x9b, 0xe9, 0x90, 0x9e,
+        0x69, 0xdf, 0xb8, 0xb9,
+        0xe1, 0x11, 0x0b, 0x0e
         };
 
     MixColumns(input);
