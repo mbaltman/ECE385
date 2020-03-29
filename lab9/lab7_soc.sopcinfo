@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="lab7_soc" kind="lab7_soc" version="1.0" fabric="QSYS">
  <!-- Format version 18.0 614 (Future versions may contain additional information.) -->
- <!-- 2020.03.28.15:21:57 -->
+ <!-- 2020.03.29.15:59:28 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1585426917</value>
+  <value>1585515568</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -95,7 +95,7 @@
   <visible>true</visible>
   <valid>true</valid>
  </parameter>
- <module name="AES" kind="AES_Decryption_Core" version="1.0" path="AES">
+ <module name="AES" kind="AES_Decryption_Core" version="1.1" path="AES">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="deviceFamily">
@@ -8761,7 +8761,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1585426917</value>
+   <value>1585515568</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -8781,7 +8781,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1585426917</value>
+   <value>1585515568</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -8797,7 +8797,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1585426917</value>
+   <value>1585515568</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -10447,7 +10447,7 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
   <displayName>AES Decryption Core</displayName>
-  <version>1.0</version>
+  <version>1.1</version>
  </plugin>
  <plugin>
   <instanceCount>7</instanceCount>

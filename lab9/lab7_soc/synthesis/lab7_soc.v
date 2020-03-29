@@ -85,7 +85,7 @@ module lab7_soc (
 	wire         rst_controller_001_reset_out_reset;                          // rst_controller_001:reset_out -> [jtag_uart_0:rst_n, mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset]
 	wire         rst_controller_002_reset_out_reset;                          // rst_controller_002:reset_out -> [mm_interconnect_0:sdram_reset_reset_bridge_in_reset_reset, sdram:reset_n]
 
-	new_component aes (
+	avalon_aes_interface aes (
 		.CLK           (clk_clk),                                    //         CLK.clk
 		.RESET         (rst_controller_reset_out_reset),             //       RESET.reset
 		.AVL_ADDR      (mm_interconnect_0_aes_aes_slave_address),    //   AES_Slave.address

@@ -37,7 +37,7 @@ module lab9_top (
 logic [31:0] AES_EXPORT_DATA;
 
 // Instantiation of Qsys design
-lab9_soc lab9_qsystem (
+lab7_soc lab9_qsystem (
 	.clk_clk(CLOCK_50),								// Clock input
 	.reset_reset_n(KEY[0]),							// Reset key
 	.aes_export_EXPORT_DATA(AES_EXPORT_DATA),		// Exported data
