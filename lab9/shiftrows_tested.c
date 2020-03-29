@@ -27,15 +27,6 @@ char charsToHex(char c1, char c2)
 	return (hex1 << 4) + hex2;
 }
 
-char xtime(char a)
-{
-    char a_out;
-    char comp_1b = charsToHex('1', 'b'); // define {1b} character in HEX
-    if (a < 0) a_out = (a << 1) ^ comp_1b; // left shift by 1 bit and XOR {1b}
-    else a_out = a << 1; // left shift only
-    return a_out;
-}
-
 void ShiftRows(char * currstate)
 {
     char a0 = currstate[0];
