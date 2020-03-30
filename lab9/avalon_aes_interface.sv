@@ -40,6 +40,6 @@ module avalon_aes_interface (
 
 	logic [31:0] registers [15:0];
 	
-	assign EXPORT_DATA = {registers[4][15:0], registers[7][16:31]};
+	assign EXPORT_DATA = {registers[4][15:0], registers[7][31:16]};
 
 endmodule
