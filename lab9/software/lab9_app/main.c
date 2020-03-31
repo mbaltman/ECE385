@@ -248,30 +248,30 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
     char key_hex[16];
 
     //convert msg_ascii characs to hex values
-    for(int i =0; i<16; i ++)
+    for(int i = 0; i < 16; i++)
     {   //gets bits 2 at a time
-        char currM = charsToHex((char)msg_ascii[2* i], (char)msg_ascii[2* i +1]);
-        char currK = charsToHex((char)key_ascii[2*i], (char)key_ascii[2*i +1]);
+        char currM = charsToHex((char)msg_ascii[2*i], (char)msg_ascii[2*i + 1]);
+        char currK = charsToHex((char)key_ascii[2*i], (char)key_ascii[2*i + 1]);
 
-        msg_hex[i]= currM;
-        key_hex[i]= currK;
+        msg_hex[i] = currM;
+        key_hex[i] = currK;
     }
 
     char key_schedule[16*11];
     keyExpansion(key_hex, key_schedule);
 
-    addRoundKey(0,key_schedule, msg_hex);
-    for(int round=1; round < 10; round++)
+    addRoundKey(0, key_schedule, msg_hex);
+    for(int round = 1; round < 10; round++)
     {
         subBytes(msg_hex);
         ShiftRows(msg_hex);
         MixColumns(msg_hex);
-        addRoundKey(round,key_schedule, msg_hex);
+        addRoundKey(round, key_schedule, msg_hex);
 
     }
     subBytes(msg_hex);
     ShiftRows(msg_hex);
-    addRoundKey(10,key_schedule, msg_hex);
+    addRoundKey(10, key_schedule, msg_hex);
 
     for (int i = 0; i < 4; i++)
     {
@@ -317,10 +317,10 @@ void decrypt(unsigned int * msg_enc, unsigned int * msg_dec, unsigned int * key)
  */
 int main()
 {
-	// Input Message and Key as 32x 8-bit ASCII Characters ([33] is for NULL terminator)
+	// input message and key as 32 x 8-bit ASCII characters ([33] is for NULL terminator)
 	unsigned char msg_ascii[33];
 	unsigned char key_ascii[33];
-	// Key, Encrypted Message, and Decrypted Message in 4x 32-bit Format to facilitate Read/Write to Hardware
+	// key, encrypted message, and decrypted message in 4 x 32-bit format to facilitate read/write to hardware
 	unsigned int key[4] = {0, 0, 0, 0};
 	unsigned int msg_enc[4] = {0, 0, 0, 0};
 	unsigned int msg_dec[4] = {0, 0, 0, 0};
@@ -328,13 +328,13 @@ int main()
 	printf("Select execution mode: 0 for testing, 1 for benchmarking: ");
 	scanf("%d", &run_mode);
 	if (run_mode == 0) {
-		// Continuously Perform Encryption and Decryption
+		// continuously perform encryption and decryption
 		while (1) {
 			int i = 0;
-			printf("\nEnter Message:\n");
+			printf("\nEnter message:\n");
 			scanf("%s", msg_ascii);
 			printf("\n");
-			printf("\nEnter Key:\n");
+			printf("\nEnter key:\n");
 			scanf("%s", key_ascii);
 			printf("\n");
 			encrypt(msg_ascii, key_ascii, msg_enc, key);
@@ -349,9 +349,17 @@ int main()
 				printf("%08x", msg_dec[i]);
 			}
 			printf("\n");
-			AES_PTR[10] = 0xECEECEEE;
-			if (AES_PTR[10] != 0xECEECEEE)
-				printf("Error!");
+
+			// send the 128-bit key (split into 4 x 32-bit)
+			AES_PTR[0] = key[0];
+			AES_PTR[1] = key[1];
+			AES_PTR[2] = key[2];
+			AES_PTR[3] = key[3];
+			// send the 128-bit encrypted message (split into 4 x 32-bit)
+			AES_PTR[4] = msg_enc[0];
+			AES_PTR[5] = msg_enc[1];
+			AES_PTR[6] = msg_enc[2];
+			AES_PTR[7] = msg_enc[3];
 		}
 	}
 	else {
