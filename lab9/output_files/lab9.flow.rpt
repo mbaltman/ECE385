@@ -1,5 +1,5 @@
 Flow report for lab9
-Sun Mar 29 19:30:27 2020
+Tue Mar 31 13:06:59 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Mar 29 19:30:27 2020       ;
+; Flow Status                        ; Successful - Tue Mar 31 13:06:59 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; lab9                                        ;
 ; Top-level Entity Name              ; lab9_top                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 2,894 / 114,480 ( 3 % )                     ;
-;     Total combinational functions  ; 2,310 / 114,480 ( 2 % )                     ;
-;     Dedicated logic registers      ; 1,920 / 114,480 ( 2 % )                     ;
-; Total registers                    ; 2039                                        ;
+; Total logic elements               ; 3,626 / 114,480 ( 3 % )                     ;
+;     Total combinational functions  ; 2,800 / 114,480 ( 2 % )                     ;
+;     Dedicated logic registers      ; 2,464 / 114,480 ( 2 % )                     ;
+; Total registers                    ; 2583                                        ;
 ; Total pins                         ; 142 / 529 ( 27 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 11,392 / 3,981,312 ( < 1 % )                ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/29/2020 19:28:58 ;
+; Start date & time ; 03/31/2020 13:05:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab9                ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                                      ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 176507753721802.158552813804032                            ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 176507753721802.158567791902036                            ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                                          ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)                            ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                                       ; --            ; --          ; eda_simulation ;
@@ -92,7 +92,7 @@ refer to the applicable agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                               ; --            ; --          ; --             ;
 ; SLD_FILE                            ; lab7_soc/synthesis/lab7_soc.regmap                         ; --            ; --          ; --             ;
 ; SLD_FILE                            ; lab7_soc/synthesis/lab7_soc.debuginfo                      ; --            ; --          ; --             ;
-; SLD_INFO                            ; QSYS_NAME lab7_soc HAS_SOPCINFO 1 GENERATION_ID 1585527836 ; --            ; lab7_soc    ; --             ;
+; SLD_INFO                            ; QSYS_NAME lab7_soc HAS_SOPCINFO 1 GENERATION_ID 1585676104 ; --            ; lab7_soc    ; --             ;
 ; SOPCINFO_FILE                       ; lab7_soc/synthesis/../../lab7_soc.sopcinfo                 ; --            ; --          ; --             ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                         ; --            ; --          ; --             ;
 ; TOP_LEVEL_ENTITY                    ; lab9_top                                                   ; lab9          ; --          ; --             ;
@@ -104,12 +104,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:35     ; 1.0                     ; 4918 MB             ; 00:00:59                           ;
-; Fitter               ; 00:00:32     ; 1.1                     ; 5751 MB             ; 00:00:50                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4700 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.2                     ; 4892 MB             ; 00:00:04                           ;
-; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 4706 MB             ; 00:00:05                           ;
-; Total                ; 00:01:22     ; --                      ; --                  ; 00:02:02                           ;
+; Analysis & Synthesis ; 00:00:43     ; 1.0                     ; 4928 MB             ; 00:01:13                           ;
+; Fitter               ; 00:00:33     ; 1.1                     ; 5761 MB             ; 00:00:56                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4707 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.3                     ; 4899 MB             ; 00:00:05                           ;
+; EDA Netlist Writer   ; 00:00:08     ; 1.0                     ; 4715 MB             ; 00:00:05                           ;
+; Total                ; 00:01:33     ; --                      ; --                  ; 00:02:23                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

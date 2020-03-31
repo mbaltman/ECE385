@@ -46,18 +46,18 @@ module avalon_aes_interface (
 		begin
 			for (int i = 0; i < 16; i++)
 			begin
-				register_file[i] <= 32'b0; // clear everything to 0
+				registers[i] <= 32'b0; // clear everything to 0
 			end
 		end
 		else if (AVL_WRITE && AVL_CS)
 		begin
-			register_file[AVL_ADDR][31:0] <= AVL_WRITEDATA[31:0]; // write data into corresponding address
+			registers[AVL_ADDR][31:0] <= AVL_WRITEDATA[31:0]; // write data into corresponding address
 		end
 		else
 		begin
 			for (int i = 0; i < 16; i++)
 			begin
-				register_file[i] <= register_file[i]; // do nothing
+				registers[i] <= registers[i]; // do nothing
 			end
 		end
 	end
@@ -66,7 +66,7 @@ module avalon_aes_interface (
 	begin
 		if (AVL_READ && AVL_CS)
 		begin
-			AVL_READDATA[31:0] = register_file[AVL_ADDR][31:0]; // reading data out
+			AVL_READDATA[31:0] = registers[AVL_ADDR][31:0]; // reading data out
 		end
 		else
 		begin
