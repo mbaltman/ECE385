@@ -7,16 +7,16 @@ module addroundkey (
 
     always_comb
     begin
-        ck = KeySchedule[1407:1279];
-        k0 = KeySchedule[1279:1151];
-        k1 = KeySchedule[1151:1023];
-        k2 = KeySchedule[1023:895];
-        k3 = KeySchedule[895:767];
-        k4 = KeySchedule[767:639];
-        k5 = KeySchedule[639:511];
-        k6 = KeySchedule[511:383];
-        k7 = KeySchedule[383:255];
-        k8 = KeySchedule[255:127];
+        ck = KeySchedule[1407:1280];
+        k0 = KeySchedule[1279:1152];
+        k1 = KeySchedule[1151:1024];
+        k2 = KeySchedule[1023:896];
+        k3 = KeySchedule[895:768];
+        k4 = KeySchedule[767:640];
+        k5 = KeySchedule[639:512];
+        k6 = KeySchedule[511:384];
+        k7 = KeySchedule[383:256];
+        k8 = KeySchedule[255:128];
         k9 = KeySchedule[127:0];
     end
 
