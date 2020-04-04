@@ -5,7 +5,7 @@ module mux4 (
 
 	always_comb
 	begin
-		unique case(s)
+		unique case (s)
 			2'b00:
 				o = iark;
 			2'b01:

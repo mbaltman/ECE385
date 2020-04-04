@@ -7,288 +7,288 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/megge/Documents/GitHub/ECE385/lab9/simulation/modelsim
+dC:/Users/megge/Documents/GitHub/ECE385/lab9/simulation/modelsim
 valtera_avalon_sc_fifo
-Z1 !s110 1586030578
+Z0 !s110 1586036297
 !i10b 1
 !s100 4mK@em][G=j]om3zJIhOc0
-I8QbcGbZ@5LTYC=@lnkbQM1
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z3 w1586030364
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v
+Im_IULj@7[T_fd2>_8M6Ch3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/simulation/modelsim
+Z3 w1586034799
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v
 Z4 L0 21
 Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1586030578.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v|
+Z6 !s108 1586036297.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_sc_fifo.v|
 !i113 1
 Z7 o-vlog01compat -work lab7_soc
-Z8 !s92 -vlog01compat -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules
+Z8 !s92 -vlog01compat -work lab7_soc +incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules
 Z9 tCvgOpt 0
 valtera_avalon_st_clock_crosser
-Z10 !s110 1586030582
+Z10 !s110 1586036302
 !i10b 1
 !s100 YbU`iK^TYJ_9Hz`CZekjQ3
-Iz1<MdPNWHA]fmA4Dn`WnW1
+I2MIL:lNlK0?AEd6VnhBFI1
+R1
 R2
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
+Z11 w1586034800
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
 L0 22
 R5
 r1
 !s85 0
 31
-Z11 !s108 1586030582.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v|
+Z12 !s108 1586036302.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v|
 !i113 1
 R7
 R8
 R9
 valtera_avalon_st_handshake_clock_crosser
-R10
+Z13 !s110 1586036301
 !i10b 1
 !s100 3f<J9K;e[9FU@JKn0^PK?0
-I]zST]Ehgf=hgX;8WadPcX2
+I6fRcCHIYJ;9<lIG[PJj?C0
+R1
 R2
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
-Z12 L0 24
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+Z14 L0 24
 R5
 r1
 !s85 0
 31
-R11
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
+Z15 !s108 1586036301.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
 !i113 1
 R7
 R8
 R9
 valtera_merlin_arb_adder
-Z13 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z16 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
 R10
 !i10b 1
 !s100 1Jn[a;@5nZmTN?DFKQNzj2
-IZT2I8oIm13AjVcz180U]G0
-R2
-Z14 !s105 altera_merlin_arbitrator_sv_unit
+I<lOnFgD86JI;=]o73c>QP3
+R1
+Z17 !s105 altera_merlin_arbitrator_sv_unit
 S1
-R0
-R3
-Z15 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv
-Z16 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv
+R2
+R11
+Z18 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv
+Z19 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv
 L0 228
 R5
 r1
 !s85 0
 31
-R11
-Z17 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv|
-Z18 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv|
+R12
+Z20 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv|
+Z21 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_arbitrator.sv|
 !i113 1
-Z19 o-sv -work lab7_soc
-Z20 !s92 -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules
+Z22 o-sv -work lab7_soc
+Z23 !s92 -sv -work lab7_soc +incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules
 R9
 valtera_merlin_arbitrator
-R13
+R16
 R10
 !i10b 1
 !s100 NQTehjm2fNQROUMUzShGa1
-IkM`KBFVOW;jL:L1oRVCJU1
-R2
-R14
+I`6oU[dnTEJ]ef?W4AikEa1
+R1
+R17
 S1
-R0
-R3
-R15
-R16
+R2
+R11
+R18
+R19
 L0 103
 R5
 r1
 !s85 0
 31
-R11
-R17
-R18
-!i113 1
-R19
+R12
 R20
+R21
+!i113 1
+R22
+R23
 R9
 valtera_merlin_burst_uncompressor
-R13
-Z21 !s110 1586030584
+R16
+Z24 !s110 1586036304
 !i10b 1
 !s100 f1?Rb<=9U?R9LJoHl;7>T3
-IX?W9C=2nZO=B_ekaA0B>I3
-R2
+I9ZNZEZ^:e2m98WE1>6NXX0
+R1
 !s105 altera_merlin_burst_uncompressor_sv_unit
 S1
-R0
+R2
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
 L0 40
 R5
 r1
 !s85 0
 31
-Z22 !s108 1586030584.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
+Z25 !s108 1586036304.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 valtera_merlin_master_agent
-R13
-Z23 !s110 1586030585
+R16
+Z26 !s110 1586036305
 !i10b 1
 !s100 _CJm:YX=>U2LQKH;8=@cb0
-I^jjBk@^R1`:jCEkb@d>>:2
-R2
+InWDjUn_5j9Z^kGZ35z3gW3
+R1
 !s105 altera_merlin_master_agent_sv_unit
 S1
-R0
+R2
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv
 L0 28
 R5
 r1
 !s85 0
 31
-R22
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv|
+R25
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 valtera_merlin_master_translator
-R13
-R23
+R16
+R26
 !i10b 1
 !s100 NdRk@]3fC2C@V7Rm;dQM31
-I5lk7SMkU3@ICG1eT[GTn`1
-R2
+IMGOO2B20aP2[SCD=8WfX81
+R1
 !s105 altera_merlin_master_translator_sv_unit
 S1
-R0
+R2
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv
 L0 32
 R5
 r1
 !s85 0
 31
-Z24 !s108 1586030585.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv|
+Z27 !s108 1586036305.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 valtera_merlin_slave_agent
-R13
-R21
+R16
+R24
 !i10b 1
 !s100 ePZN1d?B062J`OBb?blff3
-IhmKFNBaH09g5GMLbLDH@N2
-R2
+IzH8H25W@8j90=]hhOFmaS0
+R1
 !s105 altera_merlin_slave_agent_sv_unit
 S1
-R0
+R2
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv
-Z25 L0 34
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv
+Z28 L0 34
 R5
 r1
 !s85 0
 31
-R22
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv|
+R25
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_agent.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 valtera_merlin_slave_translator
-R13
-R23
+R16
+R26
 !i10b 1
 !s100 k`9[YAn_dLTkg;GE`mOb61
-Ic3302ch<2lz8dMZUV4FGj1
-R2
+IZNQ;c^oWcKhdSlkNOF5d70
+R1
 !s105 altera_merlin_slave_translator_sv_unit
 S1
-R0
+R2
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv
 L0 35
 R5
 r1
 !s85 0
 31
-R24
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv|
+R27
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 valtera_reset_controller
-Z26 !s110 1586030577
+R0
 !i10b 1
 !s100 z[H_hRO9gO=:^2E3_jWH03
-Il3gnzIjQ5UDD3jXKbSl`D3
+ImELjD6LkMC70P]LYaLZQ^2
+R1
 R2
-R0
-Z27 w1586030360
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v
+Z29 w1586034797
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v
 L0 42
 R5
 r1
 !s85 0
 31
-Z28 !s108 1586030577.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v|
+R6
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_controller.v|
 !i113 1
 R7
 R8
 R9
 valtera_reset_synchronizer
-R26
+R0
 !i10b 1
 !s100 oWLYmSO[EOX[G0PgQhZ2=0
-I@U1?Z3W2LhL2NkP?:;=:A1
+Imz?l__[XPfQ<JM3BT<o@W2
+R1
 R2
-R0
-R27
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v
-R12
+R29
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v
+R14
 R5
 r1
 !s85 0
 31
-R28
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v|
+R6
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_reset_synchronizer.v|
 !i113 1
 R7
 R8
@@ -297,114 +297,114 @@ valtera_std_synchronizer_nocut
 R10
 !i10b 1
 !s100 b8zV2<79GgkNg0GC<P[GJ2
-ITeiQ0VBEz05n=BfNTcLZ@1
+IMaRU<n2_4[nCZMmR;H3Ez2
+R1
 R2
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
 L0 44
 R5
 r1
 !s85 0
 31
-R11
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v|
+R12
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_std_synchronizer_nocut.v|
 !i113 1
 R7
 R8
 R9
 vavalon_aes_interface
-R13
-!s110 1586030586
+R16
+!s110 1586036306
 !i10b 1
-!s100 l[f?2go>=Y4e[Wg^kXI3h1
-IPH?`PWBmRFW[LKUSh;^R=0
-R2
+!s100 okGGl^@20Bg52ca=oB09I1
+I1_nbBMjBZi05@7Fa1nSi63
+R1
 !s105 avalon_aes_interface_sv_unit
 S1
-R0
-Z29 w1586030331
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv
+R2
+Z30 w1586034787
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv
 R4
 R5
 r1
 !s85 0
 31
-!s108 1586030586.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv|
+!s108 1586036306.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc
-R26
+!s110 1586036296
 !i10b 1
 !s100 k78D2Y?;5AlVi_6?1Po]^2
-IYG>[;ASl]aI>=V7DNBiCD2
+I[^ImFbE[KS3zLDJmkR03;0
+R1
 R2
-R0
-w1586030330
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v
+R30
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v
 L0 6
 R5
 r1
 !s85 0
 31
-R28
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v|
+!s108 1586036296.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/lab7_soc.v|
 !i113 1
 R7
-!s92 -vlog01compat -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis
+!s92 -vlog01compat -work lab7_soc +incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis
 R9
 vlab7_soc_irq_mapper
+R16
 R13
-R10
 !i10b 1
 !s100 1oY_631gb>C^P^N;VKKO^3
-I3Hn68NCbSXK2^JXA[CT7T2
-R2
+INi<]9=^^CS5DbU9iRfHcN1
+R1
 !s105 lab7_soc_irq_mapper_sv_unit
 S1
-R0
-R27
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv
+R2
+R29
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv
 L0 31
 R5
 r1
 !s85 0
 31
-Z30 !s108 1586030581.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv|
+R15
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_jtag_uart_0
-Z31 !s110 1586030581
+Z31 !s110 1586036300
 !i10b 1
 !s100 ?I:_Xh2mnoXZmH>jk88;O0
-I8JLZU`@T91XnIU`UfL]e_3
+IW]^TC;j6Age713C<0nFoe1
+R1
 R2
-R0
-R29
-Z32 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v
-Z33 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v
+R30
+Z32 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v
+Z33 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v
 L0 331
 R5
 r1
 !s85 0
 31
-R30
-Z34 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v|
-Z35 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v|
+Z34 !s108 1586036300.000000
+Z35 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v|
+Z36 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v|
 !i113 1
 R7
 R8
@@ -413,10 +413,10 @@ vlab7_soc_jtag_uart_0_scfifo_r
 R31
 !i10b 1
 !s100 ZcDJV=Y6jMB>k6bSzfN`O3
-I<]`D_M`nHSFFiA0<zW4c73
+I@`O0@VoYEI1YCjLn=2ZzB1
+R1
 R2
-R0
-R29
+R30
 R32
 R33
 L0 243
@@ -424,9 +424,9 @@ R5
 r1
 !s85 0
 31
-R30
 R34
 R35
+R36
 !i113 1
 R7
 R8
@@ -435,10 +435,10 @@ vlab7_soc_jtag_uart_0_scfifo_w
 R31
 !i10b 1
 !s100 kA0JQBaM;KbbOW_1``0<=1
-I@?j96Md7V[1dLB5Kg<6i<0
+IkaWZ<iKPK6kR5O?=MZoZ72
+R1
 R2
-R0
-R29
+R30
 R32
 R33
 L0 78
@@ -446,9 +446,9 @@ R5
 r1
 !s85 0
 31
-R30
 R34
 R35
+R36
 !i113 1
 R7
 R8
@@ -457,10 +457,10 @@ vlab7_soc_jtag_uart_0_sim_scfifo_r
 R31
 !i10b 1
 !s100 6kh:=nonflh2dhKfIgFoh3
-I4Oo:Qjb8BLnmKldF9Mg_T3
+Ij[7bND7^4H1?OTmV`jEh83
+R1
 R2
-R0
-R29
+R30
 R32
 R33
 L0 164
@@ -468,9 +468,9 @@ R5
 r1
 !s85 0
 31
-R30
 R34
 R35
+R36
 !i113 1
 R7
 R8
@@ -479,10 +479,10 @@ vlab7_soc_jtag_uart_0_sim_scfifo_w
 R31
 !i10b 1
 !s100 G5Z7m@Bdia:7fUGaPb7B61
-Ig5mVW73aTFTaN^ehD6eFI2
+Il3Y`@QhWHNgPnVzm9Q`CW3
+R1
 R2
-R0
-R29
+R30
 R32
 R33
 R4
@@ -490,242 +490,242 @@ R5
 r1
 !s85 0
 31
-R30
 R34
 R35
+R36
 !i113 1
 R7
 R8
 R9
 vlab7_soc_mm_interconnect_0
-R1
+R0
 !i10b 1
 !s100 FJWJ<?YXYZPl>TV1bz8>I2
-IMXicMOmhEQbVT9D51Z=Zk2
+Id1cj>KlK@f=F`C;ggK[lb1
+R1
 R2
-R0
-R27
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v
+R29
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v
 L0 9
 R5
 r1
 !s85 0
 31
 R6
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v|
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_mm_interconnect_0_avalon_st_adapter
-R1
+R0
 !i10b 1
 !s100 8zBozcDFYN;EiZ0ooSZ?B0
-I1L52Nnl_gC`1C05So=8Lb1
+Ioa`k<3?Ke5RNcH=i61@EK2
+R1
 R2
-R0
-Z36 w1586030366
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v
 L0 9
 R5
 r1
 !s85 0
 31
 R6
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v|
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0
+R16
 R13
-R10
 !i10b 1
 !s100 `ifJe[GCPgZhSQIz6_Leg3
-IU99iO3^?DCAc3NdD`;5a>1
-R2
+IK<dQzdlhD8?F4jbDJ83P>0
+R1
 !s105 lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0_sv_unit
 S1
-R0
-R36
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
 L0 66
 R5
 r1
 !s85 0
 31
-R11
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv|
+R15
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_cmd_demux
-R13
-Z37 !s110 1586030583
+R16
+Z37 !s110 1586036303
 !i10b 1
 !s100 HMCEE6dYSY2XY3D3>i7h11
-IaWg:_^gT;jbkmQ4;oUkz41
-R2
+I;CF2B>3J2Bj3=Cfz2k4f_3
+R1
 !s105 lab7_soc_mm_interconnect_0_cmd_demux_sv_unit
 S1
-R0
+R2
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv
 Z38 L0 43
 R5
 r1
 !s85 0
 31
-Z39 !s108 1586030583.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv|
+Z39 !s108 1586036303.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_cmd_demux_001
-R13
+R16
 R37
 !i10b 1
 !s100 CEGDYB>g^d[DaQlo7ZM`12
-IQZ6:FA`8VE_lB9:kZZmKW0
-R2
+IeY547Ti=LbP>Nn2kbo@OV3
+R1
 !s105 lab7_soc_mm_interconnect_0_cmd_demux_001_sv_unit
 S1
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv
 R38
 R5
 r1
 !s85 0
 31
 R39
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv|
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_demux_001.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_cmd_mux
-R13
+R16
 R37
 !i10b 1
 !s100 b6AH:n1jcekmUPjSnC;[10
-IV;4[PHR@X8<]8G?z7khSa2
-R2
+IC?i^c`BF@@UG@:h3<3CR_0
+R1
 !s105 lab7_soc_mm_interconnect_0_cmd_mux_sv_unit
 S1
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv
 Z40 L0 51
 R5
 r1
 !s85 0
 31
 R39
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv|
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_cmd_mux_002
-R13
+R16
 R37
 !i10b 1
 !s100 7]AlXZdna;0WVTS9Rbm5B2
-IT7W`522]G73Ek97SUSAlP2
-R2
+I;hkL[e5B7GmKO6>kZYkQj0
+R1
 !s105 lab7_soc_mm_interconnect_0_cmd_mux_002_sv_unit
 S1
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv
 R40
 R5
 r1
 !s85 0
 31
 R39
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv|
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_cmd_mux_002.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router
-R13
-R21
+R16
+R24
 !i10b 1
 !s100 OU7V2ZaZ<>0]MM4F?>Onc2
-I_QTcdLFDj_0FcQJKUT7zA0
-R2
+Igf13YI6DG?n`CGLHX631[2
+R1
 Z41 !s105 lab7_soc_mm_interconnect_0_router_sv_unit
 S1
-R0
+R2
 R3
-Z42 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv
-Z43 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv
+Z42 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv
+Z43 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv
 Z44 L0 84
 R5
 r1
 !s85 0
 31
-R22
-Z45 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv|
-Z46 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv|
+R25
+Z45 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv|
+Z46 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router_001
-R13
-R21
+R16
+R24
 !i10b 1
 !s100 zRK_Ro7@;M2Ke^DgDNA?o0
-I`hf=Em_lZ^eVLV2KGlEnZ3
-R2
+IW^Um=W?FTSLkbXmT^2?X]2
+R1
 Z47 !s105 lab7_soc_mm_interconnect_0_router_001_sv_unit
 S1
-R0
+R2
 R3
-Z48 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv
-Z49 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv
+Z48 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv
+Z49 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv
 R44
 R5
 r1
 !s85 0
 31
-R22
-Z50 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv|
-Z51 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv|
+R39
+Z50 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv|
+Z51 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_001.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router_001_default_decode
-R13
-R21
+R16
+R24
 !i10b 1
 !s100 hg`7Yzn?cDoY:EL9mWAk;0
-I6QmIhjgim1OjlzW:ih4]O1
-R2
+IO75o@>Go7Z<YFOd3@lcGH2
+R1
 R47
 S1
-R0
+R2
 R3
 R48
 R49
@@ -734,48 +734,48 @@ R5
 r1
 !s85 0
 31
-R22
+R39
 R50
 R51
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router_002
-R13
+R16
 R37
 !i10b 1
 !s100 S4WEK3A7o4ehajM?U=R8W2
-IRIGcO8G2K[AP5ORJX6;Yo3
-R2
+IBIT8:J=L7GBJoVj@ieZKW2
+R1
 Z53 !s105 lab7_soc_mm_interconnect_0_router_002_sv_unit
 S1
-R0
+R2
 R3
-Z54 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv
-Z55 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv
+Z54 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv
+Z55 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv
 R44
 R5
 r1
 !s85 0
 31
 R39
-Z56 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv|
-Z57 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv|
+Z56 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv|
+Z57 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_002.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router_002_default_decode
-R13
+R16
 R37
 !i10b 1
 !s100 7Po4YEBCCUD[oDiGSkmYS3
-IZVYiM<_gQ<_HR1DKjbFod0
-R2
+IinH25YmdcMP^nkgUeR:o31
+R1
 R53
 S1
-R0
+R2
 R3
 R54
 R55
@@ -788,44 +788,44 @@ R39
 R56
 R57
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router_004
-R13
+R16
 R37
 !i10b 1
 !s100 FNiC^[:[4g3Q`JXZ;]7lK0
-IWAn[B7nW>HZ8E5De?2dV;2
-R2
+ILBmk=d6SiAbo=PgS_oo6O3
+R1
 Z58 !s105 lab7_soc_mm_interconnect_0_router_004_sv_unit
 S1
-R0
+R2
 R3
-Z59 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv
-Z60 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv
+Z59 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv
+Z60 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv
 R44
 R5
 r1
 !s85 0
 31
 R39
-Z61 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv|
-Z62 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv|
+Z61 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv|
+Z62 !s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_router_004.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router_004_default_decode
-R13
+R16
 R37
 !i10b 1
 !s100 hBF4kHNPC`5a[ifo:5NU^3
-I255LUBf:n`^`WQkhbn[KW2
-R2
+Ic3lg6>[SL9`ZI7WecC]P03
+R1
 R58
 S1
-R0
+R2
 R3
 R59
 R60
@@ -838,19 +838,19 @@ R39
 R61
 R62
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_router_default_decode
-R13
-R21
+R16
+R24
 !i10b 1
 !s100 >VP;SD[D6jTlB45HWzQoL1
-IzKQG3jUcNRaUS:MN<<bX51
-R2
+I3>D?N28CkKCQVeLh5m99a1
+R1
 R41
 S1
-R0
+R2
 R3
 R42
 R43
@@ -859,219 +859,219 @@ R5
 r1
 !s85 0
 31
-R22
+R25
 R45
 R46
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_rsp_demux
-R13
+R16
 R37
 !i10b 1
 !s100 EaWTkP=cf0jULT`LHb?<Y2
-I]oI0PD5aj=e]P0Ka[V2<_2
-R2
+ITA7bVH[f79M1CD^gZ=e6b3
+R1
 !s105 lab7_soc_mm_interconnect_0_rsp_demux_sv_unit
 S1
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv
 R38
 R5
 r1
 !s85 0
 31
-R39
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv|
+R12
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_rsp_demux_002
-R13
-R37
+R16
+R10
 !i10b 1
 !s100 QaG5Y7=NM=17:QQ:Nb4PY1
-I@FKA;E`61PJKWO];4IW:J0
-R2
+I1H[Lf3EHh2F1;VFh4BkP60
+R1
 !s105 lab7_soc_mm_interconnect_0_rsp_demux_002_sv_unit
 S1
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv
 R38
 R5
 r1
 !s85 0
 31
-R39
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv|
+R12
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_demux_002.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_rsp_mux
-R13
+R16
 R10
 !i10b 1
 !s100 DcJ0kE4<5XGaJnnSN9^ko0
-I=7hFX3dBFe]e?O>MV?adG3
-R2
+IlemVQU[KUlIEXXCXfUJbz3
+R1
 !s105 lab7_soc_mm_interconnect_0_rsp_mux_sv_unit
 S1
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv
 R40
 R5
 r1
 !s85 0
 31
-R11
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv|
+R12
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_mm_interconnect_0_rsp_mux_001
-R13
+R16
 R10
 !i10b 1
 !s100 mm;Wn77L[e^3D`:lTV4VC3
-IFU>4Fz=bBYAD^WX^U1`ji0
-R2
+Icc8[biTjjRG_YXMoi0ihY2
+R1
 !s105 lab7_soc_mm_interconnect_0_rsp_mux_001_sv_unit
 S1
-R0
-R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv
+R2
+R11
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv
 R40
 R5
 r1
 !s85 0
 31
-R11
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv|
-!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv|
+R12
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv|
+!s90 -reportprogress|300|-sv|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_rsp_mux_001.sv|
 !i113 1
-R19
-R20
+R22
+R23
 R9
 vlab7_soc_nios2_gen2_0
-Z63 !s110 1586030579
+Z63 !s110 1586036299
 !i10b 1
 !s100 V]:3?BYD9YcjZk73cL0:_1
-IkPjjOeUR]UA]eWPRP3:2[2
+IL6ePVNOZ11=bcJLLN<GN?1
+R1
 R2
-R0
-Z64 w1586030333
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v
+Z64 w1586034788
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v
 L0 9
 R5
 r1
 !s85 0
 31
-Z65 !s108 1586030579.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v|
+Z65 !s108 1586036299.000000
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_nios2_gen2_0_cpu
-Z66 !s110 1586030580
+R63
 !i10b 1
 !s100 SY;M]dB<L<<4;]c;c]^>>3
-IP37L818V`LZZT4=T?JN011
+I^e4:J9;H[ah;7hO:RXA3<2
+R1
 R2
-R0
 R3
-Z67 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v
-Z68 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v
+Z66 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v
+Z67 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v
 L0 2834
 R5
 r1
 !s85 0
 31
 R65
-Z69 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v|
-Z70 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v|
+Z68 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v|
+Z69 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk
-R66
+R31
 !i10b 1
 !s100 gLM[8eh7lC2OP4bhUMJ7?1
-IbM_Acg5hG0FkZQJZLKN<U2
+IDXW6nLmAf2lG8;UL`ON2[3
+R1
 R2
-R0
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
 R4
 R5
 r1
 !s85 0
 31
-Z71 !s108 1586030580.000000
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v|
+R65
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_nios2_gen2_0_cpu_debug_slave_tck
-R66
+R31
 !i10b 1
 !s100 iBomD1hBFLAaVgFnR7X=30
-IXXO<e_jYgRC6U1N=1XLai3
+IEUKAgZ1Db83Om>cSEhK?o2
+R1
 R2
-R0
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v
 R4
 R5
 r1
 !s85 0
 31
-R71
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v|
+R34
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_tck.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper
-R66
+R31
 !i10b 1
 !s100 b:1[N3cMa0<XnFL]HP=QA0
-I5g];Eol_N7IREdZ;]M3i52
+IbmfgSO6=g^=2S[9A7JnCo2
+R1
 R2
-R0
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
 R4
 R5
 r1
 !s85 0
 31
-R71
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v|
+R34
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v|
 !i113 1
 R7
 R8
@@ -1080,42 +1080,42 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_avalon_reg
 R63
 !i10b 1
 !s100 @U=T[iOJ79:UdIa>Ul2kS3
-If6Y:T0G3YRUcT9^4`i@Sd2
+IboH?lQ^l5V<1GlAfdR79V3
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 2023
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
 R9
 vlab7_soc_nios2_gen2_0_cpu_nios2_oci
-R66
+R63
 !i10b 1
 !s100 :@k2bK[>T2WTd[hWoWW:Q1
-IAW;0L>eNEo[d:@I>?g7760
+InX?Qe^3;aKJHInIf:8?Ee2
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 2362
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1124,20 +1124,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_break
 R63
 !i10b 1
 !s100 KAdRBli83G83@I_2z:e;61
-IOT_HmiB4SnGc0UJ45R4]g2
+InZ@PZzHTIn>oN_^LoC<fG3
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 295
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1146,20 +1146,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt
 R63
 !i10b 1
 !s100 Qa:]BC_GKN3TcOK76TG=S0
-IA;1GSBFfQ_7f^kYB5zZXo1
+Ikc?E0UAjndMMnQNY]mRb92
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1265
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1168,20 +1168,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_dbrk
 R63
 !i10b 1
 !s100 OY1n?`dfnlj;<=DHM@91U3
-IB:1oLPK9AdlT?Z`DATOdO2
+ImJS1[[Sk@YQ<KecC03JzE0
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 795
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1190,20 +1190,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_debug
 R63
 !i10b 1
 !s100 9Y4OJQ7OO[0@N6>S0FUao1
-Ic__Xd>nHHP=iF^GF3li]C3
+IbFZ5O<f:eGJaUTA0a2:^T3
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 153
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1212,20 +1212,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_dtrace
 R63
 !i10b 1
 !s100 SfG8BNV0>I]M=YbL?c<ZJ2
-I5;1OjO_hPEc:LWCYk3FM60
+IlDS]a[Ok7DEl2I_JSMfLL0
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1183
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1234,20 +1234,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_fifo
 R63
 !i10b 1
 !s100 0IJc:f8CMmEC3z?k]bR>n3
-I0en8VT1^1Q=7X83kGEJO`1
+Io6kD0OAC4M@6G]h9kQ1=X2
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1427
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1256,20 +1256,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc
 R63
 !i10b 1
 !s100 i=LdeS^mfK>c1R`CMg2?L0
-I;lLePI4MeL5AZ[eFMnc:22
+IDB<iS8e_J5<UC2c_L5]9T0
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1380
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1278,20 +1278,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc
 R63
 !i10b 1
 !s100 9;6jjoHW_NzG@2H_Doc]N2
-IZRKf2U^ZlzLLVL;:WKzog2
+Iz7jABdoLba4:3VbFOi_1Z2
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1337
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1300,20 +1300,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_im
 R63
 !i10b 1
 !s100 Yl6RNB<4gnU?V?CRZeHCD3
-IZSBzSzS<H9Gk@ScmkemV[1
+ISHflhc;aBgElLPO3:hgO60
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1936
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1322,20 +1322,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_itrace
 R63
 !i10b 1
 !s100 ?AFTa4OM9^ASdzXc<@TeN2
-ID9PgJV54A[S_I^<^VNhz42
+I3PFFK4G56CR4PPjNc`<Zm0
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 982
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1344,20 +1344,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_pib
 R63
 !i10b 1
 !s100 =icdY70h2m>?6ZAkL5iVB1
-IF^TU=;`N6PPI8DEL71]o[1
+IW[0WK=_0:?8]19h9N5hIZ2
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1913
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1366,20 +1366,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_td_mode
 R63
 !i10b 1
 !s100 :dzinn^DD1jFfV[TgzY`b0
-I;C@6W@VhEKAT7VKKXHPmH1
+IRA9;PH_8<iz=:E3?9I_;M3
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 1115
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1388,42 +1388,42 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_oci_xbrk
 R63
 !i10b 1
 !s100 DOG[@C<jdlM;_iKQjIBz40
-IUN8Y2k5HRQgHaW8zlJ:Oc0
+IlC2<gPo]^EG^o7aSlcjc?3
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 588
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
 R9
 vlab7_soc_nios2_gen2_0_cpu_nios2_ocimem
-R66
+R63
 !i10b 1
 !s100 ]jO_bXG=mClXOAXOPES^T3
-I<N<YD[Il1le[Pe0@bVbja1
+IO^YR<_k_BTBE4FN7O_:6A3
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 2181
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1432,20 +1432,20 @@ vlab7_soc_nios2_gen2_0_cpu_nios2_performance_monitors
 R63
 !i10b 1
 !s100 86V5K:VC<aE@klYcfLYC31
-In51@G9c>jRL1z]D0lTXOQ0
+IlSXmQ7?W]2:@mgF_IQRBM1
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 2006
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1454,20 +1454,20 @@ vlab7_soc_nios2_gen2_0_cpu_ociram_sp_ram_module
 R63
 !i10b 1
 !s100 :Ma7mJ_EMlDX1WT7>3a:I1
-I3:H<Bgd^6TcLBXVMXQdAc0
+I>L1n[J`kndNf3<GFDflW11
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 2116
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1476,20 +1476,20 @@ vlab7_soc_nios2_gen2_0_cpu_register_bank_a_module
 R63
 !i10b 1
 !s100 zdY=6DB`;ecPTLETz45Ca2
-I1VSEnARa[1:L6j[?>]0NN1
+IMM9J5oQ10MLT^;cTzSSzi3
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 R4
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
@@ -1498,42 +1498,42 @@ vlab7_soc_nios2_gen2_0_cpu_register_bank_b_module
 R63
 !i10b 1
 !s100 >=DSGH8eMSgT8CckGW5O20
-IK_G9lS5cBcQ[o[E3C>IeH0
+I>7i_;mZV[h;kA75b9<;CN0
+R1
 R2
-R0
 R3
+R66
 R67
-R68
 L0 87
 R5
 r1
 !s85 0
 31
 R65
+R68
 R69
-R70
 !i113 1
 R7
 R8
 R9
 vlab7_soc_nios2_gen2_0_cpu_test_bench
-R66
+R31
 !i10b 1
 !s100 ZOKmG_9Qg;0aKY@bof[O=2
-IM]JS=3?h[OY:_<UZMGTi;1
+IKUCCC0:g>9R8AmIeF=YX83
+R1
 R2
-R0
 R3
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v
 R4
 R5
 r1
 !s85 0
 31
-R71
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v|
+R34
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_nios2_gen2_0_cpu_test_bench.v|
 !i113 1
 R7
 R8
@@ -1542,62 +1542,62 @@ vlab7_soc_onchip_memory2_0
 R63
 !i10b 1
 !s100 BBCU6oN5ocePVm5eSmQc@2
-I0M6A4^hdE3A_?dO[M>>?O1
+ImMz5zN7:mh3h`;G:3]4AF2
+R1
 R2
-R0
 R64
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v
 R4
 R5
 r1
 !s85 0
 31
 R65
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v|
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_onchip_memory2_0.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_sdram
-R63
+Z70 !s110 1586036298
 !i10b 1
 !s100 QGYV=2MaBOUff<6Pd4A3@0
-IEk7ZlG0:6GFYG:?LRzbQO0
+IT=iiN7kR__j^H<cL<gPfW3
+R1
 R2
-R0
-Z72 w1586030334
-Z73 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v
-Z74 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v
+Z71 w1586034789
+Z72 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v
+Z73 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v
 L0 159
 R5
 r1
 !s85 0
 31
-R65
-Z75 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v|
-Z76 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v|
+Z74 !s108 1586036298.000000
+Z75 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v|
+Z76 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_sdram_input_efifo_module
-R63
+R70
 !i10b 1
 !s100 Q36LmMEB_hQ5j8K?>R7ij3
-IYKKRVzQg5K;8UYOXgYB653
+Ik<l:a23iGEHo?jmTiRD>]3
+R1
 R2
-R0
+R71
 R72
 R73
-R74
 R4
 R5
 r1
 !s85 0
 31
-R65
+R74
 R75
 R76
 !i113 1
@@ -1605,34 +1605,34 @@ R7
 R8
 R9
 vlab7_soc_sdram_pll
-R63
+R70
 !i10b 1
 !s100 1]Qf?PO:=g8i5O_@jFA=S0
-I@?O43m9>nCVED<h0ZiYee0
+IMVPX9iVCTj;XS]jd;2Tg=0
+R1
 R2
-R0
-Z77 w1586030335
-Z78 8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v
-Z79 FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v
+Z77 w1586034790
+Z78 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v
+Z79 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v
 L0 217
 R5
 r1
 !s85 0
 31
-R65
-Z80 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v|
-Z81 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v|
+R74
+Z80 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v|
+Z81 !s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sdram_pll.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_sdram_pll_altpll_lqa2
-R63
+R70
 !i10b 1
 !s100 Q3ASJX;;S`c9YzNCX@GRz0
-I[1nZh@k5Qij^IWFR>zhO41
+I@ecg9Tb[BJ`9_G_29fNhK2
+R1
 R2
-R0
 R77
 R78
 R79
@@ -1641,7 +1641,7 @@ R5
 r1
 !s85 0
 31
-R65
+R74
 R80
 R81
 !i113 1
@@ -1649,12 +1649,12 @@ R7
 R8
 R9
 vlab7_soc_sdram_pll_dffpipe_l2c
-R63
+R70
 !i10b 1
 !s100 6BWihgjUk;B9]>iIY?:dm3
-I6fOH`oUT1FL`TZP0kSL@_3
+II5H]6[Td7=b:TBC[DEW6I0
+R1
 R2
-R0
 R77
 R78
 R79
@@ -1663,7 +1663,7 @@ R5
 r1
 !s85 0
 31
-R65
+R74
 R80
 R81
 !i113 1
@@ -1671,12 +1671,12 @@ R7
 R8
 R9
 vlab7_soc_sdram_pll_stdsync_sv6
-R63
+R70
 !i10b 1
 !s100 6bP9LYg1SPSIl>9o7eiV13
-IYh8zeX[E;4AnF:0UoQ0L^3
+IIn@giADV7VZZod4=_4QW<2
+R1
 R2
-R0
 R77
 R78
 R79
@@ -1685,7 +1685,7 @@ R5
 r1
 !s85 0
 31
-R65
+R74
 R80
 R81
 !i113 1
@@ -1693,45 +1693,45 @@ R7
 R8
 R9
 vlab7_soc_sysid_qsys_0
-R63
+R70
 !i10b 1
-!s100 E[UFMj<RF4@U>_`Z><ook0
-IM1j1FTbMnENom6FMD8MK<3
+!s100 QB]imF^eoY9zDoCeDFlbE3
+Ie`@4Xob7ZKP2:]Nf=WDPC3
+R1
 R2
-R0
 R77
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v
-R25
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v
+R28
 R5
 r1
 !s85 0
 31
-R65
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v|
+R74
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_sysid_qsys_0.v|
 !i113 1
 R7
 R8
 R9
 vlab7_soc_timer_0
-R1
+R70
 !i10b 1
 !s100 mcJ1YD0cnKH_c3H?8b6Yn0
-I4GdOJzMVkBDKdU:=X?jC42
+I:fmfnFMUl>Uc;lT`4E`OX1
+R1
 R2
-R0
-w1586030336
-8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v
-FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v
+R77
+8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v
+FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v
 R4
 R5
 r1
 !s85 0
 31
-R6
-!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v|
-!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v|
+R74
+!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|lab7_soc|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_timer_0.v|
 !i113 1
 R7
 R8

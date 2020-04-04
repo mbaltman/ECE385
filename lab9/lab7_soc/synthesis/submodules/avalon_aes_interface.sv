@@ -37,17 +37,16 @@ module avalon_aes_interface (
 	// Exported Conduit
 	output logic [31:0] EXPORT_DATA			// Exported Conduit Signal to LEDs
 	);
-	
-	
-	
+
 	logic [31:0] registers [15:0];
 	logic [127:0] intDecode;
 	logic intDone;
-   AES decryptionLogic(.CLK, .RESET, .AES_START(registers[14][0]), .AES_DONE(intDone), 
-								.AES_KEY({registers[0],registers[1],registers[2],registers[3]}),
-								.AES_MSG_DEC(intDecode),
-								.AES_MSG_ENC({registers[4],registers[5],registers[6],registers[7]}));
-	
+
+	AES decryptionLogic(	.CLK, .RESET, .AES_START(registers[14][0]), .AES_DONE(intDone),
+							.AES_KEY({registers[0], registers[1], registers[2], registers[3]}),
+							.AES_MSG_DEC(intDecode),
+							.AES_MSG_ENC({registers[4], registers[5], registers[6], registers[7]}));
+
 	always_ff @ (posedge CLK) // write has 1 cycle of delay
 	begin
 		if (RESET)
@@ -62,13 +61,12 @@ module avalon_aes_interface (
 			registers[AVL_ADDR][31:0] <= AVL_WRITEDATA[31:0]; // write data into corresponding address
 		end
 		else if(intDone)
-		begin 
-		
-			registers[15][0] = intDone;
-			registers[8] = intDecode[31:0];
-			registers[9] = intDecode[63:32];
-			registers[10] = intDecode[95:64];
-			registers[11] = intDecode[127:96];
+		begin
+			registers[15][0] <= intDone;
+			registers[8] <= intDecode[31:0];
+			registers[9] <= intDecode[63:32];
+			registers[10] <= intDecode[95:64];
+			registers[11] <= intDecode[127:96];
 		end
 		else
 		begin

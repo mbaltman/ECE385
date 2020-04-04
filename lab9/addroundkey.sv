@@ -1,7 +1,7 @@
 module addroundkey (
-    input logic [1407:0] KeySchedule,
-    input integer roundnumber,
-    output logic [127:0] roundkey);
+    input  logic   [1407:0] KeySchedule,
+    input  integer roundnumber,
+    output logic   [127:0] roundkey);
 
     logic [127:0] ck, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9;
 
@@ -20,17 +20,17 @@ module addroundkey (
         k9 = KeySchedule[127:0];
     end
 
-    mux11 roundkeymux (.ck, .k0, .k1, .k2, .k3, .k4, .k5, .k6, .k7, .k8, .k9, .s(roundnumber), .o(roundkey));
+    mux11 roundkeymux(.ck, .k0, .k1, .k2, .k3, .k4, .k5, .k6, .k7, .k8, .k9, .s(roundnumber), .o(roundkey));
 endmodule
 
-module mux11 #(parameter width = 128) (
-    input  logic [width-1:0] ck, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9,
+module mux11 (
+    input  logic   [127:0] ck, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9,
     input  integer s,
-    output logic [width-1:0] o);
+    output logic   [127:0] o);
 
     always_comb
     begin
-        unique case(s)
+        unique case (s)
             0:
                 o = ck;
             1:
