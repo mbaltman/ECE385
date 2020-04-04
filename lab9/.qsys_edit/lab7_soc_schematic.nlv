@@ -13,14 +13,14 @@ preplace inst lab7_soc.onchip_memory2_0 -pg 1 -lvl 3 -y 430
 preplace inst lab7_soc -pg 1 -lvl 1 -y 40 -regy -20
 preplace inst lab7_soc.AES -pg 1 -lvl 3 -y 30
 preplace netloc EXPORT<net_container>lab7_soc</net_container>(MASTER)sdram_pll.c1,(MASTER)lab7_soc.sdram_clk) 1 3 1 N
-preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)lab7_soc.aes_export,(SLAVE)AES.Export_Data) 1 0 3 NJ 60 NJ 60 NJ
-preplace netloc POINT_TO_POINT<net_container>lab7_soc</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 2 1 710
-preplace netloc POINT_TO_POINT<net_container>lab7_soc</net_container>(SLAVE)sdram.clk,(MASTER)sdram_pll.c0) 1 2 2 770 240 1010
-preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)lab7_soc.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)clk_0.clk_in,(SLAVE)lab7_soc.clk) 1 0 1 NJ
-preplace netloc INTERCONNECT<net_container>lab7_soc</net_container>(SLAVE)sysid_qsys_0.reset,(SLAVE)onchip_memory2_0.reset1,(SLAVE)nios2_gen2_0.reset,(SLAVE)sdram.reset,(SLAVE)AES.RESET,(MASTER)clk_0.clk_reset,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)sdram_pll.inclk_interface_reset,(SLAVE)jtag_uart_0.reset) 1 1 2 310 120 750
-preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)sdram.wire,(SLAVE)lab7_soc.sdram_wire) 1 0 3 NJ 400 NJ 400 NJ
-preplace netloc FAN_OUT<net_container>lab7_soc</net_container>(SLAVE)nios2_gen2_0.clk,(SLAVE)onchip_memory2_0.clk1,(MASTER)clk_0.clk,(SLAVE)AES.CLK,(SLAVE)jtag_uart_0.clk,(SLAVE)sdram_pll.inclk_interface,(SLAVE)sysid_qsys_0.clk) 1 1 2 290 100 730
-preplace netloc INTERCONNECT<net_container>lab7_soc</net_container>(MASTER)nios2_gen2_0.data_master,(SLAVE)AES.AES_Slave,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)sdram.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)onchip_memory2_0.s1,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)sdram_pll.pll_slave) 1 1 2 330 80 690
-levelinfo -pg 1 0 80 1120
-levelinfo -hier lab7_soc 90 120 450 820 1030
+preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)lab7_soc.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)lab7_soc.sdram_wire,(SLAVE)sdram.wire) 1 0 3 NJ 400 NJ 400 NJ
+preplace netloc FAN_OUT<net_container>lab7_soc</net_container>(SLAVE)nios2_gen2_0.clk,(SLAVE)sdram_pll.inclk_interface,(SLAVE)jtag_uart_0.clk,(SLAVE)AES.CLK,(MASTER)clk_0.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)onchip_memory2_0.clk1) 1 1 2 310 320 750
+preplace netloc POINT_TO_POINT<net_container>lab7_soc</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)jtag_uart_0.irq) 1 2 1 730
+preplace netloc POINT_TO_POINT<net_container>lab7_soc</net_container>(MASTER)sdram_pll.c0,(SLAVE)sdram.clk) 1 2 2 790 240 1030
+preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)AES.Export_Data,(SLAVE)lab7_soc.aes_export) 1 0 3 NJ 300 NJ 300 NJ
+preplace netloc INTERCONNECT<net_container>lab7_soc</net_container>(MASTER)nios2_gen2_0.data_master,(SLAVE)sdram_pll.pll_slave,(SLAVE)onchip_memory2_0.s1,(SLAVE)sysid_qsys_0.control_slave,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)sdram.s1,(SLAVE)AES.AES_Slave,(SLAVE)nios2_gen2_0.debug_mem_slave) 1 1 2 330 360 710
+preplace netloc EXPORT<net_container>lab7_soc</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)lab7_soc.reset) 1 0 1 NJ
+preplace netloc INTERCONNECT<net_container>lab7_soc</net_container>(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)nios2_gen2_0.reset,(SLAVE)onchip_memory2_0.reset1,(SLAVE)AES.RESET,(SLAVE)sdram.reset,(SLAVE)jtag_uart_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)sdram_pll.inclk_interface_reset,(SLAVE)sysid_qsys_0.reset) 1 1 2 290 340 770
+levelinfo -pg 1 0 80 1140
+levelinfo -hier lab7_soc 90 120 450 840 1050
