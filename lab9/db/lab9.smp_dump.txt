@@ -42,3 +42,38 @@ DRsize.010 0 0 0 1 0 1
 DRsize.011 0 0 1 0 0 1 
 DRsize.100 0 1 0 0 0 1 
 DRsize.101 1 0 0 0 0 1 
+
+State Machine - |lab9_top|lab7_soc:lab9_qsystem|avalon_aes_interface:aes|AES:decryptionLogic|ISDU:statemachine|State_counter
+Name State_counter.S0 State_counter.S9 State_counter.S8 State_counter.S7 State_counter.S6 State_counter.S5 State_counter.S4 State_counter.S3 State_counter.S2 State_counter.S1 State_counter.S10 
+State_counter.S10 0 0 0 0 0 0 0 0 0 0 0 
+State_counter.S1 0 0 0 0 0 0 0 0 0 1 1 
+State_counter.S2 0 0 0 0 0 0 0 0 1 0 1 
+State_counter.S3 0 0 0 0 0 0 0 1 0 0 1 
+State_counter.S4 0 0 0 0 0 0 1 0 0 0 1 
+State_counter.S5 0 0 0 0 0 1 0 0 0 0 1 
+State_counter.S6 0 0 0 0 1 0 0 0 0 0 1 
+State_counter.S7 0 0 0 1 0 0 0 0 0 0 1 
+State_counter.S8 0 0 1 0 0 0 0 0 0 0 1 
+State_counter.S9 0 1 0 0 0 0 0 0 0 0 1 
+State_counter.S0 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |lab9_top|lab7_soc:lab9_qsystem|avalon_aes_interface:aes|AES:decryptionLogic|ISDU:statemachine|State
+Name State.S10 State.S9 State.S8 State.S7 State.S6 State.S5 State.S4 State.S3 State.S2 State.S1 State.S0 State.Done State.IMC State.ISB State.ISR State.IARK State.Key_Expansion State.Wait 
+State.Wait 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+State.Key_Expansion 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+State.IARK 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+State.ISR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+State.ISB 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+State.IMC 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+State.Done 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+State.S0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+State.S1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+State.S2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+State.S3 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+State.S4 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+State.S5 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+State.S6 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+State.S7 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+State.S8 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+State.S9 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+State.S10 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

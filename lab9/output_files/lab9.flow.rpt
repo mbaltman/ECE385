@@ -1,5 +1,5 @@
 Flow report for lab9
-Sat Apr 04 14:12:38 2020
+Sat Apr 04 15:02:40 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,22 +40,22 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Flow Failed - Sat Apr 04 14:12:38 2020      ;
+; Flow Status                        ; Successful - Sat Apr 04 15:02:40 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; lab9                                        ;
 ; Top-level Entity Name              ; lab9_top                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 4,431                                       ;
+;     Total combinational functions  ; 3,003                                       ;
+;     Dedicated logic registers      ; 2,688                                       ;
+; Total registers                    ; 2688                                        ;
+; Total pins                         ; 142                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 11,392                                      ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/04/2020 14:12:22 ;
+; Start date & time ; 04/04/2020 15:01:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab9                ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                                      ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 93094402305973.158602754107376                             ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 93094402305973.158603049813420                             ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                                         ; --            ; --          ; testbench      ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; testbench                                                  ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                                          ; --            ; --          ; eda_simulation ;
@@ -99,7 +99,7 @@ refer to the applicable agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                                               ; --            ; --          ; --             ;
 ; SLD_FILE                             ; lab7_soc/synthesis/lab7_soc.regmap                         ; --            ; --          ; --             ;
 ; SLD_FILE                             ; lab7_soc/synthesis/lab7_soc.debuginfo                      ; --            ; --          ; --             ;
-; SLD_INFO                             ; QSYS_NAME lab7_soc HAS_SOPCINFO 1 GENERATION_ID 1586026268 ; --            ; lab7_soc    ; --             ;
+; SLD_INFO                             ; QSYS_NAME lab7_soc HAS_SOPCINFO 1 GENERATION_ID 1586030319 ; --            ; lab7_soc    ; --             ;
 ; SOPCINFO_FILE                        ; lab7_soc/synthesis/../../lab7_soc.sopcinfo                 ; --            ; --          ; --             ;
 ; SYNTHESIS_ONLY_QIP                   ; On                                                         ; --            ; --          ; --             ;
 ; TOP_LEVEL_ENTITY                     ; lab9_top                                                   ; lab9          ; --          ; --             ;
@@ -111,8 +111,8 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4759 MB             ; 00:00:42                           ;
-; Total                ; 00:00:18     ; --                      ; --                  ; 00:00:42                           ;
+; Analysis & Synthesis ; 00:00:58     ; 1.0                     ; 4950 MB             ; 00:01:33                           ;
+; Total                ; 00:00:58     ; --                      ; --                  ; 00:01:33                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

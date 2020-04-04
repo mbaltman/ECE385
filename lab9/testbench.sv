@@ -24,8 +24,8 @@ module testbench();
 	end
 
 	initial begin: TEST_VECTORS
-		AES_KEY = 32'h000102030405060708090a0b0c0d0e0f;
-		AES_MSG_ENC = 32'hdaec3055df058e1c39e814ea76f6747e;
+		AES_KEY = 128'h000102030405060708090a0b0c0d0e0f;
+		AES_MSG_ENC = 128'hdaec3055df058e1c39e814ea76f6747e;
 		
 		
 		#2 RESET = 1;

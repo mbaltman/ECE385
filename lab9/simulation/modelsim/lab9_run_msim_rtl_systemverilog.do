@@ -28,6 +28,7 @@ vlog -vlog01compat -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385
 vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9 {C:/Users/megge/Documents/GitHub/ECE385/lab9/addroundkey.sv}
 vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9 {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab9_top.sv}
 vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9 {C:/Users/megge/Documents/GitHub/ECE385/lab9/hexdriver.sv}
+vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9 {C:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv}
 vlog -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_irq_mapper.sv}
 vlog -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/lab7_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv}
 vlog -vlog01compat -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v}
@@ -51,6 +52,7 @@ vlog -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7
 vlog -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_agent.sv}
 vlog -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_slave_translator.sv}
 vlog -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/altera_merlin_master_translator.sv}
+vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9 {C:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv}
 vlog -sv -work lab7_soc +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules {C:/Users/megge/Documents/GitHub/ECE385/lab9/lab7_soc/synthesis/submodules/avalon_aes_interface.sv}
 
 vlog -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9 {C:/Users/megge/Documents/GitHub/ECE385/lab9/testbench.sv}

@@ -10,7 +10,8 @@ module ISDU(
 	output integer      stateNumber, Round, KeyClock);
 
 	enum logic [4:0] {  Wait,
-							Key_Expansion,
+							Key_Expansion1,
+							Key_Expansion2,
 							IARK,
 							ISR,
 							ISB,
@@ -35,11 +36,13 @@ module ISDU(
 		if (Reset)
 			begin
 			State <= Wait;
-			State_counter = S10;
+			State_counter <= S10;
 			end
 		else
+		begin
 			State <= Next_state;
-			State_counter = Next_state_counter;
+			State_counter <= Next_state_counter;
+		end
 	end
 
 	always_comb
@@ -53,29 +56,33 @@ module ISDU(
 		AES_DONE = 1'b0;
 		mux_select =2'b00;
 		Round =0;
+		Next_state_counter = State_counter;
 	
 
 		// assign next state
 		unique case (State) // state transtions
 			Wait :
+			begin
 				if (AES_START)
 					Next_state = Key_Expansion;
-				
+			end
 			Key_Expansion :
-				if(KeyClock >0)
-					Next_state = Key_Expansion;
-				else
 					Next_state =IARK;
 			
 			IARK :
+			begin
+
 				if(State_counter == S10)
 					Next_state = ISR;
 				else if(State_counter == S0)
 					Next_state = Done;
+				
 				else
 				begin
 					Next_state = IMC;
-					
+				end
+				
+				begin
 					case(State_counter)
 					S10 :
 					Next_state_counter = S9;
@@ -111,7 +118,7 @@ module ISDU(
 					Next_state_counter = S0;
 					endcase
 				end
-				
+			end
 			ISR :
 				Next_state = ISB;
 				
@@ -122,11 +129,12 @@ module ISDU(
 				Next_state = ISR;
 			
 			Done:
+			begin
 				if(AES_START == 1'b0)
 					Next_state = Wait;
 				else
 					Next_state = Done;
-
+			end
 			default: ;
 		endcase
 
@@ -138,14 +146,14 @@ module ISDU(
 					mux_select = 2'b0;
 	
 					stateNumber =0;
-					KeyClock =5;
+					
 				end
 			Key_Expansion: 
 				begin
 					mux_select = 2'b0;
 					
 					stateNumber =1;
-					KeyClock = KeyClock -1;
+					
 				end
 			
 			IARK : 
@@ -175,6 +183,7 @@ module ISDU(
 				begin
 					AES_DONE =1;
 				end
+				
 			S10:
 				Round = 10;
 			S9:
@@ -203,6 +212,7 @@ module ISDU(
 
 			default: ;
 		endcase
+		
 	end
 
 endmodule
