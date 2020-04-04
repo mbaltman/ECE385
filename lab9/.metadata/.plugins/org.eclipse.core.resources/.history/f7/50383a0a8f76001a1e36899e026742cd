@@ -337,12 +337,11 @@ int main()
 				msg_ascii[k] = 0x00;
 				key_ascii[k] = 0x00;
 			}
-
 			for (int k = 0; k < 4; k++)
 			{
-				key[k] = 0;
-				msg_enc[k] = 0;
-				msg_dec[k] = 0;
+				key[k] = {0, 0, 0, 0};
+				msg_enc[k] = {0, 0, 0, 0};
+				msg_dec[k] = {0, 0, 0, 0};
 			}
 
 			int i = 0;
