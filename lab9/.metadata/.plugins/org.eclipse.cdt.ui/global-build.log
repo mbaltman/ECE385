@@ -415,3 +415,110 @@ Info: Building ../lab9_app_bsp/
 C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab9_app_bsp/
 [BSP build complete]
 [lab9_app build complete]
+10:41:35 **** Incremental Build of configuration Nios II for project lab9_app ****
+make all 
+Info: Building ../lab9_app_bsp/
+C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab9_app_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab9_app_bsp//HAL/inc -I../lab9_app_bsp/ -I../lab9_app_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'subWord':
+main.c:148:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 7) & 1==1)
+                        ^
+main.c:152:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 6) & 1==1)
+                        ^
+main.c:156:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 5) & 1==1)
+                        ^
+main.c:160:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 4) & 1==1)
+                        ^
+main.c:165:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 3) & 1==1)
+                        ^
+main.c:169:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 2) & 1==1)
+                        ^
+main.c:173:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 1) & 1==1)
+                        ^
+main.c:177:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 0) & 1==1)
+                        ^
+Info: Linking lab9_app.elf
+nios2-elf-g++  -T'../lab9_app_bsp//linker.x' -msys-crt0='../lab9_app_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab9_app_bsp/   -Wl,-Map=lab9_app.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab9_app.elf obj/default/main.o -lm -msys-lib=m
+nios2-elf-insert lab9_app.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x98 --timestamp 1586013592 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name lab7_soc --quartus_project_dir "C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9" --jdi ../..//output_files/lab9.jdi --sopcinfo C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/software/lab9_app_bsp/../../lab7_soc.sopcinfo
+Info: (lab9_app.elf) 116 KBytes program size (code + initialized data).
+Info:                130947 KBytes free for stack + heap.
+Info: Creating lab9_app.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab9_app.elf >lab9_app.objdump
+[lab9_app build complete]
+10:41:37 **** Incremental Build of configuration Nios II for project lab9_app_bsp ****
+make all 
+[BSP build complete]
+10:42:06 **** Incremental Build of configuration Nios II for project lab9_app ****
+make all 
+Info: Building ../lab9_app_bsp/
+C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab9_app_bsp/
+[BSP build complete]
+[lab9_app build complete]
+10:54:41 **** Incremental Build of configuration Nios II for project lab9_app ****
+make all 
+Info: Building ../lab9_app_bsp/
+C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab9_app_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab9_app_bsp//HAL/inc -I../lab9_app_bsp/ -I../lab9_app_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'subWord':
+main.c:148:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 7) & 1==1)
+                        ^
+main.c:152:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 6) & 1==1)
+                        ^
+main.c:156:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 5) & 1==1)
+                        ^
+main.c:160:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 4) & 1==1)
+                        ^
+main.c:165:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 3) & 1==1)
+                        ^
+main.c:169:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 2) & 1==1)
+                        ^
+main.c:173:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 1) & 1==1)
+                        ^
+main.c:177:24: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if((currChar >> 0) & 1==1)
+                        ^
+Info: Linking lab9_app.elf
+nios2-elf-g++  -T'../lab9_app_bsp//linker.x' -msys-crt0='../lab9_app_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab9_app_bsp/   -Wl,-Map=lab9_app.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab9_app.elf obj/default/main.o -lm -msys-lib=m
+nios2-elf-insert lab9_app.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x98 --timestamp 1586013592 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name lab7_soc --quartus_project_dir "C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9" --jdi ../..//output_files/lab9.jdi --sopcinfo C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/software/lab9_app_bsp/../../lab7_soc.sopcinfo
+Info: (lab9_app.elf) 116 KBytes program size (code + initialized data).
+Info:                130947 KBytes free for stack + heap.
+Info: Creating lab9_app.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab9_app.elf >lab9_app.objdump
+[lab9_app build complete]
+10:54:43 **** Incremental Build of configuration Nios II for project lab9_app_bsp ****
+make all 
+[BSP build complete]
+10:54:52 **** Incremental Build of configuration Nios II for project lab9_app ****
+make all 
+Info: Building ../lab9_app_bsp/
+C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab9_app_bsp/
+[BSP build complete]
+[lab9_app build complete]
+10:56:49 **** Incremental Build of configuration Nios II for project lab9_app ****
+make all 
+Info: Building ../lab9_app_bsp/
+C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab9_app_bsp/
+[BSP build complete]
+[lab9_app build complete]
+10:56:50 **** Incremental Build of configuration Nios II for project lab9_app_bsp ****
+make all 
+[BSP build complete]

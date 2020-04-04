@@ -192,9 +192,6 @@ void subBytes(char * state)
 
 void keyExpansion(char * key, char * key_schedule)
 {
-    char myRcon [] = {0x00,0x01,0x02,0x04,0x08,0x10,
-        0x20,0x40,0x80,0x1b,0x36,0x6c,
-        0xd8,0xab,0x4d,0x9a};
     char temp1;//stores one column at a time
     char temp2;
     char temp3;
@@ -202,9 +199,9 @@ void keyExpansion(char * key, char * key_schedule)
     //store first key
 
     //sets up columns 0-3
-    for(int i =0; i < 16; i++)
+    for(int i = 0; i < 16; i++)
     {
-        key_schedule[i]= key[i];
+        key_schedule[i] = key[i];
     }
 
 
@@ -244,8 +241,8 @@ void keyExpansion(char * key, char * key_schedule)
 void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int * msg_enc, unsigned int * key)
 {
 
-    char msg_hex[16];
-    char key_hex[16];
+    char msg_hex[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
+    char key_hex[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
 
     //convert msg_ascii characs to hex values
     for(int i = 0; i < 16; i++)
@@ -258,6 +255,11 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
     }
 
     char key_schedule[16*11];
+	for(int k = 0; k < 176; k++)
+	{
+		key_schedule[k] = 0x00;
+	}
+	
     keyExpansion(key_hex, key_schedule);
 
     addRoundKey(0, key_schedule, msg_hex);
@@ -360,6 +362,11 @@ int main()
 			AES_PTR[5] = msg_enc[1];
 			AES_PTR[6] = msg_enc[2];
 			AES_PTR[7] = msg_enc[3];
+			// send the 128-bit decrypted message (split into 4 x 32-bit)
+			AES_PTR[8] = msg_dec[0];
+			AES_PTR[9] = msg_dec[1];
+			AES_PTR[10] = msg_dec[2];
+			AES_PTR[11] = msg_dec[3];
 		}
 	}
 	else {
