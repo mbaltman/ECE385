@@ -178,17 +178,17 @@ module ISDU (
 		endcase
 
 		case (State_counter)
-			S0:  Round = 0;
-			S1:  Round = 1;
-			S2:  Round = 2;
-			S3:  Round = 3;
-			S4:  Round = 4;
+			S0:  Round = 10;
+			S1:  Round = 9;
+			S2:  Round = 8;
+			S3:  Round = 7;
+			S4:  Round = 6;
 			S5:  Round = 5;
-			S6:  Round = 6;
-			S7:  Round = 7;
-			S8:  Round = 8;
-			S9:  Round = 9;
-			S10: Round = 10;
+			S6:  Round = 4;
+			S7:  Round = 3;
+			S8:  Round = 2;
+			S9:  Round = 1;
+			S10: Round = 0;
 		endcase
 	end
 endmodule
