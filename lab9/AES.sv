@@ -19,9 +19,13 @@ module AES (
 	
 	logic [1:0] mux_select;
 	logic mux_en;
-	logic [127:0] mux_output;
+	logic [127:0] mux_output, state_output;
 	
 	logic[7:0] sb1,sb2,sb3,sb4,sb5,sb6,sb7,sb8.sb9.sb10,sb11,sb12,sb13,sb14,sb15,sb16;
+	integer state_number, round;
+	
+	logic [1407:0] key_schedule;
+	logic[31:0] MC1,MC2,MC3,MC4;
 
 	SubBytes byte1(.clk(CLK),.in(state_output[7:0]),.out(sb1));
 	SubBytes byte2(.clk(CLK),.in(state_output[15:8]),.out(sb2));
@@ -40,15 +44,27 @@ module AES (
 	SubBytes byte15(.clk(CLK),.in(state_output[119:112]),.out(sb15));
 	SubBytes byte16(.clk(CLK),.in(state_output[127:120]),.out(sb16));
 	
+	KeyExpansion key_expansion_instance(.clk(CLK), .Cipherkey(AES_KEY), .KeySchedule(key_schedule));
+	
+	addroundkey addroundkey_instance(.KeySchedule(key_schedule), .roundnumber(round), .roundkey());
+	
+	InvMixColumns mixcol1(.in(state_output[31:0], .out(MC1));
+	InvMixColumns mixcol2(.in(state_output[63:32], .out(MC2));
+	InvMixColumns mixcol3(.in(state_output[95:64], .out(MC3));
+	InvMixColumns mixcol4(.in(state_output[127:96], .out(MC4));
 	
 	
 	
-	ISDU statemachine(.Clk(CLK), .Reset(RESET), .AES_START, .AES_DONE, .mux_en, .mux_select, .stateNumber(state_number), .Round());
+	
+	ISDU statemachine(.Clk(CLK), .Reset(RESET), .AES_START, .AES_DONE, .mux_en, .mux_select, .stateNumber(state_number), .Round(round));
 	
 	mux4 mux4Instance (.iark(), .isb({sb1,sb2,sb3,sb4,sb5,sb6,sb7,sb8.sb9.sb10,sb11,sb12,sb13,sb14,sb15,sb16}),
-										 .imc(), .isr(), .s(mux_select), .o(mux_output));
+										 .imc({MC1, MC2, MC3, MC4}),
+										 .isr(), 
+										 .s(mux_select),
+										 .o(mux_output));
 	
-	stateResgister(.encoded_msg(AES_MSG_ENC, .mux_output, .state_number, ,mux_enable(mux_en), state_output(), . )
+	stateResgister(.clk(CLK),.reset(reset), .encoded_msg(AES_MSG_ENC), .mux_output, .state_number, .mux_enable(mux_en), state_output(), . )
 	
 	
 endmodule
