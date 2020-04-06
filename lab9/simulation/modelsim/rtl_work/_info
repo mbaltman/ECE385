@@ -7,130 +7,389 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/simulation/modelsim
+Z0 dC:/Users/megge/Documents/GitHub/ECE385/lab9/simulation/modelsim
 vaddroundkey
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1586036300
+Z2 !s110 1586213257
 !i10b 1
-!s100 NjDDQfZP>W[]APBkWlGo>1
-IUF^ib7ha2dJSoAi@CW4gK1
+!s100 <VK>S]k?KVd0I:;UfW3=z0
+I;809c[;hh]aXo]2LIA<4B3
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 Z4 !s105 addroundkey_sv_unit
 S1
 R0
-Z5 w1586025797
-Z6 8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/addroundkey.sv
-Z7 FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/addroundkey.sv
+Z5 w1586210001
+Z6 8C:/Users/megge/Documents/GitHub/ECE385/lab9/addroundkey.sv
+Z7 FC:/Users/megge/Documents/GitHub/ECE385/lab9/addroundkey.sv
 L0 1
 Z8 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z9 !s108 1586036300.000000
-Z10 !s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/addroundkey.sv|
-Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/addroundkey.sv|
+Z9 !s108 1586213257.000000
+Z10 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/addroundkey.sv|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/addroundkey.sv|
 !i113 1
 Z12 o-sv -work work
-Z13 !s92 -sv -work work +incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9
+Z13 !s92 -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9
 Z14 tCvgOpt 0
 vAES
 R1
-!s110 1586036305
+Z15 !s110 1586213263
 !i10b 1
-!s100 W?ckgCEVO;C><3?eeUI5L3
-IfKAc;Jf3[O1c`C;BBNUdz0
+!s100 LFUV8Q;XXMbQ:aIAl_YiW1
+IIKNW?aIl6d:X5gATCPhBf1
 R3
 !s105 AES_sv_unit
 S1
 R0
-w1586034990
-8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/AES.sv
-FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/AES.sv
+w1586213146
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv
 L0 10
 R8
 r1
 !s85 0
 31
-!s108 1586036305.000000
-!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/AES.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/AES.sv|
+Z16 !s108 1586213263.000000
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv|
 !i113 1
 R12
 R13
 R14
 n@a@e@s
+vGF_Mul_9
+R1
+Z17 DXx4 work 21 InvMixColumns_sv_unit 0 22 9mKfAh1XN]kd60D]UMPFO2
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 `>]4H4@iliSP?dl2@_DE82
+I>[Z4b1IFhWNT283bA3bFL0
+Z18 !s105 InvMixColumns_sv_unit
+S1
+R0
+Z19 w1585420270
+Z20 8C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv
+Z21 FC:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv
+L0 74
+R8
+Z22 !s108 1586213258.000000
+Z23 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv|
+Z24 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv|
+!i113 1
+R12
+R13
+R14
+n@g@f_@mul_9
+vGF_Mul_b
+R1
+R17
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 LWUM_dc3_P74=OT`RzHoN1
+I@NzPUbz]2A@m<5=85Nd750
+R18
+S1
+R0
+R19
+R20
+R21
+Z25 L0 93
+R8
+R22
+R23
+R24
+!i113 1
+R12
+R13
+R14
+n@g@f_@mul_b
+vGF_Mul_d
+R1
+R17
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 CPB;fC9?WAod]IM0<oISe0
+Ico61CUMXBiiL5>maai_LJ3
+R18
+S1
+R0
+R19
+R20
+R21
+L0 112
+R8
+R22
+R23
+R24
+!i113 1
+R12
+R13
+R14
+n@g@f_@mul_d
+vGF_Mul_e
+R1
+R17
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 8MSGaQX_X5X4HB0HA=_gj1
+ILllK2KK@HW2T?InZH>cf41
+R18
+S1
+R0
+R19
+R20
+R21
+L0 131
+R8
+R22
+R23
+R24
+!i113 1
+R12
+R13
+R14
+n@g@f_@mul_e
 vhexdriver
 R1
-Z15 !s110 1586036301
+Z26 !s110 1586213258
 !i10b 1
 !s100 9aO?^i9QbIaBE;CD84;[50
-I;O3FAI]ZVT@NSzR<hi0][1
+IPL9fz=Wbi7eCO]NL7dL2D0
 R3
 !s105 hexdriver_sv_unit
 S1
 R0
-w1509557564
-8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/hexdriver.sv
-FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/hexdriver.sv
+R19
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/hexdriver.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/hexdriver.sv
 L0 2
 R8
 r1
 !s85 0
 31
-Z16 !s108 1586036301.000000
-!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/hexdriver.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/hexdriver.sv|
+R22
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/hexdriver.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/hexdriver.sv|
 !i113 1
 R12
 R13
 R14
+vInvMixColumns
+R1
+R26
+!i10b 1
+!s100 4o]QlL4?^EZ0IeL:kL;`V3
+ILkOoaG9z]X0J<zLdC8O@m0
+R3
+R18
+S1
+R0
+R19
+R20
+R21
+Z27 L0 14
+R8
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 1
+R12
+R13
+R14
+n@inv@mix@columns
+XInvMixColumns_sv_unit
+R1
+V9mKfAh1XN]kd60D]UMPFO2
+r1
+!s85 0
+31
+!i10b 1
+!s100 ijnMUG_l2]2^Mo8SMVA001
+I9mKfAh1XN]kd60D]UMPFO2
+!i103 1
+S1
+R0
+R19
+R20
+R21
+L0 65
+R8
+R22
+R23
+R24
+!i113 1
+R12
+R13
+R14
+n@inv@mix@columns_sv_unit
+vInvShiftRows
+R1
+R26
+!i10b 1
+!s100 IGnkNoM>n=3VhTK>Jl2F=1
+IC8fo<05:Bm41k6636kjK50
+R3
+!s105 InvShiftRows_sv_unit
+S1
+R0
+R19
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/InvShiftRows.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/InvShiftRows.sv
+L0 2
+R8
+r1
+!s85 0
+31
+R22
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/InvShiftRows.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/InvShiftRows.sv|
+!i113 1
+R12
+R13
+R14
+n@inv@shift@rows
+vInvSubBytes
+R1
+R26
+!i10b 1
+!s100 fYzzGZ]YiaT7z3;]GQMHB1
+IVEbh5zUcGA3AJkP1dWhzW1
+R3
+Z28 !s105 SubBytes_sv_unit
+S1
+R0
+R19
+Z29 8C:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv
+Z30 FC:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv
+R25
+R8
+r1
+!s85 0
+31
+R22
+Z31 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv|
+Z32 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv|
+!i113 1
+R12
+R13
+R14
+n@inv@sub@bytes
 vISDU
 R1
-R15
+R26
 !i10b 1
-!s100 A;F=5<ZJ<gnCKB@J;^R7E3
-I2YzZCO6b1H2X>=0^O7mS`1
+!s100 1S=eFJIzHRPdO>a<YJS1l1
+IMk3Jb9ckTnb:Iol9BhZ5c3
 R3
 !s105 ISDU_sv_unit
 S1
 R0
-w1586036172
-8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/ISDU.sv
-FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/ISDU.sv
+w1586208427
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv
 L0 1
 R8
 r1
 !s85 0
 31
-R16
-!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/ISDU.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/ISDU.sv|
+R22
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv|
 !i113 1
 R12
 R13
 R14
 n@i@s@d@u
-vlab9_top
+vKeyExpansion
 R1
 R15
 !i10b 1
-!s100 [^;ioF?X>d9@b2`WK?Pc<1
-IR<@3Obag]VT:1nzU`BINz1
+!s100 Bdiae<klOdVNS3GLcDzdF2
+IM?LO>[W`G^bhLn0BmVk6F3
 R3
-!s105 lab9_top_sv_unit
+Z33 !s105 KeyExpansion_sv_unit
 S1
 R0
-w1585527995
-8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab9_top.sv
-FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab9_top.sv
-L0 11
+R19
+Z34 8C:/Users/megge/Documents/GitHub/ECE385/lab9/KeyExpansion.sv
+Z35 FC:/Users/megge/Documents/GitHub/ECE385/lab9/KeyExpansion.sv
+L0 13
 R8
 r1
 !s85 0
 31
 R16
-!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab9_top.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/lab9_top.sv|
+Z36 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/KeyExpansion.sv|
+Z37 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/KeyExpansion.sv|
+!i113 1
+R12
+R13
+R14
+n@key@expansion
+vKeyExpansionOne
+R1
+R15
+!i10b 1
+!s100 2i=U]i?z:7<e:gKRGRX`f2
+IY<0m6ib>QEY<_?KUBaVW13
+R3
+R33
+S1
+R0
+R19
+R34
+R35
+L0 41
+R8
+r1
+!s85 0
+31
+R16
+R36
+R37
+!i113 1
+R12
+R13
+R14
+n@key@expansion@one
+vlab9_top
+R1
+R26
+!i10b 1
+!s100 [^;ioF?X>d9@b2`WK?Pc<1
+IcU?RJHKWH6G1U06kH7;j42
+R3
+!s105 lab9_top_sv_unit
+S1
+R0
+w1586021604
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/lab9_top.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/lab9_top.sv
+L0 11
+R8
+r1
+!s85 0
+31
+R22
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab9_top.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab9_top.sv|
 !i113 1
 R12
 R13
@@ -139,8 +398,8 @@ vmux11
 R1
 R2
 !i10b 1
-!s100 UMn948bQiE^XPchGTaW5D1
-I3:>P5jV8?T;jE@0jN:YJI3
+!s100 kf14jodil9Ji=X^?F6XUS3
+I0k^k;C50@o;MIVE5dCgkz0
 R3
 R4
 S1
@@ -148,7 +407,7 @@ R0
 R5
 R6
 R7
-L0 26
+L0 28
 R8
 r1
 !s85 0
@@ -160,27 +419,104 @@ R11
 R12
 R13
 R14
-vtestbench
+vmux4
 R1
-!s110 1586036306
+R2
 !i10b 1
-!s100 1Mz9LD5P?Zf44`[6[ACGJ0
-I4T4mXYB]:OLWWW9?Ce2d93
+!s100 `IiGkk[;7:4_]I^[Q[0SP0
+IiKA<;O`SSV5BE<fRbgS[E2
 R3
-!s105 testbench_sv_unit
+!s105 mux4_sv_unit
 S1
 R0
-w1586034620
-8C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/testbench.sv
-FC:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/testbench.sv
+w1586207637
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/mux4.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/mux4.sv
 L0 1
 R8
 r1
 !s85 0
 31
-!s108 1586036306.000000
-!s107 C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/testbench.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9|C:/Users/Aki-Zakura/Documents/GitHub/ECE385/lab9/testbench.sv|
+R9
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/mux4.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/mux4.sv|
+!i113 1
+R12
+R13
+R14
+vstateRegister
+R1
+!s110 1586213259
+!i10b 1
+!s100 Vi9DTGSZlYAjmdcP7m^3E1
+ImA^BT;O5LH@J91JhHK>Xi0
+R3
+!s105 stateRegister_sv_unit
+S1
+R0
+w1586210576
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv
+L0 1
+R8
+r1
+!s85 0
+31
+!s108 1586213259.000000
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv|
+!i113 1
+R12
+R13
+R14
+nstate@register
+vSubBytes
+R1
+R26
+!i10b 1
+!s100 J7353OL5=^nSOQEV4PX_03
+I6DFRaVYz15hZndL`g;JN<0
+R3
+R28
+S1
+R0
+R19
+R29
+R30
+R27
+R8
+r1
+!s85 0
+31
+R22
+R31
+R32
+!i113 1
+R12
+R13
+R14
+n@sub@bytes
+vtestbench
+R1
+R15
+!i10b 1
+!s100 1Mz9LD5P?Zf44`[6[ACGJ0
+I0f1T^CIzVc:03cfoV<2Qh2
+R3
+!s105 testbench_sv_unit
+S1
+R0
+w1586207638
+8C:/Users/megge/Documents/GitHub/ECE385/lab9/testbench.sv
+FC:/Users/megge/Documents/GitHub/ECE385/lab9/testbench.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/testbench.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/testbench.sv|
 !i113 1
 R12
 R13
