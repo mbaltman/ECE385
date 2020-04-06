@@ -1,9 +1,10 @@
 module addroundkey (
     input  logic   [1407:0] KeySchedule,
+    input  logic   [127:0] currState,
     input  integer roundnumber,
-    output logic   [127:0] roundkey);
+    output logic   [127:0] newState);
 
-    logic [127:0] ck, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9;
+    logic [127:0] ck, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, roundkey;
 
     always_comb
     begin
@@ -18,6 +19,7 @@ module addroundkey (
         k7 = KeySchedule[383:256];
         k8 = KeySchedule[255:128];
         k9 = KeySchedule[127:0];
+        newState = currState^roundkey;
     end
 
     mux11 roundkeymux(.ck, .k0, .k1, .k2, .k3, .k4, .k5, .k6, .k7, .k8, .k9, .s(roundnumber), .o(roundkey));
