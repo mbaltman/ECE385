@@ -8,7 +8,7 @@ module stateRegister (
 
 	always_ff @ (posedge clk)
 	begin
-		if (reset)
+		if (reset | (state_number == 0) )
 			state_output <= 128'b0; // reset state to all 0's
 		else if (mux_enable)
 			state_output <= mux_output; // write state with new state from MUX output

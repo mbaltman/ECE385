@@ -310,6 +310,22 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
  */
 void decrypt(unsigned int * msg_enc, unsigned int * msg_dec, unsigned int * key)
 {
+	// clear registers
+	AES_PTR[0]  = 0;
+	AES_PTR[1]  = 0;
+	AES_PTR[2]  = 0;
+	AES_PTR[3]  = 0;
+	AES_PTR[4]  = 0;
+	AES_PTR[5]  = 0;
+	AES_PTR[6]  = 0;
+	AES_PTR[7]  = 0;
+	AES_PTR[8]  = 0;
+	AES_PTR[9]  = 0;
+	AES_PTR[10] = 0;
+	AES_PTR[11] = 0;
+	AES_PTR[14] = 0;
+	AES_PTR[15] = 0;
+
 	// send the 128-bit key (split into 4 x 32-bit)
 	AES_PTR[0] = key[0];
 	AES_PTR[1] = key[1];
@@ -320,6 +336,7 @@ void decrypt(unsigned int * msg_enc, unsigned int * msg_dec, unsigned int * key)
 	AES_PTR[5] = msg_enc[1];
 	AES_PTR[6] = msg_enc[2];
 	AES_PTR[7] = msg_enc[3];
+
 	// START
 	AES_PTR[14] = 1;
 	while(AES_PTR[15] == 0){} // waiting for hardware
