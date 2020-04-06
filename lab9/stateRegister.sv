@@ -2,7 +2,7 @@ module stateRegister (
 	input  logic clk, reset,
 	input  logic [127:0] encoded_msg, mux_output,
 	input  integer state_number,
-	input  logic mux_enable
+	input  logic mux_enable,
 	output logic [127:0] state_output
 	);
 

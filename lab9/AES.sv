@@ -17,11 +17,13 @@ module AES (
 	output logic [127:0] AES_MSG_DEC
 	);
 	
+	assign AES_MSG_DEC = state_output;
+	
 	logic [1:0] mux_select;
 	logic mux_en;
-	logic [127:0] mux_output, state_output;
+	logic [127:0] mux_output, state_output, iark, isr;
 	
-	logic[7:0] sb1,sb2,sb3,sb4,sb5,sb6,sb7,sb8.sb9.sb10,sb11,sb12,sb13,sb14,sb15,sb16;
+	logic [7:0] sb1,sb2,sb3,sb4,sb5,sb6,sb7,sb8, sb9, sb10,sb11,sb12,sb13,sb14,sb15,sb16;
 	integer state_number, round;
 	
 	logic [1407:0] key_schedule;
@@ -46,25 +48,27 @@ module AES (
 	
 	KeyExpansion key_expansion_instance(.clk(CLK), .Cipherkey(AES_KEY), .KeySchedule(key_schedule));
 	
-	addroundkey addroundkey_instance(.KeySchedule(key_schedule), .roundnumber(round), .roundkey());
+	addroundkey addroundkey_instance(.KeySchedule(key_schedule), .currState(state_output), .roundnumber(round), .newState(iark));
 	
-	InvMixColumns mixcol1(.in(state_output[31:0], .out(MC1));
-	InvMixColumns mixcol2(.in(state_output[63:32], .out(MC2));
-	InvMixColumns mixcol3(.in(state_output[95:64], .out(MC3));
-	InvMixColumns mixcol4(.in(state_output[127:96], .out(MC4));
+	InvMixColumns mixcol1(.in(state_output[31:0]), .out(MC1));
+	InvMixColumns mixcol2(.in(state_output[63:32]), .out(MC2));
 	
+	InvMixColumns mixcol3(.in(state_output[95:64]), .out(MC3));
+	InvMixColumns mixcol4(.in(state_output[127:96]), .out(MC4));
+	
+	InvShiftRows isr_instance(.data_in(state_output), .data_out(isr));
 	
 	
 	
 	ISDU statemachine(.Clk(CLK), .Reset(RESET), .AES_START, .AES_DONE, .mux_en, .mux_select, .stateNumber(state_number), .Round(round));
 	
-	mux4 mux4Instance (.iark(), .isb({sb1,sb2,sb3,sb4,sb5,sb6,sb7,sb8.sb9.sb10,sb11,sb12,sb13,sb14,sb15,sb16}),
+	mux4 mux4Instance (.iark(iark), .isb({sb1,sb2,sb3,sb4,sb5,sb6,sb7,sb8, sb9, sb10,sb11,sb12,sb13,sb14,sb15,sb16}),
 										 .imc({MC1, MC2, MC3, MC4}),
-										 .isr(), 
+										 .isr(isr), 
 										 .s(mux_select),
 										 .o(mux_output));
 	
-	stateResgister(.clk(CLK),.reset(reset), .encoded_msg(AES_MSG_ENC), .mux_output, .state_number, .mux_enable(mux_en), state_output(), . )
+	stateRegister state_instance(.clk(CLK),.reset(RESET), .encoded_msg(AES_MSG_ENC), .mux_output(mux_output), .state_number(state_number), .mux_enable(mux_en), .state_output(state_output));
 	
 	
 endmodule
