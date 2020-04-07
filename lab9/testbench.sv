@@ -22,12 +22,26 @@ module testbench ();
 	end
 
 	initial begin: TEST_VECTORS
-		AES_KEY = 128'h000102030405060708090a0b0c0d0e0f;
-		AES_MSG_ENC = 128'hdaec3055df058e1c39e814ea76f6747e;
+		AES_KEY = 128'h3b280014beaac269d613a16bfdc2be03;
+	   AES_MSG_ENC = 128'h439d619920ce415661019634f59fcf63;
 
 		#2 RESET = 1;
 		#2 RESET = 0;
 		#2 AES_START = 0;
 		#2 AES_START = 1;
+		
+		
+		
+		#130 AES_KEY = 128'h000102030405060708090a0b0c0d0e0f;
+		#2 AES_MSG_ENC = 128'hdaec3055df058e1c39e814ea76f6747e;
+		
+		#2 AES_START = 0;
+		#2 AES_START = 1;
+		
+		
+		#130 AES_KEY =128'h3b280014beaac269d613a16bfdc2be03;
+		#2 AES_MSG_ENC = 128'h439d619920ce415661019634f59fcf63;
+		
+		
 	end
 endmodule

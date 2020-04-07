@@ -10,7 +10,7 @@ cModel Technology
 Z0 dC:/Users/megge/Documents/GitHub/ECE385/lab9/simulation/modelsim
 vaddroundkey
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1586213257
+Z2 !s110 1586217938
 !i10b 1
 !s100 <VK>S]k?KVd0I:;UfW3=z0
 I;809c[;hh]aXo]2LIA<4B3
@@ -26,7 +26,7 @@ Z8 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z9 !s108 1586213257.000000
+Z9 !s108 1586217938.000000
 Z10 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/addroundkey.sv|
 Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/addroundkey.sv|
 !i113 1
@@ -35,15 +35,15 @@ Z13 !s92 -sv -work work +incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9
 Z14 tCvgOpt 0
 vAES
 R1
-Z15 !s110 1586213263
+Z15 !s110 1586217943
 !i10b 1
-!s100 LFUV8Q;XXMbQ:aIAl_YiW1
-IIKNW?aIl6d:X5gATCPhBf1
+!s100 WI2gdI9NTJmBzbEik8Ldh3
+IKV_VzP7iY5QPdSj^MK?l40
 R3
 !s105 AES_sv_unit
 S1
 R0
-w1586213146
+w1586216389
 8C:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv
 FC:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv
 L0 10
@@ -51,7 +51,7 @@ R8
 r1
 !s85 0
 31
-Z16 !s108 1586213263.000000
+Z16 !s108 1586217943.000000
 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/AES.sv|
 !i113 1
@@ -77,9 +77,9 @@ Z20 8C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv
 Z21 FC:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv
 L0 74
 R8
-Z22 !s108 1586213258.000000
-Z23 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv|
-Z24 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv|
+R9
+Z22 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv|
+Z23 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/InvMixColumns.sv|
 !i113 1
 R12
 R13
@@ -101,11 +101,11 @@ R0
 R19
 R20
 R21
-Z25 L0 93
+Z24 L0 93
 R8
+R9
 R22
 R23
-R24
 !i113 1
 R12
 R13
@@ -129,9 +129,9 @@ R20
 R21
 L0 112
 R8
+R9
 R22
 R23
-R24
 !i113 1
 R12
 R13
@@ -155,9 +155,9 @@ R20
 R21
 L0 131
 R8
+R9
 R22
 R23
-R24
 !i113 1
 R12
 R13
@@ -165,7 +165,7 @@ R14
 n@g@f_@mul_e
 vhexdriver
 R1
-Z26 !s110 1586213258
+Z25 !s110 1586217939
 !i10b 1
 !s100 9aO?^i9QbIaBE;CD84;[50
 IPL9fz=Wbi7eCO]NL7dL2D0
@@ -181,7 +181,7 @@ R8
 r1
 !s85 0
 31
-R22
+Z26 !s108 1586217939.000000
 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/hexdriver.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/hexdriver.sv|
 !i113 1
@@ -190,7 +190,7 @@ R13
 R14
 vInvMixColumns
 R1
-R26
+R25
 !i10b 1
 !s100 4o]QlL4?^EZ0IeL:kL;`V3
 ILkOoaG9z]X0J<zLdC8O@m0
@@ -206,9 +206,9 @@ R8
 r1
 !s85 0
 31
+R9
 R22
 R23
-R24
 !i113 1
 R12
 R13
@@ -231,9 +231,9 @@ R20
 R21
 L0 65
 R8
+R9
 R22
 R23
-R24
 !i113 1
 R12
 R13
@@ -241,7 +241,7 @@ R14
 n@inv@mix@columns_sv_unit
 vInvShiftRows
 R1
-R26
+R2
 !i10b 1
 !s100 IGnkNoM>n=3VhTK>Jl2F=1
 IC8fo<05:Bm41k6636kjK50
@@ -257,7 +257,7 @@ R8
 r1
 !s85 0
 31
-R22
+R9
 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/InvShiftRows.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/InvShiftRows.sv|
 !i113 1
@@ -267,7 +267,7 @@ R14
 n@inv@shift@rows
 vInvSubBytes
 R1
-R26
+R2
 !i10b 1
 !s100 fYzzGZ]YiaT7z3;]GQMHB1
 IVEbh5zUcGA3AJkP1dWhzW1
@@ -278,12 +278,12 @@ R0
 R19
 Z29 8C:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv
 Z30 FC:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv
-R25
+R24
 R8
 r1
 !s85 0
 31
-R22
+R9
 Z31 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv|
 Z32 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/SubBytes.sv|
 !i113 1
@@ -293,15 +293,15 @@ R14
 n@inv@sub@bytes
 vISDU
 R1
-R26
+R25
 !i10b 1
-!s100 1S=eFJIzHRPdO>a<YJS1l1
-IMk3Jb9ckTnb:Iol9BhZ5c3
+!s100 _zij3YG3=LoOP??QL5VSd1
+IZWFc`6`CHC1;MK>_e;N?20
 R3
 !s105 ISDU_sv_unit
 S1
 R0
-w1586208427
+w1586216902
 8C:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv
 FC:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv
 L0 1
@@ -309,7 +309,7 @@ R8
 r1
 !s85 0
 31
-R22
+R26
 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/ISDU.sv|
 !i113 1
@@ -371,7 +371,7 @@ R14
 n@key@expansion@one
 vlab9_top
 R1
-R26
+R2
 !i10b 1
 !s100 [^;ioF?X>d9@b2`WK?Pc<1
 IcU?RJHKWH6G1U06kH7;j42
@@ -387,7 +387,7 @@ R8
 r1
 !s85 0
 31
-R22
+R9
 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/lab9_top.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/lab9_top.sv|
 !i113 1
@@ -446,15 +446,15 @@ R13
 R14
 vstateRegister
 R1
-!s110 1586213259
+R25
 !i10b 1
-!s100 Vi9DTGSZlYAjmdcP7m^3E1
-ImA^BT;O5LH@J91JhHK>Xi0
+!s100 14UXne]c?0ZmjBmGY7[3=1
+IFGDFJ1i`2OERE`=ecl?X30
 R3
 !s105 stateRegister_sv_unit
 S1
 R0
-w1586210576
+w1586215861
 8C:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv
 FC:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv
 L0 1
@@ -462,7 +462,7 @@ R8
 r1
 !s85 0
 31
-!s108 1586213259.000000
+R26
 !s107 C:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/megge/Documents/GitHub/ECE385/lab9|C:/Users/megge/Documents/GitHub/ECE385/lab9/stateRegister.sv|
 !i113 1
@@ -472,7 +472,7 @@ R14
 nstate@register
 vSubBytes
 R1
-R26
+R2
 !i10b 1
 !s100 J7353OL5=^nSOQEV4PX_03
 I6DFRaVYz15hZndL`g;JN<0
@@ -488,7 +488,7 @@ R8
 r1
 !s85 0
 31
-R22
+R9
 R31
 R32
 !i113 1
@@ -500,13 +500,13 @@ vtestbench
 R1
 R15
 !i10b 1
-!s100 1Mz9LD5P?Zf44`[6[ACGJ0
-I0f1T^CIzVc:03cfoV<2Qh2
+!s100 [iCe]@Goi^AfgZEk:DD@80
+I;]ZU53@KKAlF<Q:J;<ARn0
 R3
 !s105 testbench_sv_unit
 S1
 R0
-w1586207638
+w1586217833
 8C:/Users/megge/Documents/GitHub/ECE385/lab9/testbench.sv
 FC:/Users/megge/Documents/GitHub/ECE385/lab9/testbench.sv
 L0 1

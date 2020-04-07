@@ -17,7 +17,8 @@ module AES (
 	output logic [127:0] AES_MSG_DEC
 	);
 	
-	
+	//logic RESET;
+	//assign RESET = resetAES | (state_number ==0);
 	
 	logic [1:0] mux_select;
 	logic mux_en;

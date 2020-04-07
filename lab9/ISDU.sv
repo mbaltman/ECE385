@@ -67,6 +67,7 @@ module ISDU (
 			begin
 				if (AES_START)
 					Next_state = Key_Expansion1;
+					Next_state_counter = S0;
 			end
 
 			Key_Expansion1  : Next_state = Key_Expansion2;
