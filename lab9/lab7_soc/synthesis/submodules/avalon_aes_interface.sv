@@ -62,11 +62,11 @@ module avalon_aes_interface (
 		end
 		else if(intDone)
 		begin
+			registers[8] <= intDecode[127:96];
+			registers[9] <= intDecode[95:64];
+			registers[10] <= intDecode[63:32];
+			registers[11] <= intDecode[31:0];
 			registers[15][0] <= intDone;
-			registers[8] <= intDecode[31:0];
-			registers[9] <= intDecode[63:32];
-			registers[10] <= intDecode[95:64];
-			registers[11] <= intDecode[127:96];
 		end
 		else
 		begin

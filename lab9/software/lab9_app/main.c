@@ -310,22 +310,6 @@ void encrypt(unsigned char * msg_ascii, unsigned char * key_ascii, unsigned int 
  */
 void decrypt(unsigned int * msg_enc, unsigned int * msg_dec, unsigned int * key)
 {
-	// clear registers
-	AES_PTR[0]  = 0;
-	AES_PTR[1]  = 0;
-	AES_PTR[2]  = 0;
-	AES_PTR[3]  = 0;
-	AES_PTR[4]  = 0;
-	AES_PTR[5]  = 0;
-	AES_PTR[6]  = 0;
-	AES_PTR[7]  = 0;
-	AES_PTR[8]  = 0;
-	AES_PTR[9]  = 0;
-	AES_PTR[10] = 0;
-	AES_PTR[11] = 0;
-	AES_PTR[14] = 0;
-	AES_PTR[15] = 0;
-
 	// send the 128-bit key (split into 4 x 32-bit)
 	AES_PTR[0] = key[0];
 	AES_PTR[1] = key[1];
@@ -365,6 +349,18 @@ int main()
 	if (run_mode == 0) {
 		// continuously perform encryption and decryption
 		while (1) {
+			// clear registers
+			AES_PTR[4]  = 0;
+			AES_PTR[5]  = 0;
+			AES_PTR[6]  = 0;
+			AES_PTR[7]  = 0;
+			AES_PTR[8]  = 0;
+			AES_PTR[9]  = 0;
+			AES_PTR[10] = 0;
+			AES_PTR[11] = 0;
+			AES_PTR[14] = 0;
+			AES_PTR[15] = 0;
+
 			// initialization
 			for (int k = 0; k < 33; k++)
 			{
@@ -391,6 +387,7 @@ int main()
 				printf("%08x", msg_enc[i]);
 			}
 			printf("\n");
+
 			decrypt(msg_enc, msg_dec, key);
 			printf("\nDecrypted message is: \n");
 			for(i = 0; i < 4; i++){

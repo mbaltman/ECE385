@@ -33,7 +33,9 @@ module AES (
 	always_comb
 	begin
 		if(AES_DONE == 1)
-			 AES_MSG_DEC = state_output;
+			AES_MSG_DEC = state_output;
+		else
+			AES_MSG_DEC = 128'b0;
 	end
 	
 	
