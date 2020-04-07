@@ -29,8 +29,13 @@ module AES (
 	
 	logic [1407:0] key_schedule;
 	logic[31:0] MC1,MC2,MC3,MC4;
-
-	assign AES_MSG_DEC = state_output;
+	
+	always_comb
+	begin
+		if(AES_DONE == 1)
+			 AES_MSG_DEC = state_output;
+	end
+	
 	
 	InvSubBytes byte1(.clk(CLK),.in(state_output[7:0]),.out(sb1));
 	InvSubBytes byte2(.clk(CLK),.in(state_output[15:8]),.out(sb2));
