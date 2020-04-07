@@ -60,13 +60,13 @@ module avalon_aes_interface (
 		begin
 			registers[AVL_ADDR][31:0] <= AVL_WRITEDATA[31:0]; // write data into corresponding address
 		end
-		else if(intDone)
+		else if (intDone) // decryption finished
 		begin
 			registers[8] <= intDecode[127:96];
 			registers[9] <= intDecode[95:64];
 			registers[10] <= intDecode[63:32];
 			registers[11] <= intDecode[31:0];
-			registers[15][0] <= intDone;
+			registers[15][0] <= intDone; // make sure that register reflects the end of task
 		end
 		else
 		begin
@@ -89,6 +89,6 @@ module avalon_aes_interface (
 		end
 	end
 
-	assign EXPORT_DATA = {registers[0][31:16], registers[3][15:0]};
+	assign EXPORT_DATA = {registers[0][31:16], registers[3][15:0]}; // show key on hex driver
 
 endmodule

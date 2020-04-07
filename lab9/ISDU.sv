@@ -97,7 +97,7 @@ module ISDU (
 				end
 
 				begin
-					unique case (State_counter)
+					unique case (State_counter) // takes care of number of rounds
 					S0  : Next_state_counter = S1;
 					S1  : Next_state_counter = S2;
 					S2  : Next_state_counter = S3;
@@ -178,7 +178,7 @@ module ISDU (
 			default: ;
 		endcase
 
-		case (State_counter)
+		case (State_counter) // output round number integer
 			S0:  Round = 10;
 			S1:  Round = 9;
 			S2:  Round = 8;

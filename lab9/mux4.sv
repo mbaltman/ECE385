@@ -5,7 +5,7 @@ module mux4 (
 
 	always_comb
 	begin
-		unique case (s)
+		unique case (s) // select between the output of 4 different calculations
 			2'b00:
 				o = iark;
 			2'b01:

@@ -6,6 +6,7 @@ module addroundkey (
 
     logic [127:0] ck, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, roundkey;
 
+    // parse key schedule into keys
     always_comb
     begin
         ck = KeySchedule[1407:1280];
@@ -19,10 +20,12 @@ module addroundkey (
         k7 = KeySchedule[383:256];
         k8 = KeySchedule[255:128];
         k9 = KeySchedule[127:0];
+        // update state with selected key
         newState = currState^roundkey;
     end
 
-    mux11 roundkeymux(.ck, .k0, .k1, .k2, .k3, .k4, .k5, .k6, .k7, .k8, .k9, .s(roundnumber), .o(roundkey));
+    // use a mux to select the correct key for each round
+    mux11 roundkeymux (.ck, .k0, .k1, .k2, .k3, .k4, .k5, .k6, .k7, .k8, .k9, .s(roundnumber), .o(roundkey));
 endmodule
 
 module mux11 (
@@ -30,6 +33,7 @@ module mux11 (
     input  integer s,
     output logic   [127:0] o);
 
+    // use round number to decide on key choice
     always_comb
     begin
         unique case (s)
