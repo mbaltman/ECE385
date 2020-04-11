@@ -1,18 +1,3 @@
-//-------------------------------------------------------------------------
-//      lab8.sv                                                          --
-//      Christine Chen                                                   --
-//      Fall 2014                                                        --
-//                                                                       --
-//      Modified by Po-Han Huang                                         --
-//      10/06/2017                                                       --
-//                                                                       --
-//      Fall 2017 Distribution                                           --
-//                                                                       --
-//      For use with ECE 385 Lab 8                                       --
-//      UIUC ECE Department                                              --
-//-------------------------------------------------------------------------
-
-
 module lab8 (input               CLOCK_50,
              input        [3:0]  KEY,          //bit 0 is set up as Reset
              output logic [6:0]  HEX0, HEX1,
@@ -44,7 +29,7 @@ module lab8 (input               CLOCK_50,
                                  DRAM_WE_N,    //SDRAM Write Enable
                                  DRAM_CS_N,    //SDRAM Chip Select
                                  DRAM_CLK      //SDRAM Clock
-            );
+             );
 
     logic Reset_h, Clk;
     logic [7:0] keycode;
@@ -57,10 +42,10 @@ module lab8 (input               CLOCK_50,
     logic [1:0] hpi_addr;
     logic [15:0] hpi_data_in, hpi_data_out;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
-    logic[9:0] DrawX, DrawY;
+    logic [9:0] DrawX, DrawY;
 
-	logic drawBlock;
-	logic [2:0] colorIndex;
+    logic drawBlock;
+    logic [2:0] colorIndex;
 
     // Interface between NIOS II and EZ-OTG chip
     hpi_io_intf hpi_io_inst (.Clk(Clk),
@@ -105,17 +90,16 @@ module lab8 (input               CLOCK_50,
 
     // Use PLL to generate the 25MHZ VGA_CLK.
     // You will have to generate it on your own in simulation.
-    vga_clk vga_clk_instance(.inclk0(Clk), .c0(VGA_CLK));
+    vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
     // TODO: Fill in the connections for the rest of the modules
-    VGA_controller vga_controller_instance( .Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
+    VGA_controller vga_controller_instance (.Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
 
 
-    blocks blockInstance(.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex), .drawBlock(drawBlock));
+    blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex), .drawBlock(drawBlock));
 
-    color_mapper color_instance(.drawBlock(drawBlock),.colorIndex(colorIndex) , .DrawX(DrawX), .DrawY(DrawY),
-                                .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
+    color_mapper color_instance (.drawBlock(drawBlock),.colorIndex(colorIndex) , .DrawX(DrawX), .DrawY(DrawY), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
 
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);

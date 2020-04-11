@@ -1,7 +1,7 @@
 module blocks
 (
-	input Clk, Reset,
-	input [9:0] DrawX, DrawY,
+	input  Clk, Reset,
+	input  [9:0] DrawX, DrawY,
 	output logic [2:0] colorIndex,
 	output logic drawBlock
 );
@@ -15,9 +15,9 @@ module blocks
 
 	always_comb
 	begin
-		if((DrawX > Block_x) & (DrawX < (Block_x + 10'd20)) & (DrawX > Block_y) & (DrawY < Block_y + 10'd20))
+		if ((DrawX > Block_x) & (DrawX < (Block_x + 10'd20)) & (DrawX > Block_y) & (DrawY < Block_y + 10'd20))
 		begin
-			address = 20*(DrawX-Block_x) + (DrawY-Block_y);
+			address = 20*(DrawX - Block_x) + (DrawY - Block_y);
 			drawBlock = 1'b1;
 		end
 		else

@@ -1,25 +1,10 @@
-//-------------------------------------------------------------------------
-//    Ball.sv                                                            --
-//    Viral Mehta                                                        --
-//    Spring 2005                                                        --
-//                                                                       --
-//    Modified by Stephen Kempf 03-01-2006                               --
-//                              03-12-2007                               --
-//    Translated by Joe Meng    07-07-2013                               --
-//    Modified by Po-Han Huang  12-08-2017                               --
-//    Spring 2018 Distribution                                           --
-//                                                                       --
-//    For use with ECE 385 Lab 8                                         --
-//    UIUC ECE Department                                                --
-//-------------------------------------------------------------------------
-
-
-module ball (input          Clk,                // 50 MHz clock
-                            Reset,              // Active-high reset signal
-                            frame_clk,          // The clock indicating a new frame (~60Hz)
-               input [9:0]  DrawX, DrawY,       // Current pixel coordinates
-               output logic is_ball,            // Whether current pixel belongs to ball or background
-               input [7:0]  keycode);
+module ball
+(
+    input  Clk, Reset, frame_clk, // The clock indicating a new frame (~60Hz)
+    input  [9:0]  DrawX, DrawY,
+    output logic is_ball,
+    input  [7:0]  keycode
+);
 
     parameter [9:0] Ball_X_Center = 10'd320;  // Center position on the X axis
     parameter [9:0] Ball_Y_Center = 10'd240;  // Center position on the Y axis
@@ -73,32 +58,32 @@ module ball (input          Clk,                // 50 MHz clock
         // Update position and motion only at rising edge of frame clock
         if (frame_clk_rising_edge)
         begin
-            if( Ball_Y_Pos + Ball_Size >= Ball_Y_Max ) // Ball is at the bottom edge, BOUNCE!
+            if ( Ball_Y_Pos + Ball_Size >= Ball_Y_Max ) // Ball is at the bottom edge, BOUNCE!
                 Ball_Y_Motion_in = (~(Ball_Y_Step) + 1'b1); // 2's complement of 1
             else if ( Ball_Y_Pos <= Ball_Y_Min + Ball_Size ) // Ball is at the top edge, BOUNCE!
                 Ball_Y_Motion_in = Ball_Y_Step; // 1
-            else if(keycode == 8'h1A) // W key: up
+            else if (keycode == 8'h1A) // W key: up
                 begin
                     Ball_Y_Motion_in = ~10'd1 + 10'd1; // 2's complement of 1
                     Ball_X_Motion_in = 10'd0; // 0, no speed in X
                 end
-            else if(keycode == 8'h16)// S key: down
+            else if (keycode == 8'h16)// S key: down
                 begin
                     Ball_Y_Motion_in = 10'd1; // 1
                     Ball_X_Motion_in = 10'd0; // 0, no speed in X
                 end
 
             // ONLY if did not have to bounce, then you check the key codes
-            else if( Ball_X_Pos + Ball_Size >= Ball_X_Max ) // Ball is at the right edge, BOUNCE!
+            else if ( Ball_X_Pos + Ball_Size >= Ball_X_Max ) // Ball is at the right edge, BOUNCE!
                 Ball_X_Motion_in = (~(Ball_X_Step) + 1'b1); // 2's complement.
             else if ( Ball_X_Pos <= Ball_X_Min + Ball_Size ) // Ball is at the left edge, BOUNCE!
                 Ball_X_Motion_in = Ball_X_Step;
-            else if(keycode == 8'h04) // A key: left
+            else if (keycode == 8'h04) // A key: left
                 begin
                     Ball_Y_Motion_in = 10'd0; // 0, no speed in Y
                     Ball_X_Motion_in =  ~10'd1 + 10'd1; // 2's complement of 1
                 end
-            else if(keycode == 8'h07) // D key: right
+            else if (keycode == 8'h07) // D key: right
                 begin
                     Ball_Y_Motion_in = 10'd0; // 0, no speed in Y
                     Ball_X_Motion_in = 10'd1; // 1
@@ -108,16 +93,6 @@ module ball (input          Clk,                // 50 MHz clock
             Ball_X_Pos_in = Ball_X_Pos + Ball_X_Motion;
             Ball_Y_Pos_in = Ball_Y_Pos + Ball_Y_Motion;
         end
-        /**************************************************************************************
-            ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
-            Hidden Question #2/2:
-            Notice that Ball_Y_Pos is updated using Ball_Y_Motion.
-            Will the new value of Ball_Y_Motion be used when Ball_Y_Pos is updated, or the old?
-            What is the difference between writing "Ball_Y_Pos_in = Ball_Y_Pos + Ball_Y_Motion;"
-            and "Ball_Y_Pos_in = Ball_Y_Pos + Ball_Y_Motion_in;"?
-            How will this impact behavior of the ball during a bounce, and how might that interact with a response to a keypress?
-            Give an answer in your Post-Lab.
-        **************************************************************************************/
     end
 
     // Compute whether the pixel corresponds to ball or background
@@ -136,5 +111,4 @@ module ball (input          Clk,                // 50 MHz clock
            the single line is quite powerful descriptively, it causes the synthesis tool to use up three
            of the 12 available multipliers on the chip! */
     end
-
 endmodule

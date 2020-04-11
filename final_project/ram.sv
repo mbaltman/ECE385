@@ -1,7 +1,7 @@
 module frameRAM
 (
-	input [9:0] read_address,
-	input Clk,
+	input  [9:0] read_address,
+	input  Clk,
 	output logic [2:0] data_Out
 );
 
