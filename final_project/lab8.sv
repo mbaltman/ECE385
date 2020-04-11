@@ -59,8 +59,8 @@ module lab8 (input               CLOCK_50,
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
     logic[9:0] DrawX, DrawY;
 
-	 logic drawBlock;
-	 logic [2:0] colorIndex;
+	logic drawBlock;
+	logic [2:0] colorIndex;
 
     // Interface between NIOS II and EZ-OTG chip
     hpi_io_intf hpi_io_inst (.Clk(Clk),
@@ -113,19 +113,11 @@ module lab8 (input               CLOCK_50,
 
 
     blocks blockInstance(.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex), .drawBlock(drawBlock));
-    
-	 color_mapper color_instance(.drawBlock(drawBlock),.colorIndex(colorIndex) , .DrawX(DrawX), .DrawY(DrawY), // Current pixel coordinates
+
+    color_mapper color_instance(.drawBlock(drawBlock),.colorIndex(colorIndex) , .DrawX(DrawX), .DrawY(DrawY),
                                 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
 
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);
-	 
-	 
     HexDriver hex_inst_1 (keycode[7:4], HEX1);
-    /**************************************************************************************
-        ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
-        Hidden Question #1/2:
-        What are the advantages and/or disadvantages of using a USB interface over PS/2 interface to
-        connect to the keyboard? List any two.  Give an answer in your Post-Lab.
-    **************************************************************************************/
 endmodule
