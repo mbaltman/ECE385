@@ -58,7 +58,9 @@ module lab8 (input               CLOCK_50,
     logic [15:0] hpi_data_in, hpi_data_out;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
     logic[9:0] DrawX, DrawY;
-    logic is_ball;
+
+	 logic drawBlock;
+	 logic [2:0] colorIndex;
 
     // Interface between NIOS II and EZ-OTG chip
     hpi_io_intf hpi_io_inst (.Clk(Clk),
@@ -110,15 +112,15 @@ module lab8 (input               CLOCK_50,
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
 
 
-    // Which signal should be frame_clk? Vertical sync.
-    ball ball_instance(.Clk(Clk), .Reset(Reset_h), .frame_clk(VGA_VS), // The clock indicating a new frame (~60Hz)
-                       .DrawX(DrawX), .DrawY(DrawY), .is_ball(is_ball), .keycode);
-
-    color_mapper color_instance(.is_ball(is_ball), .DrawX(DrawX), .DrawY(DrawY), // Current pixel coordinates
+    blocks blockInstance(.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex), .drawBlock(drawBlock));
+    
+	 color_mapper color_instance(.drawBlock(drawBlock),.colorIndex(colorIndex) , .DrawX(DrawX), .DrawY(DrawY), // Current pixel coordinates
                                 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
 
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);
+	 
+	 
     HexDriver hex_inst_1 (keycode[7:4], HEX1);
     /**************************************************************************************
         ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
