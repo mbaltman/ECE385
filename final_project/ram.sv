@@ -1,7 +1,8 @@
-module frameRAM
+module spriteRAM
 (
-	input  [9:0] read_address,
-	input  Clk,
+	input  [2:0] data_In,
+	input  [9:0] write_address, read_address,
+	input  we, Clk,
 	output logic [2:0] data_Out
 );
 
@@ -13,7 +14,10 @@ module frameRAM
 		$readmemh("sprite_bytes/tetris_I.txt", mem);
 	end
 
-	always_ff @ (posedge Clk) begin
-		data_Out<= mem[read_address];
+	always_ff @ (posedge Clk)
+	begin
+		data_Out <= mem[read_address];
+		if (we)
+			mem[write_address] <= data_In;
 	end
 endmodule

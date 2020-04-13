@@ -11,7 +11,7 @@ module blocks
 
 	logic [9:0] address = 10'd0;
 
-	frameRAM blockMemeory(.read_address(address), .Clk(Clk), .data_Out(colorIndex));
+	spriteRAM blockMemeory1(.read_address(address), .Clk(Clk), .data_Out(colorIndex), .write_address(), .we());
 
 	always_comb
 	begin
