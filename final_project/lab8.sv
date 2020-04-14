@@ -1,6 +1,6 @@
 module lab8 (input               CLOCK_50,
              input        [3:0]  KEY,          //bit 0 is set up as Reset
-             output logic [6:0]  HEX0, HEX1,
+             output logic [6:0]  HEX0, HEX1,HEX2, HEX3,HEX4,HEX5,HEX6,HEX7,
              // VGA Interface
              output logic [7:0]  VGA_R,        //VGA Red
                                  VGA_G,        //VGA Green
@@ -45,7 +45,7 @@ module lab8 (input               CLOCK_50,
     logic [9:0] DrawX, DrawY;
 
     logic drawBlock;
-    logic [2:0] colorIndex;
+    logic [7:0] colorIndex;
 
     // Interface between NIOS II and EZ-OTG chip
     hpi_io_intf hpi_io_inst (.Clk(Clk),
@@ -102,6 +102,14 @@ module lab8 (input               CLOCK_50,
     color_mapper color_instance (.drawBlock(drawBlock),.colorIndex(colorIndex) , .DrawX(DrawX), .DrawY(DrawY), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
 
     // Display keycode on hex display
-    HexDriver hex_inst_0 (keycode[3:0], HEX0);
-    HexDriver hex_inst_1 (keycode[7:4], HEX1);
+    HexDriver hex_inst_0 (colorIndex[3:0], HEX0);
+    HexDriver hex_inst_1 (colorIndex[7:4], HEX1);
+	 
+	 
+	  HexDriver hex_inst_2 (VGA_R[3:0], HEX2);
+    HexDriver hex_inst_3 (VGA_R[7:4], HEX3);
+	  HexDriver hex_inst_4 (VGA_G[3:0], HEX4);
+    HexDriver hex_inst_5 (VGA_G[7:4], HEX5);
+	  HexDriver hex_inst_6 (VGA_B[3:0], HEX6);
+    HexDriver hex_inst_7 (VGA_B[7:4], HE7);
 endmodule
