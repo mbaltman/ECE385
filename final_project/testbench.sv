@@ -1,13 +1,12 @@
-module testbench ();
+module testbench (); // issues with locating .sof file
 	timeunit 10ns;
 	timeprecision 1ns;
-	
-	
+
 	logic CLK;
 	logic drawBlock;
-    logic [7:0] colorIndex;
-   logic [9:0] DrawX, DrawY; // Current pixel coordinates
-    logic [7:0] VGA_R, VGA_G, VGA_B; // VGA RGB output
+	logic [7:0] colorIndex;
+	logic [9:0] DrawX, DrawY;
+	logic [7:0] VGA_R, VGA_G, VGA_B;
 
 	color_mapper cmLogic(.*);
 
@@ -21,20 +20,20 @@ module testbench ();
 	end
 
 	initial begin: TEST_VECTORS
-		drawBlock =1;
-		DrawX = 10'b 0;
-		DrawY = 10'b 0;
-		
-		#4 colorIndex=8'h00;
-		
-		#4 colorIndex=8'h05;
-		
-		#4 colorIndex=8'h0e;
-		
-		#4 colorIndex=8'h15;
-		
-		#4 colorIndex=8'h14;
+		drawBlock = 1;
+		DrawX = 10'b0;
+		DrawY = 10'b0;
 
+/*
+		#4 colorIndex = 8'h00;
+
+		#4 colorIndex = 8'h05;
+
+		#4 colorIndex = 8'h0e;
+
+		#4 colorIndex = 8'h14;
+
+		#4 colorIndex = 8'h15;
+*/
 	end
 endmodule
-

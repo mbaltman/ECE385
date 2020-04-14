@@ -1,6 +1,6 @@
 module lab8 (input               CLOCK_50,
              input        [3:0]  KEY,          //bit 0 is set up as Reset
-             output logic [6:0]  HEX0, HEX1,HEX2, HEX3,HEX4,HEX5,HEX6,HEX7,
+             output logic [6:0]  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
              // VGA Interface
              output logic [7:0]  VGA_R,        //VGA Red
                                  VGA_G,        //VGA Green
@@ -104,12 +104,10 @@ module lab8 (input               CLOCK_50,
     // Display keycode on hex display
     HexDriver hex_inst_0 (colorIndex[3:0], HEX0);
     HexDriver hex_inst_1 (colorIndex[7:4], HEX1);
-	 
-	 
-	  HexDriver hex_inst_2 (VGA_R[3:0], HEX2);
-    HexDriver hex_inst_3 (VGA_R[7:4], HEX3);
-	  HexDriver hex_inst_4 (VGA_G[3:0], HEX4);
+    HexDriver hex_inst_2 (VGA_B[3:0], HEX2);
+    HexDriver hex_inst_3 (VGA_B[7:4], HEX3);
+    HexDriver hex_inst_4 (VGA_G[3:0], HEX4);
     HexDriver hex_inst_5 (VGA_G[7:4], HEX5);
-	  HexDriver hex_inst_6 (VGA_B[3:0], HEX6);
-    HexDriver hex_inst_7 (VGA_B[7:4], HE7);
+    HexDriver hex_inst_6 (VGA_R[3:0], HEX6);
+    HexDriver hex_inst_7 (VGA_R[7:4], HEX7);
 endmodule
