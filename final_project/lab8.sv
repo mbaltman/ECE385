@@ -45,7 +45,7 @@ module lab8 (input               CLOCK_50,
     logic [9:0] DrawX, DrawY;
 
     logic drawBlock;
-    logic [7:0] colorIndex;
+    logic [3:0] colorIndex;
 
     // Interface between NIOS II and EZ-OTG chip
     hpi_io_intf hpi_io_inst (.Clk(Clk),
@@ -92,14 +92,15 @@ module lab8 (input               CLOCK_50,
     // You will have to generate it on your own in simulation.
     vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
-    // TODO: Fill in the connections for the rest of the modules
+    blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex), .drawBlock(drawBlock)); // interface with frame buffer
+
+    FrameBuffer;
+
+    fifoRAM blockMemory2 (.data_In(), .write_address(), .read_address(), .we(), .Clk(Clk), .data_Out(colorIndex)); // interface with frame buffer and color mapper
+    color_mapper color_instance (.colorIndex(colorIndex), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
+
     VGA_controller vga_controller_instance (.Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
-
-
-    blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex), .drawBlock(drawBlock));
-
-    color_mapper color_instance (.drawBlock(drawBlock),.colorIndex(colorIndex) , .DrawX(DrawX), .DrawY(DrawY), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
 
     // Display keycode on hex display
     HexDriver hex_inst_0 (colorIndex[3:0], HEX0);

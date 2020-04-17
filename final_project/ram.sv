@@ -5,8 +5,8 @@ module spriteRAM
 	output logic [7:0] data_Out
 );
 
-	// mem has width of 4 bits and a total of 17600 addresses
-	logic [3:0] mem [0:17599];
+	// mem has width of 4 bits and a total of 18000 addresses
+	logic [3:0] mem [0:17999];
 
 	initial
 	begin

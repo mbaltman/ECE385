@@ -3,12 +3,10 @@ module testbench (); // issues with locating .sof file
 	timeprecision 1ns;
 
 	logic CLK;
-	logic drawBlock;
 	logic [7:0] colorIndex;
-	logic [9:0] DrawX, DrawY;
 	logic [7:0] VGA_R, VGA_G, VGA_B;
 
-	color_mapper cmLogic(.*);
+	color_mapper cmTestLogic(.*);
 
 	always
 	begin: CLOCK_GENERATION
@@ -20,20 +18,10 @@ module testbench (); // issues with locating .sof file
 	end
 
 	initial begin: TEST_VECTORS
-		drawBlock = 1;
-		DrawX = 10'b0;
-		DrawY = 10'b0;
-
-/*
-		#4 colorIndex = 8'h00;
-
-		#4 colorIndex = 8'h05;
-
-		#4 colorIndex = 8'h0e;
-
-		#4 colorIndex = 8'h14;
-
-		#4 colorIndex = 8'h15;
-*/
+		#4 colorIndex = 1'h00;
+		#4 colorIndex = 1'h02;
+		#4 colorIndex = 1'h04;
+		#4 colorIndex = 1'h06;
+		#4 colorIndex = 1'h08;
 	end
 endmodule

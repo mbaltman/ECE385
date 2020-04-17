@@ -1,9 +1,6 @@
-// color_mapper: Decide which color to be output to VGA for each pixel.
-module  color_mapper
+module color_mapper
 (
-	input  logic drawBlock,
 	input  logic [7:0] colorIndex,
-	input  [9:0] DrawX, DrawY, // Current pixel coordinates
 	output logic [7:0] VGA_R, VGA_G, VGA_B // VGA RGB output
 );
 
@@ -14,57 +11,83 @@ module  color_mapper
 	assign VGA_G = Green;
 	assign VGA_B = Blue;
 
-	// Assign color based on is_ball signal
+	// Assign color based on colorIndex from the FIFO
 	always_comb
 	begin
-		if (drawBlock == 1'b1)
-		begin
-			case(colorIndex)
-				8'h05:
-				begin
-					Red = 8'h00;
-					Green = 8'h58;
-					Blue = 8'hf8;
-				end
-				8'h0e:
-				begin
-					Red = 8'h36;
-					Green = 8'h33;
-					Blue = 8'h01;
-				end
-				8'h13:
-				begin
-					Red = 8'h65;
-					Green = 8'hb0;
-					Blue = 8'hff;
-				end
-				8'h14:
-				begin
-					Red = 8'h15;
-					Green = 8'h5e;
-					Blue = 8'hd8;
-				end
-				8'h16:
-				begin
-					Red = 8'h24;
-					Green = 8'h18;
-					Blue = 8'h8a;
-				end
-				default:
-				begin
-					Red = 8'h00;
-					Green = 8'h00;
-					Blue = 8'h00;
-				end
-			endcase
-		end
+		case(colorIndex)
+			1'h0:
+			begin
+				Red   = 8'hff;
+				Green = 8'h85;
+				Blue  = 8'hed;
+			end
+			1'h1:
+			begin
+				Red   = 8'h03;
+				Green = 8'hfb;
+				Blue  = 8'hff;
+			end
+			1'h2:
+			begin
+				Red   = 8'h00;
+				Green = 8'h04;
+				Blue  = 8'hff;
+			end
+			1'h3:
+			begin
+				Red   = 8'hff;
+				Green = 8'h9d;
+				Blue  = 8'h00;
+			end
+			1'h4:
+			begin
+				Red   = 8'hfc;
+				Green = 8'hf0;
+				Blue  = 8'h03;
+			end
+			1'h5:
+			begin
+				Red   = 8'h02;
+				Green = 8'heb;
+				Blue  = 8'h44;
+			end
+			1'h6:
+			begin
+				Red   = 8'hb4;
+				Green = 8'h02;
+				Blue  = 8'heb;
+			end
+			1'h7:
+			begin
+				Red   = 8'hde;
+				Green = 8'h00;
+				Blue  = 8'h00;
+			end
+			1'h8:
+			begin
+				Red   = 8'h18;
+				Green = 8'h17;
+				Blue  = 8'h21;
+			end
+			1'h9:
+			begin
+				Red   = 8'h4a;
+				Green = 8'h48;
+				Blue  = 8'h61;
+			end
+			1'ha:
+			begin
+				Red   = 8'hff;
+				Green = 8'hff;
+				Blue  = 8'hff;
+			end
 
-		else
-		begin
-			// Background with black
-			Red = 8'h00;
-			Green = 8'h00;
-			Blue = 8'h00;
-		end
+			default:
+			begin
+				Red   = 8'h00;
+				Green = 8'h00;
+				Blue  = 8'h00;
+			end
+		endcase
 	end
 endmodule
