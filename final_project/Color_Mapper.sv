@@ -14,7 +14,7 @@ module color_mapper
 	// Assign color based on colorIndex from the FIFO
 	always_comb
 	begin
-		case(colorIndex)
+		case (colorIndex)
 			1'h0:
 			begin
 				Red   = 8'hff;
