@@ -28,11 +28,11 @@ module lab8 (input               CLOCK_50,
                                  DRAM_CKE,     //SDRAM Clock Enable
                                  DRAM_WE_N,    //SDRAM Write Enable
                                  DRAM_CS_N,    //SDRAM Chip Select
-                                 DRAM_CLK,      //SDRAM Clock
-				//SDRAM On the FPGA
-				output logic SRAM_CE_N, SRAM_UB_N, SRAM_LB_N, SRAM_OE_N, SRAM_WE_N, //Chip enable, Upper Byte, Lower Byte, Output enable, wire enable?
-				output logic [19:0] SRAM_ADDR, //Address, its 20 bits but we only use the first 
-				inout  wire  [15:0] SRAM_DQ
+                                 DRAM_CLK,     //SDRAM Clock
+             // SRAM On the FPGA
+             output logic SRAM_CE_N, SRAM_UB_N, SRAM_LB_N, SRAM_OE_N, SRAM_WE_N, // Chip enable, Upper Byte, Lower Byte, Output enable, WE?
+             output logic [19:0] SRAM_ADDR, // Address, it's 20 bits but we only use the first
+             inout  wire  [15:0] SRAM_DQ
              );
 
     logic Reset_h, Clk;
@@ -70,7 +70,6 @@ module lab8 (input               CLOCK_50,
                              .OTG_CS_N(OTG_CS_N),
                              .OTG_RST_N(OTG_RST_N));
 
-     // You need to make sure that the port names here match the ports in Qsys-generated codes.
      lab7_soc nios_system (.clk_clk(Clk),
                            .reset_reset_n(1'b1), // Never reset NIOS
                            .sdram_wire_addr(DRAM_ADDR),
@@ -98,8 +97,12 @@ module lab8 (input               CLOCK_50,
 
     blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock)); // interface with frame buffer
 
+<<<<<<< HEAD
     frameBuffer fbinstance(.SRAM_OE_N, .colorIndex_save(colorIndex_save), .SaveX(), .SaveY(), .DrawX(), .DrawY(),
 									.data_out(colorIndex_fifo), .fifo_address(), .fifo_we(), .SRAM_ADDR, .SRAM_DQ, .flip_page());
+=======
+    framBuffer fbinstance (.SRAM_OE_N, .colorIndex_save, .SaveX, .SaveY, .DrawX, .DrawY, .data_Out(colorIndex_fifo), .fifo_address(), .fifo_we());
+>>>>>>> 1a6403e5c20e148ea78d2d1f142c0ab9e586cb26
 
     fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(), .read_address(), .we(), .Clk(Clk), .data_Out(colorIndex_draw)); // interface with frame buffer and color mapper
     color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
