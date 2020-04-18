@@ -24,7 +24,7 @@ always_comb
 		else // if it's a 0 read memory from frame buffer and write into fifos
 			begin
 				SRAM_ADDR = ({10'b0, DrawY} * 640) + {10'b0, DrawX}; // address that should be written into, extended to 20 bits, to gauruntee it wouldn't be truncated.
-				data_out = DRAM_DQ[3:0];
+				data_out = SRAM_DQ[3:0];
 				fifoAddress = DrawX;
 				fifo_we = 1'b1; // fifo is being written to
 			end
