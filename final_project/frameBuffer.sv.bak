@@ -1,9 +1,0 @@
-module frameBuffer( input SRAM_OE_N, //signals if reading or writing
-						  input colorIndex [3:0], //data being written in 
-						  output data_Out [3:0], //data being read out
-						  output fifo_ address, //address in the fifo being written into
-						  output fifo_we, //enable writing into the fifo
-						  
-						  );
-						  
-endmodule 
