@@ -6,8 +6,8 @@ module blocks
 	output logic drawBlock
 );
 
-	parameter [9:0] Block_x = 10'd0;  // Center position on the X axis
-	parameter [9:0] Block_y = 10'd0;  // Center position on the Y axis
+	parameter [9:0] Block_x = 10'd0; // Center position on the X axis
+	parameter [9:0] Block_y = 10'd0; // Center position on the Y axis
 
 	logic [9:0] address = 10'd0;
 

@@ -6,12 +6,12 @@ module color_mapper
 
 	logic [7:0] Red, Green, Blue;
 
-	// Output colors to VGA
+	// output colors to VGA
 	assign VGA_R = Red;
 	assign VGA_G = Green;
 	assign VGA_B = Blue;
 
-	// Assign color based on colorIndex from the FIFO
+	// assign color based on colorIndex from the FIFO
 	always_comb
 	begin
 		case (colorIndex)

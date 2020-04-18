@@ -7,7 +7,7 @@ module fifoRAM
 );
 
 	// mem has width of 4 bits and a total of 2560 addresses, i.e. a single line of pixels
-	logic [3:0] mem [0:639];
+	logic [3:0] mem [0:2559];
 
 	initial
 	begin
