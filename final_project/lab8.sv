@@ -28,7 +28,11 @@ module lab8 (input               CLOCK_50,
                                  DRAM_CKE,     //SDRAM Clock Enable
                                  DRAM_WE_N,    //SDRAM Write Enable
                                  DRAM_CS_N,    //SDRAM Chip Select
-                                 DRAM_CLK      //SDRAM Clock
+                                 DRAM_CLK,      //SDRAM Clock
+				//SDRAM On the FPGA
+				output logic SRAM_CE_N, SRAM_UB_N, SRAM_LB_N, SRAM_OE_N, SRAM_WE_N, //Chip enable, Upper Byte, Lower Byte, Output enable, wire enable?
+				output logic [19:0] SRAM_ADDR, //Address, its 20 bits but we only use the first 
+				inout  wire  [15:0] SRAM_DQ
              );
 
     logic Reset_h, Clk;
@@ -42,10 +46,10 @@ module lab8 (input               CLOCK_50,
     logic [1:0] hpi_addr;
     logic [15:0] hpi_data_in, hpi_data_out;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
-    logic [9:0] DrawX, DrawY;
+    logic [9:0] DrawX, DrawY, SaveX, SaveY;
 
     logic drawBlock;
-    logic [3:0] colorIndex;
+    logic [3:0] colorIndex_save, colorIndex_draw, colorIndex_fifo;
 
     // Interface between NIOS II and EZ-OTG chip
     hpi_io_intf hpi_io_inst (.Clk(Clk),
@@ -92,12 +96,12 @@ module lab8 (input               CLOCK_50,
     // You will have to generate it on your own in simulation.
     vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
-    blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex), .drawBlock(drawBlock)); // interface with frame buffer
+    blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock)); // interface with frame buffer
 
-    FrameBuffer;
+    framBuffer fbinstance(.SRAM_OE_N, .colorIndex_save, .SaveX, .SaveY, .DrawX, .DrawY, .data_Out(colorIndex_fifo), .fifo_address(), .fifo_we());
 
-    fifoRAM blockMemory2 (.data_In(), .write_address(), .read_address(), .we(), .Clk(Clk), .data_Out(colorIndex)); // interface with frame buffer and color mapper
-    color_mapper color_instance (.colorIndex(colorIndex), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
+    fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(), .read_address(), .we(), .Clk(Clk), .data_Out(colorIndex_draw)); // interface with frame buffer and color mapper
+    color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
 
     VGA_controller vga_controller_instance (.Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
