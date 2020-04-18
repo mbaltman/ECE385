@@ -1,8 +1,8 @@
 module Mem2IO (
 	input  logic Clk, Reset,
-	input  logic [19:0]  ADDR,
+	input  logic [19:0] ADDR,
 	input  logic CE, UB, LB, OE, WE,
-	input  logic [15:0]  Switches,
+	input  logic [15:0] Switches,
 	input  logic [15:0] Data_from_CPU, Data_from_SRAM,
 	output logic [15:0] Data_to_CPU, Data_to_SRAM,
 	output logic [3:0]  HEX0, HEX1, HEX2, HEX3);
