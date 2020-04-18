@@ -30,7 +30,7 @@ module lab8 (input               CLOCK_50,
                                  DRAM_CS_N,    //SDRAM Chip Select
                                  DRAM_CLK,     //SDRAM Clock
              // SRAM On the FPGA
-             output logic SRAM_CE_N, SRAM_UB_N, SRAM_LB_N, SRAM_OE_N, SRAM_WE_N, // Chip enable, Upper Byte, Lower Byte, Output enable, Wire enable?
+             output logic SRAM_CE_N, SRAM_UB_N, SRAM_LB_N, SRAM_OE_N, SRAM_WE_N, // Chip enable, Upper Byte, Lower Byte, Output enable, WE?
              output logic [19:0] SRAM_ADDR, // Address, it's 20 bits but we only use the first
              inout  wire  [15:0] SRAM_DQ
              );

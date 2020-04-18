@@ -1,4 +1,4 @@
-module Mem2IO(
+module Mem2IO (
 	input  logic Clk, Reset,
 	input  logic [19:0]  ADDR,
 	input  logic CE, UB, LB, OE, WE,
