@@ -590,7 +590,6 @@ set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER OFF
 set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench.sv -section_id testbench
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SYSTEMVERILOG_FILE fifo.sv
 set_global_assignment -name VERILOG_FILE vga_clk.v
 set_global_assignment -name SYSTEMVERILOG_FILE ram.sv
@@ -605,3 +604,5 @@ set_global_assignment -name SYSTEMVERILOG_FILE ball.sv
 set_global_assignment -name SYSTEMVERILOG_FILE blocks.sv
 set_global_assignment -name SYSTEMVERILOG_FILE testbench.sv
 set_global_assignment -name SYSTEMVERILOG_FILE frameBuffer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE GPU_controller.sv
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

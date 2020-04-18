@@ -2,7 +2,7 @@ module spriteRAM
 (
 	input  [9:0] read_address,
 	input  Clk,
-	output logic [7:0] data_Out
+	output logic [3:0] data_Out
 );
 
 	// mem has width of 4 bits and a total of 18000 addresses

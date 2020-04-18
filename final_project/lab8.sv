@@ -98,7 +98,8 @@ module lab8 (input               CLOCK_50,
 
     blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock)); // interface with frame buffer
 
-    framBuffer fbinstance(.SRAM_OE_N, .colorIndex_save, .SaveX, .SaveY, .DrawX, .DrawY, .data_Out(colorIndex_fifo), .fifo_address(), .fifo_we());
+    frameBuffer fbinstance(.SRAM_OE_N, .colorIndex_save(colorIndex_save), .SaveX(), .SaveY(), .DrawX(), .DrawY(),
+									.data_out(colorIndex_fifo), .fifo_address(), .fifo_we(), .SRAM_ADDR, .SRAM_DQ, .flip_page());
 
     fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(), .read_address(), .we(), .Clk(Clk), .data_Out(colorIndex_draw)); // interface with frame buffer and color mapper
     color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
@@ -107,8 +108,8 @@ module lab8 (input               CLOCK_50,
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
 
     // Display keycode on hex display
-    HexDriver hex_inst_0 (colorIndex[3:0], HEX0);
-    HexDriver hex_inst_1 (colorIndex[7:4], HEX1);
+    HexDriver hex_inst_0 (colorIndex_draw[3:0], HEX0);
+    HexDriver hex_inst_1 (colorIndex_save[3:0], HEX1);
     HexDriver hex_inst_2 (VGA_B[3:0], HEX2);
     HexDriver hex_inst_3 (VGA_B[7:4], HEX3);
     HexDriver hex_inst_4 (VGA_G[3:0], HEX4);

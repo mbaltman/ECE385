@@ -2,7 +2,7 @@ module blocks
 (
 	input  Clk, Reset,
 	input  [9:0] DrawX, DrawY,
-	output logic [7:0] colorIndex,
+	output logic [3:0] colorIndex,
 	output logic drawBlock
 );
 
