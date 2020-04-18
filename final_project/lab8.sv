@@ -97,12 +97,9 @@ module lab8 (input               CLOCK_50,
 
     blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock)); // interface with frame buffer
 
-<<<<<<< HEAD
     frameBuffer fbinstance(.SRAM_OE_N, .colorIndex_save(colorIndex_save), .SaveX(), .SaveY(), .DrawX(), .DrawY(),
 									.data_out(colorIndex_fifo), .fifo_address(), .fifo_we(), .SRAM_ADDR, .SRAM_DQ, .flip_page());
-=======
-    framBuffer fbinstance (.SRAM_OE_N, .colorIndex_save, .SaveX, .SaveY, .DrawX, .DrawY, .data_Out(colorIndex_fifo), .fifo_address(), .fifo_we());
->>>>>>> 1a6403e5c20e148ea78d2d1f142c0ab9e586cb26
+
 
     fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(), .read_address(), .we(), .Clk(Clk), .data_Out(colorIndex_draw)); // interface with frame buffer and color mapper
     color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
