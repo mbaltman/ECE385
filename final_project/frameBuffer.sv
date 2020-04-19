@@ -20,7 +20,7 @@ always_comb
 	begin
 		if (SRAM_OE_N) // if it's a 1 write memory frame buffer
 			begin
-				SRAM_ADDR = ({10'b0, SaveY} * 640) + {10'b0,SaveX}; // address that should be written into, extended to 20 bits, to gauruntee it wouldnt be truncated.
+				SRAM_ADDR = ({10'b0, SaveY} * 640) + {10'b0, SaveX}; // address that should be written into, extended to 20 bits, to gauruntee it wouldnt be truncated.
 				SRAM_DQ = {12'b0, colorIndex_save[3:0]};
 				if (flip_page)
 				begin
