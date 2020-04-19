@@ -6,7 +6,7 @@ module frameBuffer
 
 	input [9:0] DrawX, DrawY, // determines the address that the VGA wants to read out
 	output [3:0] data_out , // data being read out
-	output [9:0]fifo_address, // address in the fifo being written into
+	output [9:0] fifo_address, // address in the fifo being written into
 	output fifo_we, // enable writing into the fifo
 
 	output [19:0] SRAM_ADDR,
