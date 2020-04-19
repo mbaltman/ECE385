@@ -1,7 +1,7 @@
 module frameBuffer
 (
 	input SRAM_OE_N, // signals if reading or writing
-	input [3:0]colorIndex_save , // data being written in
+	input [3:0] colorIndex_save , // data being written in
 	input [9:0] SaveX, SaveY, // determines address being written into
 
 	input [9:0] DrawX, DrawY, // determines the address that the VGA wants to read out
