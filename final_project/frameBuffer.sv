@@ -30,7 +30,7 @@ module frameBuffer
 			begin
 				SRAM_ADDR = ({10'b0, SaveY} * 640) + {10'b0, SaveX}; // address that should be written into, extended to 20 bits, to gauruntee it wouldn't be truncated.
 			end
-			fifo_address = 10'b0;
+			fifo_address = DrawX;
 			fifo_we = 1'b0; // fifo can be read from
 		end
 		else // if it's a 0 read memory from frame buffer and write into fifos
