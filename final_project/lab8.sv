@@ -95,7 +95,7 @@ module lab8 (input               CLOCK_50,
     // You will have to generate it on your own in simulation.
     vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
-    blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock)); // interface with frame buffer
+    blocks blockInstance (.Clk(Clk), .frame_clk(), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock), .keycode); // interface with frame buffer
 
     frameBuffer fbinstance (.SRAM_OE_N, .colorIndex_save(colorIndex_save), .SaveX(), .SaveY(), .DrawX(), .DrawY(),
                             .data_out(colorIndex_fifo), .fifo_address(), .fifo_we(), .SRAM_ADDR, .SRAM_DQ, .flip_page());
@@ -107,7 +107,6 @@ module lab8 (input               CLOCK_50,
     VGA_controller vga_controller_instance (.Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
 
-    // Display keycode on hex display
     HexDriver hex_inst_0 (colorIndex_draw[3:0], HEX0);
     HexDriver hex_inst_1 (colorIndex_save[3:0], HEX1);
     HexDriver hex_inst_2 (VGA_B[3:0], HEX2);
