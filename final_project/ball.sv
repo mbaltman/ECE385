@@ -2,7 +2,7 @@ module ball
 (
     input  Clk, Reset, frame_clk, // The clock indicating a new frame (~60Hz)
     input  [9:0]  DrawX, DrawY,
-    output logic is_ball,
+    output logic  is_ball,
     input  [7:0]  keycode
 );
 
@@ -22,7 +22,8 @@ module ball
     //////// Do not modify the always_ff blocks. ////////
     // Detect rising edge of frame_clk
     logic frame_clk_delayed, frame_clk_rising_edge;
-    always_ff @ (posedge Clk) begin
+    always_ff @ (posedge Clk)
+    begin
         frame_clk_delayed <= frame_clk;
         frame_clk_rising_edge <= (frame_clk == 1'b1) && (frame_clk_delayed == 1'b0);
     end
