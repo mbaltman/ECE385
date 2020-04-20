@@ -46,8 +46,7 @@ module lab8 (input               CLOCK_50,
     logic [1:0] hpi_addr;
     logic [15:0] hpi_data_in, hpi_data_out;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
-    logic [9:0] DrawX, DrawY, SaveX, SaveY, ReadX, ReadY;
-	 logic PauseVGA, flip_page, fifo_we;
+    logic [9:0] DrawX, DrawY, SaveX, SaveY;
 
     logic drawBlock;
     logic [3:0] colorIndex_save, colorIndex_draw, colorIndex_fifo;
@@ -98,22 +97,15 @@ module lab8 (input               CLOCK_50,
 
     blocks blockInstance (.Clk(Clk), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock)); // interface with frame buffer
 
-    frameBuffer fbinstance (.Clk(Clk), .SRAM_OE_N(), .colorIndex_save(colorIndex_save), .SaveX(), .SaveY(), .ReadX(), .ReadY(),
-                            .data_out(colorIndex_fifo), .SRAM_ADDR(), .SRAM_DQ(), .flip_page(flip_page));
-									 
-	
+    frameBuffer fbinstance (.SRAM_OE_N, .colorIndex_save(colorIndex_save), .SaveX(), .SaveY(), .DrawX(), .DrawY(),
+                            .data_out(colorIndex_fifo), .fifo_address(), .fifo_we(), .SRAM_ADDR, .SRAM_DQ, .flip_page());
 
 
-    fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(), .read_address(), .we(fifo_we), .Clk(Clk), .data_Out(colorIndex_draw));	// interface with frame buffer and color mapper
+    fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(), .read_address(), .we(), .Clk(Clk), .data_Out(colorIndex_draw)); // interface with frame buffer and color mapper
     color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
 
     VGA_controller vga_controller_instance (.Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
-														  
-	GPU_controller gpu_controller_instance(.Clk(Clk), .Reset(Reset_h),.DrawX(DrawX), .DrawY(DrawY),.VGA_BLANK_N(VGA_BLANK_N), 
-													   .SaveX(SaveX), .SaveY(SaveY), .ReadX(ReadX), .ReadY(ReadY), 
-														.SRAM_CE_N, .SRAM_UB_N, .SRAM_LB_N, .SRAM_OE_N, .SRAM_WE_N, 
-														.PauseVGA(PauseVGA), .flip_page(flip_page), .fifo_we(fifo_we));										  
 
     // Display keycode on hex display
     HexDriver hex_inst_0 (colorIndex_draw[3:0], HEX0);

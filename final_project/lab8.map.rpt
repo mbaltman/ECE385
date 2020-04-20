@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab8
-Sat Apr 18 15:43:29 2020
+Mon Apr 20 18:04:54 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sat Apr 18 15:43:29 2020           ;
+; Analysis & Synthesis Status        ; Failed - Mon Apr 20 18:04:54 2020           ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; lab8                                        ;
 ; Top-level Entity Name              ; lab8                                        ;
@@ -310,7 +310,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Apr 18 15:43:07 2020
+    Info: Processing started: Mon Apr 20 18:04:31 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off final -c lab8
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -476,17 +476,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file framebu
     Info (12023): Found entity 1: frameBuffer File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file gpu_controller.sv
     Info (12023): Found entity 1: GPU_controller File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at frameBuffer.sv(54): created implicit net for "Data" File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 54
 Warning (10037): Verilog HDL or VHDL warning at lab7_soc_sdram.v(318): conditional expression evaluates to a constant File: C:/GitHub/ECE385/final_project/lab7_soc/synthesis/submodules/lab7_soc_sdram.v Line: 318
 Warning (10037): Verilog HDL or VHDL warning at lab7_soc_sdram.v(328): conditional expression evaluates to a constant File: C:/GitHub/ECE385/final_project/lab7_soc/synthesis/submodules/lab7_soc_sdram.v Line: 328
 Warning (10037): Verilog HDL or VHDL warning at lab7_soc_sdram.v(338): conditional expression evaluates to a constant File: C:/GitHub/ECE385/final_project/lab7_soc/synthesis/submodules/lab7_soc_sdram.v Line: 338
 Warning (10037): Verilog HDL or VHDL warning at lab7_soc_sdram.v(682): conditional expression evaluates to a constant File: C:/GitHub/ECE385/final_project/lab7_soc/synthesis/submodules/lab7_soc_sdram.v Line: 682
 Info (12127): Elaborating entity "lab8" for the top level hierarchy
-Warning (10030): Net "SRAM_OE_N" at lab8.sv(33) has no driver or initial value, using a default initial value '0' File: C:/GitHub/ECE385/final_project/lab8.sv Line: 33
-Warning (10034): Output port "SRAM_CE_N" at lab8.sv(33) has no driver File: C:/GitHub/ECE385/final_project/lab8.sv Line: 33
-Warning (10034): Output port "SRAM_UB_N" at lab8.sv(33) has no driver File: C:/GitHub/ECE385/final_project/lab8.sv Line: 33
-Warning (10034): Output port "SRAM_LB_N" at lab8.sv(33) has no driver File: C:/GitHub/ECE385/final_project/lab8.sv Line: 33
-Warning (10034): Output port "SRAM_WE_N" at lab8.sv(33) has no driver File: C:/GitHub/ECE385/final_project/lab8.sv Line: 33
-Info (12128): Elaborating entity "hpi_io_intf" for hierarchy "hpi_io_intf:hpi_io_inst" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 71
+Warning (10034): Output port "SRAM_ADDR" at lab8.sv(34) has no driver File: C:/GitHub/ECE385/final_project/lab8.sv Line: 34
+Info (12128): Elaborating entity "hpi_io_intf" for hierarchy "hpi_io_intf:hpi_io_inst" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 72
 Info (12128): Elaborating entity "lab7_soc" for hierarchy "lab7_soc:nios_system" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 93
 Info (12128): Elaborating entity "lab7_soc_jtag_uart_0" for hierarchy "lab7_soc:nios_system|lab7_soc_jtag_uart_0:jtag_uart_0" File: C:/GitHub/ECE385/final_project/lab7_soc/synthesis/lab7_soc.v Line: 134
 Info (12128): Elaborating entity "lab7_soc_jtag_uart_0_scfifo_w" for hierarchy "lab7_soc:nios_system|lab7_soc_jtag_uart_0:jtag_uart_0|lab7_soc_jtag_uart_0_scfifo_w:the_lab7_soc_jtag_uart_0_scfifo_w" File: C:/GitHub/ECE385/final_project/lab7_soc/synthesis/submodules/lab7_soc_jtag_uart_0.v Line: 420
@@ -760,49 +757,114 @@ Warning (10030): Net "mem.data_a" at ram.sv(9) has no driver or initial value, u
 Warning (10030): Net "mem.waddr_a" at ram.sv(9) has no driver or initial value, using a default initial value '0' File: C:/GitHub/ECE385/final_project/ram.sv Line: 9
 Warning (10030): Net "mem.we_a" at ram.sv(9) has no driver or initial value, using a default initial value '0' File: C:/GitHub/ECE385/final_project/ram.sv Line: 9
 Info (12128): Elaborating entity "frameBuffer" for hierarchy "frameBuffer:fbinstance" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 102
-Warning (10230): Verilog HDL assignment warning at frameBuffer.sv(21): truncated value with size 32 to match size of target (20) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 21
-Warning (10230): Verilog HDL assignment warning at frameBuffer.sv(30): truncated value with size 32 to match size of target (20) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Warning (10240): Verilog HDL Always Construct warning at frameBuffer.sv(19): inferring latch(es) for variable "SRAM_DQ", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 19
-Warning (10240): Verilog HDL Always Construct warning at frameBuffer.sv(19): inferring latch(es) for variable "data_out", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 19
-Warning (10240): Verilog HDL Always Construct warning at frameBuffer.sv(19): inferring latch(es) for variable "fifo_address", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 19
-Error (10166): SystemVerilog RTL Coding error at frameBuffer.sv(19): always_comb construct does not infer purely combinational logic. File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 19
-Info (10041): Inferred latch for "fifo_address[0]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[1]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[2]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[3]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[4]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[5]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[6]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[7]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[8]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "fifo_address[9]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "data_out[0]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "data_out[1]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "data_out[2]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "data_out[3]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[0]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[1]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[2]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[3]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[4]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[5]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[6]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[7]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[8]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[9]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[10]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[11]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[12]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[13]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[14]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Info (10041): Inferred latch for "SRAM_DQ[15]" at frameBuffer.sv(30) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 30
-Error (12152): Can't elaborate user hierarchy "frameBuffer:fbinstance" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 102
+Warning (10036): Verilog HDL or VHDL warning at frameBuffer.sv(54): object "Data" assigned a value but never read File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 54
+Warning (10230): Verilog HDL assignment warning at frameBuffer.sv(34): truncated value with size 32 to match size of target (20) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 34
+Warning (10230): Verilog HDL assignment warning at frameBuffer.sv(38): truncated value with size 32 to match size of target (20) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 38
+Warning (10230): Verilog HDL assignment warning at frameBuffer.sv(45): truncated value with size 32 to match size of target (20) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 45
+Warning (10230): Verilog HDL assignment warning at frameBuffer.sv(49): truncated value with size 32 to match size of target (20) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 49
+Warning (10230): Verilog HDL assignment warning at frameBuffer.sv(54): truncated value with size 16 to match size of target (1) File: C:/GitHub/ECE385/final_project/frameBuffer.sv Line: 54
+Info (12128): Elaborating entity "fifoRAM" for hierarchy "fifoRAM:blockMemory2" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 107
+Warning (10850): Verilog HDL warning at fifo.sv(14): number of words (400) in memory file does not match the number of elements in the address range [0:2559] File: C:/GitHub/ECE385/final_project/fifo.sv Line: 14
+Info (12128): Elaborating entity "color_mapper" for hierarchy "color_mapper:color_instance" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 108
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(30): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 30
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(36): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 36
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(42): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 42
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(48): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 48
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(54): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 54
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(60): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 60
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(66): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 66
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(72): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 72
+Warning (10272): Verilog HDL Case Statement warning at Color_Mapper.sv(78): case item expression covers a value already covered by a previous case item File: C:/GitHub/ECE385/final_project/Color_Mapper.sv Line: 78
+Info (12128): Elaborating entity "VGA_controller" for hierarchy "VGA_controller:vga_controller_instance" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 111
+Info (12128): Elaborating entity "GPU_controller" for hierarchy "GPU_controller:gpu_controller_instance" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 116
+Warning (10230): Verilog HDL assignment warning at GPU_controller.sv(86): truncated value with size 32 to match size of target (10) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 86
+Warning (10240): Verilog HDL Always Construct warning at GPU_controller.sv(50): inferring latch(es) for variable "clkRead_in", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Warning (10240): Verilog HDL Always Construct warning at GPU_controller.sv(50): inferring latch(es) for variable "ReadX_in", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Warning (10240): Verilog HDL Always Construct warning at GPU_controller.sv(50): inferring latch(es) for variable "ReadY_in", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Warning (10240): Verilog HDL Always Construct warning at GPU_controller.sv(50): inferring latch(es) for variable "flip_page_in", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Warning (10240): Verilog HDL Always Construct warning at GPU_controller.sv(50): inferring latch(es) for variable "SaveX_in", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Warning (10240): Verilog HDL Always Construct warning at GPU_controller.sv(50): inferring latch(es) for variable "SaveY_in", which holds its previous value in one or more paths through the always construct File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Error (10166): SystemVerilog RTL Coding error at GPU_controller.sv(50): always_comb construct does not infer purely combinational logic. File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[0]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[1]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[2]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[3]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[4]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[5]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[6]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[7]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[8]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveY_in[9]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[0]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[1]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[2]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[3]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[4]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[5]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[6]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[7]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[8]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "SaveX_in[9]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "flip_page_in" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[0]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[1]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[2]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[3]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[4]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[5]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[6]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[7]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[8]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadY_in[9]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[0]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[1]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[2]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[3]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[4]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[5]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[6]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[7]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[8]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "ReadX_in[9]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[0]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[1]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[2]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[3]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[4]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[5]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[6]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[7]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[8]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[9]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[10]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[11]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[12]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[13]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[14]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[15]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[16]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[17]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[18]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[19]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[20]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[21]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[22]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[23]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[24]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[25]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[26]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[27]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[28]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[29]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[30]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Info (10041): Inferred latch for "clkRead_in[31]" at GPU_controller.sv(50) File: C:/GitHub/ECE385/final_project/GPU_controller.sv Line: 50
+Error (12152): Can't elaborate user hierarchy "GPU_controller:gpu_controller_instance" File: C:/GitHub/ECE385/final_project/lab8.sv Line: 116
 Info (144001): Generated suppressed messages file C:/GitHub/ECE385/final_project/lab8.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 32 warnings
-    Error: Peak virtual memory: 4901 megabytes
-    Error: Processing ended: Sat Apr 18 15:43:32 2020
-    Error: Elapsed time: 00:00:25
-    Error: Total CPU time (on all processors): 00:00:45
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 47 warnings
+    Error: Peak virtual memory: 4902 megabytes
+    Error: Processing ended: Mon Apr 20 18:04:57 2020
+    Error: Elapsed time: 00:00:26
+    Error: Total CPU time (on all processors): 00:00:46
 
 
 +------------------------------------------+

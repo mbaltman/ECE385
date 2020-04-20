@@ -1,6 +1,6 @@
 module color_mapper
 (
-	input  logic [3:0] colorIndex,
+	input  logic [7:0] colorIndex,
 	output logic [7:0] VGA_R, VGA_G, VGA_B // VGA RGB output
 );
 
