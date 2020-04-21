@@ -1,6 +1,6 @@
 module frameBuffer
 (
-	input Clk,
+	input  Clk,
 	input  SRAM_OE_N, // signals if reading or writing
 	input  [3:0] colorIndex_save , // data being written in
 	input  [9:0] SaveX, SaveY, // determines address being written into
@@ -15,16 +15,15 @@ module frameBuffer
 );
 
 	parameter offset = 20'd307200; // number of addresses for first fram buffer, can be used for page flipping
-   
+
 	logic [15:0] Data_write_buffer, Data_read_buffer;
-	
-	always_ff @(posedge Clk)
-	begin 
+
+	always_ff @ (posedge Clk)
+	begin
 	Data_read_buffer <= SRAM_DQ;
 	Data_write_buffer <= {12'b0, colorIndex_save[3:0]};
 	end
-	
-	
+
 	always_comb
 	begin
 		if (SRAM_OE_N) // if it's a 1 write memory frame buffer
@@ -49,8 +48,8 @@ module frameBuffer
 				SRAM_ADDR = ({10'b0, ReadY} * 640) + {10'b0, ReadX}; // address that should be written into, extended to 20 bits, to gauruntee it wouldn't be truncated.
 			end
 		end
-		end
-		
-		assign Data = SRAM_OE_N ? Data_write_buffer : {16{1'bZ}};
-		assign data_out= Data_read_buffer[3:0];
+	end
+
+	assign Data = SRAM_OE_N ? Data_write_buffer : {16{1'bZ}};
+	assign data_out = Data_read_buffer[3:0];
 endmodule

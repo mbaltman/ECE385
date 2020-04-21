@@ -10,9 +10,10 @@ module blocks
 	parameter [9:0] Block_x = 10'd0; // Center position on the X axis
 	parameter [9:0] Block_y = 10'd0; // Center position on the Y axis
 	logic [9:0] address = 10'd0;
-	logic [9:0] Block_X_Pos, Block_Y_Pos, Block_X_Motion, Block_Y_Motion;
-	logic [9:0] Block_X_Pos_in, Block_Y_Pos_in, Block_X_Motion_in, Block_Y_Motion_in;
+	logic [9:0] Block_X_Pos, Block_Y_Pos, Block_Y_Motion;
+	logic [9:0] Block_X_Pos_in, Block_Y_Pos_in, Block_Y_Motion_in;
 	logic frame_clk_delayed, frame_clk_rising_edge;
+	logic flag, flag_in;
 
 	always_ff @ (posedge Clk)
 	begin
@@ -25,15 +26,15 @@ module blocks
 		begin
 			Block_X_Pos <= Block_x;
 			Block_Y_Pos <= Block_y;
-			Block_X_Motion <= 10'd0;
-			Block_Y_Motion <= 10'd0;
+			Block_Y_Motion <= 10'd1;
+			flag <= 1'b0;
 		end
 		else
 		begin
 			Block_X_Pos <= Block_X_Pos_in;
 			Block_Y_Pos <= Block_Y_Pos_in;
-			Block_X_Motion <= Block_X_Motion_in;
 			Block_Y_Motion <= Block_Y_Motion_in;
+			flag <= flag_in;
 		end
 	end
 
@@ -43,41 +44,31 @@ module blocks
 	begin
 		Block_X_Pos_in = Block_X_Pos;
 		Block_Y_Pos_in = Block_Y_Pos;
-		Block_X_Motion_in = Block_X_Motion;
 		Block_Y_Motion_in = Block_Y_Motion;
+		flag_in = flag;
 
 		if (frame_clk_rising_edge)
 		begin
-			if ( Block_Y_Pos >= 10'd459 )
+			if ( Block_Y_Pos >= 10'd459 ) // check if still moving down
 				Block_Y_Motion_in = 0'b0;
-			else if ( Block_Y_Pos <= 10'd0 )
-				Block_Y_Motion_in = 1'b0;
-			else if (keycode == 8'h1A) // W key: up
+				flag_in = 1'b1;
+			else if (keycode == 8'h04 & Block_X_Pos > 10'd0 & flag == 0) // A key: move block left by 20 pixels
 			begin
-				Block_Y_Motion_in = ~10'd1 + 10'd1; // 2's complement of 1
-				Block_X_Motion_in = 10'd0; // 0, no speed in X
+				Block_X_Pos_in = Block_X_Pos - 10'd20;
+				flag_in = 1'b1;
 			end
-			else if (keycode == 8'h16)// S key: down
+			else if (keycode == 8'h07 & Block_X_Pos < 10'd619 & flag == 0) // D key: move block right by 20 pixels
 			begin
-				Block_Y_Motion_in = 10'd1; // 1
-				Block_X_Motion_in = 10'd0; // 0, no speed in X
+				Block_X_Pos_in = Block_X_Pos + 10'd20;
+				flag_in = 1'b1;
 			end
-			else if ( Block_X_Pos >= 10'd619 )
-				Block_X_Motion_in = 1'b0;
-			else if ( Block_X_Pos <= 10'd0 ) // Ball is at the left edge, BOUNCE!
-				Block_X_Motion_in = 1'b0;
-			else if (keycode == 8'h04) // A key: left
+			else if (keycode != 8'h04 & keycode != 8'h07) // key released
 			begin
-				Block_Y_Motion_in = 10'd0; // 0, no speed in Y
-				Block_X_Motion_in =  ~10'd1 + 10'd1; // 2's complement of 1
+				flag_in = 0;
 			end
-			else if (keycode == 8'h07) // D key: right
-			begin
-				Block_Y_Motion_in = 10'd0; // 0, no speed in Y
-				Block_X_Motion_in = 10'd1; // 1
+
+			Block_Y_Pos_in = Block_Y_Pos + Block_Y_Motion;
 			end
-			Block_X_Pos_in = Block_X_Pos + Block_X_Motion;
-			Block_Y_Pos_in = Block_Y_Pos + Ball_Y_Motion;
 		end
 
 		if ((DrawX >= Block_X_Pos) & (DrawX < (Block_X_Pos + 10'd20)) & (DrawY >= Block_Y_Pos) & (DrawY < Block_Y_Pos + 10'd20))
