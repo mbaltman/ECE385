@@ -424,10 +424,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "SRAM_OE_N",
-					"strict" : false
-				},
-				{
 					"name" : "SRAM_ADDR[0]",
 					"strict" : false
 				},
@@ -713,54 +709,6 @@
 				},
 				{
 					"name" : "SRAM_DQ[3]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[4]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[5]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[6]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[7]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[8]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[9]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[10]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[11]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[12]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[13]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[14]",
-					"strict" : false
-				},
-				{
-					"name" : "SRAM_DQ[15]",
 					"strict" : false
 				},
 				{

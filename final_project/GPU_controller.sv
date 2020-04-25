@@ -100,7 +100,8 @@ module GPU_controller
                 if (ReadY + 10'b1 >=480)
                     ReadY_in = 10'b0;
 
-                SRAM_OE_N = 1'b1; //writing into frame buffer
+               // SRAM_OE_N = 1'b1; //writing into frame buffer
+					SRAM_OE_N = 1'b0;
                 fifo_we = 1'b0; //reading from fifo
             end
 
@@ -108,8 +109,8 @@ module GPU_controller
             begin
                 PauseVGA = 1'b0; //starts VGA running again
                 fifo_we = 1'b0; //reading from fifo
-                SRAM_OE_N = 1'b1; //writing into frame buffer
-
+               // SRAM_OE_N = 1'b1; //writing into frame buffer
+					SRAM_OE_N = 1'b0;
                 if (SaveX == 10'd639 & SaveY == 10'd479)//stuck hear until a blank interval comes up
                 begin
                     if (VGA_BLANK_N == 1'b0)//if it is a blank period that means we flip the page and reset the pointers.
