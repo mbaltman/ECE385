@@ -52,7 +52,8 @@ module lab8 (input               CLOCK_50,
     logic drawBlock;
     logic [3:0] colorIndex_save, colorIndex_draw, colorIndex_fifo;
 	 
-
+  	logic [5:0] spriteindex;
+	logic [15:0] blockstate
 	 
 
     // Interface between NIOS II and EZ-OTG chip
@@ -99,10 +100,12 @@ module lab8 (input               CLOCK_50,
     // You will have to generate it on your own in simulation.
     vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
-    blocks blockInstance (.Clk(Clk), .frame_clk(VGA_VS), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock), .keycode); // interface with frame buffer
+    blocks blockInstance (.Clk(Clk), .frame_clk(VGA_VS), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock), .keycode,
+									.blockstate(blockstate), .spriteindex(spriteindex)); // interface with frame buffer
 
 
-	draw block1 ( .drawBlock(drawBlock), .colorindex(colorIndex_save), .colorindex_draw(colorIndex_draw));
+	draw block1 ( .Clk(Clk), .drawBlock(drawBlock), .DrawX(DrawX), .DrawY(DrawY), .PosX(), .PosY(), .blockstate(blockstate), .spriteindex(spriteindex),
+					  .colorindex_draw(colorIndex_draw) );
 
 
 	color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
