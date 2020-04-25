@@ -3,14 +3,14 @@ module blocks
 	input        Clk, Reset, frame_clk,
 	input  [9:0] DrawX, DrawY,
 	output logic [3:0] colorIndex,
-	output logic [3:0] drawBlock,
+	output logic drawBlock,
 	input  [7:0] keycode
 );
 
 	parameter [9:0] Block_x = 10'd0; // Center position on the X axis
 	parameter [9:0] Block_y = 10'd0; // Center position on the Y axis
 	parameter [9:0] spriteOffset = 10'd400;
-	logic [14:0] address = 15'd0;
+	logic [14:0] address;
 	logic [9:0] Block_X_Pos, Block_Y_Pos, Block_Y_Motion;
 	logic [9:0] Block_X_Pos_in, Block_Y_Pos_in, Block_Y_Motion_in;
 	logic frame_clk_delayed, frame_clk_rising_edge;
@@ -32,8 +32,8 @@ module blocks
 		end
 		else
 		begin
-			//Block_X_Pos <= Block_X_Pos_in;
-			//Block_Y_Pos <= Block_Y_Pos_in;
+			Block_X_Pos <= Block_X_Pos_in;
+			Block_Y_Pos <= Block_Y_Pos_in;
 			Block_Y_Motion <= Block_Y_Motion_in;
 			flag <= flag_in;
 		end
@@ -47,6 +47,8 @@ module blocks
 		Block_Y_Pos_in = Block_Y_Pos;
 		Block_Y_Motion_in = Block_Y_Motion;
 		flag_in = flag;
+		address = 15'd0;
+		drawBlock = 1'b0;
 
 		if (frame_clk_rising_edge)
 		begin
@@ -73,26 +75,16 @@ module blocks
 			Block_Y_Pos_in = Block_Y_Pos + Block_Y_Motion;
 		end
 
-		/*if ((DrawX >= Block_X_Pos) & (DrawX < (Block_X_Pos + 10'd20)) & (DrawY >= Block_Y_Pos) & (DrawY < Block_Y_Pos + 10'd20))*/
-		/*
-		if(DrawX <= 10'd320 & DrawY <= 10'd240)
+		if ((DrawX >= Block_X_Pos) & (DrawX < (Block_X_Pos + 10'd20)) & (DrawY >= Block_Y_Pos) & (DrawY < Block_Y_Pos + 10'd20))
 			begin
 				address = 20*(DrawY - Block_Y_Pos) + (DrawX - Block_X_Pos) + 38*spriteOffset;
-					address = 20*(10'd2 ) + (10'd2) + 41*spriteOffset;//replace with modulo of drawX and DrawY
-			drawBlock = 4'hF;
+				drawBlock = 1'b1;
+				
 			end
 		else
 		begin
-			drawBlock = 4'h1;
-			address = 20*(10'd2 ) + (10'd2) + 37*spriteOffset;//replace with modulo of drawX and DrawY
+			drawBlock = 1'b0;
 		end
-		*/
-		
-		if(DrawX < 10'd100)
-			address = 20*(10'd2 ) + (10'd2) + 41*spriteOffset;
-		
-		else
-			address = 20*(10'd2) + (10'd2) + 38*spriteOffset;
 	end
 	
 endmodule
