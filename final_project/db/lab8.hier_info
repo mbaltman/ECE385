@@ -68473,12 +68473,18 @@ data_Out[3] <= data_Out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab8|draw:drawInstance
-drawBlock => ~NO_FANOUT~
-colorindex[0] => ~NO_FANOUT~
-colorindex[1] => ~NO_FANOUT~
-colorindex[2] => ~NO_FANOUT~
-colorindex[3] => ~NO_FANOUT~
-colorindex_draw <= <GND>
+drawBlock => colorindex_draw.OUTPUTSELECT
+drawBlock => colorindex_draw.OUTPUTSELECT
+drawBlock => colorindex_draw.OUTPUTSELECT
+drawBlock => colorindex_draw.OUTPUTSELECT
+colorindex[0] => colorindex_draw.DATAB
+colorindex[1] => colorindex_draw.DATAB
+colorindex[2] => colorindex_draw.DATAB
+colorindex[3] => colorindex_draw.DATAB
+colorindex_draw[0] <= colorindex_draw.DB_MAX_OUTPUT_PORT_TYPE
+colorindex_draw[1] <= colorindex_draw.DB_MAX_OUTPUT_PORT_TYPE
+colorindex_draw[2] <= colorindex_draw.DB_MAX_OUTPUT_PORT_TYPE
+colorindex_draw[3] <= colorindex_draw.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab8|color_mapper:color_instance
