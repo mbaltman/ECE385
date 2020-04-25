@@ -50,6 +50,6 @@ module frameBuffer
 		end
 	end
 
-	assign Data = SRAM_OE_N ? Data_write_buffer : {16{1'bZ}};
+	assign SRAM_DQ = SRAM_OE_N ? Data_write_buffer : {16{1'bZ}};
 	assign data_out = Data_read_buffer[3:0];
 endmodule

@@ -1,6 +1,6 @@
 module spriteRAM
 (
-	input  [9:0] read_address,
+	input  [14:0] read_address,
 	input  Clk,
 	output logic [3:0] data_Out
 );

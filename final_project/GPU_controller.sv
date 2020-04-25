@@ -9,10 +9,10 @@ module GPU_controller
     output logic PauseVGA, // pauses the VGA controller while the next line is being read from memory into fifo
     output logic flip_page, fifo_we
 );
-
     logic   [9:0] SaveX_in, SaveY_in, ReadX_in, ReadY_in;
     logic   flip_page_in;
     integer clkRead, clkRead_in;
+	 integer clkWrite, clkWrite_in;
 
     enum logic [4:0] { Read, ReadToWrite, Write, WriteToRead } State, Next_state;
 
@@ -37,6 +37,7 @@ module GPU_controller
             flip_page <= flip_page_in;
             State <= Next_state;
             clkRead <= clkRead_in;
+				clkWrite <=clkWrite_in;
         end
     end
 
@@ -51,16 +52,25 @@ module GPU_controller
         PauseVGA = 1'b0;
         SRAM_OE_N = 1'b0;
         fifo_we = 1'b0;
+		  
+		  clkRead_in = clkRead;
+		  clkWrite_in = clkWrite;
+		  SaveX_in = SaveX;
+        SaveY_in = SaveY;
+        ReadX_in = ReadX;
+        ReadY_in = ReadY;
+		  
+        flip_page_in = flip_page;
 
         //State Transitions between the four states
         unique case (State)
             Read:
-                if (ReadX == 10'd640)
+                if (ReadX == 10'd639)
                     Next_state = ReadToWrite;
             ReadToWrite:
                 Next_state = Write;
             Write:
-                if (DrawX == 10'd640)
+                if (DrawX == 10'd639)
                     Next_state = WriteToRead;
             WriteToRead:
                 Next_state = Read;
@@ -73,10 +83,10 @@ module GPU_controller
                 PauseVGA = 1'b1; //pauses the VGA
                 fifo_we = 1'b1; //enables writing into the fifo
 
-                if (clkRead == 3) //clkRead is used to allow 3 clock cycles for reading from an address
+                if (clkRead == 2) //clkRead is used to allow 3 clock cycles for reading from an address
                 begin
                     clkRead_in = 0;
-                    ReadX_in = ReadX + 1;
+                    ReadX_in = ReadX + 10'b1;
                 end
                 else
                     clkRead_in = clkRead + 1;
@@ -84,10 +94,10 @@ module GPU_controller
 
             ReadToWrite:
             begin
-                ReadX_in = 10'b 0; //sets up readX and Ready for next iteration
+                ReadX_in = 10'b0; //sets up readX and Ready for next iteration
                 ReadY_in = ReadY + 10'b1;
 
-                if (ReadY + 10'b1 >480)
+                if (ReadY + 10'b1 >=480)
                     ReadY_in = 10'b0;
 
                 SRAM_OE_N = 1'b1; //writing into frame buffer
@@ -111,12 +121,21 @@ module GPU_controller
                 end
                 else
                 begin
+					 
+						if(clkWrite == 2)
+						begin
+						clkWrite_in = 0;
                     SaveX_in = SaveX + 10'b1; //keep increasing x
-                    if (SaveX + 10'b1 == 10'd640) //when we reach the end of the line, go to the next line
+                    if (SaveX + 10'b1 >= 10'd640) //when we reach the end of the line, go to the next line
                     begin
                         SaveX_in = 10'b0;
                         SaveY_in = SaveY_in +10'b1;
                     end
+						 end
+						else
+						begin 
+						clkWrite_in = clkWrite+1;
+						end
                 end
             end
 
@@ -128,4 +147,6 @@ module GPU_controller
             end
         endcase
     end
+	 
+
 endmodule

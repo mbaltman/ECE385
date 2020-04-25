@@ -3,13 +3,14 @@ module blocks
 	input        Clk, Reset, frame_clk,
 	input  [9:0] DrawX, DrawY,
 	output logic [3:0] colorIndex,
-	output logic drawBlock,
+	output logic [3:0] drawBlock,
 	input  [7:0] keycode
 );
 
 	parameter [9:0] Block_x = 10'd0; // Center position on the X axis
 	parameter [9:0] Block_y = 10'd0; // Center position on the Y axis
-	logic [9:0] address = 10'd0;
+	parameter [9:0] spriteOffset = 10'd400;
+	logic [14:0] address = 15'd0;
 	logic [9:0] Block_X_Pos, Block_Y_Pos, Block_Y_Motion;
 	logic [9:0] Block_X_Pos_in, Block_Y_Pos_in, Block_Y_Motion_in;
 	logic frame_clk_delayed, frame_clk_rising_edge;
@@ -31,8 +32,8 @@ module blocks
 		end
 		else
 		begin
-			Block_X_Pos <= Block_X_Pos_in;
-			Block_Y_Pos <= Block_Y_Pos_in;
+			//Block_X_Pos <= Block_X_Pos_in;
+			//Block_Y_Pos <= Block_Y_Pos_in;
 			Block_Y_Motion <= Block_Y_Motion_in;
 			flag <= flag_in;
 		end
@@ -50,8 +51,10 @@ module blocks
 		if (frame_clk_rising_edge)
 		begin
 			if ( Block_Y_Pos >= 10'd459 ) // check if still moving down
-				Block_Y_Motion_in = 0'b0;
+			begin
+				Block_Y_Motion_in = 1'b0;
 				flag_in = 1'b1;
+			end
 			else if (keycode == 8'h04 & Block_X_Pos > 10'd0 & flag == 0) // A key: move block left by 20 pixels
 			begin
 				Block_X_Pos_in = Block_X_Pos - 10'd20;
@@ -68,18 +71,28 @@ module blocks
 			end
 
 			Block_Y_Pos_in = Block_Y_Pos + Block_Y_Motion;
-			end
 		end
 
-		if ((DrawX >= Block_X_Pos) & (DrawX < (Block_X_Pos + 10'd20)) & (DrawY >= Block_Y_Pos) & (DrawY < Block_Y_Pos + 10'd20))
-		begin
-			address = 20*(DrawY - Block_Y_Pos) + (DrawX - Block_X_Pos);
-			drawBlock = 1'b1;
-		end
+		/*if ((DrawX >= Block_X_Pos) & (DrawX < (Block_X_Pos + 10'd20)) & (DrawY >= Block_Y_Pos) & (DrawY < Block_Y_Pos + 10'd20))*/
+		/*
+		if(DrawX <= 10'd320 & DrawY <= 10'd240)
+			begin
+				address = 20*(DrawY - Block_Y_Pos) + (DrawX - Block_X_Pos) + 38*spriteOffset;
+					address = 20*(10'd2 ) + (10'd2) + 41*spriteOffset;//replace with modulo of drawX and DrawY
+			drawBlock = 4'hF;
+			end
 		else
 		begin
-			drawBlock = 1'b0;
-			address = 10'd0;
+			drawBlock = 4'h1;
+			address = 20*(10'd2 ) + (10'd2) + 37*spriteOffset;//replace with modulo of drawX and DrawY
 		end
+		*/
+		
+		if(DrawX < 10'd100)
+			address = 20*(10'd2 ) + (10'd2) + 41*spriteOffset;
+		
+		else
+			address = 20*(10'd2) + (10'd2) + 38*spriteOffset;
 	end
+	
 endmodule

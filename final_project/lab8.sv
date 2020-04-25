@@ -49,7 +49,7 @@ module lab8 (input               CLOCK_50,
     logic [9:0] DrawX, DrawY, SaveX, SaveY, ReadX, ReadY;
 	 logic PauseVGA, flip_page, fifo_we;
 
-    logic drawBlock;
+    logic [3:0] drawBlock;
     logic [3:0] colorIndex_save, colorIndex_draw, colorIndex_fifo;
 
     // Interface between NIOS II and EZ-OTG chip
@@ -96,28 +96,29 @@ module lab8 (input               CLOCK_50,
     // You will have to generate it on your own in simulation.
     vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
-    blocks blockInstance (.Clk(Clk), .frame_clk(), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock), .keycode); // interface with frame buffer
+    blocks blockInstance (.Clk(Clk), .frame_clk(VGA_VS), .Reset(Reset_h), .DrawX(SaveX), .DrawY(SaveY), .colorIndex(colorIndex_save), .drawBlock(drawBlock), .keycode); // interface with frame buffer
 
-    frameBuffer fbinstance (.Clk(Clk), .SRAM_OE_N(), .colorIndex_save(colorIndex_save), .SaveX(), .SaveY(), .ReadX(), .ReadY(),
-                            .data_out(colorIndex_fifo), .SRAM_ADDR(), .SRAM_DQ(), .flip_page(flip_page));
-
-
+    frameBuffer fbinstance (.Clk(Clk), .SRAM_OE_N(SRAM_OE_N), .colorIndex_save(colorIndex_save), .SaveX(SaveX), .SaveY(SaveY), .ReadX(ReadX), .ReadY(ReadY),
+                            .data_out(colorIndex_fifo), .SRAM_ADDR(SRAM_ADDR), .SRAM_DQ(SRAM_DQ), .flip_page(flip_page));
 
 
-    fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(), .read_address(), .we(fifo_we), .Clk(Clk), .data_Out(colorIndex_draw));	// interface with frame buffer and color mapper
-    color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
 
-    VGA_controller vga_controller_instance (.Clk(Clk), .Reset(Reset_h), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
+
+    fifoRAM blockMemory2 (.data_In(colorIndex_fifo), .write_address(ReadX), .read_address(DrawX), .we(fifo_we), .Clk(Clk), .data_Out(colorIndex_draw));	// interface with frame buffer and color mapper
+   
+	color_mapper color_instance (.colorIndex(colorIndex_draw), .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); // interface with FIFO and VGA
+
+    VGA_controller vga_controller_instance (.Clk(Clk), .Reset(Reset_h), .PauseVGA(PauseVGA), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK),
                                             .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .DrawX(DrawX), .DrawY(DrawY));
 
     GPU_controller gpu_controller_instance (.Clk(Clk), .Reset(Reset_h),.DrawX(DrawX), .DrawY(DrawY),.VGA_BLANK_N(VGA_BLANK_N),
                                             .SaveX(SaveX), .SaveY(SaveY), .ReadX(ReadX), .ReadY(ReadY),
-                                            .SRAM_CE_N, .SRAM_UB_N, .SRAM_LB_N, .SRAM_OE_N, .SRAM_WE_N,
+                                            .SRAM_CE_N(SRAM_CE_N), .SRAM_UB_N(SRAM_UB_N), .SRAM_LB_N(SRAM_LB_N), .SRAM_OE_N(SRAM_OE_N), .SRAM_WE_N(SRAM_WE_N),
                                             .PauseVGA(PauseVGA), .flip_page(flip_page), .fifo_we(fifo_we));
 
     HexDriver hex_inst_0 (colorIndex_draw[3:0], HEX0);
     HexDriver hex_inst_1 (colorIndex_save[3:0], HEX1);
-    HexDriver hex_inst_2 (VGA_B[3:0], HEX2);
+    HexDriver hex_inst_2 (drawBlock [3:0], HEX2);
     HexDriver hex_inst_3 (VGA_B[7:4], HEX3);
     HexDriver hex_inst_4 (VGA_G[3:0], HEX4);
     HexDriver hex_inst_5 (VGA_G[7:4], HEX5);
