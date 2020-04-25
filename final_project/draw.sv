@@ -8,17 +8,21 @@ module draw( input logic Clk, input logic drawBlock,input  [9:0] DrawX, DrawY, P
 	  
 		always_comb
 		begin
+		address = 15'b 0;
+		blockstateindex = 4'b0;
+		
 			if(drawBlock)
 			begin
-				blockstateindex = ((PosY -DrawY)/ 10'd20)*4 + ((PosX -DrawX)/ 10'd20);
+				blockstateindex = ((DrawY -PosY)/ 10'd20)*4 + ((DrawX -PosX)/ 10'd20);
+				
 				if(blockstate[blockstateindex])
 				begin
-					address =( (PosY-DrawY) % 10'd20  * 16'd20) + (DrawX % 10'd20 ) * spriteindex * 16'd400;			
+					address =( (DrawY-PosY) % 10'd20  * 16'd20) + (DrawX % 10'd20 ) * spriteindex * 16'd400;			
 				end
 			end
 			else 
 			begin
-				address =( (PosY-DrawY) % 10'd20  * 10'd20) + (DrawX % 10'd20 ) * 16'd37 * 400;
+				address =( (DrawY) % 10'd20  * 10'd20) + (DrawX % 10'd20 ) * 16'd37 * 400;
 			end
 		end
 

@@ -46,14 +46,14 @@ module lab8 (input               CLOCK_50,
     logic [1:0] hpi_addr;
     logic [15:0] hpi_data_in, hpi_data_out;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
-    logic [9:0] DrawX, DrawY, SaveX, SaveY, ReadX, ReadY;
+    logic [9:0] DrawX, DrawY, PosX, PosY;
 	 logic PauseVGA, flip_page, fifo_we;
 
     logic drawBlock;
     logic [3:0] colorIndex_save, colorIndex_draw, colorIndex_fifo;
 	 
   	logic [5:0] spriteindex;
-	logic [15:0] blockstate
+	logic [15:0] blockstate;
 	 
 
     // Interface between NIOS II and EZ-OTG chip
@@ -100,11 +100,11 @@ module lab8 (input               CLOCK_50,
     // You will have to generate it on your own in simulation.
     vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
-    blocks blockInstance (.Clk(Clk), .frame_clk(VGA_VS), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .colorIndex(colorIndex_save), .drawBlock(drawBlock), .keycode,
-									.blockstate(blockstate), .spriteindex(spriteindex)); // interface with frame buffer
+    blocks blockInstance (.Clk(Clk), .frame_clk(VGA_VS), .Reset(Reset_h), .DrawX(DrawX), .DrawY(DrawY), .drawBlock(drawBlock), .keycode,
+									.blockstate(blockstate), .spriteindex(spriteindex), .Block_X_Pos(PosX), .Block_Y_Pos(PosY),); // interface with frame buffer
 
 
-	draw block1 ( .Clk(Clk), .drawBlock(drawBlock), .DrawX(DrawX), .DrawY(DrawY), .PosX(), .PosY(), .blockstate(blockstate), .spriteindex(spriteindex),
+	draw block1 ( .Clk(Clk), .drawBlock(drawBlock), .DrawX(DrawX), .DrawY(DrawY), .PosX(PosX), .PosY(PosY), .blockstate(blockstate), .spriteindex(spriteindex),
 					  .colorindex_draw(colorIndex_draw) );
 
 
