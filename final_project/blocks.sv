@@ -5,8 +5,9 @@ module blocks
 	output logic [9:0]  Block_X_Pos, Block_Y_Pos,
 	output logic        drawBlock,
 	input  logic [7:0]  keycode,
+	input logic [15:0] blockstate_new,
 	output logic [15:0] blockstate,
-	output logic [5:0]  spriteindex
+	output logic hitbottom
 );
 
 /********************************************************************************************************************/
@@ -37,8 +38,8 @@ module blocks
 			Block_Y_Motion <= 10'd1;
 			flag <= 1'b0;
 			rot_flag <= 1'b0;
-			blockstate <= 16'b0000000000100111;
-			spriteindex <= 6'd41;
+			blockstate <= blockstate_new;
+		
 		end
 		else
 		begin
@@ -55,6 +56,8 @@ module blocks
 
 	always_comb
 	begin
+		hitbottom = 1'b0;
+		
 		if (blockstate[12] | blockstate[13] | blockstate[14] | blockstate[15])
 			bottom = Block_Y_Pos + 10'd60;
 		else if (blockstate[8] | blockstate[9] | blockstate[10] | blockstate[11])
@@ -136,11 +139,13 @@ module blocks
 		flag_in = flag;
 		rot_flag_in = rot_flag;
 		blockstate_in = blockstate;
+		hitbottom = 1'b0;
 
 		if (frame_clk_rising_edge)
 		begin
 			if ( bottom >= 10'd459 ) // check if still moving down
 			begin
+				hitbottom = 1'b1;
 				Block_Y_Motion_in = 1'b0;
 				flag_in = 1'b1;
 				rot_flag_in = 1'b1;

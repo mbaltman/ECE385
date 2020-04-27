@@ -71,7 +71,7 @@ module lab8 (
 /********************************************************************************************************************/
 
     HexDriver hex_inst_0 (keycode[3:0], HEX0);
-    HexDriver hex_inst_1 (colorIndex_draw[3:0], HEX1);
+    HexDriver hex_inst_1 (keycode[7:4], HEX1);
     HexDriver hex_inst_2 (VGA_B[3:0], HEX2);
     HexDriver hex_inst_3 (VGA_B[7:4], HEX3);
     HexDriver hex_inst_4 (VGA_G[3:0], HEX4);
@@ -135,7 +135,7 @@ module lab8 (
                          .drawBlock(drawBlock),
                          .keycode,
                          .blockstate(blockstate),
-                         .spriteindex(spriteindex),
+                        
                          .Block_X_Pos(PosX),
                          .Block_Y_Pos(PosY),
                          );
