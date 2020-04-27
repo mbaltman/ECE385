@@ -3,7 +3,7 @@ module testbench ();
 	timeprecision 1ns;
 
 	logic CLK;
-	logic [7:0] colorIndex;
+	logic [3:0] colorIndex;
 	logic [7:0] VGA_R, VGA_G, VGA_B;
 
 	color_mapper cmTestLogic(.*);
@@ -18,10 +18,10 @@ module testbench ();
 	end
 
 	initial begin: TEST_VECTORS
-		#4 colorIndex = 1'h00;
-		#4 colorIndex = 1'h02;
-		#4 colorIndex = 1'h04;
-		#4 colorIndex = 1'h06;
-		#4 colorIndex = 1'h08;
+		#4 colorIndex = 4'h0;
+		#4 colorIndex = 4'h2;
+		#4 colorIndex = 4'h4;
+		#4 colorIndex = 4'h6;
+		#4 colorIndex = 4'h8;
 	end
 endmodule
