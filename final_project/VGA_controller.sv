@@ -1,7 +1,8 @@
 module VGA_controller
 (
-    input  logic Clk, Reset, PauseVGA,
-    output logic VGA_HS, VGA_VS, VGA_CLK,
+    input        Clk, Reset, PauseVGA,
+    output logic VGA_HS, VGA_VS,
+    input  logic VGA_CLK,
     output logic VGA_BLANK_N, VGA_SYNC_N,
     output logic [9:0] DrawX, DrawY
 );
