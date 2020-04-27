@@ -60,16 +60,18 @@ module lab8 (
     logic [15:0] hpi_data_in, hpi_data_out;
     logic        hpi_r, hpi_w, hpi_cs, hpi_reset;
     logic [9:0]  DrawX, DrawY, PosX, PosY;
-    logic        PauseVGA, flip_page, fifo_we;
+    logic        PauseVGA;
     logic        drawBlock;
-    logic [3:0]  colorIndex_save, colorIndex_draw, colorIndex_fifo;
+    logic [3:0]  colorIndex_draw;
     logic [5:0]  spriteindex;
-	logic [15:0] blockstate;
+    logic [15:0] blockstate;
+    //logic        flip_page, fifo_we;
+    //logic [3:0]  colorIndex_save, colorIndex_fifo;
 
 /********************************************************************************************************************/
 
-    HexDriver hex_inst_0 (colorIndex_draw[3:0], HEX0);
-    HexDriver hex_inst_1 (colorIndex_save[3:0], HEX1);
+    HexDriver hex_inst_0 (keycode[3:0], HEX0);
+    HexDriver hex_inst_1 (colorIndex_draw[3:0], HEX1);
     HexDriver hex_inst_2 (VGA_B[3:0], HEX2);
     HexDriver hex_inst_3 (VGA_B[7:4], HEX3);
     HexDriver hex_inst_4 (VGA_G[3:0], HEX4);
