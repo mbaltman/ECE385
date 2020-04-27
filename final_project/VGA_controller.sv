@@ -1,15 +1,10 @@
-module  VGA_controller (input              Clk,         // 50 MHz clock
-                                           Reset, 
-														 PauseVGA,// Active-high reset signal
-                        output logic       VGA_HS,      // Horizontal sync pulse.  Active low
-                                           VGA_VS,      // Vertical sync pulse.  Active low
-                        input              VGA_CLK,     // 25 MHz VGA clock input
-                        output logic       VGA_BLANK_N, // Blanking interval indicator.  Active low.
-                                           VGA_SYNC_N,  // Composite Sync signal.  Active low.  We don't use it in this lab,
-                                                        // but the video DAC on the DE2 board requires an input for it.
-                        output logic [9:0] DrawX,       // horizontal coordinate
-                                           DrawY        // vertical coordinate
-                        );
+module VGA_controller
+(
+    input  logic Clk, Reset, PauseVGA,
+    output logic VGA_HS, VGA_VS, VGA_CLK,
+    output logic VGA_BLANK_N, VGA_SYNC_N,
+    output logic [9:0] DrawX, DrawY
+);
 
     // 800 pixels per line (including front/back porch)
     // 525 lines per frame (including front/back porch)
@@ -51,10 +46,10 @@ module  VGA_controller (input              Clk,         // 50 MHz clock
         // horizontal and vertical counter
         h_counter_in = h_counter + 10'd1;
         v_counter_in = v_counter;
-        if(h_counter + 10'd1 == H_TOTAL)
+        if (h_counter + 10'd1 == H_TOTAL)
         begin
             h_counter_in = 10'd0;
-            if(v_counter + 10'd1 == V_TOTAL)
+            if (v_counter + 10'd1 == V_TOTAL)
                 v_counter_in = 10'd0;
             else
                 v_counter_in = v_counter + 10'd1;
@@ -62,16 +57,16 @@ module  VGA_controller (input              Clk,         // 50 MHz clock
         // Horizontal sync pulse is 96 pixels long at pixels 656-752
         // (Signal is registered to ensure clean output waveform)
         VGA_HS_in = 1'b1;
-        if(h_counter_in >= 10'd656 && h_counter_in < 10'd752)
+        if (h_counter_in >= 10'd656 && h_counter_in < 10'd752)
             VGA_HS_in = 1'b0;
         // Vertical sync pulse is 2 lines (800 pixels each) long at line 490-491
         //(Signal is registered to ensure clean output waveform)
         VGA_VS_in = 1'b1;
-        if(v_counter_in >= 10'd490 && v_counter_in < 10'd492)
+        if (v_counter_in >= 10'd490 && v_counter_in < 10'd492)
             VGA_VS_in = 1'b0;
         // Display pixels (inhibit blanking) between horizontal 0-639 and vertical 0-479 (640x480)
         VGA_BLANK_N_in = 1'b0;
-        if(h_counter_in < 10'd640 && v_counter_in < 10'd480)
+        if (h_counter_in < 10'd640 && v_counter_in < 10'd480)
             VGA_BLANK_N_in = 1'b1;
     end
 endmodule

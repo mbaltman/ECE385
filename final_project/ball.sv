@@ -1,9 +1,9 @@
 module ball
 (
-    input  Clk, Reset, frame_clk, // The clock indicating a new frame (~60Hz)
-    input  [9:0]  DrawX, DrawY,
-    output logic  is_ball,
-    input  [7:0]  keycode
+    input  logic         Clk, Reset, frame_clk, // The clock indicating a new frame (~60Hz)
+    input  logic  [9:0]  DrawX, DrawY,
+    output logic         is_ball,
+    input  logic  [7:0]  keycode
 );
 
     parameter [9:0] Ball_X_Center = 10'd320;  // Center position on the X axis

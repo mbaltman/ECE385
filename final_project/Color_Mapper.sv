@@ -82,7 +82,7 @@ module color_mapper
 				Blue  = 8'hff;
 			end
 
-			default:
+			default: // black
 			begin
 				Red   = 8'h00;
 				Green = 8'h00;

@@ -1,4 +1,4 @@
-module testbench (); // issues with locating .sof file
+module testbench ();
 	timeunit 10ns;
 	timeprecision 1ns;
 

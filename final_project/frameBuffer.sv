@@ -1,17 +1,17 @@
 module frameBuffer
 (
-	input  Clk,
-	input  SRAM_OE_N, // signals if reading or writing
-	input  [3:0] colorIndex_save , // data being written in
-	input  [9:0] SaveX, SaveY, // determines address being written into
+	input  logic        Clk,
+	input  logic        SRAM_OE_N, // signals if reading or writing
+	input  logic [3:0]  colorIndex_save , // data being written in
+	input  logic [9:0]  SaveX, SaveY, // determines address being written into
 
-	input  [9:0] ReadX, ReadY, // determines the address that the VGA wants to read out
-	output [3:0] data_out , // data being read out
+	input  logic [9:0]  ReadX, ReadY, // determines the address that the VGA wants to read out
+	output logic [3:0]  data_out , // data being read out
 
-	output [19:0] SRAM_ADDR,
-	inout  [15:0] SRAM_DQ,
+	output logic [19:0] SRAM_ADDR,
+	inout  logic [15:0] SRAM_DQ,
 
-	input  flip_page
+	input  logic        flip_page
 );
 
 	parameter offset = 20'd307200; // number of addresses for first fram buffer, can be used for page flipping
