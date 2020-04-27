@@ -38,6 +38,7 @@ module blocks
 			flag <= 1'b0;
 			rot_flag <= 1'b0;
 			blockstate <= 16'b0000000000100111;
+			spriteindex <= 6'd41;
 		end
 		else
 		begin

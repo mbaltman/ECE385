@@ -23,12 +23,14 @@ module draw
 			blockstateindex = ((DrawY - PosY)/10'd20)*4 + ((DrawX - PosX)/10'd20);
 			if(blockstate[blockstateindex])
 			begin
-				address = ((DrawY - PosY)%10'd20 * 16'd20) + DrawX%10'd20 * spriteindex * 16'd400;
+				address = ((DrawY - PosY)%10'd20 * 16'd20) + DrawX%10'd20 + spriteindex * 16'd400;
 			end
+			else
+				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 16'd37 * 16'd400);
 		end
 		else
 		begin
-			address = (DrawY%10'd20 * 10'd20) + DrawX%10'd20 * 16'd37 * 16'd400;
+			address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 16'd37 * 16'd400);
 		end
 	end
 endmodule
