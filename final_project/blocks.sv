@@ -138,7 +138,7 @@ module blocks
 
 		if (frame_clk_rising_edge)
 		begin
-			if ( bottom >= 10'd460 ) // check if still moving down
+			if ( bottom >= 10'd459 ) // check if still moving down
 			begin
 				Block_Y_Motion_in = 1'b0;
 				flag_in = 1'b1;
@@ -159,14 +159,14 @@ module blocks
 				rot_flag_in = 1'b1;
 			end
 			// Q key: rotate ccw
-			else if (keycode == 8'd20 & ccwbottom < 10'd460 & ccwleft > 10'd0 & ccwright < 10'd620 & rot_flag == 1'b0)
+			else if (keycode == 8'd20 & ccwbottom < 10'd459 & ccwleft >= 10'd0 & ccwright <= 10'd620 & rot_flag == 1'b0)
 			begin
 				blockstate_in = ccwstate;
 				flag_in = 1'b1;
 				rot_flag_in = 1'b1;
 			end
 			// E key: rotate cw
-			else if (keycode == 8'd08 & cwbottom < 10'd460 & cwleft > 10'd0 & cwright < 10'd620 & rot_flag == 1'b0)
+			else if (keycode == 8'd08 & cwbottom < 10'd459 & cwleft >= 10'd0 & cwright <= 10'd620 & rot_flag == 1'b0)
 			begin
 				blockstate_in = cwstate;
 				flag_in = 1'b1;
