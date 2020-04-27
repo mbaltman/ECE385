@@ -152,21 +152,21 @@ module blocks
 				rot_flag_in = 1'b1;
 			end
 			// D key: move block right by 20 pixels
-			else if (keycode == 8'h07 & right < 10'd620 & flag == 1'b0)
+			else if (keycode == 8'h07 & right < 10'd180 & flag == 1'b0)
 			begin
 				Block_X_Pos_in = Block_X_Pos + 10'd20;
 				flag_in = 1'b1;
 				rot_flag_in = 1'b1;
 			end
 			// Q key: rotate ccw
-			else if (keycode == 8'd20 & ccwbottom < 10'd459 & ccwleft >= 10'd0 & ccwright <= 10'd620 & rot_flag == 1'b0)
+			else if (keycode == 8'd20 & ccwbottom < 10'd459 & ccwleft >= 10'd0 & ccwright <= 10'd180 & rot_flag == 1'b0)
 			begin
 				blockstate_in = ccwstate;
 				flag_in = 1'b1;
 				rot_flag_in = 1'b1;
 			end
 			// E key: rotate cw
-			else if (keycode == 8'd08 & cwbottom < 10'd459 & cwleft >= 10'd0 & cwright <= 10'd620 & rot_flag == 1'b0)
+			else if (keycode == 8'd08 & cwbottom < 10'd459 & cwleft >= 10'd0 & cwright <= 10'd180 & rot_flag == 1'b0)
 			begin
 				blockstate_in = cwstate;
 				flag_in = 1'b1;
