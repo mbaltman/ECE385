@@ -1,4 +1,13 @@
 
+State Machine - |lab8|GameLogic:statemachine|State
+Name State.PauseState State.Bottom State.Hold1 State.Falling State.Drop State.Wait 
+State.Wait 0 0 0 0 0 0 
+State.Drop 0 0 0 0 1 1 
+State.Falling 0 0 0 1 0 1 
+State.Hold1 0 0 1 0 0 1 
+State.Bottom 0 1 0 0 0 1 
+State.PauseState 1 0 0 0 0 1 
+
 State Machine - |lab8|lab7_soc:nios_system|lab7_soc_sdram:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
 m_next.000000001 0 0 0 0 

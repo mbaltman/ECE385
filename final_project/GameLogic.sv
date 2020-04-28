@@ -12,7 +12,7 @@ logic canHold, canHold_in, resetPiece;
 logic [6:0] spriteindex_in, spriteindex_hold, spriteindex_pick, spriteindex_hold_in;
 logic [15:0] blockstate_in, blockstate_pick, blockstate_hold_in;
 			
-newPiece newPiecePicker(.pickpiece(resetPiece), .blockstate_new(blockstate_pick), .spriteindex_new(spriteindex_pick));
+newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(blockstate_pick), .spriteindex_new(spriteindex_pick));
 			
 	always_ff @ (posedge Clk)
 	begin
@@ -39,6 +39,7 @@ newPiece newPiecePicker(.pickpiece(resetPiece), .blockstate_new(blockstate_pick)
 		blockstate_hold_in = blockstate_hold;
 		spriteindex_hold_in = spriteindex_hold;
 		
+		resetBlocks = 1'b0;
 		resetPiece = 1'b0;
 		Pause =1'b0;
 		
@@ -72,6 +73,7 @@ newPiece newPiecePicker(.pickpiece(resetPiece), .blockstate_new(blockstate_pick)
 			
 			Bottom:
 				Next_state = Drop;
+				
 			PauseState:
 				if(keycode == 8'h13)
 					Next_state = Falling;
@@ -90,8 +92,13 @@ newPiece newPiecePicker(.pickpiece(resetPiece), .blockstate_new(blockstate_pick)
 			end
 			
 			Drop:
+			begin
 				resetPiece = 1'b1;
-		
+				blockstate_in = blockstate_pick;
+		      spriteindex_in = spriteindex_pick;
+				resetBlocks = 1'b1;
+
+			end
 			Falling:
 		
 			Hold:
