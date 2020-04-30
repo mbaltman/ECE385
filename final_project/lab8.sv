@@ -64,17 +64,19 @@ module lab8 (
     logic        drawBlock;
     logic [3:0]  colorIndex_draw;
     logic [5:0]  spriteindex;
-    logic [15:0] blockstate;
+    logic [15:0] blockstate, blockstatecurr;
+	 
+	 logic hitbottom, resetBlocks, Pause;
     //logic        flip_page, fifo_we;
     //logic [3:0]  colorIndex_save, colorIndex_fifo;
 
 /********************************************************************************************************************/
 
-    HexDriver hex_inst_0 (keycode[3:0], HEX0);
-    HexDriver hex_inst_1 (keycode[7:4], HEX1);
-    HexDriver hex_inst_2 (VGA_B[3:0], HEX2);
-    HexDriver hex_inst_3 (VGA_B[7:4], HEX3);
-    HexDriver hex_inst_4 (VGA_G[3:0], HEX4);
+    HexDriver hex_inst_0 (blockstate[3:0], HEX0);
+    HexDriver hex_inst_1 (blockstate[7:4], HEX1);
+    HexDriver hex_inst_2 (blockstate[11:8], HEX2);
+    HexDriver hex_inst_3 (blockstate[15:12], HEX3);
+    HexDriver hex_inst_4 ({ 3'b0, hitbottom}, HEX4);
     HexDriver hex_inst_5 (VGA_G[7:4], HEX5);
     HexDriver hex_inst_6 (VGA_R[3:0], HEX6);
     HexDriver hex_inst_7 (VGA_R[7:4], HEX7);
@@ -127,17 +129,18 @@ module lab8 (
     vga_clk vga_clk_instance (.inclk0(Clk), .c0(VGA_CLK));
 
     blocks blockInstance (
-                         .Clk(Clk),
+                         .Clk(Clk && !Pause),
                          .frame_clk(VGA_VS),
-                         .Reset(Reset_h),
+                         .Reset(Reset_h | resetBlocks),
                          .DrawX(DrawX),
                          .DrawY(DrawY),
                          .drawBlock(drawBlock),
                          .keycode,
-                         .blockstate(blockstate),
-                        
+                         .blockstate(blockstatecurr),
+								 .blockstate_new(blockstate),
                          .Block_X_Pos(PosX),
                          .Block_Y_Pos(PosY),
+								 .hitbottom(hitbottom)
                          );
 
 	draw block1 (
@@ -147,10 +150,16 @@ module lab8 (
                 .DrawY(DrawY),
                 .PosX(PosX),
                 .PosY(PosY),
-                .blockstate(blockstate),
+                .blockstate(blockstatecurr),
                 .spriteindex(spriteindex),
                 .colorindex_draw(colorIndex_draw)
                 );
+					 
+	GameLogic statemachine(.Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
+					  .blockstate_new(blockstate),.blockstate_hold(),
+					  .spriteindex(spriteindex),
+					  .resetBlocks(resetBlocks), .Pause(Pause));
+	
 
     color_mapper color_instance (
                                 .colorIndex(colorIndex_draw),

@@ -1,17 +1,27 @@
+
+
 module newPiece(input logic pickPiece,
+					 input logic Clk,
 					 output logic [15:0] blockstate_new,
 					 output logic [5:0] spriteindex_new);
 
 logic [2:0] piece;
+logic [4:0] counter;
 
+always_ff @ (posedge Clk)
+	begin
+	counter = counter + 4'b1;
+	end
+	
  always_comb
  begin
  blockstate_new = 16'b1111111111111111;
  spriteindex_new = 6'b0;
+ 
+	piece = counter % 3'h7;
+	
   if(pickPiece)
-	begin
-		piece = $urandom_range(0,6);
-		
+	begin	
 		case(piece)
 		 //T piece
 			3'd0:
@@ -63,3 +73,4 @@ logic [2:0] piece;
  end
  
 endmodule
+
