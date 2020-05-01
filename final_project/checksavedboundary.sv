@@ -30,10 +30,10 @@ module checksavedboundary
     begin
         topleft_x = Block_X_Pos / 10'd20;
         topleft_y = Block_Y_Pos / 10'd20;
-        b1in = (bottom1+10'd2) / 10'd20; // checks next block if close to the current grid edge
-        b2in = (bottom2+10'd2) / 10'd20;
-        b3in = (bottom3+10'd2) / 10'd20;
-        b4in = (bottom4+10'd2) / 10'd20;
+        b1in = (bottom1+10'd20) / 10'd20; // checks next block
+        b2in = (bottom2+10'd20) / 10'd20;
+        b3in = (bottom3+10'd20) / 10'd20;
+        b4in = (bottom4+10'd20) / 10'd20;
         b1ic = bottom1 / 10'd20; // checks current block
         b2ic = bottom2 / 10'd20;
         b3ic = bottom3 / 10'd20;
