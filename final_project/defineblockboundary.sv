@@ -111,7 +111,6 @@ module defineblockboundary
             right1 = Block_X_Pos;
         else
             right1 = 10'd1023;
-        end
         if (blockstate[7])
             right2 = Block_X_Pos + 10'd60;
         else if (blockstate[6])
@@ -122,7 +121,6 @@ module defineblockboundary
             right2 = Block_X_Pos;
         else
             right2 = 10'd1023;
-        end
         if (blockstate[11])
             right3 = Block_X_Pos + 10'd60;
         else if (blockstate[10])
@@ -133,7 +131,6 @@ module defineblockboundary
             right3 = Block_X_Pos;
         else
             right3 = 10'd1023;
-        end
         if (blockstate[15])
             right4 = Block_X_Pos + 10'd60;
         else if (blockstate[14])
@@ -144,5 +141,5 @@ module defineblockboundary
             right4 = Block_X_Pos;
         else
             right4 = 10'd1023;
-        end
+    end
 endmodule

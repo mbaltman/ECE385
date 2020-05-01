@@ -23,7 +23,7 @@ module checksavedboundary
 
     // bottom >= 10'd459 means board bottom going to be absolutely reached
     // 10'd1023 means not bounded
-    integer topleft_x, topleft_y, b1i, b2i, b3i, b4i, l1i, l2i, l3i, l4i, r1i, r2i, r3i, r4i;
+    integer topleft_x, topleft_y, b1in, b2in, b3in, b4in, l1i, l2i, l3i, l4i, r1i, r2i, r3i, r4i, b1ic, b2ic, b3ic, b4ic;
     logic b1, b2, b3, b4, l1, l2, l3, l4, r1, r2, r3, r4;
 
     always_comb
