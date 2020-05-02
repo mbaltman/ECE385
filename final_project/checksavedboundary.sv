@@ -2,7 +2,7 @@ module checksavedboundary
 (
     input  logic [9:0]    Block_X_Pos,
                           Block_Y_Pos,
-    input  logic [1439:0] savedblocks,
+    input  logic [239:0]  savedblocks,
     input  logic [9:0]    bottom1,
                           bottom2,
                           bottom3,
@@ -21,9 +21,7 @@ module checksavedboundary
                           rightchecked
 );
 
-    // bottom >= 10'd459 means board bottom going to be absolutely reached
-    // 10'd1023 means not bounded
-    logic [9:0] topleft_y, b1in, b2in, b3in, b4in, l1i, l2i, l3i, l4i, r1i, r2i, r3i, r4i, b1ic, b2ic, b3ic, b4ic;
+    logic [7:0] topleft_y, b1in, b2in, b3in, b4in, l1i, l2i, l3i, l4i, r1i, r2i, r3i, r4i, b1ic, b2ic, b3ic, b4ic;
     logic b1, b2, b3, b4, l1, l2, l3, l4, r1, r2, r3, r4;
 
     always_comb
@@ -50,7 +48,7 @@ module checksavedboundary
             b1 = 1'b1;
         else if (bottom1 >= 10'd459)
             b1 = 1'b0;
-        else if (savedblocks[((b1in*10 + 0)*6) +: 6] == 6'd37 && savedblocks[((b1ic*10 + 0)*6) +: 6] == 6'd37)
+        else if (savedblocks[b1in*8'd10 + 8'd0 +: 8'd1] == 1'b0 && savedblocks[b1ic*8'd10 + 8'd0 +: 8'd1] == 1'b0)
             b1 = 1'b1;
         else
             b1 = 1'b0;
@@ -58,7 +56,7 @@ module checksavedboundary
             b2 = 1'b1;
         else if (bottom2 >= 10'd459)
             b2 = 1'b0;
-        else if (savedblocks[((b2in*10 + 1)*6) +: 6] == 6'd37 && savedblocks[((b2ic*10 + 1)*6) +: 6] == 6'd37)
+        else if (savedblocks[b2in*8'd10 + 8'd1 +: 8'd1] == 1'b0 && savedblocks[b2ic*8'd10 + 8'd1 +: 8'd1] == 1'b0)
             b2 = 1'b1;
         else
             b2 = 1'b0;
@@ -66,7 +64,7 @@ module checksavedboundary
             b3 = 1'b1;
         else if (bottom3 >= 10'd459)
             b3 = 1'b0;
-        else if (savedblocks[((b3in*10 + 2)*6) +: 6] == 6'd37 && savedblocks[((b3ic*10 + 2)*6) +: 6] == 6'd37)
+        else if (savedblocks[b3in*8'd10 + 8'd2 +: 8'd1] == 1'b0 && savedblocks[b3ic*8'd10 + 8'd2 +: 8'd1] == 1'b0)
             b3 = 1'b1;
         else
             b3 = 1'b0;
@@ -74,7 +72,7 @@ module checksavedboundary
             b4 = 1'b1;
         else if (bottom4 >= 10'd459)
             b4 = 1'b0;
-        else if (savedblocks[((b4in*10 + 3)*6) +: 6] == 6'd37 && savedblocks[((b4ic*10 + 3)*6) +: 6] == 6'd37)
+        else if (savedblocks[b4in*8'd10 + 8'd3 +: 8'd1] == 1'b0 && savedblocks[b4ic*8'd10 + 8'd3 +: 8'd1] == 1'b0)
             b4 = 1'b1;
         else
             b4 = 1'b0;
@@ -85,9 +83,9 @@ module checksavedboundary
             l1 = 1'b0;
         else if (!is_currentstate && left1 < 10'd0) // if not current state, check if out of left bound
             l1 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 0)*10 + l1i-1)*6) +: 6] == 6'd37) // if current state, check whether vacant on the left
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd0)*8'd10 + l1i-8'd1 +: 8'd1] == 1'b0) // if current state, check whether vacant on the left
             l1 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 0)*10 + l1i)*6) +: 6] == 6'd37) // if not current state, check whether vacant
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd0)*8'd10 + l1i +: 8'd1] == 1'b0) // if not current state, check whether vacant
             l1 = 1'b1;
         else // operation not allowed by default
             l1 = 1'b0;
@@ -97,9 +95,9 @@ module checksavedboundary
             l2 = 1'b0;
         else if (!is_currentstate && left2 < 10'd0) // if not current state, check if out of left bound
             l2 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 1)*10 + l2i-1)*6) +: 6] == 6'd37) // if current state, check whether vacant on the left
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd1)*8'd10 + l2i-8'd1 +: 8'd1] == 1'b0) // if current state, check whether vacant on the left
             l2 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 1)*10 + l2i)*6) +: 6] == 6'd37) // if not current state, check whether vacant
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd1)*8'd10 + l2i +: 8'd1] == 1'b0) // if not current state, check whether vacant
             l2 = 1'b1;
         else // operation not allowed by default
             l2 = 1'b0;
@@ -109,9 +107,9 @@ module checksavedboundary
             l3 = 1'b0;
         else if (!is_currentstate && left3 < 10'd0)
             l3 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 2)*10 + l3i-1)*6) +: 6] == 6'd37)
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd2)*8'd10 + l3i-8'd1 +: 8'd1] == 1'b0)
             l3 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 2)*10 + l3i)*6) +: 6] == 6'd37)
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd2)*8'd10 + l3i +: 8'd1] == 1'b0)
             l3 = 1'b1;
         else
             l3 = 1'b0;
@@ -121,9 +119,9 @@ module checksavedboundary
             l4 = 1'b0;
         else if (!is_currentstate && left4 < 10'd0)
             l4 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 3)*10 + l4i-1)*6) +: 6] == 6'd37)
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd3)*8'd10 + l4i-8'd1 +: 8'd1] == 1'b0)
             l4 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 3)*10 + l4i)*6) +: 6] == 6'd37)
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd3)*8'd10 + l4i +: 8'd1] == 1'b0)
             l4 = 1'b1;
         else
             l4 = 1'b0;
@@ -134,9 +132,9 @@ module checksavedboundary
             r1 = 1'b0;
         else if (!is_currentstate && right1 > 10'd199)
             r1 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 0)*10 + r1i+1)*6) +: 6] == 6'd37)
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd0)*8'd10 + r1i+8'd1 +: 8'd1] == 1'b0)
             r1 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 0)*10 + r1i)*6) +: 6] == 6'd37)
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd0)*8'd10 + r1i +: 8'd1] == 1'b0)
             r1 = 1'b1;
         else
             r1 = 1'b0;
@@ -146,9 +144,9 @@ module checksavedboundary
             r2 = 1'b0;
         else if (!is_currentstate && right2 > 10'd199)
             r2 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 1)*10 + r2i+1)*6) +: 6] == 6'd37)
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd1)*8'd10 + r2i+8'd1 +: 8'd1] == 1'b0)
             r2 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 1)*10 + r2i)*6) +: 6] == 6'd37)
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd1)*8'd10 + r2i +: 8'd1] == 1'b0)
             r2 = 1'b1;
         else
             r2 = 1'b0;
@@ -158,9 +156,9 @@ module checksavedboundary
             r3 = 1'b0;
         else if (!is_currentstate && right3 > 10'd199)
             r3 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 2)*10 + r3i+1)*6) +: 6] == 6'd37)
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd2)*8'd10 + r3i+8'd1 +: 8'd1] == 1'b0)
             r3 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 2)*10 + r3i)*6) +: 6] == 6'd37)
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd2)*8'd10 + r3i +: 8'd1] == 1'b0)
             r3 = 1'b1;
         else
             r3 = 1'b0;
@@ -170,9 +168,9 @@ module checksavedboundary
             r4 = 1'b0;
         else if (!is_currentstate && right4 > 10'd199)
             r4 = 1'b0;
-        else if (is_currentstate && savedblocks[(((topleft_y + 3)*10 + r4i+1)*6) +: 6] == 6'd37)
+        else if (is_currentstate && savedblocks[(topleft_y + 8'd3)*8'd10 + r4i+8'd1 +: 8'd1] == 1'b0)
             r4 = 1'b1;
-        else if (!is_currentstate && savedblocks[(((topleft_y + 3)*10 + r4i)*6) +: 6] == 6'd37)
+        else if (!is_currentstate && savedblocks[(topleft_y + 8'd3)*8'd10 + r4i +: 8'd1] == 1'b0)
             r4 = 1'b1;
         else
             r4 = 1'b0;
