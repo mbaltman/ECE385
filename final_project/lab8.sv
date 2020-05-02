@@ -68,7 +68,7 @@ module lab8 (
 	 
 	 logic hitbottom, resetBlocks, Pause;
 	 
-	 logic [1439:0] backgroundstate;
+	 logic [239:0] backgroundstate;
     //logic        flip_page, fifo_we;
     //logic [3:0]  colorIndex_save, colorIndex_fifo;
 
@@ -152,7 +152,6 @@ module lab8 (
 									.Block_X_Pos(PosX),
 									.Block_Y_Pos(PosY),
 									.inputstream(blockstatecurr),
-									.spriteindex(spriteindex),
 									.saveenable(hitbottom),
 									.state_output(backgroundstate),
 									);
