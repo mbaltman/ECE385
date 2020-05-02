@@ -67,13 +67,15 @@ module lab8 (
     logic [15:0] blockstate, blockstatecurr;
 	 
 	 logic hitbottom, resetBlocks, Pause;
+	 
+	 logic [1439:0] backgroundstate;
     //logic        flip_page, fifo_we;
     //logic [3:0]  colorIndex_save, colorIndex_fifo;
 
 /********************************************************************************************************************/
 
-    HexDriver hex_inst_0 (blockstate[3:0], HEX0);
-    HexDriver hex_inst_1 (blockstate[7:4], HEX1);
+    HexDriver hex_inst_0 (backgroundstate[3:0], HEX0);
+    HexDriver hex_inst_1 ({2'b0, backgroundstate[5:4]}, HEX1);
     HexDriver hex_inst_2 (blockstate[11:8], HEX2);
     HexDriver hex_inst_3 (blockstate[15:12], HEX3);
     HexDriver hex_inst_4 ({ 3'b0, hitbottom}, HEX4);
@@ -138,10 +140,22 @@ module lab8 (
                          .keycode,
                          .blockstate(blockstatecurr),
 								 .blockstate_new(blockstate),
+								 .savedblocks(backgroundstate),
                          .Block_X_Pos(PosX),
                          .Block_Y_Pos(PosY),
 								 .hitbottom(hitbottom)
                          );
+								 
+	savedblocks savedInstance(
+									.clk(Clk),
+									.reset(Reset_h),
+									.Block_X_Pos(PosX),
+									.Block_Y_Pos(PosY),
+									.inputstream(blockstatecurr),
+									.spriteindex(spriteindex),
+									.saveenable(hitbottom),
+									.state_output(backgroundstate),
+									);
 
 	draw block1 (
                 .Clk(Clk),
@@ -151,6 +165,7 @@ module lab8 (
                 .PosX(PosX),
                 .PosY(PosY),
                 .blockstate(blockstatecurr),
+					 .backgroundstate(backgroundstate),
                 .spriteindex(spriteindex),
                 .colorindex_draw(colorIndex_draw)
                 );

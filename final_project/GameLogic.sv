@@ -9,7 +9,7 @@ enum logic [4:0] { Wait, Drop, Falling, Hold1 , Bottom, PauseState }
 						State, Next_state;
 						
 logic canHold, canHold_in, resetPiece;
-logic [6:0] spriteindex_in, spriteindex_hold, spriteindex_pick, spriteindex_hold_in;
+logic [5:0] spriteindex_in, spriteindex_hold, spriteindex_pick, spriteindex_hold_in;
 logic [15:0] blockstate_in, blockstate_pick, blockstate_hold_in;
 			
 newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(blockstate_pick), .spriteindex_new(spriteindex_pick));
