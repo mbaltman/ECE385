@@ -74,14 +74,14 @@ module lab8 (
 
 /********************************************************************************************************************/
 
-    HexDriver hex_inst_0 (backgroundstate[3:0], HEX0);
-    HexDriver hex_inst_1 ({2'b0, backgroundstate[5:4]}, HEX1);
+    HexDriver hex_inst_0 (blockstate[3:0], HEX0);
+    HexDriver hex_inst_1 (blockstate[7:4], HEX1);
     HexDriver hex_inst_2 (blockstate[11:8], HEX2);
     HexDriver hex_inst_3 (blockstate[15:12], HEX3);
-    HexDriver hex_inst_4 ({ 3'b0, hitbottom}, HEX4);
-    HexDriver hex_inst_5 (VGA_G[7:4], HEX5);
-    HexDriver hex_inst_6 (VGA_R[3:0], HEX6);
-    HexDriver hex_inst_7 (VGA_R[7:4], HEX7);
+    HexDriver hex_inst_4 (blockstatecurr[3:0], HEX4);
+    HexDriver hex_inst_5 (blockstatecurr[7:4], HEX5);
+    HexDriver hex_inst_6 (blockstatecurr[11:8], HEX6);
+    HexDriver hex_inst_7 (blockstatecurr[15:12], HEX7);
 
     hpi_io_intf hpi_io_inst (
                             .Clk(Clk),
@@ -153,7 +153,7 @@ module lab8 (
 									.Block_Y_Pos(PosY),
 									.inputstream(blockstatecurr),
 									.saveenable(hitbottom),
-									.state_output(backgroundstate),
+									.state_output(backgroundstate)
 									);
 
 	draw block1 (

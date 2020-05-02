@@ -9,7 +9,7 @@ module draw
 	input logic [239:0] backgroundstate
 );
 
-	logic [15:0] address;
+	logic [14:0] address;
 	logic [3:0]  blockstateindex;
 	logic [3:0] colorindex;
 	logic [7:0] posxi,posyi;

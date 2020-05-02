@@ -1,7 +1,7 @@
 module GameLogic(input logic Clk, Reset,
 					  input logic [7:0] keycode,
 					  input logic hitbottom,
-					  output logic [15:0] blockstate_new,blockstate_hold,
+					  output logic [15:0] blockstate_new, blockstate_hold,
 					  output logic [5:0] spriteindex,
 					  output logic resetBlocks, Pause);
 					  
@@ -55,11 +55,12 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 					if(hitbottom) //if you hit the bottom
 						Next_state = Bottom;
 						
-					else if(keycode == 8'h13) //if pause is pressed
+					/*else if(keycode == 8'h13) //if pause is pressed
 						Next_state = PauseState;
 						
 					else if(keycode == 8'h2b & canHold)//if you hit the hold button
 						Next_state = Hold1;
+						*/
 						
 					else if(keycode == 8'h29)
 						Next_state = Wait;
