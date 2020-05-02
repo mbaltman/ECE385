@@ -33,15 +33,14 @@ module draw
 			colorindex_draw = colorindex;
 			address = ((DrawY - PosY)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex * 15'd400;
 		end
-		else if( DrawX < 10'd200)
+		else if (DrawX < 10'd200)
 		begin
-			if(isblock)
+			if (isblock)
 				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 15'd38 * 15'd400);
 			else
 				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 15'd37 * 15'd400);
 
 			colorindex_draw = colorindex;
 		end
-
 	end
 endmodule
