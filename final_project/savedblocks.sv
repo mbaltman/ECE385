@@ -3,13 +3,11 @@ module savedblocks (
     input  logic [9:0]    Block_X_Pos,
                           Block_Y_Pos,
     input  logic [15:0]   inputstream,
-    input  logic [5:0]    spriteindex,
     input  logic          saveenable,
-    output logic [1439:0] state_output
+    output logic [239:0]  state_output
     );
 
-    logic [8:0] topleft_x, topleft_y;
-	 logic [7:0] i;
+    logic [7:0] topleft_x, topleft_y, i;
 
     always_comb
     begin
@@ -23,27 +21,27 @@ module savedblocks (
         begin
             for (i = 8'd0; i < 8'd240; i = i + 8'd1)
             begin
-                state_output[i*8'd6 +: 8'd6] <= 6'd37;
+                state_output[i] <= 1'b1;
             end
         end
         else if (saveenable)
         begin
-            state_output[(((topleft_y + 5'd0)*5'd10 + topleft_x + 5'd0)*5'd6) +: 5'd6] <= inputstream[0]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd0)*5'd10 + topleft_x + 5'd1)*5'd6) +: 5'd6] <= inputstream[1]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd0)*5'd10 + topleft_x + 5'd2)*5'd6) +: 5'd6] <= inputstream[2]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd0)*5'd10 + topleft_x + 5'd3)*5'd6) +: 5'd6] <= inputstream[3]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd1)*5'd10 + topleft_x + 5'd0)*5'd6) +: 5'd6] <= inputstream[4]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd1)*5'd10 + topleft_x + 5'd1)*5'd6) +: 5'd6] <= inputstream[5]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd1)*5'd10 + topleft_x + 5'd2)*5'd6) +: 5'd6] <= inputstream[6]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd1)*5'd10 + topleft_x + 5'd3)*5'd6) +: 5'd6] <= inputstream[7]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd2)*5'd10 + topleft_x + 5'd0)*5'd6) +: 5'd6] <= inputstream[8]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd2)*5'd10 + topleft_x + 5'd1)*5'd6) +: 5'd6] <= inputstream[9]  ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd2)*5'd10 + topleft_x + 5'd2)*5'd6) +: 5'd6] <= inputstream[10] ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd2)*5'd10 + topleft_x + 5'd3)*5'd6) +: 5'd6] <= inputstream[11] ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd3)*5'd10 + topleft_x + 5'd0)*5'd6) +: 5'd6] <= inputstream[12] ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd3)*5'd10 + topleft_x + 5'd1)*5'd6) +: 5'd6] <= inputstream[13] ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd3)*5'd10 + topleft_x + 5'd2)*5'd6) +: 5'd6] <= inputstream[14] ? spriteindex : 6'd37;
-            state_output[(((topleft_y + 5'd3)*5'd10 + topleft_x + 5'd3)*5'd6) +: 5'd6] <= inputstream[15] ? spriteindex : 6'd37;
+            state_output[(topleft_y + 8'd0)*8'd10 + topleft_x + 8'd0] <= inputstream[0]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd0)*8'd10 + topleft_x + 8'd1] <= inputstream[1]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd0)*8'd10 + topleft_x + 8'd2] <= inputstream[2]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd0)*8'd10 + topleft_x + 8'd3] <= inputstream[3]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd1)*8'd10 + topleft_x + 8'd0] <= inputstream[4]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd1)*8'd10 + topleft_x + 8'd1] <= inputstream[5]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd1)*8'd10 + topleft_x + 8'd2] <= inputstream[6]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd1)*8'd10 + topleft_x + 8'd3] <= inputstream[7]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd2)*8'd10 + topleft_x + 8'd0] <= inputstream[8]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd2)*8'd10 + topleft_x + 8'd1] <= inputstream[9]  ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd2)*8'd10 + topleft_x + 8'd2] <= inputstream[10] ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd2)*8'd10 + topleft_x + 8'd3] <= inputstream[11] ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd3)*8'd10 + topleft_x + 8'd0] <= inputstream[12] ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd3)*8'd10 + topleft_x + 8'd1] <= inputstream[13] ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd3)*8'd10 + topleft_x + 8'd2] <= inputstream[14] ? 1'b1 : 1'b0;
+            state_output[(topleft_y + 8'd3)*8'd10 + topleft_x + 8'd3] <= inputstream[15] ? 1'b1 : 1'b0;
         end
     end
 endmodule

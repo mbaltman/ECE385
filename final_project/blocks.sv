@@ -4,7 +4,7 @@ module blocks
     input  logic [9:0]    DrawX, DrawY,
     input  logic [7:0]    keycode,
     input  logic [15:0]   blockstate_new,
-    input  logic [1439:0] savedblocks,
+    input  logic [239:0]  savedblocks,
     output logic [15:0]   blockstate,
     output logic [9:0]    Block_X_Pos, Block_Y_Pos,
     output logic          drawBlock,
@@ -14,7 +14,7 @@ module blocks
 /********************************************************************************************************************/
 
     parameter [9:0]  x_initial = 10'd80;
-    parameter [9:0]  y_initial = -10'd1;
+    parameter [9:0]  y_initial = 10'd0;
     logic     [9:0]  Block_Y_Motion;
     logic     [9:0]  Block_X_Pos_in, Block_Y_Pos_in, Block_Y_Motion_in;
     logic            frame_clk_delayed, frame_clk_rising_edge;
