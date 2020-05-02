@@ -228,7 +228,6 @@ module blocks
         flag_in = flag;
         rot_flag_in = rot_flag;
         blockstate_in = blockstate;
-        hitbottom = 1'b0;
 
         if (frame_clk_rising_edge)
         begin
