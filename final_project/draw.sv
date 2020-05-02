@@ -13,6 +13,7 @@ module draw
 	logic [3:0]  blockstateindex;
 	logic [3:0] colorindex;
 	logic [7:0] posxi,posyi;
+	logic isbackground;
 	
 	spriteRAM blockMemory1 (.read_address(address), .Clk(Clk), .data_Out(colorindex));
 
@@ -23,22 +24,22 @@ module draw
 		colorindex_draw = 4'h8;
 		posxi = DrawX / 10'd20;
       posyi = DrawY / 10'd20;
+		isblock = backgroundstate[(posyi*8'd10 + posxi)]
 		
-		
-		if (drawBlock)
+		if (drawBlock && blockstate[blockstateindex])
 		begin
 			blockstateindex = ((DrawY - PosY)/10'd20)*10'd4 + ((DrawX - PosX)/10'd20);
 			colorindex_draw = colorindex;
-			if(blockstate[blockstateindex])
-			begin
-				address = ((DrawY - PosY)%10'd20 * 16'd20) + DrawX%10'd20 + spriteindex * 16'd400;
-			end
-			else
-				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + backgroundstate[(posyi*8'd10 + posxi)] * 16'd400);
+			
+			address = ((DrawY - PosY)%10'd20 * 16'd20) + DrawX%10'd20 + spriteindex * 16'd400;
 		end
 		else if( DrawX < 10'd200)
 		begin
-			address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + backgroundstate[(posyi*8'd10 + posxi)] * 16'd400);
+			if(isblock)
+				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 16'd38 * 16'd400);
+			else
+				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 16'd37 * 16'd400);
+			
 			colorindex_draw = colorindex;
 		end
 		
