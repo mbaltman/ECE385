@@ -63,7 +63,7 @@ module lab8 (
     logic        PauseVGA;
     logic        drawBlock;
     logic [3:0]  colorIndex_draw;
-    logic [5:0]  spriteindex;
+    logic [5:0]  spriteindex, spriteindex_new;
     logic [15:0] blockstate, blockstatecurr;
 	 
 	 logic hitbottom, resetBlocks, Pause;
