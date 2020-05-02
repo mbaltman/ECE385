@@ -55,13 +55,13 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 					if(hitbottom) //if you hit the bottom
 						Next_state = Bottom;
 						
-					if(keycode == 8'h13) //if pause is pressed
+					else if(keycode == 8'h13) //if pause is pressed
 						Next_state = PauseState;
 						
-					if(keycode == 8'h2b & canHold)//if you hit the hold button
+					else if(keycode == 8'h2b & canHold)//if you hit the hold button
 						Next_state = Hold1;
 						
-					if(keycode == 8'h29)
+					else if(keycode == 8'h29)
 						Next_state = Wait;
 						
 					else
