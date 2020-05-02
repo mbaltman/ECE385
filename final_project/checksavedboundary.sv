@@ -27,14 +27,14 @@ module checksavedboundary
     always_comb
     begin
         topleft_y = Block_Y_Pos / 10'd20;
-        b1in = (bottom1+10'd20) / 10'd20; // checks next block
-        b2in = (bottom2+10'd20) / 10'd20;
-        b3in = (bottom3+10'd20) / 10'd20;
-        b4in = (bottom4+10'd20) / 10'd20;
-        b1ic = bottom1 / 10'd20; // checks current block
+        b1ic = bottom1 / 10'd20; // checks current block block
         b2ic = bottom2 / 10'd20;
         b3ic = bottom3 / 10'd20;
         b4ic = bottom4 / 10'd20;
+        b1in = b1ic + 8'd1; // checks next block bottom
+        b2in = b2ic + 8'd1;
+        b3in = b3ic + 8'd1;
+        b4in = b4ic + 8'd1;
         l1i = left1 / 10'd20;
         l2i = left2 / 10'd20;
         l3i = left3 / 10'd20;
@@ -43,8 +43,8 @@ module checksavedboundary
         r2i = right1 / 10'd20;
         r3i = right3 / 10'd20;
         r4i = right4 / 10'd20;
-		  
-		  baseindex = topleft_y * 8'd10;
+
+        baseindex = topleft_y * 8'd10;
 
         if (bottom1 == 10'd1023)
             b1 = 1'b1;
