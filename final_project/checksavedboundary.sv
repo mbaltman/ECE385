@@ -26,6 +26,7 @@ module checksavedboundary
 
     always_comb
     begin
+        topleft_x = Block_X_Pos / 10'd20;
         topleft_y = Block_Y_Pos / 10'd20;
         b1ic = bottom1 / 10'd20; // checks current block block
         b2ic = bottom2 / 10'd20;
@@ -50,7 +51,7 @@ module checksavedboundary
             b1 = 1'b1;
         else if (bottom1 >= 10'd459)
             b1 = 1'b0;
-        else if (savedblocks[b1in*8'd10 + 8'd0 +: 8'd1] == 1'b0 && savedblocks[b1ic*8'd10 + 8'd0 +: 8'd1] == 1'b0)
+        else if (savedblocks[b1in*8'd10 + topleft_x +: 8'd1] == 1'b0 && savedblocks[b1ic*8'd10 + topleft_x +: 8'd1] == 1'b0)
             b1 = 1'b1;
         else
             b1 = 1'b0;
@@ -58,7 +59,7 @@ module checksavedboundary
             b2 = 1'b1;
         else if (bottom2 >= 10'd459)
             b2 = 1'b0;
-        else if (savedblocks[b2in*8'd10 + 8'd1 +: 8'd1] == 1'b0 && savedblocks[b2ic*8'd10 + 8'd1 +: 8'd1] == 1'b0)
+        else if (savedblocks[b2in*8'd10 + topleft_x + 8'd1 +: 8'd1] == 1'b0 && savedblocks[b2ic*8'd10 + topleft_x + 8'd1 +: 8'd1] == 1'b0)
             b2 = 1'b1;
         else
             b2 = 1'b0;
@@ -66,7 +67,7 @@ module checksavedboundary
             b3 = 1'b1;
         else if (bottom3 >= 10'd459)
             b3 = 1'b0;
-        else if (savedblocks[b3in*8'd10 + 8'd2 +: 8'd1] == 1'b0 && savedblocks[b3ic*8'd10 + 8'd2 +: 8'd1] == 1'b0)
+        else if (savedblocks[b3in*8'd10 + topleft_x + 8'd2 +: 8'd1] == 1'b0 && savedblocks[b3ic*8'd10 + topleft_x + 8'd2 +: 8'd1] == 1'b0)
             b3 = 1'b1;
         else
             b3 = 1'b0;
@@ -74,7 +75,7 @@ module checksavedboundary
             b4 = 1'b1;
         else if (bottom4 >= 10'd459)
             b4 = 1'b0;
-        else if (savedblocks[b4in*8'd10 + 8'd3 +: 8'd1] == 1'b0 && savedblocks[b4ic*8'd10 + 8'd3 +: 8'd1] == 1'b0)
+        else if (savedblocks[b4in*8'd10 + topleft_x + 8'd3 +: 8'd1] == 1'b0 && savedblocks[b4ic*8'd10 + topleft_x + 8'd3 +: 8'd1] == 1'b0)
             b4 = 1'b1;
         else
             b4 = 1'b0;

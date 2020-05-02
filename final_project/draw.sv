@@ -25,20 +25,20 @@ module draw
 		posxi = DrawX / 10'd20;
 		posyi = DrawY / 10'd20;
 
-		isblock = backgroundstate[(posyi*8'd10 + posxi)];
+		isblock = backgroundstate[posyi*8'd10 + posxi];
 		blockstateindex = ((DrawY - PosY)/10'd20)*10'd4 + ((DrawX - PosX)/10'd20);
 
 		if (drawBlock && blockstate[blockstateindex])
 		begin
 			colorindex_draw = colorindex;
-			address = ((DrawY - PosY)%10'd20 * 16'd20) + DrawX%10'd20 + spriteindex * 16'd400;
+			address = ((DrawY - PosY)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex * 15'd400;
 		end
 		else if( DrawX < 10'd200)
 		begin
 			if(isblock)
-				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 16'd38 * 16'd400);
+				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 15'd38 * 15'd400);
 			else
-				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 16'd37 * 16'd400);
+				address = ((DrawY % 10'd20) * 10'd20) + ((DrawX % 10'd20) + 15'd37 * 15'd400);
 
 			colorindex_draw = colorindex;
 		end
