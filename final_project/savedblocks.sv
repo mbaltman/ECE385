@@ -6,11 +6,13 @@ module savedblocks (
     input  logic          saveenable,
     output logic [239:0]  state_output
     );
-
-    logic [7:0] topleft_x, topleft_y, i;
+	
+	 logic [239:0] state_update;
+	 
+    logic [7:0] topleft_x, topleft_y, i,j,k;
 
 	 logic [7:0] baseindex;
-	 logic shiftDown,shiftDown_in;
+	 logic ShiftDown;
 
     always_comb
     begin
@@ -83,11 +85,37 @@ module savedblocks (
         end
 		  else
 		  begin
+				ShiftDown = 1'b0;
 				for (i = 8'd0; i < 8'd240; i = i + 8'd10)
 					begin
 						if(state_output[i +: 10 ] == 10'b1111111111)
+							begin
 							state_output[i +: 10 ] <= 10'b0;
+							ShiftDown = 1'b1;
+							end
 					end
+				/*if(ShiftDown)
+				begin 
+					j = 8'd239;
+					//fill update with 0's
+					for (i = 8'd0; i < 8'd240; i = i + 8'd1)
+					begin
+                state_update[i] <= 1'b0;
+					end
+				
+					//fill from bottom up with not cleared lines
+					for(i = 8'd239, k=8'd229; i> 8'd8; i = i - 8'd10, k = k-i - 8'd10)
+					begin 
+						if(state_output[i += ] != 10'd0)
+						begin
+							state_update[j -: 8'd10] = state_output[i -: k];
+							j =j - 8'd10;
+						end
+					end
+					
+					//update
+					state_output = state_update;
+				end*/
 		  end
 		  
     end
