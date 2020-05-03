@@ -9,18 +9,24 @@ module blocks
     output logic [9:0]    Block_X_Pos, Block_Y_Pos,
     output logic          drawBlock,
     output logic          hitbottom,
-	 input logic  [5:0]    spriteindex_new,
-	 output logic [5:0] 	  spriteindex
+    input  logic [5:0]    spriteindex_new,
+    output logic [5:0]    spriteindex
 );
 
 /********************************************************************************************************************/
 
-    parameter [9:0]  x_initial = 10'd80;
+    parameter [9:0]  x_initial = 10'd140;
     parameter [9:0]  y_initial = 10'd0;
     logic     [9:0]  Block_Y_Motion;
-    logic     [9:0]  Block_X_Pos_in, Block_Y_Pos_in, Block_Y_Motion_in;
-    logic            frame_clk_delayed, frame_clk_rising_edge;
-    logic            flag, flag_in, rot_flag, rot_flag_in;
+    logic     [9:0]  Block_X_Pos_in,
+                     Block_Y_Pos_in,
+                     Block_Y_Motion_in;
+    logic            frame_clk_delayed,
+                     frame_clk_rising_edge;
+    logic            flag,
+                     flag_in,
+                     rot_flag,
+                     rot_flag_in;
     logic            bottomchecked,
                      leftchecked,
                      rightchecked,
@@ -30,7 +36,9 @@ module blocks
                      cwbottomchecked,
                      cwleftchecked,
                      cwrightchecked;
-    logic     [15:0] blockstate_in, cwstate, ccwstate;
+    logic     [15:0] blockstate_in,
+                     cwstate,
+                     ccwstate;
     logic     [9:0]  bottom1,
                      bottom2,
                      bottom3,
@@ -67,7 +75,7 @@ module blocks
                      cwright2,
                      cwright3,
                      cwright4;
-    logic hitbottom_in;
+    logic            hitbottom_in;
 
     rotation myrotationinstance (.oldstate(blockstate), .ccwstate, .cwstate);
 
@@ -201,14 +209,24 @@ module blocks
     begin
         if (Reset)
         begin
-            Block_X_Pos <= x_initial;
-            Block_Y_Pos <= y_initial;
+            Block_X_Pos    <= x_initial;
+            Block_Y_Pos    <= y_initial;
             Block_Y_Motion <= 10'd1;
-            flag <= 1'b0;
-            rot_flag <= 1'b0;
-            blockstate <= blockstate_new;
-				spriteindex <= spriteindex_new;
-				hitbottom <= 1'b0;
+            flag           <= 1'b0;
+            rot_flag       <= 1'b0;
+            blockstate     <= blockstate_new;
+            spriteindex    <= spriteindex_new;
+            hitbottom      <= 1'b0;
+        end
+        else
+        begin
+            Block_X_Pos    <= Block_X_Pos_in;
+            Block_Y_Pos    <= Block_Y_Pos_in;
+            Block_Y_Motion <= Block_Y_Motion_in;
+            flag           <= flag_in;
+            rot_flag       <= rot_flag_in;
+            blockstate     <= blockstate_in;
+            hitbottom      <= hitbottom_in;
         end
     end
 
@@ -216,13 +234,13 @@ module blocks
 
     always_comb
     begin
-        blockstate_in = blockstate;
-        Block_X_Pos_in = Block_X_Pos;
-        Block_Y_Pos_in = Block_Y_Pos;
+        blockstate_in     = blockstate;
+        Block_X_Pos_in    = Block_X_Pos;
+        Block_Y_Pos_in    = Block_Y_Pos;
         Block_Y_Motion_in = Block_Y_Motion;
-        flag_in = flag;
-        rot_flag_in = rot_flag;
-        hitbottom_in = hitbottom;
+        flag_in           = flag;
+        rot_flag_in       = rot_flag;
+        hitbottom_in      = hitbottom;
 
         if (Reset)
             blockstate_in = blockstate_new;
