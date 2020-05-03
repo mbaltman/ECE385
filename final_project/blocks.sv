@@ -207,23 +207,8 @@ module blocks
             flag <= 1'b0;
             rot_flag <= 1'b0;
             blockstate <= blockstate_new;
-<<<<<<< HEAD
 				spriteindex <= spriteindex_new;
 				hitbottom <= 1'b0;
-=======
-            hitbottom <= 1'b0;
->>>>>>> be2f4fa459d39acb9aebdcb56e0faaf587ddb408
-
-        end
-        else
-        begin
-            Block_X_Pos <= Block_X_Pos_in;
-            Block_Y_Pos <= Block_Y_Pos_in;
-            Block_Y_Motion <= Block_Y_Motion_in;
-            flag <= flag_in;
-            rot_flag <= rot_flag_in;
-            blockstate <= blockstate_in;
-            hitbottom <= hitbottom_in;
         end
     end
 
