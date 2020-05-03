@@ -22,8 +22,8 @@ module draw
 		address = 15'b0;
 		blockstateindex = 4'b0;
 		colorindex_draw = 4'h8;
-		posxi = DrawX-10'd80 / 10'd20;
-		posyi = DrawY-10'd80 / 10'd20;
+		posxi = (DrawX-10'd80) / 10'd20;
+		posyi = (DrawY-10'd80) / 10'd20;
 
 		isblock = backgroundstate[posyi*8'd10 + posxi];
 		blockstateindex = ((DrawY - PosY)/10'd20)*10'd4 + ((DrawX - PosX)/10'd20);
