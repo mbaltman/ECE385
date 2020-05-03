@@ -5,7 +5,7 @@ module GameLogic(input logic Clk, Reset,
 					  output logic [5:0] spriteindex,
 					  output logic resetBlocks, Pause);
 					  
-enum logic [4:0] { Wait, Drop, Falling, Hold1 , Bottom, PauseState } 
+enum logic [4:0] { Wait, Drop, Falling, Hold1 , Bottom, PauseState1, PauseState2 } 
 						State, Next_state;
 						
 logic canHold, canHold_in, resetPiece;
@@ -58,28 +58,35 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 					/*else if(keycode == 8'h13) //if pause is pressed
 						Next_state = PauseState;
 						
-					else if(keycode == 8'h2b & canHold)//if you hit the hold button
+					else if(keycode == 8'h2b & canHold)//if you hit the tab button
 						Next_state = Hold1;
 						*/
 						
-					else if(keycode == 8'h29)
+					else if(keycode == 8'h29) //if you press esc reset the game
 						Next_state = Wait;
 						
 					else
 						Next_state = Falling;
 				end
 				
-			Hold1:
+		/*	Hold1:
 				Next_state = Drop;
+			*/
 			
 			Bottom:
-				Next_state = Drop;
+				Next_state = PauseState1;
 				
-			PauseState:
+			PauseState1://first half of pause if you just hold P you stay in this state
+				if(keycode != 8'h13)
+					Next_state = PauseState2;
+				else
+					Next_state = PauseState1;
+					
+			PauseState2://move to this state once you let go of P, if you press it you go back to falling 
 				if(keycode == 8'h13)
 					Next_state = Falling;
 				else
-					Next_state = PauseState;
+					Next_state = Drop;
 			
 		
 		endcase
@@ -115,7 +122,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			Bottom:
 				canHold_in = 1'b1;
 		
-			PauseState:
+			PauseState1, PauseState2:
 				Pause = 1'b1;
 			
 			endcase

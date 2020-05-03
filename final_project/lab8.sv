@@ -168,7 +168,8 @@ module lab8 (
                 .blockstate(blockstatecurr),
 					 .backgroundstate(backgroundstate),
                 .spriteindex(spriteindex),
-                .colorindex_draw(colorIndex_draw)
+                .colorindex_draw(colorIndex_draw),
+					 .displayMenu(Pause)
                 );
 
 	GameLogic statemachine(.Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
