@@ -11,9 +11,9 @@ module draw
 
 	logic [14:0] address;
 	logic [3:0]  blockstateindex;
-	logic [3:0] colorindex;
-	logic [7:0] posxi,posyi;
-	logic isblock;
+	logic [3:0]  colorindex;
+	logic [7:0]  posxi,posyi;
+	logic        isblock;
 
 	spriteRAM blockMemory1 (.read_address(address), .Clk(Clk), .data_Out(colorindex));
 
