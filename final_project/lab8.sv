@@ -65,10 +65,10 @@ module lab8 (
     logic [3:0]  colorIndex_draw;
     logic [5:0]  spriteindex, spriteindex_new;
     logic [15:0] blockstate, blockstatecurr;
-	 
-	 logic hitbottom, resetBlocks, Pause;
-	 
-	 logic [239:0] backgroundstate;
+
+    logic hitbottom, resetBlocks, Pause;
+
+    logic [239:0] backgroundstate;
     //logic        flip_page, fifo_we;
     //logic [3:0]  colorIndex_save, colorIndex_fifo;
 
@@ -147,7 +147,7 @@ module lab8 (
 								 .spriteindex_new(spriteindex_new),
 								 .spriteindex(spriteindex)
                          );
-								 
+
 	savedblocks savedInstance(
 									.clk(Clk),
 									.reset(Reset_h),
@@ -170,12 +170,12 @@ module lab8 (
                 .spriteindex(spriteindex),
                 .colorindex_draw(colorIndex_draw)
                 );
-					 
+
 	GameLogic statemachine(.Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
 					  .blockstate_new(blockstate),.blockstate_hold(),
 					  .spriteindex(spriteindex_new),
 					  .resetBlocks(resetBlocks), .Pause(Pause));
-	
+
 
     color_mapper color_instance (
                                 .colorIndex(colorIndex_draw),
