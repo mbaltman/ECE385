@@ -1,7 +1,7 @@
 
 
 module newPiece(input logic pickPiece,
-					 input logic Clk,
+					 input logic Clk,Reset,
 					 output logic [15:0] blockstate_new,
 					 output logic [5:0] spriteindex_new);
 
@@ -11,8 +11,11 @@ logic [7:0] counter, counter_in;
 
 always_ff @ (posedge Clk)
 	begin
-		counter = counter + 7'd9;
 	
+		counter = counter + 8'd9;
+		
+		if(Reset)
+			counter = 8'b0;
 	end
 	
  always_comb

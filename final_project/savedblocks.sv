@@ -9,6 +9,7 @@ module savedblocks (
 
     logic [7:0] topleft_x, topleft_y, i;
 	 logic [7:0] baseindex;
+	 logic shiftDown,shiftDown_in;
 
     always_comb
     begin
@@ -16,6 +17,7 @@ module savedblocks (
         topleft_y = Block_Y_Pos / 10'd20; // ranging from 0 to 23
     end
 
+	
     always_ff @ (posedge clk)
     begin
         if (reset)
@@ -76,8 +78,16 @@ module savedblocks (
 				
 				if(inputstream[15])	
 					state_output[baseindex + 8'd30 + topleft_x + 8'd3] <= inputstream[15] ;
-					
 				
         end
+		  else
+		  begin
+				for (i = 8'd0; i < 8'd240; i = i + 8'd10)
+					begin
+						if(state_output[i +: 10 ] == 10'b1111111111)
+							state_output[i +: 10 ] <= 10'b0;
+					end
+		  end
+		  
     end
 endmodule
