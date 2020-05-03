@@ -65,7 +65,8 @@ module blocks
                      cwright2,
                      cwright3,
                      cwright4;
-	logic hitbottom_in;
+    logic hitbottom_in;
+
     rotation myrotationinstance (.oldstate(blockstate), .ccwstate, .cwstate);
 
     defineblockboundary currentblockboundaries (
@@ -204,7 +205,7 @@ module blocks
             flag <= 1'b0;
             rot_flag <= 1'b0;
             blockstate <= blockstate_new;
-				hitbottom <= 1'b0;
+            hitbottom <= 1'b0;
 
         end
         else
@@ -215,7 +216,7 @@ module blocks
             flag <= flag_in;
             rot_flag <= rot_flag_in;
             blockstate <= blockstate_in;
-				hitbottom <= hitbottom_in;
+            hitbottom <= hitbottom_in;
         end
     end
 
@@ -223,17 +224,17 @@ module blocks
 
     always_comb
     begin
-	 
-	 if(Reset)
-		blockstate_in = blockstate_new;
+        blockstate_in = blockstate;
         Block_X_Pos_in = Block_X_Pos;
         Block_Y_Pos_in = Block_Y_Pos;
         Block_Y_Motion_in = Block_Y_Motion;
         flag_in = flag;
         rot_flag_in = rot_flag;
-        blockstate_in = blockstate;
-		  hitbottom_in =1'b0;
-		  
+        hitbottom_in = hitbottom;
+
+        if (Reset)
+            blockstate_in = blockstate_new;
+
         if (frame_clk_rising_edge)
         begin
             if (!bottomchecked) // check if still moving down

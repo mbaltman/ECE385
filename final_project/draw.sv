@@ -1,12 +1,12 @@
 module draw
 (
-	input  logic        Clk,
-	input  logic        drawBlock,
-	input  logic [9:0]  DrawX, DrawY, PosX, PosY,
-	output logic [3:0]  colorindex_draw,
-	input  logic [15:0] blockstate,
-	input  logic [5:0]  spriteindex,
-	input logic [239:0] backgroundstate
+	input  logic         Clk,
+	input  logic         drawBlock,
+	input  logic [9:0]   DrawX, DrawY, PosX, PosY,
+	output logic [3:0]   colorindex_draw,
+	input  logic [15:0]  blockstate,
+	input  logic [5:0]   spriteindex,
+	input  logic [239:0] backgroundstate
 );
 
 	logic [14:0] address;
