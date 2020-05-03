@@ -143,7 +143,9 @@ module lab8 (
 								 .savedblocks(backgroundstate),
                          .Block_X_Pos(PosX),
                          .Block_Y_Pos(PosY),
-								 .hitbottom(hitbottom)
+								 .hitbottom(hitbottom),
+								 .spriteindex_new(spriteindex_new),
+								 .spriteindex(spriteindex)
                          );
 								 
 	savedblocks savedInstance(
@@ -171,7 +173,7 @@ module lab8 (
 					 
 	GameLogic statemachine(.Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
 					  .blockstate_new(blockstate),.blockstate_hold(),
-					  .spriteindex(spriteindex),
+					  .spriteindex(spriteindex_new),
 					  .resetBlocks(resetBlocks), .Pause(Pause));
 	
 

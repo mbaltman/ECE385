@@ -8,7 +8,9 @@ module blocks
     output logic [15:0]   blockstate,
     output logic [9:0]    Block_X_Pos, Block_Y_Pos,
     output logic          drawBlock,
-    output logic          hitbottom
+    output logic          hitbottom,
+	 input logic  [5:0]    spriteindex_new,
+	 output logic [5:0] 	  spriteindex
 );
 
 /********************************************************************************************************************/
@@ -204,6 +206,7 @@ module blocks
             flag <= 1'b0;
             rot_flag <= 1'b0;
             blockstate <= blockstate_new;
+				spriteindex <= spriteindex_new;
 				hitbottom <= 1'b0;
 
         end
