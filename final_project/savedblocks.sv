@@ -90,17 +90,16 @@ module savedblocks (
 					begin
 						if(state_output[i +: 10 ] == 10'b1111111111)
 							begin
-							if(i<8'd230)
+								state_output[i +: 10 ] = 10'd0;
+							end
+							
+					   if(state_output[i +: 10 ] == 10'b0 && i>0)
+							begin
+							if(state_output[(i-10) +: 10 ] != 10'b0)
 								begin
-								state_output[i +: 10 ] = state_output[(i+10) +: 10 ];
-								state_output[(i+10) +: 10 ] = 10'b0;
+								state_output[i +: 10 ] =state_output[(i-10) +: 10 ];
+								state_output[(i-10) +: 10 ] = 10'b0;
 								end
-							else 
-								begin
-								state_output[i +: 10 ] = 10'b0;
-						
-								end		
-								ShiftDown = 1'b1;
 							end
 					end
 		  end
