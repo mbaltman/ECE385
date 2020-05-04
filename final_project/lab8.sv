@@ -63,10 +63,11 @@ module lab8 (
     logic        PauseVGA;
     logic        drawBlock;
     logic [3:0]  colorIndex_draw;
-    logic [5:0]  spriteindex, spriteindex_new;
-    logic [15:0] blockstate, blockstatecurr;
+    logic [5:0]  spriteindex, spriteindex_new, spriteindex_hold;
+    logic [15:0] blockstate, blockstatecurr, blockstate_hold;
 
-    logic hitbottom, resetBlocks, Pause;
+    logic hitbottom, resetBlocks, Pause, endgame;
+	 logic [2:0] screen;
 
     logic [239:0] backgroundstate;
     //logic        flip_page, fifo_we;
@@ -78,10 +79,10 @@ module lab8 (
     HexDriver hex_inst_1 (blockstate[7:4], HEX1);
     HexDriver hex_inst_2 (blockstate[11:8], HEX2);
     HexDriver hex_inst_3 (blockstate[15:12], HEX3);
-    HexDriver hex_inst_4 (blockstatecurr[3:0], HEX4);
-    HexDriver hex_inst_5 (blockstatecurr[7:4], HEX5);
-    HexDriver hex_inst_6 (blockstatecurr[11:8], HEX6);
-    HexDriver hex_inst_7 (blockstatecurr[15:12], HEX7);
+    HexDriver hex_inst_4 (blockstate_hold[3:0], HEX4);
+    HexDriver hex_inst_5 (blockstate_hold[7:4], HEX5);
+    HexDriver hex_inst_6 (blockstate_hold[11:8], HEX6);
+    HexDriver hex_inst_7 (blockstate_hold[15:12], HEX7);
 
     hpi_io_intf hpi_io_inst (
                             .Clk(Clk),
@@ -145,7 +146,8 @@ module lab8 (
                          .Block_Y_Pos(PosY),
 								 .hitbottom(hitbottom),
 								 .spriteindex_new(spriteindex_new),
-								 .spriteindex(spriteindex)
+								 .spriteindex(spriteindex),
+								 .endgame(endgame)
                          );
 
 	savedblocks savedInstance(
@@ -169,13 +171,13 @@ module lab8 (
 					 .backgroundstate(backgroundstate),
                 .spriteindex(spriteindex),
                 .colorindex_draw(colorIndex_draw),
-					 .displayMenu(Pause)
+					 .screen(screen)
                 );
 
 	GameLogic statemachine(.Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
-					  .blockstate_new(blockstate),.blockstate_hold(),
-					  .spriteindex(spriteindex_new),
-					  .resetBlocks(resetBlocks), .Pause(Pause));
+					  .blockstate_new(blockstate),.blockstate_hold(blockstate_hold),
+					  .spriteindex(spriteindex_new), .spriteindex_hold(spriteindex_hold),
+					  .resetBlocks(resetBlocks), .Pause(Pause), .endgame(endgame), .screen(screen));
 
 
     color_mapper color_instance (

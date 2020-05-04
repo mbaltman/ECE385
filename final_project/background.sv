@@ -7,13 +7,6 @@ module background
 	logic [3:0][5:0] hold  = {6'd18, 6'd25, 6'd22, 6'd14};
 	logic [4:0][5:0] queue = {6'd27, 6'd31, 6'd15, 6'd31, 6'd15};
 
-	/*
-	assign logic space =
-	assign logic score =
-	assign logic pause =
-	assign logic reset =
-	*/
-
 	enum logic [4:0] {H, Q, BG, D} State;
 	logic [7:0]  posxi, posyi;
 
