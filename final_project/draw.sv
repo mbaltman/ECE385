@@ -7,7 +7,7 @@ module draw
 	input  logic [15:0]  blockstate,
 	input  logic [5:0]   spriteindex,
 	input  logic [239:0] backgroundstate,
-	input logic displayMenu
+	input  logic         displayMenu
 );
 
 	logic [14:0] address;
@@ -15,10 +15,8 @@ module draw
 	logic [3:0]  colorindex;
 	logic [7:0]  posxi, posyi;
 	logic        isblock;
-   logic [5:0]   spriteindexcurr, spriteindexbg;
-   
-	
-	
+	logic [5:0]  spriteindexcurr, spriteindexbg;
+
 	spriteRAM blockMemory1 (.read_address(address), .Clk(Clk), .data_Out(colorindex));
 
 	background bginstance (.DrawX(DrawX), .DrawY(DrawY), .spriteindex(spriteindexbg));
@@ -28,51 +26,47 @@ module draw
 		spriteindexcurr = 6'd0;
 		blockstateindex = 4'b0;
 		colorindex_draw = 4'h8;
-		posxi = (DrawX-10'd80) / 10'd20;
+		posxi = (DrawX - 10'd80) / 10'd20;
 		posyi = DrawY / 10'd20;
 
 		//check if current background block is a filled
 		isblock = backgroundstate[posyi*8'd10 + posxi];
-		
+
 		//calculate index of block state for moving piece
 		blockstateindex = ((DrawY - PosY)/10'd20)*10'd4 + ((DrawX - PosX)/10'd20);
 
-		
+
 		//if draw block and block is there, draw moving block
 		if (drawBlock && blockstate[blockstateindex] && DrawX > 10'd80)
 		begin
 			colorindex_draw = colorindex;
 			address = ((DrawY - PosY)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex*15'd400;
 		end
-		
+
 		else
 		begin
-		   if (DrawX < 10'd280 && DrawX >10'd79)
+			if (DrawX < 10'd280 && DrawX >10'd79)
 			begin
 				if (isblock)
 					spriteindexcurr = 6'd38;
 				else
 					spriteindexcurr = 6'd37;
-					
+
 			end
 			else
 			begin
 				spriteindexcurr = spriteindexbg;
 			end
-			
+
 			if(spriteindexcurr == 6'd46)
 				begin
 					colorindex_draw = 4'd8;
 				end
 			else
 			begin
-				address = ((DrawY%10'd20) * 10'd20) + ((DrawX%10'd20) + spriteindexcurr*15'd400);		
+				address = ((DrawY%10'd20) * 10'd20) + ((DrawX%10'd20) + spriteindexcurr*15'd400);
 				colorindex_draw = colorindex;
 			end
-			
 		end
-		
-		
-		
 	end
 endmodule

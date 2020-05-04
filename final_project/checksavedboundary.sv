@@ -55,7 +55,7 @@ module checksavedboundary
 
     always_comb
     begin
-        topleft_x = (Block_X_Pos-10'd80) / 10'd20;
+        topleft_x = (Block_X_Pos / 10'd20) - 8'd4;
         topleft_y = Block_Y_Pos / 10'd20;
         b1ic = bottom1 / 10'd20; // checks current block block
         b2ic = bottom2 / 10'd20;
@@ -162,7 +162,7 @@ module checksavedboundary
             r1 = 1'b1;
         else if (is_currentstate && right1 > 10'd259)
             r1 = 1'b0;
-        else if (!is_currentstate && right1 > 10'd219)
+        else if (!is_currentstate && right1 > 10'd279)
             r1 = 1'b0;
         else if (is_currentstate && savedblocks[baseindex + r1i+8'd1 +: 8'd1] == 1'b0)
             r1 = 1'b1;
