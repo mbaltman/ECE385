@@ -10,7 +10,8 @@ module blocks
     output logic          drawBlock,
     output logic          hitbottom,
     input  logic [5:0]    spriteindex_new,
-    output logic [5:0]    spriteindex
+    output logic [5:0]    spriteindex,
+    output logic          endgame
 );
 
 /********************************************************************************************************************/
@@ -35,7 +36,8 @@ module blocks
                      ccwrightchecked,
                      cwbottomchecked,
                      cwleftchecked,
-                     cwrightchecked;
+                     cwrightchecked,
+                     endgame_in;
     logic     [15:0] blockstate_in,
                      cwstate,
                      ccwstate;
@@ -217,6 +219,7 @@ module blocks
             blockstate     <= blockstate_new;
             spriteindex    <= spriteindex_new;
             hitbottom      <= 1'b0;
+            endgame        <= 1'b0;
         end
         else
         begin
@@ -227,6 +230,7 @@ module blocks
             rot_flag       <= rot_flag_in;
             blockstate     <= blockstate_in;
             hitbottom      <= hitbottom_in;
+            endgame        <= endgame_in;
         end
     end
 
@@ -241,6 +245,7 @@ module blocks
         flag_in           = flag;
         rot_flag_in       = rot_flag;
         hitbottom_in      = hitbottom;
+        endgame_in        = endgame;
 
         if (Reset)
             blockstate_in = blockstate_new;
@@ -249,6 +254,8 @@ module blocks
         begin
             if (!bottomchecked) // check if still moving down
             begin
+                if (bottom1 == 10'd60 || bottom2 == 10'd60 || bottom3 == 10'd60 || bottom4 == 10'd60)
+                    endgame_in = 1'b1;
                 hitbottom_in = 1'b1;
                 Block_Y_Motion_in = 1'b0;
                 flag_in = 1'b1;
