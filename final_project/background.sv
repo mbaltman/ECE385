@@ -3,7 +3,7 @@ module background( input  logic [9:0]   DrawX, DrawY,
 );					 
 						 
 logic [3:0][5:0] hold  = {6'd18, 6'd25, 6'd22, 6'd14}; 
-logic [5:0][4:0] queue = {6'd27, 6'd31, 6'd15, 6'd31, 6'd15 };
+logic [3:0][5:0] queue = {6'd27, 6'd31, 6'd15, 6'd31, 6'd15};
 /*
 assign logic space =
 assign logic score =
@@ -35,9 +35,9 @@ begin
 	case(State)
 	
 	H:
-		spriteindex =  hold[DrawX/10'd20];
+		spriteindex =  hold[3-(DrawX/10'd20)];
 	Q: 
-		spriteindex = queue[(DrawX-10'd280)/10'd20];
+		spriteindex = queue[4-(DrawX-10'd280)/10'd20];
 	BG:
 		spriteindex = 6'd37;
 	D:

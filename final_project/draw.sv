@@ -47,7 +47,7 @@ module draw
 		
 		else
 		begin
-		   if (DrawX < 10'd280 && DrawX >10'd80)
+		   if (DrawX < 10'd280 && DrawX >10'd79)
 			begin
 				if (isblock)
 					spriteindexcurr = 6'd38;
