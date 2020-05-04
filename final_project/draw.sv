@@ -42,7 +42,10 @@ module draw
 			colorindex_draw = colorindex;
 			address = ((DrawY - PosY)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex*15'd400;
 		end
-
+		else if(DrawX < 10'd280 && DrawX >10'd79 && DrawY >10'd78 && DrawY < 10'd82)
+		begin
+			colorindex_draw = 4'ha;
+		end
 		else
 		begin
 			if (DrawX < 10'd280 && DrawX >10'd79)
@@ -58,14 +61,18 @@ module draw
 				spriteindexcurr = spriteindexbg;
 			end
 
-			if(spriteindexcurr == 6'd46)
+			if(spriteindexcurr == 6'd45)
 				begin
 					colorindex_draw = 4'd8;
 				end
 			else
 			begin
 				address = ((DrawY%10'd20) * 10'd20) + ((DrawX%10'd20) + spriteindexcurr*15'd400);
-				colorindex_draw = colorindex;
+				
+				if(colorindex!= 4'b0)
+					colorindex_draw = colorindex;
+				else
+					colorindex_draw = 4'd3;
 			end
 		end
 	end

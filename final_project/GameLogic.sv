@@ -84,9 +84,9 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 					
 			PauseState2://move to this state once you let go of P, if you press it you go back to falling 
 				if(keycode == 8'h13)
-					Next_state = Falling;
-				else
 					Next_state = Drop;
+				else
+					Next_state = PauseState2;
 			
 		
 		endcase
