@@ -77,7 +77,11 @@ module blocks
                      cwright2,
                      cwright3,
                      cwright4;
-    logic            hitbottom_in;
+    logic            hitbottom_in,
+                     hitbottom_counter_start,
+                     hitbottom_counter_start_in;
+    logic     [5:0]  hitbottom_counter,
+                     hitbottom_counter_in;
 
     rotation myrotationinstance (.oldstate(blockstate), .ccwstate, .cwstate);
 
@@ -211,26 +215,30 @@ module blocks
     begin
         if (Reset)
         begin
-            Block_X_Pos    <= x_initial;
-            Block_Y_Pos    <= y_initial;
-            Block_Y_Motion <= 10'd1;
-            flag           <= 1'b0;
-            rot_flag       <= 1'b0;
-            blockstate     <= blockstate_new;
-            spriteindex    <= spriteindex_new;
-            hitbottom      <= 1'b0;
-            endgame        <= 1'b0;
+            Block_X_Pos             <= x_initial;
+            Block_Y_Pos             <= y_initial;
+            Block_Y_Motion          <= 10'd1;
+            flag                    <= 1'b0;
+            rot_flag                <= 1'b0;
+            blockstate              <= blockstate_new;
+            spriteindex             <= spriteindex_new;
+            hitbottom               <= 1'b0;
+            endgame                 <= 1'b0;
+            hitbottom_counter       <= 5'd31;
+            hitbottom_counter_start <= 1'b0;
         end
         else
         begin
-            Block_X_Pos    <= Block_X_Pos_in;
-            Block_Y_Pos    <= Block_Y_Pos_in;
-            Block_Y_Motion <= Block_Y_Motion_in;
-            flag           <= flag_in;
-            rot_flag       <= rot_flag_in;
-            blockstate     <= blockstate_in;
-            hitbottom      <= hitbottom_in;
-            endgame        <= endgame_in;
+            Block_X_Pos             <= Block_X_Pos_in;
+            Block_Y_Pos             <= Block_Y_Pos_in;
+            Block_Y_Motion          <= Block_Y_Motion_in;
+            flag                    <= flag_in;
+            rot_flag                <= rot_flag_in;
+            blockstate              <= blockstate_in;
+            hitbottom               <= hitbottom_in;
+            endgame                 <= endgame_in;
+            hitbottom_counter       <= hitbottom_counter_in;
+            hitbottom_counter_start <= hitbottom_counter_start_in;
         end
     end
 
@@ -238,28 +246,62 @@ module blocks
 
     always_comb
     begin
-        blockstate_in     = blockstate;
-        Block_X_Pos_in    = Block_X_Pos;
-        Block_Y_Pos_in    = Block_Y_Pos;
-        Block_Y_Motion_in = Block_Y_Motion;
-        flag_in           = flag;
-        rot_flag_in       = rot_flag;
-        hitbottom_in      = hitbottom;
-        endgame_in        = endgame;
+        blockstate_in              = blockstate;
+        Block_X_Pos_in             = Block_X_Pos;
+        Block_Y_Pos_in             = Block_Y_Pos;
+        Block_Y_Motion_in          = Block_Y_Motion;
+        flag_in                    = flag;
+        rot_flag_in                = rot_flag;
+        hitbottom_in               = hitbottom;
+        endgame_in                 = endgame;
+        hitbottom_counter_in       = hitbottom_counter;
+        hitbottom_counter_start_in = hitbottom_counter_start;
 
         if (Reset)
             blockstate_in = blockstate_new;
 
         if (frame_clk_rising_edge)
         begin
+            if ((hitbottom_counter_start == 1'b1) && (hitbottom_counter > 5'd0))
+            begin
+                if ((keycode == 8'h04) && leftchecked && (flag == 1'b0))
+                begin
+                    Block_X_Pos_in = Block_X_Pos - 10'd20;
+                    flag_in = 1'b1;
+                end
+                else if ((keycode == 8'h07) && rightchecked && (flag == 1'b0))
+                begin
+                    Block_X_Pos_in = Block_X_Pos + 10'd20;
+                    flag_in = 1'b1;
+                end
+                else if ((keycode != 8'h04) && (keycode != 8'h07))
+                begin
+                    flag_in = 1'b0;
+                end
+                hitbottom_counter_in = hitbottom_counter - 5'd1;
+            end
+            else if ((hitbottom_counter_start == 1'b1) && (hitbottom_counter == 5'd0))
+            begin
+                hitbottom_in = 1'b1;
+                flag_in = 1'b1;
+            end
+
             if (!bottomchecked) // check if still moving down
             begin
-                if (bottom1 == 10'd60 || bottom2 == 10'd60 || bottom3 == 10'd60 || bottom4 == 10'd60)
+                if ((bottom1 == 10'd60) || (bottom2 == 10'd60) || (bottom3 == 10'd60) || (bottom4 == 10'd60))
+                begin
                     endgame_in = 1'b1;
-                hitbottom_in = 1'b1;
-                Block_Y_Motion_in = 1'b0;
-                flag_in = 1'b1;
+                    hitbottom_in = 1'b1;
+                    flag_in = 1'b1;
+                    rot_flag_in = 1'b1;
+                    Block_Y_Motion_in = 1'b0;
+                end
+                else
+                begin
+                hitbottom_counter_start_in = 1'b1;
                 rot_flag_in = 1'b1;
+                Block_Y_Motion_in = 1'b0;
+                end
             end
             // A key: move block left by 20 pixels
             else if ((keycode == 8'h04) && leftchecked && (flag == 1'b0))
@@ -293,6 +335,7 @@ module blocks
             begin
                 flag_in = 1'b0;
                 rot_flag_in = 1'b0;
+                hitbottom_counter_start_in = 1'b0;
             end
 
             Block_Y_Pos_in = Block_Y_Pos + Block_Y_Motion;
