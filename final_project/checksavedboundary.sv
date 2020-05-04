@@ -166,7 +166,7 @@ module checksavedboundary
             r1 = 1'b0;
         else if (is_currentstate && savedblocks[baseindex + r1i+8'd1 +: 8'd1] == 1'b0)
             r1 = 1'b1;
-        else if (!is_currentstate && savedblocks[baseindex +  + r1i +: 8'd1] == 1'b0)
+        else if (!is_currentstate && savedblocks[baseindex + r1i +: 8'd1] == 1'b0)
             r1 = 1'b1;
         else
             r1 = 1'b0;
