@@ -283,8 +283,12 @@ module blocks
             else if ((hitbottom_counter_start == 1'b1) && (hitbottom_counter == 5'd0))
             begin
                 hitbottom_in = 1'b1;
+                hitbottom_counter_start_in = 1'b0;
                 flag_in = 1'b1;
             end
+
+            if (hitbottom_counter_start == 1'b0)
+                hitbottom_counter_in = 5'd31;
 
             if (!bottomchecked) // check if still moving down
             begin
@@ -336,6 +340,7 @@ module blocks
                 flag_in = 1'b0;
                 rot_flag_in = 1'b0;
                 hitbottom_counter_start_in = 1'b0;
+                Block_Y_Motion_in = 1'b1;
             end
 
             Block_Y_Pos_in = Block_Y_Pos + Block_Y_Motion;
