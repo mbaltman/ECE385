@@ -292,7 +292,7 @@ module blocks
 
             if (!bottomchecked) // check if still moving down
             begin
-                if ((bottom1 == 10'd60) || (bottom2 == 10'd60) || (bottom3 == 10'd60) || (bottom4 == 10'd60))
+                if ((bottom1 < 10'd80) || (bottom2 < 10'd80) || (bottom3 < 10'd80) || (bottom4 < 10'd80))
                 begin
                     endgame_in = 1'b1;
                     hitbottom_in = 1'b1;
