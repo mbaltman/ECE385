@@ -4,14 +4,14 @@ module draw
 	input  logic         drawBlock,
 	input  logic [9:0]   DrawX, DrawY, PosX, PosY,
 	output logic [3:0]   colorindex_draw,
-	input  logic [15:0]  blockstate, blockstate_hold,
-	input  logic [5:0]   spriteindex, spriteindex_hold,
+	input  logic [15:0]  blockstate, blockstate_hold,blockstate_q,
+	input  logic [5:0]   spriteindex, spriteindex_hold,spriteindex_q,
 	input  logic [239:0] backgroundstate,
 	input  logic [2:0]   screen
 );
 
 	logic [14:0] address;
-	logic [3:0]  blockstateindex, blockstateholdindex;
+	logic [3:0]  blockstateindex, blockstateholdindex, blockstateqindex;
 	logic [3:0]  colorindex;
 	logic [7:0]  posxi, posyi;
 	logic        isblock, screenshow;
@@ -39,7 +39,8 @@ module draw
 		//calculate index of block state for moving piece
 		blockstateindex = ((DrawY - PosY)/10'd20)*10'd4 + ((DrawX - PosX)/10'd20);
 		blockstateholdindex = ((DrawY - 10'd100)/10'd20)*10'd4 + ((DrawX)/10'd20);
-	
+		blockstateqindex = ((DrawY - 10'd100)/10'd20)*10'd4 + ((DrawX-10'd280)/10'd20);
+		
 		//show the menu in front of everything
 		if(screenshow)
 		begin
@@ -62,6 +63,12 @@ module draw
 		begin 
 			colorindex_draw = colorindex;
 			address = ((DrawY - 10'd100)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex_hold*15'd400;
+		end
+		//if in queue area and block exists
+		else if(DrawX>10'd280 &&DrawX<10'd360 && DrawY > 10'd100 && DrawY < 10'd180 && blockstate_q[blockstateqindex])
+		begin
+			colorindex_draw = colorindex;
+			address = ((DrawY - 10'd100)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex_q*15'd400;
 		end
 		//white line across top
 		else if(DrawX < 10'd280 && DrawX >10'd79 && DrawY >10'd78 && DrawY < 10'd82)

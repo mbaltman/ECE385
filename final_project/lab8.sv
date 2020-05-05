@@ -63,8 +63,8 @@ module lab8 (
     logic        PauseVGA;
     logic        drawBlock;
     logic [3:0]  colorIndex_draw;
-    logic [5:0]  spriteindex, spriteindex_new, spriteindex_hold;
-    logic [15:0] blockstate, blockstatecurr, blockstate_hold;
+    logic [5:0]  spriteindex, spriteindex_new, spriteindex_hold, spriteindex_q;
+    logic [15:0] blockstate, blockstatecurr, blockstate_hold, blockstate_q;
 
     logic hitbottom, resetBlocks, Pause, endgame;
 	 logic [2:0] screen;
@@ -152,7 +152,7 @@ module lab8 (
 
 	savedblocks savedInstance(
 									.clk(Clk),
-									.reset(Reset_h),
+									.reset(Reset_h | (screen == 3'd3)),
 									.Block_X_Pos(PosX),
 									.Block_Y_Pos(PosY),
 									.inputstream(blockstatecurr),
@@ -171,12 +171,16 @@ module lab8 (
 					 .backgroundstate(backgroundstate),
                 .spriteindex(spriteindex),
                 .colorindex_draw(colorIndex_draw),
+					 .spriteindex_hold(spriteindex_hold),
+					 .blockstate_hold(blockstate_hold),
+					 .spriteindex_q(spriteindex_q),
+					 .blockstate_q(blockstate_q),
 					 .screen(screen)
                 );
 
 	GameLogic statemachine(.Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
-					  .blockstate_new(blockstate),.blockstate_hold(blockstate_hold),
-					  .spriteindex(spriteindex_new), .spriteindex_hold(spriteindex_hold),
+					  .blockstate_new(blockstate),.blockstate_hold(blockstate_hold), .blockstate_q(blockstate_q),
+					  .spriteindex(spriteindex_new), .spriteindex_hold(spriteindex_hold), .spriteindex_q(spriteindex_q),
 					  .resetBlocks(resetBlocks), .Pause(Pause), .endgame(endgame), .screen(screen));
 
 

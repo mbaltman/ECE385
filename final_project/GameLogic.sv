@@ -1,18 +1,18 @@
 module GameLogic(input logic Clk, Reset,
 					  input logic [7:0] keycode,
 					  input logic hitbottom,
-					  output logic [15:0] blockstate_new, blockstate_hold,
-					  output logic [5:0] spriteindex, spriteindex_hold,
+					  output logic [15:0] blockstate_new, blockstate_hold,blockstate_q,
+					  output logic [5:0] spriteindex, spriteindex_hold,spriteindex_q,
 					  output logic resetBlocks, Pause, 
 					  input logic  endgame,
 					  output logic [2:0] screen );
 					  
-enum logic [4:0] { Wait, Drop,DropNoReset, Falling, Hold1 , Bottom, PauseState1, PauseState2, endScreen  } 
+enum logic [4:0] { Wait, Drop,DropNoReset, Falling, Hold1 , Bottom, PauseState, endScreen  } 
 						State, Next_state;
 						
 logic canHold, canHold_in, resetPiece;
-logic [5:0] spriteindex_in, spriteindex_pick, spriteindex_hold_in;
-logic [15:0] blockstate_in, blockstate_pick, blockstate_hold_in;
+logic [5:0] spriteindex_in, spriteindex_pick, spriteindex_hold_in,spriteindex_q_in;
+logic [15:0] blockstate_in, blockstate_pick, blockstate_hold_in, blockstate_q_in;
 			
 newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(blockstate_pick), .spriteindex_new(spriteindex_pick));
 			
@@ -24,8 +24,6 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 				blockstate_hold<= 16'b0;
 				canHold <= 1'b1;
 			end
-		else if(endgame)
-			State <= endScreen;
 		else
 		begin
 			State <= Next_state;
@@ -35,6 +33,9 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			
 			blockstate_hold <= blockstate_hold_in;
 			spriteindex_hold <= spriteindex_hold_in;
+			
+			blockstate_q <= blockstate_q_in;
+			spriteindex_q <= spriteindex_q_in;
 		end
 	end
 
@@ -46,6 +47,8 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 		blockstate_in = blockstate_new;
 		blockstate_hold_in = blockstate_hold;
 		spriteindex_hold_in = spriteindex_hold;
+		blockstate_q_in = blockstate_q;
+		spriteindex_q_in = spriteindex_q;
 		
 		resetBlocks = 1'b0;
 		resetPiece = 1'b0;
@@ -68,7 +71,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 						Next_state = Bottom;
 						
 					else if(keycode == 8'd19) 
-						Next_state = PauseState1;
+						Next_state = PauseState;
 						
 					else if(keycode == 8'd43 && canHold)//if you hit the tab button
 						Next_state = Hold1;
@@ -85,19 +88,16 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			
 			
 			Bottom:
-				Next_state = Drop;
-				
-			PauseState1://first half of pause if you just hold P you stay in this state
-				if(keycode != 8'h13) //move to this state once you let go of P,
-					Next_state = PauseState2;
+				if(endgame)
+					Next_state = endScreen;
 				else
-					Next_state = PauseState1;
-					
-			PauseState2: 
-				if(keycode == 8'd36)//pressing U will unpause the game
 					Next_state = Drop;
+				
+			PauseState:
+				if(keycode == 8'd24)//pressing U will unpause the game
+					Next_state = Falling;
 				else
-					Next_state = PauseState2;
+					Next_state = PauseState;
 			
 			endScreen:
 				if(keycode == 8'h29) //if you press esc reset the game
@@ -113,17 +113,23 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			Wait:
 			begin
 				resetPiece = 1'b1;
+				resetBlocks = 1'b1;
 				Pause = 1'b1;
 				screen = 3'd2;
+				blockstate_q_in = blockstate_pick;
+				spriteindex_q_in = spriteindex_pick;
 			end
 			
 			Drop:
 			begin
-				
-				blockstate_in = blockstate_pick;
-		      spriteindex_in = spriteindex_pick;
-				resetBlocks = 1'b1;
 				resetPiece = 1'b1;
+				blockstate_in = blockstate_q;
+				blockstate_q_in =blockstate_pick;
+				
+		      spriteindex_in = spriteindex_q;
+				spriteindex_q_in =spriteindex_pick;
+				
+				resetBlocks = 1'b1;
 
 			end
 			
@@ -158,7 +164,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			Bottom:
 				canHold_in = 1'b1;
 		
-			PauseState1, PauseState2:
+			PauseState:
 				begin
 					Pause = 1'b1;
 					screen = 3'b1;
@@ -167,7 +173,8 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			endScreen:
 				begin
 					Pause = 1'd1;
-					screen = 3'd3	
+					screen = 3'd3;
+					resetBlocks =1'b1;
 				end
 			
 			endcase
