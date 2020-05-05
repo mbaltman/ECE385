@@ -1,6 +1,7 @@
-18:48:15 **** Build of configuration Nios II for project final_app_bsp ****
-make all 
-[BSP build complete]
+23:09:50 **** Clean-only build of configuration Nios II for project final_app_bsp ****
+make clean 
+rm: cannot remove './obj/HAL/src/alt_sbrk.d': Device or resource busy
+make: *** [clean] Error 1
 
-18:48:16 Build Finished (took 879ms)
+23:09:50 Build Finished (took 303ms)
 

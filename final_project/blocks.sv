@@ -299,6 +299,7 @@ module blocks
                     flag_in = 1'b1;
                     rot_flag_in = 1'b1;
                     Block_Y_Motion_in = 1'b0;
+                    blockstate_in = 16'd0;
                 end
                 else
                 begin

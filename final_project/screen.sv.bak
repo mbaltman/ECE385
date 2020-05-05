@@ -1,5 +1,0 @@
-module screen( input logic [2:0] screen, 
-					output logic [5:0] spriteindex,
-					output logic screenshow);
-					
-endmodule

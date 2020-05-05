@@ -137,6 +137,7 @@
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_sKpjsI5hEeq0F72Ofe9UHg" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -172,7 +173,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NWnOwo5hEeqcT8hqOUkRaw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_qH0JQI5hEeq0F72Ofe9UHg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_MnXjco5hEeqcT8hqOUkRaw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MhtAMI6GEeqENIXTF1MVvg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_MnXjco5hEeqcT8hqOUkRaw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NWnOw45hEeqcT8hqOUkRaw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -193,7 +194,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NWnOx45hEeqcT8hqOUkRaw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_qH1XZY5hEeq0F72Ofe9UHg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_MnNzpY5hEeqcT8hqOUkRaw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MhwDgY6GEeqENIXTF1MVvg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_MnNzpY5hEeqcT8hqOUkRaw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NWnOyI5hEeqcT8hqOUkRaw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -232,8 +233,6 @@
   </children>
   <bindingTables xmi:id="_Mk-9g45hEeqcT8hqOUkRaw" contributorURI="platform:/plugin/org.eclipse.platform" bindingContext="_Mk-9hI5hEeqcT8hqOUkRaw">
     <bindings xmi:id="_MoHxGI5hEeqcT8hqOUkRaw" keySequence="CTRL+A" command="_MnXj9I5hEeqcT8hqOUkRaw"/>
-    <bindings xmi:id="_MoI_Mo5hEeqcT8hqOUkRaw" keySequence="CTRL+SPACE" command="_MnXjJI5hEeqcT8hqOUkRaw"/>
-    <bindings xmi:id="_MoI_OY5hEeqcT8hqOUkRaw" keySequence="CTRL+SHIFT+SPACE" command="_MnNzzI5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoI_Po5hEeqcT8hqOUkRaw" keySequence="ALT+PAGE_UP" command="_MnXkTI5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoI_Qo5hEeqcT8hqOUkRaw" keySequence="ALT+PAGE_DOWN" command="_MnNzTY5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoI_ZI5hEeqcT8hqOUkRaw" keySequence="SHIFT+INSERT" command="_MnNypo5hEeqcT8hqOUkRaw"/>
@@ -248,6 +247,9 @@
     <bindings xmi:id="_MoVMqY5hEeqcT8hqOUkRaw" keySequence="CTRL+INSERT" command="_MnNya45hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoVMsY5hEeqcT8hqOUkRaw" keySequence="CTRL+X" command="_MnXjXI5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoaE_I5hEeqcT8hqOUkRaw" keySequence="SHIFT+DEL" command="_MnXjXI5hEeqcT8hqOUkRaw"/>
+    <bindings xmi:id="_M68wAI5tEeq725yRrQk5ug" keySequence="ALT+/" command="_MnXjJI5hEeqcT8hqOUkRaw">
+      <tags>locale:zh</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_Mn9ZAI5hEeqcT8hqOUkRaw" elementId="org.eclipse.linuxtools.rpm.ui.specEditorScope" bindingContext="_MnXkgo5hEeqcT8hqOUkRaw">
     <bindings xmi:id="_MoC4kI5hEeqcT8hqOUkRaw" keySequence="CTRL+SHIFT+C" command="_MnNy2Y5hEeqcT8hqOUkRaw"/>
@@ -364,6 +366,12 @@
     <bindings xmi:id="_MobTLI5hEeqcT8hqOUkRaw" keySequence="ALT+SHIFT+Q C" command="_MnNzNY5hEeqcT8hqOUkRaw">
       <parameters xmi:id="_MobTLY5hEeqcT8hqOUkRaw" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.ui.console.ConsoleView"/>
     </bindings>
+    <bindings xmi:id="_M6_MQI5tEeq725yRrQk5ug" keySequence="ALT+SHIFT+?" command="_MnNzzI5hEeqcT8hqOUkRaw">
+      <tags>locale:zh</tags>
+    </bindings>
+    <bindings xmi:id="_M6_zUI5tEeq725yRrQk5ug" keySequence="ALT+?" command="_MnNzzI5hEeqcT8hqOUkRaw">
+      <tags>locale:zh</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_MoC4lo5hEeqcT8hqOUkRaw" elementId="org.eclipse.cdt.ui.cEditorScope" bindingContext="_MnXkio5hEeqcT8hqOUkRaw">
     <bindings xmi:id="_MoC4l45hEeqcT8hqOUkRaw" keySequence="ALT+SHIFT+ARROW_RIGHT" command="_MnXjuY5hEeqcT8hqOUkRaw"/>
@@ -432,7 +440,6 @@
     <bindings xmi:id="_MoI_WI5hEeqcT8hqOUkRaw" keySequence="CTRL+BS" command="_MnNyYo5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoI_WY5hEeqcT8hqOUkRaw" keySequence="ALT+CTRL+J" command="_MnNzk45hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoI_ZY5hEeqcT8hqOUkRaw" keySequence="CTRL+ARROW_LEFT" command="_MnNyY45hEeqcT8hqOUkRaw"/>
-    <bindings xmi:id="_MoN3s45hEeqcT8hqOUkRaw" keySequence="ALT+/" command="_MnXj3I5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoN3tI5hEeqcT8hqOUkRaw" keySequence="CTRL+NUMPAD_ADD" command="_MnXj_I5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoN3to5hEeqcT8hqOUkRaw" keySequence="CTRL+SHIFT+NUMPAD_DIVIDE" command="_MnNy0Y5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoN3t45hEeqcT8hqOUkRaw" keySequence="CTRL+K" command="_MnNzQ45hEeqcT8hqOUkRaw"/>
@@ -460,6 +467,9 @@
     <bindings xmi:id="_MoaE-Y5hEeqcT8hqOUkRaw" keySequence="ALT+ARROW_UP" command="_MnXkRo5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MoaE-o5hEeqcT8hqOUkRaw" keySequence="CTRL+DEL" command="_MnXjSo5hEeqcT8hqOUkRaw"/>
     <bindings xmi:id="_MobTEo5hEeqcT8hqOUkRaw" keySequence="ALT+CTRL+ARROW_DOWN" command="_MnXkBY5hEeqcT8hqOUkRaw"/>
+    <bindings xmi:id="_M68wAY5tEeq725yRrQk5ug" keySequence="ALT+CTRL+/" command="_MnXj3I5hEeqcT8hqOUkRaw">
+      <tags>locale:zh</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_MoHxFI5hEeqcT8hqOUkRaw" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" bindingContext="_MnXkg45hEeqcT8hqOUkRaw">
     <bindings xmi:id="_MoHxFY5hEeqcT8hqOUkRaw" keySequence="ALT+SHIFT+ARROW_DOWN" command="_MnXjyo5hEeqcT8hqOUkRaw"/>

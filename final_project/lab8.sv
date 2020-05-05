@@ -65,20 +65,25 @@ module lab8 (
     logic [3:0]  colorIndex_draw;
     logic [5:0]  spriteindex, spriteindex_new, spriteindex_hold, spriteindex_q;
     logic [15:0] blockstate, blockstatecurr, blockstate_hold, blockstate_q;
-
-    logic hitbottom, resetBlocks, Pause, endgame;
-	 logic [2:0] screen;
-
+    logic        hitbottom,
+                 resetBlocks,
+                 Pause,
+                 endgame;
+    logic [2:0]  screen;
+    logic [3:0]  score_thousand,
+                 score_hundred,
+                 score_dec,
+                 score_one;
     logic [239:0] backgroundstate;
     //logic        flip_page, fifo_we;
     //logic [3:0]  colorIndex_save, colorIndex_fifo;
 
 /********************************************************************************************************************/
 
-    HexDriver hex_inst_0 (blockstate[3:0], HEX0);
-    HexDriver hex_inst_1 (blockstate[7:4], HEX1);
-    HexDriver hex_inst_2 (blockstate[11:8], HEX2);
-    HexDriver hex_inst_3 (blockstate[15:12], HEX3);
+    HexDriver hex_inst_0 (score_one, HEX0);
+    HexDriver hex_inst_1 (score_dec, HEX1);
+    HexDriver hex_inst_2 (score_hundred, HEX2);
+    HexDriver hex_inst_3 (score_thousand, HEX3);
     HexDriver hex_inst_4 (blockstate_hold[3:0], HEX4);
     HexDriver hex_inst_5 (blockstate_hold[7:4], HEX5);
     HexDriver hex_inst_6 (blockstate_hold[11:8], HEX6);
@@ -140,25 +145,29 @@ module lab8 (
                          .drawBlock(drawBlock),
                          .keycode,
                          .blockstate(blockstatecurr),
-								 .blockstate_new(blockstate),
-								 .savedblocks(backgroundstate),
+                         .blockstate_new(blockstate),
+                         .savedblocks(backgroundstate),
                          .Block_X_Pos(PosX),
                          .Block_Y_Pos(PosY),
-								 .hitbottom(hitbottom),
-								 .spriteindex_new(spriteindex_new),
-								 .spriteindex(spriteindex),
-								 .endgame(endgame)
+                         .hitbottom(hitbottom),
+                         .spriteindex_new(spriteindex_new),
+                         .spriteindex(spriteindex),
+                         .endgame(endgame)
                          );
 
-	savedblocks savedInstance(
-									.clk(Clk),
-									.reset(Reset_h | (screen == 3'd3)),
-									.Block_X_Pos(PosX),
-									.Block_Y_Pos(PosY),
-									.inputstream(blockstatecurr),
-									.saveenable(hitbottom),
-									.state_output(backgroundstate)
-									);
+	savedblocks savedInstance (
+                              .clk(Clk),
+                              .reset(Reset_h | (screen == 3'd3)),
+                              .Block_X_Pos(PosX),
+                              .Block_Y_Pos(PosY),
+                              .inputstream(blockstatecurr),
+                              .saveenable(hitbottom),
+                              .state_output(backgroundstate),
+                              .score_thousand,
+                              .score_hundred,
+                              .score_dec,
+                              .score_one
+                              );
 
 	draw block1 (
                 .Clk(Clk),
@@ -168,20 +177,22 @@ module lab8 (
                 .PosX(PosX),
                 .PosY(PosY),
                 .blockstate(blockstatecurr),
-					 .backgroundstate(backgroundstate),
+                .backgroundstate(backgroundstate),
                 .spriteindex(spriteindex),
                 .colorindex_draw(colorIndex_draw),
-					 .spriteindex_hold(spriteindex_hold),
-					 .blockstate_hold(blockstate_hold),
-					 .spriteindex_q(spriteindex_q),
-					 .blockstate_q(blockstate_q),
-					 .screen(screen)
+                .spriteindex_hold(spriteindex_hold),
+                .blockstate_hold(blockstate_hold),
+                .spriteindex_q(spriteindex_q),
+                .blockstate_q(blockstate_q),
+                .screen(screen)
                 );
 
-	GameLogic statemachine(.Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
-					  .blockstate_new(blockstate),.blockstate_hold(blockstate_hold), .blockstate_q(blockstate_q),
-					  .spriteindex(spriteindex_new), .spriteindex_hold(spriteindex_hold), .spriteindex_q(spriteindex_q),
-					  .resetBlocks(resetBlocks), .Pause(Pause), .endgame(endgame), .screen(screen));
+	GameLogic statemachine (
+                           .Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
+                           .blockstate_new(blockstate),.blockstate_hold(blockstate_hold), .blockstate_q(blockstate_q),
+                           .spriteindex(spriteindex_new), .spriteindex_hold(spriteindex_hold), .spriteindex_q(spriteindex_q),
+                           .resetBlocks(resetBlocks), .Pause(Pause), .endgame(endgame), .screen(screen)
+                           );
 
 
     color_mapper color_instance (
