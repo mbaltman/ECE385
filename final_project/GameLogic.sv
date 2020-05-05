@@ -10,8 +10,8 @@ module GameLogic(input logic Clk, Reset,
 enum logic [4:0] { Wait, Drop,DropNoReset, Falling, Hold1 , Bottom, PauseState, endScreen  } 
 						State, Next_state;
 						
-logic canHold, canHold_in, resetPiece;
-logic [5:0] spriteindex_in, spriteindex_pick, spriteindex_hold_in,spriteindex_q_in;
+logic canHold, canHold_in, resetPiece, resetBlocks_in;
+logic [5:0] spriteindex_in, spriteindex_pick, spriteindex_hold_in, spriteindex_q_in;
 logic [15:0] blockstate_in, blockstate_pick, blockstate_hold_in, blockstate_q_in;
 			
 newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(blockstate_pick), .spriteindex_new(spriteindex_pick));
@@ -36,6 +36,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			
 			blockstate_q <= blockstate_q_in;
 			spriteindex_q <= spriteindex_q_in;
+			resetBlocks <=resetBlocks_in;
 		end
 	end
 
@@ -45,12 +46,14 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 		canHold_in =canHold;
 		spriteindex_in = spriteindex;
 		blockstate_in = blockstate_new;
+		
 		blockstate_hold_in = blockstate_hold;
 		spriteindex_hold_in = spriteindex_hold;
+		
 		blockstate_q_in = blockstate_q;
 		spriteindex_q_in = spriteindex_q;
 		
-		resetBlocks = 1'b0;
+		resetBlocks_in = 1'b0;
 		resetPiece = 1'b0;
 		Pause =1'b0;
 		screen = 3'b0;
@@ -113,7 +116,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			Wait:
 			begin
 				resetPiece = 1'b1;
-				resetBlocks = 1'b1;
+				resetBlocks_in = 1'b1;
 				Pause = 1'b1;
 				screen = 3'd2;
 				blockstate_q_in = blockstate_pick;
@@ -123,19 +126,20 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			Drop:
 			begin
 				resetPiece = 1'b1;
+				resetBlocks_in = 1'b1;
+				
 				blockstate_in = blockstate_q;
-				blockstate_q_in =blockstate_pick;
+				spriteindex_in = spriteindex_q;
+				 
+				blockstate_q_in = blockstate_pick;
+				spriteindex_q_in = spriteindex_pick;
 				
-		      spriteindex_in = spriteindex_q;
-				spriteindex_q_in =spriteindex_pick;
 				
-				resetBlocks = 1'b1;
-
 			end
 			
 			DropNoReset:
 			begin 
-				resetBlocks = 1'b1;
+				resetBlocks_in = 1'b1;
 			end
 			
 			Falling:
@@ -174,7 +178,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 				begin
 					Pause = 1'd1;
 					screen = 3'd3;
-					resetBlocks =1'b1;
+					resetBlocks_in =1'b1;
 				end
 			
 			endcase
