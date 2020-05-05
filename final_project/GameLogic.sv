@@ -154,8 +154,13 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 					if(blockstate_hold == 16'b0)
 					begin
 						resetPiece = 1'b1;
-						blockstate_in = blockstate_pick;
-						spriteindex_in = spriteindex_pick;
+						
+						blockstate_in = blockstate_q;
+						spriteindex_in = spriteindex_q;
+					
+						blockstate_q_in = blockstate_pick;
+						spriteindex_q_in = spriteindex_pick;
+						
 					end
 					else
 					begin
