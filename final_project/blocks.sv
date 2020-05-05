@@ -345,7 +345,7 @@ module blocks
                 if (Block_Y_Motion <= 10'd6)
                     Block_Y_Motion_in = 10'b1 + score/10'd20;
                 else
-                    Block_Y_Motion_in = 10'd6
+                    Block_Y_Motion_in = 10'd6;
             end
 
             Block_Y_Pos_in = Block_Y_Pos + Block_Y_Motion;

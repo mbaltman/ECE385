@@ -7,7 +7,7 @@ module screen
 );
 
 	// PAUSED
-	logic [5:0][5:0] pausescreen  = {6'd26, 6'd11, 6'd31, 6'd29, 6'd15, 6'd14
+	logic [5:0][5:0] pausescreen  = {6'd26, 6'd11, 6'd31, 6'd29, 6'd15, 6'd14};
 	// WELCOME
 	logic [6:0][5:0] startscreen  = {6'd33, 6'd15, 6'd22, 6'd13, 6'd25, 6'd23, 6'd15};
 	// GAME OVER

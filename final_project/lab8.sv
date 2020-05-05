@@ -54,26 +54,26 @@ module lab8 (
 
 /********************************************************************************************************************/
 
-    logic        Reset_h, Clk;
-    logic [7:0]  keycode;
-    logic [1:0]  hpi_addr;
-    logic [15:0] hpi_data_in, hpi_data_out;
-    logic        hpi_r, hpi_w, hpi_cs, hpi_reset;
-    logic [9:0]  DrawX, DrawY, PosX, PosY;
-    logic        PauseVGA;
-    logic        drawBlock;
-    logic [3:0]  colorIndex_draw;
-    logic [5:0]  spriteindex, spriteindex_new, spriteindex_hold, spriteindex_q;
-    logic [15:0] blockstate, blockstatecurr, blockstate_hold, blockstate_q;
-    logic        hitbottom,
-                 resetBlocks,
-                 Pause,
-                 endgame;
-    logic [2:0]  screen;
-    logic [3:0]  score_thousand,
-                 score_hundred,
-                 score_dec,
-                 score_one;
+    logic         Reset_h, Clk;
+    logic [7:0]   keycode;
+    logic [1:0]   hpi_addr;
+    logic [15:0]  hpi_data_in, hpi_data_out;
+    logic         hpi_r, hpi_w, hpi_cs, hpi_reset;
+    logic [9:0]   DrawX, DrawY, PosX, PosY, score;
+    logic         PauseVGA;
+    logic         drawBlock;
+    logic [3:0]   colorIndex_draw;
+    logic [5:0]   spriteindex, spriteindex_new, spriteindex_hold, spriteindex_q;
+    logic [15:0]  blockstate, blockstatecurr, blockstate_hold, blockstate_q;
+    logic         hitbottom,
+                  resetBlocks,
+                  Pause,
+                  endgame;
+    logic [2:0]   screen;
+    logic [3:0]   score_thousand,
+                  score_hundred,
+                  score_dec,
+                  score_one;
     logic [239:0] backgroundstate;
     //logic        flip_page, fifo_we;
     //logic [3:0]  colorIndex_save, colorIndex_fifo;
