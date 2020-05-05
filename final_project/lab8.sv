@@ -53,7 +53,7 @@ module lab8 (
     end
 
 /********************************************************************************************************************/
-
+	
     logic         Reset_h, Clk;
     logic [7:0]   keycode;
     logic [1:0]   hpi_addr;
@@ -152,7 +152,7 @@ module lab8 (
                          .hitbottom(hitbottom),
                          .spriteindex_new(spriteindex_new),
                          .spriteindex(spriteindex),
-                         .score,
+                         .score(),
                          .endgame(endgame)
                          );
 
@@ -186,7 +186,11 @@ module lab8 (
                 .blockstate_hold(blockstate_hold),
                 .spriteindex_q(spriteindex_q),
                 .blockstate_q(blockstate_q),
-                .screen(screen)
+                .screen(screen),
+					 .score_thousand,
+                .score_hundred,
+                .score_dec,
+                .score_one
                 );
 
     GameLogic statemachine (

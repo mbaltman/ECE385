@@ -605,7 +605,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE newPiece.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ram.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rotation.sv
 set_global_assignment -name SYSTEMVERILOG_FILE savedblocks.sv
-set_global_assignment -name SYSTEMVERILOG_FILE testbench.sv
 set_global_assignment -name VERILOG_FILE vga_clk.v
 set_global_assignment -name SYSTEMVERILOG_FILE VGA_controller.sv
 set_global_assignment -name SYSTEMVERILOG_FILE background.sv

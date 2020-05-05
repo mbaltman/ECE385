@@ -7,7 +7,11 @@ module draw
 	input  logic [15:0]  blockstate, blockstate_hold,blockstate_q,
 	input  logic [5:0]   spriteindex, spriteindex_hold,spriteindex_q,
 	input  logic [239:0] backgroundstate,
-	input  logic [2:0]   screen
+	input  logic [2:0]   screen,
+	input  logic [3:0]   score_thousand,
+   input  logic [3:0]   score_hundred,
+   input  logic [3:0]   score_dec,
+   input  logic [3:0]   score_one
 );
 
 	logic [14:0] address;
@@ -19,9 +23,11 @@ module draw
 
 	spriteRAM blockMemory1 (.read_address(address), .Clk(Clk), .data_Out(colorindex));
 
-	background bginstance (.DrawX(DrawX), .DrawY(DrawY), .spriteindex(spriteindexbg));
+	background bginstance (.DrawX(DrawX), .DrawY(DrawY), .spriteindex(spriteindexbg), .score_thousand, .score_hundred, .score_dec, .score_one);
 	
-	screen screeninstance ( .DrawX(DrawX), .DrawY(DrawY), .spriteindex(spriteindexscreen), .screen(screen), .screenshow(screenshow));
+	screen screeninstance ( .DrawX(DrawX), .DrawY(DrawY), .spriteindex(spriteindexscreen),
+									.screen(screen), .screenshow(screenshow));
+	
 	
 	always_comb
 	begin
@@ -65,7 +71,7 @@ module draw
 			address = ((DrawY - 10'd100)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex_hold*15'd400;
 		end
 		//if in queue area and block exists
-		else if(DrawX>10'd280 &&DrawX<10'd360 && DrawY > 10'd100 && DrawY < 10'd180 && blockstate_q[blockstateqindex])
+		else if(screen != 3'd2 && DrawX>10'd280 &&DrawX<10'd360 && DrawY > 10'd100 && DrawY < 10'd180 && blockstate_q[blockstateqindex])
 		begin
 			colorindex_draw = colorindex;
 			address = ((DrawY - 10'd100)%10'd20 * 15'd20) + DrawX%10'd20 + spriteindex_q*15'd400;

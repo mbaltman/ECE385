@@ -7,7 +7,7 @@ module GameLogic(input logic Clk, Reset,
 					  input logic  endgame,
 					  output logic [2:0] screen );
 					  
-enum logic [4:0] { Wait, Drop,DropNoReset, Falling, Hold1 , Bottom, PauseState, endScreen  } 
+enum logic [4:0] { Wait, Drop1, Drop2,DropNoReset, Falling, Hold1 , Bottom, PauseState, endScreen  } 
 						State, Next_state;
 						
 logic canHold, canHold_in, resetPiece, resetBlocks_in;
@@ -61,11 +61,11 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 		unique case(State)
 			Wait :
 				if(keycode == 8'h2C)//space key pressed
-					Next_state = Drop;
-			Drop:
-				Next_state = Falling;
+					Next_state = Drop1;
+			Drop1:
+				Next_state = Drop2;
 				
-			DropNoReset:
+			DropNoReset,Drop2:
 				Next_state = Falling;
 			
 			Falling:
@@ -94,7 +94,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 				if(endgame)
 					Next_state = endScreen;
 				else
-					Next_state = Drop;
+					Next_state = Drop1;
 				
 			PauseState:
 				if(keycode == 8'd24)//pressing U will unpause the game
@@ -121,12 +121,13 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 				screen = 3'd2;
 				blockstate_q_in = blockstate_pick;
 				spriteindex_q_in = spriteindex_pick;
+				blockstate_hold_in = 16'd0;
 			end
 			
-			Drop:
+			Drop1:
 			begin
 				resetPiece = 1'b1;
-				resetBlocks_in = 1'b1;
+				
 				
 				blockstate_in = blockstate_q;
 				spriteindex_in = spriteindex_q;
@@ -134,10 +135,9 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 				blockstate_q_in = blockstate_pick;
 				spriteindex_q_in = spriteindex_pick;
 				
-				
 			end
 			
-			DropNoReset:
+			DropNoReset, Drop2:
 			begin 
 				resetBlocks_in = 1'b1;
 			end
