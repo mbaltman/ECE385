@@ -19,7 +19,7 @@ module background
 	begin
 		posxi = DrawX / 10'd20;
 		posyi = DrawY / 10'd20;
-		score = {6'd29, 6'd13, 6'd25, 6'd28, 6'd15, {2'b0,score_thousand},{2'b0,score_hundred}, {2'b0,score_dec},{2'b0,score_one}, 6'd45};
+		score = {6'd29, 6'd13, 6'd25, 6'd28, 6'd15, {2'b0,score_thousand},{2'b0,score_hundred}, {2'b0,score_dec},{2'b0,score_one}, 6'd44};
 		
 		if (posxi < 8'd4 && posyi == 8'd4)
 			State = H;
@@ -44,7 +44,11 @@ module background
 		D:
 			spriteindex = 6'd45;
 		S:
+			begin
 			spriteindex = score[((10'd1 -((DrawY - 10'd180)/10'd20))*10'd5) + (10'd4 - (DrawX - 10'd280)/10'd20)];
+			if(posyi == 8'd10)
+				spriteindex=spriteindex + 6'b1;
+			end
 		endcase
 	end
 endmodule

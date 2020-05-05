@@ -178,14 +178,19 @@ module lab8 (
                 .DrawY(DrawY),
                 .PosX(PosX),
                 .PosY(PosY),
+					 
                 .blockstate(blockstatecurr),
                 .backgroundstate(backgroundstate),
+					 
                 .spriteindex(spriteindex),
                 .colorindex_draw(colorIndex_draw),
+					 
                 .spriteindex_hold(spriteindex_hold),
                 .blockstate_hold(blockstate_hold),
+					 
                 .spriteindex_q(spriteindex_q),
                 .blockstate_q(blockstate_q),
+					 
                 .screen(screen),
 					 .score_thousand,
                 .score_hundred,
@@ -195,9 +200,19 @@ module lab8 (
 
     GameLogic statemachine (
                            .Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
-                           .blockstate_new(blockstate),.blockstate_hold(blockstate_hold), .blockstate_q(blockstate_q),
-                           .spriteindex(spriteindex_new), .spriteindex_hold(spriteindex_hold), .spriteindex_q(spriteindex_q),
-                           .resetBlocks(resetBlocks), .Pause(Pause), .endgame(endgame), .screen(screen)
+									
+                           .blockstate_new(blockstate),
+									.blockstate_hold(blockstate_hold), 
+									.blockstate_q(blockstate_q),
+									
+                           .spriteindex(spriteindex_new),
+									.spriteindex_hold(spriteindex_hold), 
+									.spriteindex_q(spriteindex_q),
+									
+                           .resetBlocks(resetBlocks), 
+									.Pause(Pause),
+									.endgame(endgame),
+									.screen(screen)
                            );
 
 

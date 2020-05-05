@@ -36,6 +36,7 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			
 			blockstate_q <= blockstate_q_in;
 			spriteindex_q <= spriteindex_q_in;
+			
 			resetBlocks <=resetBlocks_in;
 		end
 	end
@@ -126,18 +127,21 @@ newPiece newPiecePicker(.pickPiece(resetPiece), .Clk(Clk), .blockstate_new(block
 			
 			Drop1:
 			begin
-				resetPiece = 1'b1;
 				
-				
+				resetBlocks_in = 1'b1;
 				blockstate_in = blockstate_q;
 				spriteindex_in = spriteindex_q;
-				 
-				blockstate_q_in = blockstate_pick;
-				spriteindex_q_in = spriteindex_pick;
-				
+				 	
 			end
 			
-			DropNoReset, Drop2:
+			Drop2:
+			begin
+				resetPiece = 1'b1;
+				blockstate_q_in = blockstate_pick;
+				spriteindex_q_in = spriteindex_pick;
+			end
+			
+			DropNoReset:
 			begin 
 				resetBlocks_in = 1'b1;
 			end

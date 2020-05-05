@@ -4249,3 +4249,30 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 
 !ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 13:10:49.852
 !MESSAGE Executing: [C:/intelfpga_lite/18.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=' --device=1 --instance=0 --go --sidp=0xc0 --id=0x0 --timestamp=1587948975 /cygdrive/c/GitHub/ECE385/final_project/software/final_app/final_app.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 13:31:35.548
+!MESSAGE Terminated Launch with connection: 10
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 13:31:36.577
+!MESSAGE Executing: [C:/intelfpga_lite/18.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=' --device=1 --instance=0 --stop --sidp=0xc0 --id=0x0 --timestamp=1587948975]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 13:31:39.230
+!MESSAGE Executing: [C:/intelfpga_lite/18.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=' --device=1 --instance=0 --go --sidp=0xc0 --id=0x0 --timestamp=1587948975 /cygdrive/c/GitHub/ECE385/final_project/software/final_app/final_app.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 13:48:33.516
+!MESSAGE Terminated Launch with connection: 10
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 13:48:34.493
+!MESSAGE Executing: [C:/intelfpga_lite/18.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=' --device=1 --instance=0 --stop --sidp=0xc0 --id=0x0 --timestamp=1587948975]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 13:48:37.167
+!MESSAGE Executing: [C:/intelfpga_lite/18.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=' --device=1 --instance=0 --go --sidp=0xc0 --id=0x0 --timestamp=1587948975 /cygdrive/c/GitHub/ECE385/final_project/software/final_app/final_app.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 14:00:18.260
+!MESSAGE Terminated Launch with connection: 10
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 14:00:19.249
+!MESSAGE Executing: [C:/intelfpga_lite/18.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=' --device=1 --instance=0 --stop --sidp=0xc0 --id=0x0 --timestamp=1587948975]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-05-05 14:00:21.986
+!MESSAGE Executing: [C:/intelfpga_lite/18.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=' --device=1 --instance=0 --go --sidp=0xc0 --id=0x0 --timestamp=1587948975 /cygdrive/c/GitHub/ECE385/final_project/software/final_app/final_app.elf]
