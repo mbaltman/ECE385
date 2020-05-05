@@ -152,10 +152,11 @@ module lab8 (
                          .hitbottom(hitbottom),
                          .spriteindex_new(spriteindex_new),
                          .spriteindex(spriteindex),
+                         .score,
                          .endgame(endgame)
                          );
 
-	savedblocks savedInstance (
+    savedblocks savedInstance (
                               .clk(Clk),
                               .reset(Reset_h | (screen == 3'd3)),
                               .Block_X_Pos(PosX),
@@ -163,13 +164,14 @@ module lab8 (
                               .inputstream(blockstatecurr),
                               .saveenable(hitbottom),
                               .state_output(backgroundstate),
+                              .score,
                               .score_thousand,
                               .score_hundred,
                               .score_dec,
                               .score_one
                               );
 
-	draw block1 (
+    draw block1 (
                 .Clk(Clk),
                 .drawBlock(drawBlock),
                 .DrawX(DrawX),
@@ -187,7 +189,7 @@ module lab8 (
                 .screen(screen)
                 );
 
-	GameLogic statemachine (
+    GameLogic statemachine (
                            .Clk(Clk), .Reset(Reset_h),.keycode, .hitbottom(hitbottom),
                            .blockstate_new(blockstate),.blockstate_hold(blockstate_hold), .blockstate_q(blockstate_q),
                            .spriteindex(spriteindex_new), .spriteindex_hold(spriteindex_hold), .spriteindex_q(spriteindex_q),

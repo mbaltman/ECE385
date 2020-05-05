@@ -6,13 +6,14 @@ module savedblocks
     input  logic [15:0]   inputstream,
     input  logic          saveenable,
     output logic [239:0]  state_output,
+    output logic [9:0]    score,
     output logic [3:0]    score_thousand,
                           score_hundred,
                           score_dec,
                           score_one
 );
 
-    logic [9:0]   count, score;
+    logic [9:0]   count;
     logic [239:0] state_update;
     logic [7:0]   topright_x, topleft_y, i, j;
     logic [7:0]   baseindex;

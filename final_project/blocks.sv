@@ -5,11 +5,12 @@ module blocks
     input  logic [7:0]    keycode,
     input  logic [15:0]   blockstate_new,
     input  logic [239:0]  savedblocks,
+    input  logic [5:0]    spriteindex_new,
+    input  logic [9:0]    score,
     output logic [15:0]   blockstate,
     output logic [9:0]    Block_X_Pos, Block_Y_Pos,
     output logic          drawBlock,
     output logic          hitbottom,
-    input  logic [5:0]    spriteindex_new,
     output logic [5:0]    spriteindex,
     output logic          endgame
 );
@@ -17,9 +18,9 @@ module blocks
 /********************************************************************************************************************/
 
     parameter [9:0]  x_initial = 10'd140;
-    parameter [9:0]  y_initial = 10'd0;
-    logic     [9:0]  Block_Y_Motion;
-    logic     [9:0]  Block_X_Pos_in,
+    parameter [9:0]  y_initial = -10'd1;
+    logic     [9:0]  Block_Y_Motion,
+                     Block_X_Pos_in,
                      Block_Y_Pos_in,
                      Block_Y_Motion_in;
     logic            frame_clk_delayed,
@@ -298,14 +299,14 @@ module blocks
                     hitbottom_in = 1'b1;
                     flag_in = 1'b1;
                     rot_flag_in = 1'b1;
-                    Block_Y_Motion_in = 1'b0;
+                    Block_Y_Motion_in = 10'b0;
                     blockstate_in = 16'd0;
                 end
                 else
                 begin
                 hitbottom_counter_start_in = 1'b1;
                 rot_flag_in = 1'b1;
-                Block_Y_Motion_in = 1'b0;
+                Block_Y_Motion_in = 10'b0;
                 end
             end
             // A key: move block left by 20 pixels
@@ -341,7 +342,10 @@ module blocks
                 flag_in = 1'b0;
                 rot_flag_in = 1'b0;
                 hitbottom_counter_start_in = 1'b0;
-                Block_Y_Motion_in = 1'b1;
+                if (Block_Y_Motion <= 10'd6)
+                    Block_Y_Motion_in = 10'b1 + score/10'd20;
+                else
+                    Block_Y_Motion_in = 10'd6
             end
 
             Block_Y_Pos_in = Block_Y_Pos + Block_Y_Motion;
