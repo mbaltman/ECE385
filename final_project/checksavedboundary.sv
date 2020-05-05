@@ -61,10 +61,10 @@ module checksavedboundary
     begin
         topleft_x = (Block_X_Pos / 10'd20) - 8'd4;
         topleft_y = Block_Y_Pos / 10'd20;
-        b1ic = bottom1 / 10'd20; // checks current block block
-        b2ic = bottom2 / 10'd20;
-        b3ic = bottom3 / 10'd20;
-        b4ic = bottom4 / 10'd20;
+        b1ic = (bottom1 + 10'd1) / 10'd20; // checks current block block
+        b2ic = (bottom2 + 10'd1) / 10'd20;
+        b3ic = (bottom3 + 10'd1) / 10'd20;
+        b4ic = (bottom4 + 10'd1) / 10'd20;
         b1in = b1ic + 8'd1; // checks next block bottom
         b2in = b2ic + 8'd1;
         b3in = b3ic + 8'd1;
@@ -81,7 +81,7 @@ module checksavedboundary
         baseindex = topleft_y * 8'd10;
         y1i_in = (Block_Y_Pos + 10'd0) / 10'd20;
         y1i = y1i_in * 8'd10;
-        y2i_in = (Block_Y_Pos + 10'd15) / 10'd20;
+        y2i_in = (Block_Y_Pos + 10'd14) / 10'd20;
         y2i = y2i_in * 8'd10;
 
         if (bottom1 == 10'd1023)

@@ -16,7 +16,7 @@ module GPU_controller
     integer       clkWrite, clkWrite_in;
 
     // states
-    enum logic [4:0] { Read, ReadToWrite, Write, WriteToRead } State, Next_state;
+    enum logic [4:0] {Read, ReadToWrite, Write, WriteToRead} State, Next_state;
 
     always_ff @ (posedge Clk)
     begin
