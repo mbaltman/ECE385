@@ -1,9 +1,6 @@
-14:00:16 **** Incremental Build of configuration Nios II for project final_app ****
-make all 
-Info: Building ../final_app_bsp/
-C:/intelFPGA_lite/18.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../final_app_bsp/
-[BSP build complete]
-[final_app build complete]
+22:43:53 **** Clean-only build of configuration Nios II for project final_app ****
+make clean 
+[final_app clean complete]
 
-14:00:18 Build Finished (took 1s.323ms)
+22:43:53 Build Finished (took 242ms)
 
